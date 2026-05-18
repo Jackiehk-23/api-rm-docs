@@ -366,13 +366,13 @@ html[data-theme="light"] .menu__list .menu__list {
     width: var(--doc-sidebar-width) !important;
   }
 
-  /* COLLAPSED STATE - Hide the entire sidebar container */
+  /* COLLAPSED STATE - Collapse to 1px so border-right remains visible for the collapse button */
   body[data-sidebar-collapsed="true"] [class*="docSidebarContainer"],
   html[data-sidebar-collapsed="true"] [class*="docSidebarContainer"] {
-    width: 0 !important;
-    min-width: 0 !important;
-    opacity: 1 !important; /* Keep it opaque so child button is visible */
-    pointer-events: auto !important; /* Keep pointer events for the button */
+    width: 1px !important;
+    min-width: 1px !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
   }
 
   /* EXPANDED STATE - Show content at full width when sidebar is collapsed */

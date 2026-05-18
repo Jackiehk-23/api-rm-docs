@@ -4,16 +4,18 @@
 
 @media (min-width: 997px) {
   .collapseSidebarButton {
-    position: absolute;
-    top: 50%;
-    right: -13px;
+    /* Fixed positioning escapes the overflow-clipped sidebar container,
+       and lets us center the button exactly on the sidebar's right border. */
+    position: fixed;
+    top: 50vh;
+    left: calc(var(--doc-sidebar-width) - 13px);
     transform: translateY(-50%);
+    z-index: 500;
 
     width: 26px;
     height: 26px;
     border-radius: 50%;
 
-    /* Matches sidebar/page background so it looks mounted on the edge */
     background: var(--ifm-sidebar-background-color, var(--ifm-background-color));
     border: 1px solid var(--ifm-toc-border-color);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
@@ -23,13 +25,12 @@
     justify-content: center;
 
     cursor: pointer;
-    z-index: 200;
     padding: 0;
     margin: 0;
 
-    transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    /* Animate left alongside the sidebar collapse transition */
+    transition: left 0.3s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 
-    /* Reset any inherited button styles */
     appearance: none;
     -webkit-appearance: none;
     outline: none;
@@ -55,11 +56,12 @@
     transition: transform 0.25s ease;
   }
 
-  /* Collapsed: float the button at the left edge of content, fully in view */
+  /* Collapsed: center button on the 1px border-right of the collapsed container.
+     Container stays 1px wide, so its border is at x≈0. Button at left:-13px
+     puts the center at x=0 — straddling the border exactly like the right handle. */
   body[data-sidebar-collapsed='true'] .collapseSidebarButton,
   html[data-sidebar-collapsed='true'] .collapseSidebarButton {
-    right: auto;
-    left: 4px;
+    left: -13px;
   }
 
   /* Collapsed: chevron flips to point right = expand */
