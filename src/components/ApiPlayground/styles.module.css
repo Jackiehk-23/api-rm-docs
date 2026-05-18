@@ -885,196 +885,88 @@
   border-radius: 0;
 }
 
-/* ================= MOBILE RESPONSIVE IMPROVEMENTS ================= */
-/* Add this to the END of src/components/ApiPlayground/styles.module.css */
+/* ================= MOBILE RESPONSIVE ================= */
 
 @media (max-width: 996px) {
   .wrapper {
     padding: 12px;
-  }
-  
-  .header {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  
-  .method {
-    font-size: 11px;
-    padding: 3px 8px;
-  }
-  
-  .url {
-    font-size: 11px;
-    flex: 1 1 100%;
-    order: 3;
-  }
-  
-  .collapseBtn {
-    font-size: 10px;
-    padding: 3px 8px;
-  }
-  
-  .editor {
-    font-size: 12px;
-    padding: 10px;
-    min-height: 40px;
-  }
-  
-  .send {
-    width: 100%;
-    margin-left: 0;
-    font-size: 13px;
-    padding: 10px 16px;
-  }
-  
-  .banner {
-    font-size: 11px;
-    padding: 8px 12px;
-    flex-wrap: wrap;
-  }
-  
-  .bannerAction {
-    font-size: 10px;
-    padding: 2px 8px;
-  }
-  
-  .response,
-  .code {
-    font-size: 12px;
-    padding: 12px;
-  }
-  
-  .statusLine {
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  
-  .errorLookup {
-    font-size: 12px;
-  }
-  
-  .errorLookupEntry {
-    padding: 12px;
-  }
-}
-
-@media (max-width: 576px) {
-  .wrapper {
-    padding: 8px;
-  }
-  
-  .header {
-    gap: 6px;
-  }
-  
-  .method {
-    font-size: 10px;
-  }
-  
-  .url {
-    font-size: 10px;
-  }
-  
-  .urlParam {
-    font-size: 10px;
-    padding: 1px 4px;
-  }
-  
-  .editor {
-    font-size: 11px;
-  }
-  
-  .send {
-    font-size: 12px;
-    padding: 8px 14px;
-  }
-}
-
-/* ================= MOBILE RESPONSIVE IMPROVEMENTS ================= */
-/* Add this to the END of src/components/ApiPlayground/styles.module.css */
-
-@media (max-width: 996px) {
-  .wrapper {
-    padding: 12px;
-    height: 100%; /* Take full height of parent */
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto; /* Allow wrapper to scroll */
     overflow-x: hidden;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
   }
-  
+
   .header {
     flex-wrap: wrap;
     gap: 8px;
-    flex-shrink: 0; /* Prevent header from shrinking */
   }
-  
-  .method {
-    font-size: 11px;
-    padding: 3px 8px;
-  }
-  
+
   .url {
     font-size: 11px;
-    flex: 1 1 100%;
-    order: 3;
+    /* Allow the URL to wrap rather than overflow the card */
+    word-break: break-all;
+    overflow-wrap: anywhere;
   }
-  
-  .collapseBtn {
-    font-size: 10px;
-    padding: 3px 8px;
+
+  /* Headers/Body editor cards: constrain width so content scrolls inside */
+  .editorCard {
+    max-width: 100%;
+    overflow: hidden;
   }
-  
-  .playgroundBody {
-    flex: 1; /* Take remaining space */
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto; /* Allow body to scroll */
-    min-height: 0; /* Important for flex scrolling */
-  }
-  
+
   .editor {
     font-size: 12px;
     padding: 10px;
     min-height: 40px;
+    /* Content scrolls horizontally inside the card, not the page */
+    overflow-x: auto;
+    max-width: 100%;
   }
-  
+
   .send {
     width: 100%;
     margin-left: 0;
     font-size: 13px;
     padding: 10px 16px;
   }
-  
+
   .banner {
     font-size: 11px;
     padding: 8px 12px;
     flex-wrap: wrap;
   }
-  
+
   .bannerAction {
     font-size: 10px;
     padding: 2px 8px;
   }
-  
+
   .response,
   .code {
     font-size: 12px;
     padding: 12px;
+    overflow-x: auto;
+    max-width: 100%;
   }
-  
+
   .statusLine {
     flex-wrap: wrap;
     gap: 6px;
   }
-  
+
   .errorLookup {
     font-size: 12px;
   }
-  
+
   .errorLookupEntry {
     padding: 12px;
+  }
+
+  .snippetCode {
+    font-size: 11.5px;
+    overflow-x: auto;
+  }
+
+  .snippetHeader {
+    flex-wrap: wrap;
+    gap: 6px;
   }
 }
 
@@ -1082,147 +974,25 @@
   .wrapper {
     padding: 8px;
   }
-  
-  .header {
-    gap: 6px;
-  }
-  
+
   .method {
     font-size: 10px;
+    padding: 3px 8px;
   }
-  
+
   .url {
     font-size: 10px;
   }
-  
+
   .urlParam {
     font-size: 10px;
     padding: 1px 4px;
   }
-  
-  .editor {
-    font-size: 11px;
-  }
-  
-  .send {
-    font-size: 12px;
-    padding: 8px 14px;
-  }
-}
-/* ================= MOBILE RESPONSIVE IMPROVEMENTS ================= */
-/* Add this to the END of src/components/ApiPlayground/styles.module.css */
 
-@media (max-width: 996px) {
-  .wrapper {
-    padding: 12px;
-    height: 100%; /* Take full height of parent */
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto; /* Allow wrapper to scroll */
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-  }
-  
-  .header {
-    flex-wrap: wrap;
-    gap: 8px;
-    flex-shrink: 0; /* Prevent header from shrinking */
-  }
-  
-  .method {
-    font-size: 11px;
-    padding: 3px 8px;
-  }
-  
-  .url {
-    font-size: 11px;
-    flex: 1 1 100%;
-    order: 3;
-  }
-  
-  .collapseBtn {
-    font-size: 10px;
-    padding: 3px 8px;
-  }
-  
-  .playgroundBody {
-    flex: 1; /* Take remaining space */
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto; /* Allow body to scroll */
-    min-height: 0; /* Important for flex scrolling */
-  }
-  
   .editor {
-    font-size: 12px;
-    padding: 10px;
-    min-height: 40px;
-  }
-  
-  .send {
-    width: 100%;
-    margin-left: 0;
-    font-size: 13px;
-    padding: 10px 16px;
-  }
-  
-  .banner {
     font-size: 11px;
-    padding: 8px 12px;
-    flex-wrap: wrap;
   }
-  
-  .bannerAction {
-    font-size: 10px;
-    padding: 2px 8px;
-  }
-  
-  .response,
-  .code {
-    font-size: 12px;
-    padding: 12px;
-  }
-  
-  .statusLine {
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  
-  .errorLookup {
-    font-size: 12px;
-  }
-  
-  .errorLookupEntry {
-    padding: 12px;
-  }
-}
 
-@media (max-width: 576px) {
-  .wrapper {
-    padding: 8px;
-  }
-  
-  .header {
-    gap: 6px;
-  }
-  
-  .method {
-    font-size: 10px;
-  }
-  
-  .url {
-    font-size: 10px;
-  }
-  
-  .urlParam {
-    font-size: 10px;
-    padding: 1px 4px;
-  }
-  
-  .editor {
-    font-size: 11px;
-  }
-  
   .send {
     font-size: 12px;
     padding: 8px 14px;
