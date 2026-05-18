@@ -353,7 +353,8 @@ html[data-theme="light"] .menu__list .menu__list {
     top: var(--ifm-navbar-height) !important;
     height: calc(100vh - var(--ifm-navbar-height)) !important;
     max-height: calc(100vh - var(--ifm-navbar-height)) !important;
-    overflow: visible !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
   }
 
   /* Neutralize Docusaurus's built-in hidden-state hover/peek behavior
@@ -396,25 +397,25 @@ html[data-theme="light"] .menu__list .menu__list {
     margin-top: 0 !important;
   }
 
-  /* Custom scrollbar for sidebar */
-  [class*="docSidebarContainer"]::-webkit-scrollbar {
+  /* Custom scrollbar for sidebar (on the actual scroll container) */
+  [class*="docSidebarContainer"] > div::-webkit-scrollbar {
     width: 4px;
   }
 
-  [class*="docSidebarContainer"]::-webkit-scrollbar-track {
+  [class*="docSidebarContainer"] > div::-webkit-scrollbar-track {
     background: transparent;
   }
 
-  [class*="docSidebarContainer"]::-webkit-scrollbar-thumb {
+  [class*="docSidebarContainer"] > div::-webkit-scrollbar-thumb {
     background: rgba(128, 128, 128, 0.35);
     border-radius: 999px;
   }
 
-  [class*="docSidebarContainer"]::-webkit-scrollbar-thumb:hover {
+  [class*="docSidebarContainer"] > div::-webkit-scrollbar-thumb:hover {
     background: rgba(128, 128, 128, 0.6);
   }
 
-  [class*="docSidebarContainer"] {
+  [class*="docSidebarContainer"] > div {
     scrollbar-width: thin;
     scrollbar-color: rgba(128, 128, 128, 0.35) transparent;
   }

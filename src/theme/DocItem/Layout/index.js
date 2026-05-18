@@ -50,7 +50,13 @@ export default function LayoutWrapper(props) {
   }, [playgroundVisible]);
 
   if (!api) {
-    return <Layout {...props} />;
+    return (
+      <div className={styles.docItemWrapper}>
+        <div className={styles.articleWrapper}>
+          <Layout {...props} />
+        </div>
+      </div>
+    );
   }
 
   const togglePanel = () => setIsPanelCollapsed((p) => !p);

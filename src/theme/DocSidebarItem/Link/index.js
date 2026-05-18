@@ -8,9 +8,11 @@ import IconExternalLink from '@theme/Icon/ExternalLink';
 import { useTOCStore } from '@site/src/utils/tocBridge';
 import styles from './styles.module.css';
 
-// Returns the id of the heading currently in view, based on document scroll.
-// Iterates headings top-to-bottom; the last one whose top is at/above the
-// threshold is "active".  Defaults to the first heading when at the top.
+// Tracks which heading is currently in view using IntersectionObserver
+// against the actual scroll container (articleWrapper or docContent).
+// Detection zone = top 25% of the scroll container, matching "header reaches the top".
+// Falls back to the last heading that scrolled above the container when
+// the user is deep within a long section.
 function useActiveHeadingId(tocItems) {
   const [activeId, setActiveId] = useState('');
 
@@ -18,23 +20,61 @@ function useActiveHeadingId(tocItems) {
     if (!tocItems.length) return;
 
     const ids = tocItems.map(h => h.id);
+    const scrollRoot =
+      document.querySelector('[class*="articleWrapper"]') ||
+      document.querySelector('[class*="docContent"]');
 
-    function update() {
-      const offset = (document.querySelector('.navbar')?.clientHeight ?? 0) + 10;
-      let current = '';
-      for (const id of ids) {
-        const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top <= offset) {
-          current = id;
-        }
+    if (!scrollRoot) return;
+
+    const visibleIds = new Set();
+    const lastAbove = { current: '' };
+
+    const getActive = () => {
+      // At-bottom shortcut: if the scroll container can't scroll further, last heading wins
+      const { scrollTop, scrollHeight, clientHeight } = scrollRoot;
+      if (scrollTop + clientHeight >= scrollHeight - 10) {
+        return ids[ids.length - 1];
       }
-      setActiveId(current || ids[0] || '');
-    }
+      // 1. Heading inside detection zone  2. Last one scrolled past  3. First heading
+      return ids.find(id => visibleIds.has(id)) || lastAbove.current || ids[0];
+    };
 
-    window.addEventListener('scroll', update, { passive: true });
-    update();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            visibleIds.add(entry.target.id);
+          } else {
+            visibleIds.delete(entry.target.id);
+            // Heading exited from the top → user scrolled past it
+            if (entry.rootBounds && entry.boundingClientRect.top < entry.rootBounds.top) {
+              lastAbove.current = entry.target.id;
+            }
+          }
+        });
+        setActiveId(getActive());
+      },
+      {
+        root: scrollRoot,
+        rootMargin: '0px 0px -75% 0px', // top 25% of the scroll container is the trigger zone
+        threshold: 0,
+      }
+    );
 
-    return () => window.removeEventListener('scroll', update);
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    // Scroll listener handles the at-bottom case (IntersectionObserver alone won't fire
+    // when the heading never enters the detection zone because the page is too short)
+    const onScroll = () => setActiveId(getActive());
+    scrollRoot.addEventListener('scroll', onScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      scrollRoot.removeEventListener('scroll', onScroll);
+    };
   }, [tocItems]);
 
   return activeId;

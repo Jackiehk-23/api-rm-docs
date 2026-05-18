@@ -1,82 +1,96 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useDoc } from '@docusaurus/theme-common/internal';
-import TOCInline from '@theme/TOCInline';
-import type { Props } from '@theme/TOCInline';
+import React, { useState, useEffect } from 'react';
+import { useTOCStore } from '@site/src/utils/tocBridge';
 import styles from './styles.module.css';
 
+type TOCItem = {
+  id: string;
+  value: string;
+  level: number;
+  children?: readonly TOCItem[];
+};
+
+function flatIds(items: readonly TOCItem[]): string[] {
+  return items.flatMap(item => [item.id, ...flatIds(item.children ?? [])]);
+}
+
+function TOCLinks({
+  items,
+  activeId,
+  depth = 0,
+}: {
+  items: readonly TOCItem[];
+  activeId: string;
+  depth?: number;
+}) {
+  return (
+    <ul className={depth === 0 ? styles.tocList : styles.tocNested}>
+      {items.map(item => (
+        <li key={item.id}>
+          <a
+            href={`#${item.id}`}
+            className={`${styles.tocLink} ${activeId === item.id ? styles.tocLinkActive : ''}`}
+            dangerouslySetInnerHTML={{ __html: item.value }}
+          />
+          {item.children && item.children.length > 0 && (
+            <TOCLinks items={item.children} activeId={activeId} depth={depth + 1} />
+          )}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default function DocTOC(): JSX.Element | null {
-  const { toc } = useDoc();
-  const [isOpen, setIsOpen] = useState<boolean>(true);
-  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const toc = useTOCStore();
+  const [activeId, setActiveId] = useState<string>('');
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Clear existing timeout
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
+    if (!toc || toc.length === 0) return;
 
-      // Close TOC when scrolling
-      if (isOpen) {
-        setIsOpen(false);
+    const ids = flatIds(toc);
+
+    const getActive = () => {
+      // The "invisible line": 35% down from the top of the viewport.
+      // The last heading whose top edge is above this line is the active one.
+      const threshold = window.innerHeight * 0.35;
+      const els = ids
+        .map(id => document.getElementById(id))
+        .filter(Boolean) as HTMLElement[];
+
+      let active = els[0];
+      for (const el of els) {
+        if (el.getBoundingClientRect().top < threshold) {
+          active = el;
+        } else {
+          break;
+        }
       }
+      return active?.id ?? '';
     };
 
-    // Listen to window scroll
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    const onScroll = () => setActiveId(getActive());
 
-    // Also listen to article wrapper scroll (for non-API pages with internal scrolling)
+    // Support both window scroll (non-API pages) and internal container scroll (API pages)
+    const containers: (Element | Window)[] = [window];
     const articleWrapper = document.querySelector('[class*="articleWrapper"]');
-    if (articleWrapper) {
-      articleWrapper.addEventListener('scroll', handleScroll, { passive: true });
-    }
+    const docContent = document.querySelector('[class*="docContent"]');
+    if (articleWrapper) containers.push(articleWrapper);
+    if (docContent) containers.push(docContent);
 
-    // Also listen to playground scroll (for API pages)
-    const playground = document.querySelector('[class*="playground"]');
-    if (playground) {
-      playground.addEventListener('scroll', handleScroll, { passive: true });
-    }
+    containers.forEach(c => c.addEventListener('scroll', onScroll, { passive: true }));
+    onScroll(); // set initial state
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (articleWrapper) {
-        articleWrapper.removeEventListener('scroll', handleScroll);
-      }
-      if (playground) {
-        playground.removeEventListener('scroll', handleScroll);
-      }
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
+      containers.forEach(c => c.removeEventListener('scroll', onScroll));
     };
-  }, [isOpen]);
+  }, [toc]);
 
-  if (!toc || toc.length === 0) {
-    return null;
-  }
+  if (!toc || toc.length === 0) return null;
 
   return (
-    <div className={styles.tocWrapper}>
-      <div className={`${styles.tocDropdown} ${isOpen ? styles.tocOpen : ''}`}>
-        <button
-          className={styles.tocSummary}
-          onClick={() => setIsOpen(!isOpen)}
-          aria-expanded={isOpen}
-          aria-label="Toggle table of contents"
-        >
-          <span className={styles.tocIcon}>📑</span>
-          On This Page
-        </button>
-        <div className={styles.tocContent}>
-          <div className={styles.tocInner}>
-            <TOCInline
-              toc={toc}
-              minHeadingLevel={2}
-              maxHeadingLevel={4}
-            />
-          </div>
-        </div>
-      </div>
+    <div className={styles.docTOC}>
+      <div className={styles.tocLabel}>On this page</div>
+      <TOCLinks items={toc} activeId={activeId} />
     </div>
   );
 }

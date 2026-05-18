@@ -1,19 +1,15 @@
-/* Grid layout for non-API doc pages (TOC above article) */
+/* Non-API doc pages: viewport-locked wrapper so sidebar stays fixed */
 .docItemWrapper {
-  display: grid;
-  grid-template-rows: auto 1fr;
+  flex: 1;
+  min-width: 0;
   height: calc(100vh - var(--ifm-navbar-height));
   overflow: hidden;
-}
-
-.tocWrapper {
-  overflow-y: auto;
-  padding: 0 var(--ifm-spacing-horizontal);
 }
 
 .articleWrapper {
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 0 var(--ifm-spacing-horizontal);
 }
 
@@ -260,12 +256,13 @@
 
   .docItemWrapper {
     height: auto;
-    min-height: calc(100vh - var(--ifm-navbar-height));
+    overflow: visible;
   }
 
   .articleWrapper {
     height: auto;
     overflow-y: visible;
+    overflow-x: visible;
   }
 }
 
