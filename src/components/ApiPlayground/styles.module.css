@@ -1,6 +1,5 @@
 .wrapper {
   width: 100%;
-  height: 100%;
   padding: 16px 16px 16px 28px;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   box-sizing: border-box;
@@ -50,6 +49,9 @@
   font-size: 13px;
   color: var(--ifm-font-color-base);
   word-break: break-all;
+  overflow-wrap: anywhere;
+  min-width: 0;
+  flex: 1;
 }
 
 /* ================= ENV ================= */
@@ -180,6 +182,8 @@
   z-index: 1;
   transition: opacity 0.2s ease, transform 0.2s ease;
   isolation: isolate;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 :root[data-theme="light"] .send {
@@ -303,12 +307,6 @@
   background: var(--ifm-color-emphasis-100);
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
   user-select: none;
-  cursor: pointer;
-  transition: background 0.15s ease;
-}
-
-.editorCardHeader:hover {
-  background: var(--ifm-color-emphasis-200);
 }
 
 .editorCardTitle {
@@ -337,6 +335,8 @@
   cursor: pointer;
   transition: all 0.15s;
   white-space: nowrap;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .editorCopyBtn:hover {
@@ -351,7 +351,26 @@
   background: rgba(34, 197, 94, 0.1) !important;
 }
 
-/* Chevron — matches ApiExamples .chevron */
+/* Chevron button — explicit button so iOS ghost clicks can't accidentally toggle */
+.editorChevronBtn {
+  background: transparent;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  padding: 2px 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.editorChevronBtn:hover {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-200);
+}
+
 .editorChevron {
   font-size: 14px;
   opacity: 0.6;
@@ -403,13 +422,14 @@
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* No transform on mobile — translateY causes editorCard overflow:hidden to clip content */
+@media (max-width: 996px) {
+  .playgroundBody {
+    animation: none;
   }
 }
 
@@ -890,6 +910,7 @@
 @media (max-width: 996px) {
   .wrapper {
     padding: 12px;
+    padding-bottom: 0;
     overflow-x: hidden;
   }
 

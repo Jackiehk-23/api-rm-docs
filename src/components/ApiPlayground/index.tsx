@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useLayoutEffect } from "react";
 import { lookupError, extractErrorCodes } from "../../utils/errorCodes";
 import TokenBanner from "./TokenBanner";
 // import PrivateKeyBanner from "./PrivateKeyBanner";
@@ -49,6 +49,25 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
   const [copiedBody, setCopiedBody] = useState(false);
   const [openHeaders, setOpenHeaders] = useState(true);
   const [openBody, setOpenBody] = useState(true);
+  const headersPreRef = useRef<HTMLPreElement>(null);
+  const bodyPreRef = useRef<HTMLPreElement>(null);
+  const isEditingHeadersRef = useRef(false);
+  const isEditingBodyRef = useRef(false);
+
+  // useLayoutEffect runs synchronously after DOM mutation but before paint — no flash of empty pre
+  useLayoutEffect(() => {
+    const el = headersPreRef.current;
+    if (!el || isEditingHeadersRef.current) return;
+    const next = highlightJson(JSON.stringify(headers, null, 2));
+    if (el.innerHTML !== next) el.innerHTML = next;
+  }, [headers]);
+
+  useLayoutEffect(() => {
+    const el = bodyPreRef.current;
+    if (!el || isEditingBodyRef.current) return;
+    const next = highlightJson(jsonBody);
+    if (el.innerHTML !== next) el.innerHTML = next;
+  }, [jsonBody]);
 
   const handleCopyHeaders = () => {
     navigator.clipboard.writeText(JSON.stringify(headers, null, 2)).then(() => {
@@ -116,28 +135,36 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
 
         {/* Headers card */}
         <div className={styles.editorCard}>
-          <div className={styles.editorCardHeader} onClick={() => setOpenHeaders(!openHeaders)}>
+          <div className={styles.editorCardHeader}>
             <span className={styles.editorCardTitle}>Headers</span>
-            <div className={styles.editorCardActions} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.editorCardActions}>
               <button
+                type="button"
                 className={`${styles.editorCopyBtn} ${copiedHeaders ? styles.editorCopied : ""}`}
                 onClick={handleCopyHeaders}
                 title="Copy headers"
               >
                 {copiedHeaders ? "✓" : "Copy"}
               </button>
-              <span className={`${styles.editorChevron} ${!openHeaders ? styles.editorChevronCollapsed : ""}`}>▾</span>
+              <button
+                type="button"
+                className={styles.editorChevronBtn}
+                onClick={() => setOpenHeaders(!openHeaders)}
+                aria-label={openHeaders ? "Collapse headers" : "Expand headers"}
+              >
+                <span className={`${styles.editorChevron} ${!openHeaders ? styles.editorChevronCollapsed : ""}`}>▾</span>
+              </button>
             </div>
           </div>
           <pre
+            ref={headersPreRef}
             className={`${styles.editor} ${!openHeaders ? styles.editorCollapsed : ""}`}
             contentEditable
             suppressContentEditableWarning
+            onFocus={() => { isEditingHeadersRef.current = true; }}
             onBlur={(e) => {
+              isEditingHeadersRef.current = false;
               try { setHeaders(JSON.parse(e.currentTarget.innerText)); } catch { }
-            }}
-            dangerouslySetInnerHTML={{
-              __html: highlightJson(JSON.stringify(headers, null, 2)),
             }}
           />
         </div>
@@ -145,25 +172,37 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
         {/* Body card */}
         {method !== "GET" && (
           <div className={styles.editorCard}>
-            <div className={styles.editorCardHeader} onClick={() => setOpenBody(!openBody)}>
+            <div className={styles.editorCardHeader}>
               <span className={styles.editorCardTitle}>Body</span>
-              <div className={styles.editorCardActions} onClick={(e) => e.stopPropagation()}>
+              <div className={styles.editorCardActions}>
                 <button
+                  type="button"
                   className={`${styles.editorCopyBtn} ${copiedBody ? styles.editorCopied : ""}`}
                   onClick={handleCopyBody}
                   title="Copy body"
                 >
                   {copiedBody ? "✓" : "Copy"}
                 </button>
-                <span className={`${styles.editorChevron} ${!openBody ? styles.editorChevronCollapsed : ""}`}>▾</span>
+                <button
+                  type="button"
+                  className={styles.editorChevronBtn}
+                  onClick={() => setOpenBody(!openBody)}
+                  aria-label={openBody ? "Collapse body" : "Expand body"}
+                >
+                  <span className={`${styles.editorChevron} ${!openBody ? styles.editorChevronCollapsed : ""}`}>▾</span>
+                </button>
               </div>
             </div>
             <pre
+              ref={bodyPreRef}
               className={`${styles.editor} ${!openBody ? styles.editorCollapsed : ""}`}
               contentEditable
               suppressContentEditableWarning
-              onBlur={(e) => setJsonBody(e.currentTarget.innerText)}
-              dangerouslySetInnerHTML={{ __html: highlightJson(jsonBody) }}
+              onFocus={() => { isEditingBodyRef.current = true; }}
+              onBlur={(e) => {
+                isEditingBodyRef.current = false;
+                setJsonBody(e.currentTarget.innerText);
+              }}
             />
           </div>
         )}

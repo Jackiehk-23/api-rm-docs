@@ -27,27 +27,12 @@ function ApiPanel({ api, onCollapsePanel }) {
 export default function LayoutWrapper(props) {
   const { frontMatter, toc } = useDoc();
   const api = frontMatter?.api;
-  const [playgroundVisible, setPlaygroundVisible] = useState(false);
   const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
+  const [mobilePlaygroundOpen, setMobilePlaygroundOpen] = useState(false);
 
   useEffect(() => {
     publishTOC(toc ?? []);
   }, [toc]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (playgroundVisible && window.innerWidth <= 996) {
-      document.body.classList.add("mobile-playground-open");
-      document.documentElement.style.overflow = "hidden";
-    } else {
-      document.body.classList.remove("mobile-playground-open");
-      document.documentElement.style.overflow = "";
-    }
-    return () => {
-      document.body.classList.remove("mobile-playground-open");
-      document.documentElement.style.overflow = "";
-    };
-  }, [playgroundVisible]);
 
   if (!api) {
     return (
@@ -60,9 +45,11 @@ export default function LayoutWrapper(props) {
   }
 
   const togglePanel = () => setIsPanelCollapsed((p) => !p);
+  const openPlayground = () => setMobilePlaygroundOpen(true);
+  const closePlayground = () => setMobilePlaygroundOpen(false);
 
   return (
-    <div className={`${styles.apiLayout} api-page-layout`}>
+    <div className={`${styles.apiLayout} api-page-layout ${mobilePlaygroundOpen ? styles.mobilePlaygroundOpen : ""}`}>
       <div className={styles.docContent}>
         <Layout {...props} />
       </div>
@@ -95,20 +82,32 @@ export default function LayoutWrapper(props) {
         </button>
       </div>
 
-      {/* Playground panel — collapses side-to-side on desktop, fixed overlay on mobile */}
+      {/* Playground — split-pane on desktop, full page on mobile when open */}
       <aside
-        className={`${styles.playground} ${isPanelCollapsed ? styles.playgroundPanelCollapsed : ""} ${playgroundVisible ? styles.playgroundVisible : ""}`}
+        className={`${styles.playground} ${isPanelCollapsed ? styles.playgroundPanelCollapsed : ""}`}
       >
+        {/* Mobile sticky back bar — only shows on mobile when playground is open */}
+        <div className={styles.mobileBackBar}>
+          <button
+            type="button"
+            className={styles.mobileBackBtn}
+            onClick={closePlayground}
+            aria-label="Back to docs"
+          >
+            ← Back to Docs
+          </button>
+        </div>
         <ApiPanel api={api} onCollapsePanel={togglePanel} />
       </aside>
 
-      {/* Mobile toggle button */}
+      {/* Mobile FAB — opens playground as full page */}
       <button
-        className={`${styles.mobileToggle} ${playgroundVisible ? styles.mobileToggleActive : ""}`}
-        onClick={() => setPlaygroundVisible((v) => !v)}
-        aria-label={playgroundVisible ? "Close API Playground" : "Open API Playground"}
+        type="button"
+        className={styles.mobileToggle}
+        onClick={openPlayground}
+        aria-label="Open API Playground"
       >
-        {playgroundVisible ? "✕ Close Playground" : "🔧 Try API"}
+        🔧 Try API
       </button>
     </div>
   );

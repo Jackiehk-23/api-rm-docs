@@ -166,6 +166,40 @@
 
 /* ================= MOBILE ================= */
 
+/* ================= MOBILE BACK BAR (top of playground on mobile full-page mode) ================= */
+
+.mobileBackBar {
+  display: none;
+  align-items: center;
+  padding: 8px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--ifm-background-color);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.mobileBackBtn {
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-font-color-base);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.mobileBackBtn:hover {
+  background: var(--ifm-color-emphasis-200);
+  border-color: var(--ifm-color-primary);
+}
+
+/* ================= MOBILE OPEN BUTTON (FAB) ================= */
+
 .mobileToggle {
   display: none;
   position: fixed;
@@ -181,7 +215,9 @@
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .mobileToggle:hover {
@@ -197,61 +233,64 @@
 
 @media (max-width: 996px) {
   .apiLayout {
+    display: block;
     height: auto;
     min-height: calc(100vh - var(--ifm-navbar-height));
     overflow: visible;
   }
 
-  /* Hide edge strip on mobile */
+  /* Hide edge strip on mobile (desktop-only collapse handle) */
   .playgroundEdge {
-    display: none;
+    display: none !important;
   }
 
-  .playground {
-    /* Reset desktop flex sizing */
-    width: auto !important;
-    flex-shrink: 1;
-
-    /* Full-screen fixed overlay on mobile */
-    display: none;
-    position: fixed;
-    top: var(--ifm-navbar-height);
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 99;
-    height: calc(100vh - var(--ifm-navbar-height));
-    overflow-y: auto;
-    overflow-x: hidden;
-    background: var(--ifm-background-color);
-    box-shadow: none;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
-    transition: none;
-  }
-
-  .playgroundVisible {
-    display: block !important;
-    animation: slideInRight 0.3s ease-out;
-  }
-
-  @keyframes slideInRight {
-    from { transform: translateX(100%); }
-    to   { transform: translateX(0); }
-  }
-
+  /* Docs visible by default on mobile */
   .docContent {
+    display: block;
+    width: 100%;
     height: auto;
     overflow-y: visible;
     padding-bottom: 80px;
   }
 
+  /* Playground hidden by default on mobile */
+  .playground {
+    display: none;
+  }
+
+  /* Back bar hidden by default (only shows inside open playground on mobile) */
+  .mobileBackBar {
+    display: none;
+  }
+
+  /* Mobile FAB visible by default */
   .mobileToggle {
     display: block;
   }
 
-  .mobileToggleActive {
-    background: var(--ifm-color-danger);
+  /* ===== MOBILE PLAYGROUND OPEN (full page mode) ===== */
+  .mobilePlaygroundOpen .docContent {
+    display: none;
+  }
+
+  .mobilePlaygroundOpen .playground {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    transition: none;
+    animation: none;
+  }
+
+  .mobilePlaygroundOpen .mobileToggle {
+    display: none;
+  }
+
+  .mobilePlaygroundOpen .mobileBackBar {
+    display: flex;
   }
 
   .docItemWrapper {
@@ -263,22 +302,5 @@
     height: auto;
     overflow-y: visible;
     overflow-x: visible;
-  }
-}
-
-/* Prevent body scroll when mobile playground is open */
-body.mobile-playground-open {
-  overflow: hidden !important;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-}
-
-@media (max-width: 576px) {
-  .mobileToggle {
-    bottom: 16px;
-    right: 16px;
-    padding: 10px 16px;
-    font-size: 13px;
   }
 }
