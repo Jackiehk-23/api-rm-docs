@@ -20,3 +20,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 draft.json
+
+
+
+.mcp.json
+settings.json
+.claude
+.claude-flow
