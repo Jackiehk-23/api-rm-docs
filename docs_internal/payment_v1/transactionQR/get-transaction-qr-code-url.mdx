@@ -31,42 +31,32 @@ No request parameter is required for this endpoint.
 
 <ParamTable
   rows={[
-    { name: "items", type: "[]Object", description: "Transaction object", example: "(Refer to explanation below)" },
+    { name: "items", type: "[]Object", description: "Transaction object",
+      children: [
+        { name: "storeId", type: "String", description: "ID of store", example: "10946114768247530" },
+        { name: "type", type: "String", description: "\"DYNAMIC\" (days from now), \"FIXED\" (specific fixed date) or \"PERMANENT\" (never expire)", example: "\"PERMANENT\"" },
+        { name: "isPreFillAmount", type: "Bool", description: "To indicate QR code has pre-fill amount", example: "true" },
+        { name: "currencyType", type: "String", description: "Currency notation", example: "\"MYR\"" },
+        { name: "amount", type: "Uint", description: "Amount of order in cent. Only required when \"isPrefillAmount\" = true.", example: "100" },
+        { name: "platform", type: "String", description: "\"OPEN_API\" (generated through API calls) or \"PORTAL\" (generated through merchant portal)", example: "\"PORTAL\"" },
+        { name: "method", type: "[]String", description: "RM currently supported method", example: "[\"WECHATPAY\",\"WECHATPAY_MY\",  \"WECHATPAY_CN\",\"PRESTO_MY\",\"BOOST_MY\",\"ALIPAY_CN\"]" },
+        { name: "expiry", type: "Object", description: "Object of expiry",
+      children: [
+        { name: "type", type: "String", description: "\"DYNAMIC\" (days from now), \"FIX\" (specific fixed date) or \"PERMANENT\" (never expire)", example: "\"PERMANENT\"" },
+        { name: "day", type: "Uint", description: "Only required by \"DYNAMIC\" expiry type. To indicate number of days from now until expiry.", example: "3" },
+        { name: "expiredAt", type: "DateTime", description: "Only required by \"FIXED\". To indicate specific expiry date.", example: "\"2020-10-07T17:44:26.679908+08:00\"" }
+      ]},
+        { name: "code", type: "String", description: "Embedded code in QR", example: "\"c8ff3df0605a5f20cd6476661072eade\"" },
+        { name: "status", type: "String", description: "\"VALID\" (always valid for static QR) or \"REDEEMED\" (only applicable to dynamic QR)", example: "\"VALID\"" },
+        { name: "qrCodeUrl", type: "String", description: "Embedded URL in QR", example: "\"https://dev-rm-api.ap.ngrok.io/payment/unified?code=c8ff3df0605a5f20cd6476661072eade\"" },
+        { name: "redirectUrl", type: "String", description: "Redirect URL after QR payment is made", example: "\"https://www.apple.com/my/iphone/\"" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time of transaction", example: "\"2018-03-21T06:41:22Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time of transaction", example: "\"2018-03-21T06:41:22Z\"" }
+      ]},
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-<br />
-<strong>Transaction object array (items):</strong>
 
-<ParamTable
-  rows={[
-    { name: "storeId", type: "String", description: "ID of store", example: "10946114768247530" },
-    { name: "type", type: "String", description: "\"DYNAMIC\" (days from now), \"FIXED\" (specific fixed date) or \"PERMANENT\" (never expire)", example: "\"PERMANENT\"" },
-    { name: "isPreFillAmount", type: "Bool", description: "To indicate QR code has pre-fill amount", example: "true" },
-    { name: "currencyType", type: "String", description: "Currency notation", example: "\"MYR\"" },
-    { name: "amount", type: "Uint", description: "Amount of order in cent. Only required when \"isPrefillAmount\" = true.", example: "100" },
-    { name: "platform", type: "String", description: "\"OPEN_API\" (generated through API calls) or \"PORTAL\" (generated through merchant portal)", example: "\"PORTAL\"" },
-    { name: "method", type: "[]String", description: "RM currently supported method", example: "[\"WECHATPAY\",\"WECHATPAY_MY\",  \"WECHATPAY_CN\",\"PRESTO_MY\",\"BOOST_MY\",\"ALIPAY_CN\"]" },
-    { name: "expiry", type: "Object", description: "Object of expiry", example: "(Refer to explanation above)" },
-    { name: "code", type: "String", description: "Embedded code in QR", example: "\"c8ff3df0605a5f20cd6476661072eade\"" },
-    { name: "status", type: "String", description: "\"VALID\" (always valid for static QR) or \"REDEEMED\" (only applicable to dynamic QR)", example: "\"VALID\"" },
-    { name: "qrCodeUrl", type: "String", description: "Embedded URL in QR", example: "\"https://dev-rm-api.ap.ngrok.io/payment/unified?code=c8ff3df0605a5f20cd6476661072eade\"" },
-    { name: "redirectUrl", type: "String", description: "Redirect URL after QR payment is made", example: "\"https://www.apple.com/my/iphone/\"" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time of transaction", example: "\"2018-03-21T06:41:22Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time of transaction", example: "\"2018-03-21T06:41:22Z\"" }
-  ]}
-/>
-<br />
-
-<strong>Expiry object (expiry):</strong>
-
-<ParamTable
-  rows={[
-    { name: "type", type: "String", description: "\"DYNAMIC\" (days from now), \"FIX\" (specific fixed date) or \"PERMANENT\" (never expire)", example: "\"PERMANENT\"" },
-    { name: "day", type: "Uint", description: "Only required by \"DYNAMIC\" expiry type. To indicate number of days from now until expiry.", example: "3" },
-    { name: "expiredAt", type: "DateTime", description: "Only required by \"FIXED\". To indicate specific expiry date.", example: "\"2020-10-07T17:44:26.679908+08:00\"" }
-  ]}
-/>
 <br />
 <strong>Database object (meta):</strong>
 

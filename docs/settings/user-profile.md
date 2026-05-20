@@ -68,7 +68,21 @@ No request parameter is required for this endpoint.
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "item", type: "Array", description: "Array of user object", example: "(Refer to explanation below)" },
+    { name: "item", type: "Array", description: "Array of user object",
+      children: [
+        { name: "id", type: "String", description: "User ID", example: "“8190656045166232716”" },
+        { name: "firstName", type: "String", description: "First name of user", example: "“MOHAMED”" },
+        { name: "lastName", type: "String", description: "Last name of user", example: "“YUSSUF”" },
+        { name: "countryCode", type: "String", description: "Country code of user contact number", example: "\"60\"" },
+        { name: "phoneNumber", type: "String", description: "Phone number of user", example: "\"377334080\"" },
+        { name: "email", type: "String", description: "Email address of user", example: "\"yussuf@revenuemonster.my\"" },
+        { name: "avatarUrl", type: "String", description: "Public URL to show user’s avatar", example: "\"https://storage.googleapis.com/rm-prod-asset/img/avatar.png\"" },
+        { name: "status", type: "String", description: "Current status of user", example: "“ACTIVE”" },
+        { name: "storeId", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
+        { name: "isActive", type: "Boolean", description: "User active or deactivated status", example: "true" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time of user", example: "\"2018-02-12T08:53:13Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time of user", example: "\"2018-02-12T08:53:13Z\"" }
+      ]},
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
@@ -77,24 +91,4 @@ No request parameter is required for this endpoint.
 <br/>
 
 <a id="item" />
-
-<strong>Array of store object <code>item</code>:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "id", type: "String", description: "User ID", example: "“8190656045166232716”" },
-    { name: "firstName", type: "String", description: "First name of user", example: "“MOHAMED”" },
-    { name: "lastName", type: "String", description: "Last name of user", example: "“YUSSUF”" },
-    { name: "countryCode", type: "String", description: "Country code of user contact number", example: "\"60\"" },
-    { name: "phoneNumber", type: "String", description: "Phone number of user", example: "\"377334080\"" },
-    { name: "email", type: "String", description: "Email address of user", example: "\"yussuf@revenuemonster.my\"" },
-    { name: "avatarUrl", type: "String", description: "Public URL to show user’s avatar", example: "\"https://storage.googleapis.com/rm-prod-asset/img/avatar.png\"" },
-    { name: "status", type: "String", description: "Current status of user", example: "“ACTIVE”" },
-    { name: "storeId", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
-    { name: "isActive", type: "Boolean", description: "User active or deactivated status", example: "true" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time of user", example: "\"2018-02-12T08:53:13Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time of user", example: "\"2018-02-12T08:53:13Z\"" }
-  ]}
-/>
 

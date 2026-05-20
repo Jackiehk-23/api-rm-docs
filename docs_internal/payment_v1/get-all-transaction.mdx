@@ -36,10 +36,33 @@ No request parameter is required for this endpoint.
 
 <ParamTable
   rows={[
-    { name: "store", type: "Object", description: "Store object", example: "(Refer to explanation below)" },
+    { name: "store", type: "Object", description: "Store object",
+      children: [
+        { name: "id", type: "String", description: "Store ID", example: "\"2808912573238362402\"" },
+        { name: "name", type: "String", description: "Store Name", example: "\"REVENUE MONSTER\"" },
+        { name: "imageUrl", type: "String", description: "Yes", example: "\"https://storage.googleapis.com/rm-prod-asset/img/store.png\"" },
+        { name: "addressLine1", type: "String", description: "Store Address 1", example: "\"B-5-30, 5th Floor, Block Bougainvillea,\"" },
+        { name: "addressLine2", type: "String", description: "Store Address 2", example: "\"PJU 6A, Lebuhraya SPRINT, 10 Boulevard,\"" },
+        { name: "postCode", type: "String", description: "Postcode of store", example: "\"47400\"" },
+        { name: "city", type: "String", description: "City of store", example: "\"Petaling Jaya\"" },
+        { name: "state", type: "String", description: "State of store", example: "\"Selangor\"" },
+        { name: "country", type: "String", description: "Country of store", example: "\"Malaysia\"" },
+        { name: "countryCode", type: "String", description: "Country code of store contact number", example: "\"60\"" },
+        { name: "phoneNumber", type: "String", description: "Phone number of store", example: "\"377334080\"" },
+        { name: "geoLocation", type: "Object", description: "Geo Location (latitude and longtitude) of store", example: "{\"latitude\": 3.1349857, \"latitude\": 101.6136659 }" },
+        { name: "status", type: "String", description: "Current status of store", example: "\"ACTIVE\"" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2020-09-14T03:01:20Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time of store", example: "\"2020-09-14T03:01:20Z\"" }
+      ]},
     { name: "referenceId", type: "String", description: "Transaction ID (from Payment server)", example: "\"20201217211212800110171725600805232\"" },
     { name: "transactionId", type: "String", description: "Transaction ID (from RM server)", example: "\"152161448229438994\"" },
-    { name: "order", type: "Object", description: "Order object", example: "(Refer to explanation below)" },
+    { name: "order", type: "Object", description: "Order object",
+      children: [
+        { name: "id", type: "String", description: "Order ID (from Merchant)", example: "\"134850717797247290\"" },
+        { name: "title", type: "String", description: "Order title", example: "\"Sales\"" },
+        { name: "details", type: "String", description: "Order details", example: "\"1 x iPhone X; 2 x SAMSUNG S8\"" },
+        { name: "amount", type: "Uint", description: "Amount of order", example: "1865" }
+      ]},
     { name: "terminalId", type: "String", description: "Terminal ID", example: "\"\"" },
     { name: "payee", type: "Object", description: "Object of userID made payment (payment sender)", example: "{\"userId\": \"1000000806040489\"}" },
     { name: "currencyType", type: "String", description: "Currency Type", example: "\"MYR\"" },
@@ -51,52 +74,15 @@ No request parameter is required for this endpoint.
     { name: "type", type: "String", description: "Currently only support \"QUICKPAY\" , \"WEB_PAYMENT\"", example: "\"WEB_PAYMENT\"" },
     { name: "status", type: "String", description: "Status returned from server, \"SUCCESS\" or \"IN_PROCESS\" or \"FAILED\". \"IN_PROCESS\" means user scanned and making payment.", example: "\"SUCCESS\"" },
     { name: "region", type: "String", description: "Region of wallet, \"MALAYSIA\" or \"CHINA\"", example: "\"MALAYSIA\"" },
-    { name: "extraInfo", type: "Object", example: "(Refer to explanation below)" },
+    { name: "extraInfo", type: "Object",
+      children: [
+        { name: "card", type: "Object", example: "{}" }
+      ]},
     { name: "createdAt", type: "DateTime", description: "Creation date time of transaction", example: "\"2018-03-21T06:41:22Z\"" },
     { name: "updatedAt", type: "DateTime", description: "Last update date time of transaction", example: "\"2018-03-21T06:41:22Z\"" }
   ]}
 />
-<br/>
-<strong>Store object (store):</strong>
 
-<ParamTable
-  rows={[
-    { name: "id", type: "String", description: "Store ID", example: "\"2808912573238362402\"" },
-    { name: "name", type: "String", description: "Store Name", example: "\"REVENUE MONSTER\"" },
-    { name: "imageUrl", type: "String", description: "Yes", example: "\"https://storage.googleapis.com/rm-prod-asset/img/store.png\"" },
-    { name: "addressLine1", type: "String", description: "Store Address 1", example: "\"B-5-30, 5th Floor, Block Bougainvillea,\"" },
-    { name: "addressLine2", type: "String", description: "Store Address 2", example: "\"PJU 6A, Lebuhraya SPRINT, 10 Boulevard,\"" },
-    { name: "postCode", type: "String", description: "Postcode of store", example: "\"47400\"" },
-    { name: "city", type: "String", description: "City of store", example: "\"Petaling Jaya\"" },
-    { name: "state", type: "String", description: "State of store", example: "\"Selangor\"" },
-    { name: "country", type: "String", description: "Country of store", example: "\"Malaysia\"" },
-    { name: "countryCode", type: "String", description: "Country code of store contact number", example: "\"60\"" },
-    { name: "phoneNumber", type: "String", description: "Phone number of store", example: "\"377334080\"" },
-    { name: "geoLocation", type: "Object", description: "Geo Location (latitude and longtitude) of store", example: "{\"latitude\": 3.1349857, \"latitude\": 101.6136659 }" },
-    { name: "status", type: "String", description: "Current status of store", example: "\"ACTIVE\"" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2020-09-14T03:01:20Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time of store", example: "\"2020-09-14T03:01:20Z\"" }
-  ]}
-/>
-<br/>
-<strong>Order object (order):</strong>
-
-<ParamTable
-  rows={[
-    { name: "id", type: "String", description: "Order ID (from Merchant)", example: "\"134850717797247290\"" },
-    { name: "title", type: "String", description: "Order title", example: "\"Sales\"" },
-    { name: "details", type: "String", description: "Order details", example: "\"1 x iPhone X; 2 x SAMSUNG S8\"" },
-    { name: "amount", type: "Uint", description: "Amount of order", example: "1865" }
-  ]}
-/>
-<br/>
-<strong>ExtraInfo object (extraInfo):</strong>
-
-<ParamTable
-  rows={[
-    { name: "card", type: "Object", example: "{}" }
-  ]}
-/>
 > Example Response
 
 ```json

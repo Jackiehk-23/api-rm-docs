@@ -17,20 +17,17 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
   rows={[
     { name: "terminalId", type: "String", required: true, description: "Terminal ID", example: "\"1582107209454501456\"" },
     { name: "type", type: "String", required: true, description: "Request type", example: "\"REFUND\"" },
-    { name: "data", type: "String", required: true, description: "(Refer data )", example: "{}" }
+    { name: "data", type: "String", required: true, description: "(Refer data )", example: "{}",
+      children: [
+        { name: "transactionId", type: "String", required: true, description: "Transaction ID generated from Revenue Monster.", example: "\"1582107209454501456\"" },
+        { name: "receiptType", type: "Integer", required: true, description: "1 : Print Merchant Copy and Customer copy  2 : Print Customer copy 3 : Do not print Merchant Copy & Customer Copy", example: "1" },
+        { name: "reason", type: "String", required: true, description: "Refund reason", example: "\"Wrong Item\"" },
+        { name: "email", type: "String", required: true, description: "Refund email", example: "\"oska.ng@revenuemonster.my\"" },
+        { name: "pin", type: "String", required: true, description: "Refund pin", example: "\"321123\"" }
+      ]}
   ]}
 />
-<strong>Data object <code>data</code>:</strong>
 
-<ParamTable
-  rows={[
-    { name: "transactionId", type: "String", required: true, description: "Transaction ID generated from Revenue Monster.", example: "\"1582107209454501456\"" },
-    { name: "receiptType", type: "Integer", required: true, description: "1 : Print Merchant Copy and Customer copy  2 : Print Customer copy 3 : Do not print Merchant Copy & Customer Copy", example: "1" },
-    { name: "reason", type: "String", required: true, description: "Refund reason", example: "\"Wrong Item\"" },
-    { name: "email", type: "String", required: true, description: "Refund email", example: "\"oska.ng@revenuemonster.my\"" },
-    { name: "pin", type: "String", required: true, description: "Refund pin", example: "\"321123\"" }
-  ]}
-/>
 <CodeBlock language="json" filename="Example Request">
 {`curl --location --request POST "https://sb-open.revenuemonster.my/v3/event/terminal" \\
 --header "Content-Type: application/json" \\
@@ -60,9 +57,25 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
     { name: "balanceAmount", type: "Integer", description: "Amount of order in cent", example: "10" },
     { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2020-02-13T07:08:56Z\"" },
     { name: "currencyType", type: "String", description: "Currency notation (currently only support MYR)", example: "\"MYR\"" },
-    { name: "extraInfo", type: "Object", description: "(Refer to extraInfo)", example: "{}" },
+    { name: "extraInfo", type: "Object", description: "(Refer to extraInfo)", example: "{}",
+      children: [
+        { name: "card", type: "Object", required: true, description: "Object of card Info",
+      children: [
+        { name: "inputType", type: "String", required: true, description: "Type of card payment", example: "\"NFC\"" },
+        { name: "maskNo", type: "String", required: true, description: "Masked card no", example: "\"XXXX-XXXX-XXXX-9081\"" },
+        { name: "referenceId", type: "String", required: true, description: "Card payment ref on server", example: "\"104974001774\"" },
+        { name: "secondaryReferenceId", type: "String", required: true, description: "Card payment ref on terminal", example: "\"001774\"" }
+      ]}
+      ]},
     { name: "method", type: "String", description: "RM currently supported method", example: "\"CARD\"" },
-    { name: "order", type: "String", description: "(Refer to order)", example: "{}" },
+    { name: "order", type: "String", description: "(Refer to order)", example: "{}",
+      children: [
+        { name: "amount", type: "Integer", required: true, description: "Amount of order in cent (min RM 0.10 or amount: 10)", example: "10" },
+        { name: "id", type: "String", required: true, description: "Order ID (from Merchant), max: 24", example: "\"201919250001\"" },
+        { name: "title", type: "String", required: true, description: "Order title, max: 32", example: "\"SALE\"" },
+        { name: "details", type: "String", required: true, description: "Order details, max: 600", example: "\"XXXX-XXXX-XXXX-3121\"" },
+        { name: "additionalData", type: "String", required: true, description: "For merchant's remark, max 128", example: "\"000008\"" }
+      ]},
     { name: "platform", type: "String", description: "Only \"TERMINAL\"", example: "\"TERMINAL\"" },
     { name: "referenceId", type: "String", description: "Transaction ID (from server)", example: "\"00000000000791320002737201919250001\"" },
     { name: "region", type: "String", description: "Region of wallet", example: "\"MALAYSIA\"" },
@@ -75,39 +88,10 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
     { name: "error", type: "Object", description: "(Refer Appendix: Error Codes)", example: "{}" }
   ]}
 />
-<br/>
-<strong>Extra Info object <code>extraInfo</code>:</strong>
 
-<ParamTable
-  rows={[
-    { name: "card", type: "Object", required: true, description: "Object of card Info", example: "(Refer to explanation below)" }
-  ]}
-/>
 <br/>
 <a id="card" />
 
-<strong>Card object <code>card</code>:</strong>
-
-<ParamTable
-  rows={[
-    { name: "inputType", type: "String", required: true, description: "Type of card payment", example: "\"NFC\"" },
-    { name: "maskNo", type: "String", required: true, description: "Masked card no", example: "\"XXXX-XXXX-XXXX-9081\"" },
-    { name: "referenceId", type: "String", required: true, description: "Card payment ref on server", example: "\"104974001774\"" },
-    { name: "secondaryReferenceId", type: "String", required: true, description: "Card payment ref on terminal", example: "\"001774\"" }
-  ]}
-/>
-<br/>
-<strong>Order object <code>order</code>:</strong>
-
-<ParamTable
-  rows={[
-    { name: "amount", type: "Integer", required: true, description: "Amount of order in cent (min RM 0.10 or amount: 10)", example: "10" },
-    { name: "id", type: "String", required: true, description: "Order ID (from Merchant), max: 24", example: "\"201919250001\"" },
-    { name: "title", type: "String", required: true, description: "Order title, max: 32", example: "\"SALE\"" },
-    { name: "details", type: "String", required: true, description: "Order details, max: 600", example: "\"XXXX-XXXX-XXXX-3121\"" },
-    { name: "additionalData", type: "String", required: true, description: "For merchant's remark, max 128", example: "\"000008\"" }
-  ]}
-/>
 <CodeBlock language="json" filename="Example Response">
 {`{
   "code": "SUCCESS",

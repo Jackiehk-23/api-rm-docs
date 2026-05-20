@@ -32,7 +32,12 @@ Check merchant wallet balance
 
 <ParamTable
   rows={[
-    { name: "item", type: "Object", description: "Wallet object", example: "(Refer to explanation below)" },
+    { name: "item", type: "Object", description: "Wallet object",
+      children: [
+        { name: "id", type: "String", description: "Wallet ID", example: "1585119930335618836" },
+        { name: "referenceId", type: "String", description: "Wallet reference ID usually is your Merchant ID", example: "4118165203679668885" },
+        { name: "credit", type: "Integer", description: "Merchant wallet credit amount", example: "1952" }
+      ]},
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
@@ -40,15 +45,6 @@ Check merchant wallet balance
 
 <a id="item" />
 
-<strong>Wallet object <code>item</code>:</strong>
-
-<ParamTable
-  rows={[
-    { name: "id", type: "String", description: "Wallet ID", example: "1585119930335618836" },
-    { name: "referenceId", type: "String", description: "Wallet reference ID usually is your Merchant ID", example: "4118165203679668885" },
-    { name: "credit", type: "Integer", description: "Merchant wallet credit amount", example: "1952" }
-  ]}
-/>
 <CodeBlock language="json" filename="Example Response">
 {`{
     "item": {

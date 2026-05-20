@@ -62,9 +62,21 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/payment/online`
 
 <ParamTable
   rows={[
-    { name: "order", type: "Object", required: true, description: "Object of order", example: "(Refer to explanation below)" },
+    { name: "order", type: "Object", required: true, description: "Object of order",
+      children: [
+        { name: "title", type: "String", required: true, description: "Order title, max: 32", example: "\"Sales\"" },
+        { name: "detail", type: "String", required: true, description: "Order detail, max: 600", example: "\"1 x iPhone X; 2 x SAMSUNG S8\"" },
+        { name: "additionalData", type: "String", required: true, description: "Order description", example: "\"Sales\"" },
+        { name: "amount", type: "Uint", required: true, description: "Amount of order in cent. Only required when \"isPrefillAmount\" = true. (min RM 0.10 or amount: 10)", example: "100" },
+        { name: "currencyType", type: "String", required: true, description: "Currency notation (currently only support MYR)", example: "\"MYR\"" },
+        { name: "id", type: "String", description: "\"6170506694335521334\"" }
+      ]},
     { name: "method", type: "[]String", required: true, description: "RM currently supported method", example: "[\"WECHATPAY_MY\",\"WECHATPAY_CN\" ,\"PRESTO_MY\",\"BOOST_MY\",\"TNG_MY\" , \"ALIPAY_CN\",\"GRABPAY_MY\",\"RAZER_MY\", GOBIZ_MY]" },
-    { name: "type", type: "String", required: true, description: "Obejct of type", example: "(Refer to explanation below)" },
+    { name: "type", type: "String", required: true, description: "Obejct of type",
+      children: [
+        { name: "type", type: "String", required: true, example: "\"WEB_PAYMENT\"" },
+        { name: "type", type: "String", required: true, example: "\"MOBILE_PAYMENT\"" }
+      ]},
     { name: "storeId", type: "String", required: true, description: "ID of the store to create QR code", example: "\"10946114768247530\"" },
     { name: "paymentOrders", type: "[]String", description: "Sequence of the payment method tabs", example: "[\"WALLET\",\"ONLINE_BANKING\",\"CARD\", \"PAY_LATER\"]" },
     { name: "redirectUrl", type: "String", required: true, description: "URL to redirect after payment is made", example: "\"https://google.com\"" },
@@ -72,20 +84,7 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/payment/online`
     { name: "layoutVersion", type: "String", description: "Select layout for Web payment", example: "V1 / V2 (Supported Credit Card)" }
   ]}
 />
-<br />
 
-<strong>Order object (order):</strong>
-
-<ParamTable
-  rows={[
-    { name: "title", type: "String", required: true, description: "Order title, max: 32", example: "\"Sales\"" },
-    { name: "detail", type: "String", required: true, description: "Order detail, max: 600", example: "\"1 x iPhone X; 2 x SAMSUNG S8\"" },
-    { name: "additionalData", type: "String", required: true, description: "Order description", example: "\"Sales\"" },
-    { name: "amount", type: "Uint", required: true, description: "Amount of order in cent. Only required when \"isPrefillAmount\" = true. (min RM 0.10 or amount: 10)", example: "100" },
-    { name: "currencyType", type: "String", required: true, description: "Currency notation (currently only support MYR)", example: "\"MYR\"" },
-    { name: "id", type: "String", description: "\"6170506694335521334\"" }
-  ]}
-/>
 <br />
 
 <strong>Customer object (customer):</strong>
@@ -98,16 +97,7 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/payment/online`
     { name: "phoneNumber", type: "String", description: "Customer Phone Number", example: "\"\"" }
   ]}
 />
-<br />
 
-<strong>Type Object (type):</strong> <br />
-
-<ParamTable
-  rows={[
-    { name: "type", type: "String", required: true, example: "\"WEB_PAYMENT\"" },
-    { name: "type", type: "String", required: true, example: "\"MOBILE_PAYMENT\"" }
-  ]}
-/>
 <hr />
 
 For **MOBILE_PAYMENT** only, please apply at application.
@@ -156,19 +146,15 @@ curl --location --request POST "{{open_base_path}}/v3/payment/online" \
 
 <ParamTable
   rows={[
-    { name: "item", type: "Object", description: "item object", example: "(Refer to explanation below)" },
+    { name: "item", type: "Object", description: "item object",
+      children: [
+        { name: "checkoutId", type: "String", description: "Code to identify web payment url", example: "\"1548316308361173347\"" },
+        { name: "url", type: "String", description: "Example to form checkout URL. Note: to change base URL to desired URL.", example: "\"https://sb-pg.revenuemonster.my/checkout?checkoutId=1548316308361173347\"" }
+      ]},
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-<br />
-<strong>item Object (item):</strong>
 
-<ParamTable
-  rows={[
-    { name: "checkoutId", type: "String", description: "Code to identify web payment url", example: "\"1548316308361173347\"" },
-    { name: "url", type: "String", description: "Example to form checkout URL. Note: to change base URL to desired URL.", example: "\"https://sb-pg.revenuemonster.my/checkout?checkoutId=1548316308361173347\"" }
-  ]}
-/>
 > Example Response
 
 ```json

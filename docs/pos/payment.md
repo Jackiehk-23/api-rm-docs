@@ -23,22 +23,18 @@ Integrate RM Terminal with POS System or Kiosk machine (using local callback). T
     { name: "type", type: "String", required: true, description: "e-wallet \"E-WALLET\" or Bank card \"CARD\" payment", example: "\"E-WALLET\"" },
     { name: "receiptType", type: "Integer", required: true, description: "1 : Print Merchant Copy and Customer copy  2 : Print Customer copy 3 : Do not print Merchant Copy & Customer Copy", example: "1" },
     { name: "cameraType", type: "String", required: true, description: "For \"E-WALLET\" only, use back or front camera to scan QR", example: "\"FRONT\"" },
-    { name: "order", type: "String", required: true, description: "(Refer order )", example: "{}" }
+    { name: "order", type: "String", required: true, description: "(Refer order )", example: "{}",
+      children: [
+        { name: "amount", type: "Integer", required: true, description: "Amount of order in cent (min RM 0.10 or amount: 10)", example: "100" },
+        { name: "currencyType", type: "String", required: true, description: "Currency notation (currently only support MYR)", example: "\"MYR\"" },
+        { name: "id", type: "String", required: true, description: "Order ID (from Merchant), max: 24", example: "\"123443333304\"" },
+        { name: "title", type: "String", required: true, description: "Order title, max: 32", example: "\"title\"" },
+        { name: "details", type: "String", required: true, description: "Order details, max: 600", example: "\"desc\"" },
+        { name: "additionalData", type: "String", required: true, description: "For merchant's remark, max 128", example: "\"API Test\"" }
+      ]}
   ]}
 />
-<br/>
-<strong>Order object <code>order</code>:</strong>
 
-<ParamTable
-  rows={[
-    { name: "amount", type: "Integer", required: true, description: "Amount of order in cent (min RM 0.10 or amount: 10)", example: "100" },
-    { name: "currencyType", type: "String", required: true, description: "Currency notation (currently only support MYR)", example: "\"MYR\"" },
-    { name: "id", type: "String", required: true, description: "Order ID (from Merchant), max: 24", example: "\"123443333304\"" },
-    { name: "title", type: "String", required: true, description: "Order title, max: 32", example: "\"title\"" },
-    { name: "details", type: "String", required: true, description: "Order details, max: 600", example: "\"desc\"" },
-    { name: "additionalData", type: "String", required: true, description: "For merchant's remark, max 128", example: "\"API Test\"" }
-  ]}
-/>
 <CodeBlock language="json" filename="Example Request">
 {`curl --location --request POST "https://sb-open.revenuemonster.my/v3/payment/terminal/quickpay" \\
 --header "Content-Type: application/json" \\
@@ -70,83 +66,60 @@ Integrate RM Terminal with POS System or Kiosk machine (using local callback). T
     { name: "balanceAmount", type: "Integer", description: "Amount of order in cent", example: "10" },
     { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2020-02-13T07:08:56Z\"" },
     { name: "currencyType", type: "String", description: "Currency notation (currently only support MYR)", example: "\"MYR\"" },
-    { name: "extraInfo", type: "Object", description: "for CARD payment (Refer to extraInfo)", example: "{}" },
+    { name: "extraInfo", type: "Object", description: "for CARD payment (Refer to extraInfo)", example: "{}",
+      children: [
+        { name: "card", type: "Object", required: true, description: "Object of card Info",
+      children: [
+        { name: "inputType", type: "String", required: true, description: "Type of card payment", example: "\"NFC\"" },
+        { name: "maskNo", type: "String", required: true, description: "Masked card no", example: "\"XXXX-XXXX-XXXX-9081\"" },
+        { name: "referenceId", type: "String", required: true, description: "Card payment ref on server", example: "\"104974001774\"" },
+        { name: "secondaryReferenceId", type: "String", required: true, description: "Card payment ref on terminal", example: "\"001774\"" }
+      ]}
+      ]},
     { name: "method", type: "String", description: "RM currently supported method", example: "\"CARD\"" },
-    { name: "order", type: "String", description: "(Refer order )", example: "{}" },
-    { name: "payee", type: "Object", description: "for E-WALLET payment (Refer to payee)", example: "{}" },
+    { name: "order", type: "String", description: "(Refer order )", example: "{}",
+      children: [
+        { name: "amount", type: "Integer", required: true, description: "Amount of order in cent (min RM 0.10 or amount: 10)", example: "10" },
+        { name: "id", type: "String", required: true, description: "Order ID (from Merchant), max: 24", example: "\"201919250001\"" },
+        { name: "title", type: "String", required: true, description: "Order title, max: 32", example: "\"SALE\"" },
+        { name: "details", type: "String", required: true, description: "Order details, max: 600", example: "\"XXXX-XXXX-XXXX-3121\"" },
+        { name: "additionalData", type: "String", required: true, description: "For merchant's remark, max 128", example: "\"000008\"" }
+      ]},
+    { name: "payee", type: "Object", description: "for E-WALLET payment (Refer to payee)", example: "{}",
+      children: [
+        { name: "userId", type: "String", required: true, description: "Payee account id", example: "\"1000000806040489\"" }
+      ]},
     { name: "platform", type: "String", description: "Only \"TERMINAL\"", example: "\"TERMINAL\"" },
     { name: "referenceId", type: "String", description: "Transaction ID (from server)", example: "\"00000000000791320002737201919250001\"" },
     { name: "region", type: "String", description: "Region of wallet", example: "\"MALAYSIA\"" },
     { name: "status", type: "String", description: "Status returned from WeChat server", example: "\"SUCCESS\"" },
-    { name: "store", type: "Object", description: "(Refer to store)", example: "{}" },
+    { name: "store", type: "Object", description: "(Refer to store)", example: "{}",
+      children: [
+        { name: "id", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
+        { name: "name", type: "String", description: "Store Name", example: "\"REVENUE MONSTER\"" },
+        { name: "addressLine1", type: "String", description: "Store Address 1", example: "\"B-5-30, 5th Floor, Block Bougainvillea,\"" },
+        { name: "addressLine2", type: "String", description: "Store Address 2", example: "\"PJU 6A, Lebuhraya SPRINT, 10 Boulevard,\"" },
+        { name: "postCode", type: "String", description: "Postcode of store", example: "\"47400\"" },
+        { name: "city", type: "String", description: "City of store", example: "\"Petaling Jaya\"" },
+        { name: "state", type: "String", description: "State of store", example: "\"Selangor\"" },
+        { name: "country", type: "String", description: "Country of store", example: "\"Malaysia\"" },
+        { name: "countryCode", type: "String", description: "Country code of store contact number", example: "\"60\"" },
+        { name: "phoneNumber", type: "String", description: "Phone number of store", example: "\"377334080\"" },
+        { name: "geoLocation", type: "Object", description: "Geo Location (latitude and longtitude) of store", example: "{\"latitude\": 3.1349857, \"longtitude\": 101.6136659 }" },
+        { name: "status", type: "String", description: "Current status of store", example: "\"ACTIVE\"" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2018-02-12T08:53:13Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time of store", example: "\"2018-02-12T08:53:13Z\"" }
+      ]},
     { name: "transactionAt", type: "DateTime", description: "Transaction date time of store", example: "\"2020-10-25T04:35:22Z\"" },
     { name: "transactionId", type: "DateTime", description: "Transaction ID generated from Revenue Monster.", example: "\"200213070856100322408442\"" },
     { name: "type", type: "String", description: "\"QUICKPAY\" or \"BANK_CARD\"", example: "\"BANK_CARD\"" },
     { name: "updatedAt", type: "DateTime", description: "Last update date time of store", example: "\"2020-02-13T07:08:56Z\"" }
   ]}
 />
-<br/>
-<strong>Extra Info object <code>extraInfo</code>:</strong>
 
-<ParamTable
-  rows={[
-    { name: "card", type: "Object", required: true, description: "Object of card Info", example: "(Refer to explanation below)" }
-  ]}
-/>
 <br/>
 <a id="card" />
 
-<strong>Card object <code>card</code>:</strong>
-
-<ParamTable
-  rows={[
-    { name: "inputType", type: "String", required: true, description: "Type of card payment", example: "\"NFC\"" },
-    { name: "maskNo", type: "String", required: true, description: "Masked card no", example: "\"XXXX-XXXX-XXXX-9081\"" },
-    { name: "referenceId", type: "String", required: true, description: "Card payment ref on server", example: "\"104974001774\"" },
-    { name: "secondaryReferenceId", type: "String", required: true, description: "Card payment ref on terminal", example: "\"001774\"" }
-  ]}
-/>
-<br/>
-<strong>Order object <code>order</code>:</strong>
-
-<ParamTable
-  rows={[
-    { name: "amount", type: "Integer", required: true, description: "Amount of order in cent (min RM 0.10 or amount: 10)", example: "10" },
-    { name: "id", type: "String", required: true, description: "Order ID (from Merchant), max: 24", example: "\"201919250001\"" },
-    { name: "title", type: "String", required: true, description: "Order title, max: 32", example: "\"SALE\"" },
-    { name: "details", type: "String", required: true, description: "Order details, max: 600", example: "\"XXXX-XXXX-XXXX-3121\"" },
-    { name: "additionalData", type: "String", required: true, description: "For merchant's remark, max 128", example: "\"000008\"" }
-  ]}
-/>
-<br/>
-<strong>Payee object <code>payee</code>:</strong>
-
-<ParamTable
-  rows={[
-    { name: "userId", type: "String", required: true, description: "Payee account id", example: "\"1000000806040489\"" }
-  ]}
-/>
-<br />
-<strong>Store object <code>store</code>:</strong>
-
-<ParamTable
-  rows={[
-    { name: "id", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
-    { name: "name", type: "String", description: "Store Name", example: "\"REVENUE MONSTER\"" },
-    { name: "addressLine1", type: "String", description: "Store Address 1", example: "\"B-5-30, 5th Floor, Block Bougainvillea,\"" },
-    { name: "addressLine2", type: "String", description: "Store Address 2", example: "\"PJU 6A, Lebuhraya SPRINT, 10 Boulevard,\"" },
-    { name: "postCode", type: "String", description: "Postcode of store", example: "\"47400\"" },
-    { name: "city", type: "String", description: "City of store", example: "\"Petaling Jaya\"" },
-    { name: "state", type: "String", description: "State of store", example: "\"Selangor\"" },
-    { name: "country", type: "String", description: "Country of store", example: "\"Malaysia\"" },
-    { name: "countryCode", type: "String", description: "Country code of store contact number", example: "\"60\"" },
-    { name: "phoneNumber", type: "String", description: "Phone number of store", example: "\"377334080\"" },
-    { name: "geoLocation", type: "Object", description: "Geo Location (latitude and longtitude) of store", example: "{\"latitude\": 3.1349857, \"longtitude\": 101.6136659 }" },
-    { name: "status", type: "String", description: "Current status of store", example: "\"ACTIVE\"" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2018-02-12T08:53:13Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time of store", example: "\"2018-02-12T08:53:13Z\"" }
-  ]}
-/>
 <CodeBlock language="json" filename="Example Response">
 {`{
   "balanceAmount": 10,

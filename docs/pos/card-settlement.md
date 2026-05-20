@@ -17,16 +17,13 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
   rows={[
     { name: "terminalId", type: "String", required: true, description: "Terminal ID", example: "\"1582107209454501456\"" },
     { name: "type", type: "String", required: true, description: "Request type", example: "\"SETTLEMENT\"" },
-    { name: "data", type: "String", required: true, description: "(Refer data )", example: "{}" }
+    { name: "data", type: "String", required: true, description: "(Refer data )", example: "{}",
+      children: [
+        { name: "receiptType", type: "Integer", required: true, description: "1 : Print Settlement summary and Settlement detail 3 : Perform settlement in the background without receipt", example: "3" }
+      ]}
   ]}
 />
-<strong>Data object <code>data</code>:</strong>
 
-<ParamTable
-  rows={[
-    { name: "receiptType", type: "Integer", required: true, description: "1 : Print Settlement summary and Settlement detail 3 : Perform settlement in the background without receipt", example: "3" }
-  ]}
-/>
 <CodeBlock language="json" filename="Example Request">
 {`curl --location --request POST "https://sb-open.revenuemonster.my/v3/event/terminal" \\
 --header "Content-Type: application/json" \\
@@ -47,22 +44,18 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
 
 <ParamTable
   rows={[
-    { name: "summary", type: "Object", description: "(Refer summary)", example: "{}" },
+    { name: "summary", type: "Object", description: "(Refer summary)", example: "{}",
+      children: [
+        { name: "batchNo", type: "String", required: true, description: "Sequence no. of the terminal settlement", example: "\"000311\"" },
+        { name: "currencyType", type: "String", required: true, description: "Current only support Ringgit Malaysia", example: "\"MYR\"" },
+        { name: "noOfTransactions", type: "Integer", required: true, description: "Count of settled transactions", example: "2" },
+        { name: "settlementAt", type: "DateTime", required: true, description: "Date and time of the settlement", example: "\"2021-02-17T18:06:47Z\"" },
+        { name: "totalSalesAmount", type: "Integer", required: true, description: "Balance in cents", example: "0" }
+      ]},
     { name: "transactions", type: "Array", description: "(Refer to transaction)", example: "[]" }
   ]}
 />
-<br/>
-<strong>Summary object <code>summary</code>:</strong>
 
-<ParamTable
-  rows={[
-    { name: "batchNo", type: "String", required: true, description: "Sequence no. of the terminal settlement", example: "\"000311\"" },
-    { name: "currencyType", type: "String", required: true, description: "Current only support Ringgit Malaysia", example: "\"MYR\"" },
-    { name: "noOfTransactions", type: "Integer", required: true, description: "Count of settled transactions", example: "2" },
-    { name: "settlementAt", type: "DateTime", required: true, description: "Date and time of the settlement", example: "\"2021-02-17T18:06:47Z\"" },
-    { name: "totalSalesAmount", type: "Integer", required: true, description: "Balance in cents", example: "0" }
-  ]}
-/>
 <br/>
 <strong>Transaction object <code>transaction</code>:</strong>
 

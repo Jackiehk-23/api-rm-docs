@@ -81,7 +81,17 @@ Give a stamp to customer
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "item", type: "Object", description: "Transaction object", example: "(Refer to explanation below)" },
+    { name: "item", type: "Object", description: "Transaction object",
+      children: [
+        { name: "id", type: "String", description: "Chop Stamp ID", example: "\"1583401221690518310\"" },
+        { name: "key", type: "String", description: "Chop Stamp Key", example: "\"EhQKCE1lcmNoYW50EJXVzd3wraqTORIgChRMb3lhbHR5Q2hvcFN0YW1wQ2FyZBCm1qHe2eDX_BU\"" },
+        { name: "noOfChoppedStamp", type: "Integer", description: "Number of redeem", example: "2" },
+        { name: "isCompleted", type: "Boolean", description: "True or False", example: "false" },
+        { name: "startAt", type: "DateTime", description: "Time Start", example: "\"2020-03-02T13:49:08Z\"" },
+        { name: "endAt", type: "DateTime", description: "Time End", example: "\"2021-04-02T13:49:08Z\"" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time", example: "\"2020-03-05T09:40:21Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-03-05T09:40:21Z\"" }
+      ]},
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
@@ -90,20 +100,4 @@ Give a stamp to customer
 <br/>
 
 <a id="item" />
-
-<strong>Transaction object <code>item</code>:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "id", type: "String", description: "Chop Stamp ID", example: "\"1583401221690518310\"" },
-    { name: "key", type: "String", description: "Chop Stamp Key", example: "\"EhQKCE1lcmNoYW50EJXVzd3wraqTORIgChRMb3lhbHR5Q2hvcFN0YW1wQ2FyZBCm1qHe2eDX_BU\"" },
-    { name: "noOfChoppedStamp", type: "Integer", description: "Number of redeem", example: "2" },
-    { name: "isCompleted", type: "Boolean", description: "True or False", example: "false" },
-    { name: "startAt", type: "DateTime", description: "Time Start", example: "\"2020-03-02T13:49:08Z\"" },
-    { name: "endAt", type: "DateTime", description: "Time End", example: "\"2021-04-02T13:49:08Z\"" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time", example: "\"2020-03-05T09:40:21Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-03-05T09:40:21Z\"" }
-  ]}
-/>
 

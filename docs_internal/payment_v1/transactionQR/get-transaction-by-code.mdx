@@ -27,56 +27,45 @@ No request parameter is required for this endpoint.
 
 <ParamTable
   rows={[
-    { name: "items", type: "[]Object", description: "Transaction object", example: "(Refer to explanation below)" },
+    { name: "items", type: "[]Object", description: "Transaction object",
+      children: [
+        { name: "store", type: "Object", description: "Store object",
+      children: [
+        { name: "id", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
+        { name: "name", type: "String", description: "Store Name", example: "\"REVENUE MONSTER\"" },
+        { name: "addressLine1", type: "String", description: "Store Address 1", example: "\"B-5-30, 5th Floor, Block Bougainvillea,\"" },
+        { name: "addressLine2", type: "String", description: "Store Address 2", example: "\"PJU 6A, Lebuhraya SPRINT, 10 Boulevard,\"" },
+        { name: "postCode", type: "String", description: "Postcode of store", example: "\"47400\"" },
+        { name: "city", type: "String", description: "City of store", example: "\"Petaling Jaya\"" },
+        { name: "state", type: "String", description: "State of store", example: "\"Selangor\"" },
+        { name: "country", type: "String", description: "Country of store", example: "\"Malaysia\"" },
+        { name: "countryCode", type: "String", description: "Country code of store contact number", example: "\"60\"" },
+        { name: "phoneNumber", type: "String", description: "Phone number of store", example: "\"377334080\"" },
+        { name: "geoLocation", type: "Object of [Float]", description: "Geo Location (latitude and longtitude) of store", example: "{\"latitude\": 3.1349857, \"longitude\": 101.6136659 }" },
+        { name: "status", type: "String", description: "Current status of store", example: "\"ACTIVE\"" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2018-02-12T08:53:13Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time of store", example: "\"2018-02-12T08:53:13Z\"" }
+      ]},
+        { name: "referenceId", type: "String", description: "Transaction ID (from WeChat server)", example: "\"\"" },
+        { name: "transactionId", type: "String", description: "Transaction ID (from RM server)", example: "\"152161448229438994\"" },
+        { name: "order", type: "Object", description: "Order object", example: "(Refer to explanation below)" },
+        { name: "terminalId", type: "String", description: "ID of terminal (Optional, if the payment is made through terminal)", example: "\"\"" },
+        { name: "currencyType", type: "String", description: "Currency notation", example: "\"MYR\"" },
+        { name: "balanceAmount", type: "Uint", description: "Total available amount (= total received amount - total refunded amount). In this case, amount 100 is failed, so no amount is received.", example: "0" },
+        { name: "platform", type: "String", description: "\"OPEN_API\" (generated through API calls) or \"PORTAL\" (generated through merchant portal)", example: "\"OPEN_API\"" },
+        { name: "method", type: "String", description: "RM currently supported method", example: "[\"WECHATPAY\",\"WECHATPAY_MY\",  \"WECHATPAY_CN\",\"PRESTO_MY\",\"BOOST_MY\",\"ALIPAY_CN\"]" },
+        { name: "error", type: "String", description: "Error message only if transaction failed (optional)", example: "{message\": \"Payment timeout\"}" },
+        { name: "transactionAt", type: "DateTime", description: "Transaction date time (from wallet server)", example: "\"2018-08-02T09:34:53\"" },
+        { name: "type", type: "String", description: "Can support \"QUICK_PAY\" , \"QR_PAY\"", example: "\"QUICK_PAY\" or \"QR_PAY\"" },
+        { name: "status", type: "String", description: "Transaction status returned from wallet server, \"SUCCESS\" or \"IN_PROCESS\" or \"FAILED\". \"IN_PROCESS\" means user scanned and making payment.", example: "\"FAILED\"" },
+        { name: "region", type: "String", description: "Region of wallet, \"MALAYSIA\" or \"CHINA\"", example: "\"MALAYSIA\"" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time of transaction (from RM server)", example: "\"2018-08-02T09:34:53\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time of transaction", example: "\"2018-08-02T09:34:53\"" }
+      ]},
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-<br />
 
-<strong>Transaction object array (items):</strong>
-
-<ParamTable
-  rows={[
-    { name: "store", type: "Object", description: "Store object", example: "(Refer to explanation below)" },
-    { name: "referenceId", type: "String", description: "Transaction ID (from WeChat server)", example: "\"\"" },
-    { name: "transactionId", type: "String", description: "Transaction ID (from RM server)", example: "\"152161448229438994\"" },
-    { name: "order", type: "Object", description: "Order object", example: "(Refer to explanation below)" },
-    { name: "terminalId", type: "String", description: "ID of terminal (Optional, if the payment is made through terminal)", example: "\"\"" },
-    { name: "currencyType", type: "String", description: "Currency notation", example: "\"MYR\"" },
-    { name: "balanceAmount", type: "Uint", description: "Total available amount (= total received amount - total refunded amount). In this case, amount 100 is failed, so no amount is received.", example: "0" },
-    { name: "platform", type: "String", description: "\"OPEN_API\" (generated through API calls) or \"PORTAL\" (generated through merchant portal)", example: "\"OPEN_API\"" },
-    { name: "method", type: "String", description: "RM currently supported method", example: "[\"WECHATPAY\",\"WECHATPAY_MY\",  \"WECHATPAY_CN\",\"PRESTO_MY\",\"BOOST_MY\",\"ALIPAY_CN\"]" },
-    { name: "error", type: "String", description: "Error message only if transaction failed (optional)", example: "{message\": \"Payment timeout\"}" },
-    { name: "transactionAt", type: "DateTime", description: "Transaction date time (from wallet server)", example: "\"2018-08-02T09:34:53\"" },
-    { name: "type", type: "String", description: "Can support \"QUICK_PAY\" , \"QR_PAY\"", example: "\"QUICK_PAY\" or \"QR_PAY\"" },
-    { name: "status", type: "String", description: "Transaction status returned from wallet server, \"SUCCESS\" or \"IN_PROCESS\" or \"FAILED\". \"IN_PROCESS\" means user scanned and making payment.", example: "\"FAILED\"" },
-    { name: "region", type: "String", description: "Region of wallet, \"MALAYSIA\" or \"CHINA\"", example: "\"MALAYSIA\"" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time of transaction (from RM server)", example: "\"2018-08-02T09:34:53\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time of transaction", example: "\"2018-08-02T09:34:53\"" }
-  ]}
-/>
-<br />
-
-<strong>Store object (store):</strong>
-
-<ParamTable
-  rows={[
-    { name: "id", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
-    { name: "name", type: "String", description: "Store Name", example: "\"REVENUE MONSTER\"" },
-    { name: "addressLine1", type: "String", description: "Store Address 1", example: "\"B-5-30, 5th Floor, Block Bougainvillea,\"" },
-    { name: "addressLine2", type: "String", description: "Store Address 2", example: "\"PJU 6A, Lebuhraya SPRINT, 10 Boulevard,\"" },
-    { name: "postCode", type: "String", description: "Postcode of store", example: "\"47400\"" },
-    { name: "city", type: "String", description: "City of store", example: "\"Petaling Jaya\"" },
-    { name: "state", type: "String", description: "State of store", example: "\"Selangor\"" },
-    { name: "country", type: "String", description: "Country of store", example: "\"Malaysia\"" },
-    { name: "countryCode", type: "String", description: "Country code of store contact number", example: "\"60\"" },
-    { name: "phoneNumber", type: "String", description: "Phone number of store", example: "\"377334080\"" },
-    { name: "geoLocation", type: "Object of [Float]", description: "Geo Location (latitude and longtitude) of store", example: "{\"latitude\": 3.1349857, \"longitude\": 101.6136659 }" },
-    { name: "status", type: "String", description: "Current status of store", example: "\"ACTIVE\"" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2018-02-12T08:53:13Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time of store", example: "\"2018-02-12T08:53:13Z\"" }
-  ]}
-/>
 <br />
 
 <strong>Database object (meta):</strong>

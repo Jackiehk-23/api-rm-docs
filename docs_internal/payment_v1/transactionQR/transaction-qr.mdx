@@ -133,35 +133,25 @@ To create **Static/Dynamic** QR code for user scanning merchant's display QR.
     { name: "amount", type: "Uint", required: true, description: "Amount of order in cent. Only required when \"isPrefillAmount\" = true. (min RM 0.10 or amount: 10)", example: "100" },
     { name: "currencyType", type: "String", required: true, description: "Currency notation (currently only support MYR)", example: "\"MYR\"" },
     { name: "method", type: "[]String", description: "RM currently supported method", example: "[\"WECHATPAY_CN\",\"WECHATPAY_MY\",  \"BOOST_MY\",\"ALIPAY_CN\",\"PRESTO_MY\" ]" },
-    { name: "expiry", type: "Object", description: "Object of expiry", example: "(Refer to explanation below)" },
-    { name: "order", type: "Object", required: true, description: "Object of order", example: "(Refer to explanation below)" },
+    { name: "expiry", type: "Object", description: "Object of expiry",
+      children: [
+        { name: "type", type: "String", required: true, description: "\"DYNAMIC\" (days from now), \"FIX\" (specific fixed date) or \"PERMANENT\" (never expire)", example: "\"PERMANENT\"" },
+        { name: "day", type: "Uint", description: "Only required by \"DYNAMIC\" expiry type. To indicate number of days from now until expiry.", example: "3" },
+        { name: "expiredAt", type: "DateTime", description: "Only required by \"FIXED\". To indicate specific expiry date.", example: "\"2020-10-07T17:44:26.679908+08:00\"" }
+      ]},
+    { name: "order", type: "Object", required: true, description: "Object of order",
+      children: [
+        { name: "detail", type: "String", required: true, description: "Order details, max: 600", example: "\"1 x iPhone X; 2 x SAMSUNG S8\"" },
+        { name: "title", type: "String", required: true, description: "Order title, max: 32", example: "\"Sales\"" },
+        { name: "additionalData", type: "String", required: true, description: "Order additional data, max: 128", example: "\"Sales for customer xxx at branch xxx.\"" }
+      ]},
     { name: "redirectUrl", type: "String", description: "URL to redirect after payment is made. Default is \"\".", example: "\"https://www.apple.com/my/iphone/\"" },
     { name: "type", type: "String", required: true, description: "\"STATIC\" (for permanent use) or \"DYNAMIC\" (for one-time use)", example: "\"STATIC\"" },
     { name: "storeId", type: "String", required: true, description: "ID of the store to create QR code", example: "\"10946114768247530\"" },
     { name: "isPreFillAmount", type: "Bool", description: "To indicate QR code has pre-fill amount. Default is false. (i.e. Amount will be shown directly on user's wallet without keying-in)", example: "true" }
   ]}
 />
-<br />
 
-<strong>Expiry object (expiry):</strong>
-
-<ParamTable
-  rows={[
-    { name: "type", type: "String", required: true, description: "\"DYNAMIC\" (days from now), \"FIX\" (specific fixed date) or \"PERMANENT\" (never expire)", example: "\"PERMANENT\"" },
-    { name: "day", type: "Uint", description: "Only required by \"DYNAMIC\" expiry type. To indicate number of days from now until expiry.", example: "3" },
-    { name: "expiredAt", type: "DateTime", description: "Only required by \"FIXED\". To indicate specific expiry date.", example: "\"2020-10-07T17:44:26.679908+08:00\"" }
-  ]}
-/>
-<br />
-<strong>Order object (order):</strong>
-
-<ParamTable
-  rows={[
-    { name: "detail", type: "String", required: true, description: "Order details, max: 600", example: "\"1 x iPhone X; 2 x SAMSUNG S8\"" },
-    { name: "title", type: "String", required: true, description: "Order title, max: 32", example: "\"Sales\"" },
-    { name: "additionalData", type: "String", required: true, description: "Order additional data, max: 128", example: "\"Sales for customer xxx at branch xxx.\"" }
-  ]}
-/>
 > Example Request
 
 ```json
@@ -178,76 +168,54 @@ curl --location --request POST "https://sb-open.revenuemonster.my/v3/payment/tra
 
 <ParamTable
   rows={[
-    { name: "item", type: "Object", description: "Transaction object", example: "(Refer to explanation below)" },
+    { name: "item", type: "Object", description: "Transaction object",
+      children: [
+        { name: "store", type: "Object", description: "Store object",
+      children: [
+        { name: "id", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
+        { name: "name", type: "String", description: "Store Name", example: "\"REVENUE MONSTER\"" },
+        { name: "addressLine1", type: "String", description: "Store Address 1", example: "\"B-5-30, 5th Floor, Block Bougainvillea,\"" },
+        { name: "addressLine2", type: "String", description: "Store Address 2", example: "\"PJU 6A, Lebuhraya SPRINT, 10 Boulevard,\"" },
+        { name: "postCode", type: "String", description: "Postcode of store", example: "\"47400\"" },
+        { name: "city", type: "String", description: "City of store", example: "\"Petaling Jaya\"" },
+        { name: "state", type: "String", description: "State of store", example: "\"Selangor\"" },
+        { name: "country", type: "String", description: "Country of store", example: "\"Malaysia\"" },
+        { name: "countryCode", type: "String", description: "Country code of store contact number", example: "\"60\"" },
+        { name: "phoneNumber", type: "String", description: "Phone number of store", example: "\"377334080\"" },
+        { name: "geoLocation", type: "Object of [Float]", description: "Geo Location (latitude and longtitude) of store", example: "{\"latitude\": 3.1349857, \"longitude\": 101.6136659 }" },
+        { name: "status", type: "String", description: "Current status of store", example: "\"ACTIVE\"" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2018-02-12T08:53:13Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time of store", example: "\"2018-02-12T08:53:13Z\"" }
+      ]},
+        { name: "type", type: "String", description: "\"DYNAMIC\" (days from now), \"FIXED\" (specific fixed date) or \"PERMANENT\" (never expire)", example: "\"PERMANENT\"" },
+        { name: "isPreFillAmount", type: "Bool", description: "To indicate QR code has pre-fill amount", example: "true" },
+        { name: "currencyType", type: "String", description: "Currency notation", example: "\"MYR\"" },
+        { name: "amount", type: "Uint", description: "Amount of order in cent. Only required when \"isPrefillAmount\" = true.", example: "100" },
+        { name: "platform", type: "String", description: "Currently only support \"OPEN_API\"", example: "\"OPEN_API\"" },
+        { name: "method", type: "[]String", description: "RM currently supported method", example: "[\"WECHATPAY_CN\",\"WECHATPAY_MY\",  \"BOOST_MY\",\"ALIPAY_CN\",\"PRESTO_MY\"]" },
+        { name: "expiry", type: "Object", description: "Object of expiry",
+      children: [
+        { name: "type", type: "String", description: "\"DYNAMIC\" (days from now), \"FIX\" (specific fixed date) or \"PERMANENT\" (never expire)", example: "\"PERMANENT\"" },
+        { name: "day", type: "Uint", description: "Only required by \"DYNAMIC\" expiry type. To indicate number of days from now until expiry.", example: "3" },
+        { name: "expiredAt", type: "DateTime", description: "Only required by \"FIXED\". To indicate specific expiry date.", example: "\"2020-10-07T17:44:26.679908+08:00\"" }
+      ]},
+        { name: "code", type: "String", description: "Embedded code in QR", example: "\"c8ff3df0605a5f20cd6476661072eade\"" },
+        { name: "status", type: "String", description: "\"VALID\" (always valid for static QR) or \"REDEEMED\" (only applicable to dynamic QR)", example: "\"VALID\"" },
+        { name: "qrCodeUrl", type: "String", description: "Embedded URL in QR", example: "\"https://dev-rm-api.ap.ngrok.io/payment/unified?code=c8ff3df0605a5f20cd6476661072eade\"" },
+        { name: "redirectUrl", type: "String", description: "Redirect URL after QR payment is made", example: "\"https://www.apple.com/my/iphone/\"" },
+        { name: "order", type: "Object", description: "Order object",
+      children: [
+        { name: "details", type: "String", description: "Order details, max: 600", example: "\"1 x iPhone X; 2 x SAMSUNG S8\"" },
+        { name: "title", type: "String", description: "Order title, max: 32", example: "\"Sales\"" },
+        { name: "additionalData", type: "String", description: "Order additional data, max: 128", example: "\"Sales for customer xxx at branch xxx.\"" }
+      ]},
+        { name: "createdAt", type: "DateTime", description: "Creation date time of transaction", example: "\"2018-03-21T06:41:22Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time of transaction", example: "\"2018-03-21T06:41:22Z\"" }
+      ]},
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-<br />
 
-<strong>Transaction object (item):</strong>
-
-<ParamTable
-  rows={[
-    { name: "store", type: "Object", description: "Store object", example: "(Refer to explanation below)" },
-    { name: "type", type: "String", description: "\"DYNAMIC\" (days from now), \"FIXED\" (specific fixed date) or \"PERMANENT\" (never expire)", example: "\"PERMANENT\"" },
-    { name: "isPreFillAmount", type: "Bool", description: "To indicate QR code has pre-fill amount", example: "true" },
-    { name: "currencyType", type: "String", description: "Currency notation", example: "\"MYR\"" },
-    { name: "amount", type: "Uint", description: "Amount of order in cent. Only required when \"isPrefillAmount\" = true.", example: "100" },
-    { name: "platform", type: "String", description: "Currently only support \"OPEN_API\"", example: "\"OPEN_API\"" },
-    { name: "method", type: "[]String", description: "RM currently supported method", example: "[\"WECHATPAY_CN\",\"WECHATPAY_MY\",  \"BOOST_MY\",\"ALIPAY_CN\",\"PRESTO_MY\"]" },
-    { name: "expiry", type: "Object", description: "Object of expiry", example: "(Refer to explanation above)" },
-    { name: "code", type: "String", description: "Embedded code in QR", example: "\"c8ff3df0605a5f20cd6476661072eade\"" },
-    { name: "status", type: "String", description: "\"VALID\" (always valid for static QR) or \"REDEEMED\" (only applicable to dynamic QR)", example: "\"VALID\"" },
-    { name: "qrCodeUrl", type: "String", description: "Embedded URL in QR", example: "\"https://dev-rm-api.ap.ngrok.io/payment/unified?code=c8ff3df0605a5f20cd6476661072eade\"" },
-    { name: "redirectUrl", type: "String", description: "Redirect URL after QR payment is made", example: "\"https://www.apple.com/my/iphone/\"" },
-    { name: "order", type: "Object", description: "Order object", example: "(Refer to explanation below)" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time of transaction", example: "\"2018-03-21T06:41:22Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time of transaction", example: "\"2018-03-21T06:41:22Z\"" }
-  ]}
-/>
-<br />
-<strong>Store object (store):</strong>
-
-<ParamTable
-  rows={[
-    { name: "id", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
-    { name: "name", type: "String", description: "Store Name", example: "\"REVENUE MONSTER\"" },
-    { name: "addressLine1", type: "String", description: "Store Address 1", example: "\"B-5-30, 5th Floor, Block Bougainvillea,\"" },
-    { name: "addressLine2", type: "String", description: "Store Address 2", example: "\"PJU 6A, Lebuhraya SPRINT, 10 Boulevard,\"" },
-    { name: "postCode", type: "String", description: "Postcode of store", example: "\"47400\"" },
-    { name: "city", type: "String", description: "City of store", example: "\"Petaling Jaya\"" },
-    { name: "state", type: "String", description: "State of store", example: "\"Selangor\"" },
-    { name: "country", type: "String", description: "Country of store", example: "\"Malaysia\"" },
-    { name: "countryCode", type: "String", description: "Country code of store contact number", example: "\"60\"" },
-    { name: "phoneNumber", type: "String", description: "Phone number of store", example: "\"377334080\"" },
-    { name: "geoLocation", type: "Object of [Float]", description: "Geo Location (latitude and longtitude) of store", example: "{\"latitude\": 3.1349857, \"longitude\": 101.6136659 }" },
-    { name: "status", type: "String", description: "Current status of store", example: "\"ACTIVE\"" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2018-02-12T08:53:13Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time of store", example: "\"2018-02-12T08:53:13Z\"" }
-  ]}
-/>
-<br />
-
-<strong>Expiry object (expiry):</strong>
-
-<ParamTable
-  rows={[
-    { name: "type", type: "String", description: "\"DYNAMIC\" (days from now), \"FIX\" (specific fixed date) or \"PERMANENT\" (never expire)", example: "\"PERMANENT\"" },
-    { name: "day", type: "Uint", description: "Only required by \"DYNAMIC\" expiry type. To indicate number of days from now until expiry.", example: "3" },
-    { name: "expiredAt", type: "DateTime", description: "Only required by \"FIXED\". To indicate specific expiry date.", example: "\"2020-10-07T17:44:26.679908+08:00\"" }
-  ]}
-/>
-<br />
-
-<strong>Order object (order):</strong>
-
-<ParamTable
-  rows={[
-    { name: "details", type: "String", description: "Order details, max: 600", example: "\"1 x iPhone X; 2 x SAMSUNG S8\"" },
-    { name: "title", type: "String", description: "Order title, max: 32", example: "\"Sales\"" },
-    { name: "additionalData", type: "String", description: "Order additional data, max: 128", example: "\"Sales for customer xxx at branch xxx.\"" }
-  ]}
-/>
 > Example Response
 
 ```json

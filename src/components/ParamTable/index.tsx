@@ -8,6 +8,7 @@ export interface ParamRow {
   description?: string;
   example?: string;
   anchor?: string;
+  children?: ParamRow[];
 }
 
 interface ParamTableProps {
@@ -59,6 +60,8 @@ export default function ParamTable({
 }
 
 function ParamRowItem({ row, last }: { row: ParamRow; last: boolean }) {
+  const [childOpen, setChildOpen] = useState(false);
+  const hasChildren = row.children && row.children.length > 0;
   const typeKey = `type_${(row.type ?? "").toLowerCase()}` as keyof typeof styles;
 
   return (
@@ -93,6 +96,50 @@ function ParamRowItem({ row, last }: { row: ParamRow; last: boolean }) {
             <code className={styles.exampleValue}>{row.example}</code>
           )}
         </p>
+      )}
+
+      {hasChildren && (
+        <div className={styles.childSection}>
+          <button
+            className={`${styles.childToggle} ${childOpen ? styles.childToggleOpen : ""}`}
+            onClick={() => setChildOpen((o) => !o)}
+            type="button"
+          >
+            <svg
+              className={styles.childToggleX}
+              width="10"
+              height="10"
+              viewBox="0 0 10 10"
+              fill="none"
+              style={{ display: childOpen ? "block" : "none" }}
+            >
+              <path d="M1 1L9 9M9 1L1 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+            <svg
+              className={styles.childToggleChevron}
+              width="10"
+              height="10"
+              viewBox="0 0 10 10"
+              fill="none"
+              style={{ display: childOpen ? "none" : "block" }}
+            >
+              <path d="M2 4L5 7L8 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span>{childOpen ? "Hide child parameters" : "Show child parameters"}</span>
+          </button>
+
+          <div className={`${styles.childBody} ${childOpen ? styles.childBodyOpen : styles.childBodyClose}`}>
+            <div className={styles.childInner}>
+              {row.children!.map((child, ci) => (
+                <ParamRowItem
+                  key={ci}
+                  row={child}
+                  last={ci === row.children!.length - 1}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

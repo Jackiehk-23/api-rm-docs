@@ -113,7 +113,15 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
     { name: "label", type: "String", description: "Reward Label", example: "\"Prudential RM 5 Cash Vouchers ( BoostPulse )\"" },
     { name: "imageUrl", type: "String", description: "Reward Image", example: "\"\"" },
     { name: "point", type: "Integer", description: "Reward Point", example: "1" },
-    { name: "payload", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" },
+    { name: "payload", type: "Object", description: "Refer to explanation below",
+      children: [
+        { name: "tnc", type: "Array", example: "[\"T&C\"]" },
+        { name: "contactInfo", type: "Object", description: "Refer to explanation below",
+      children: [
+        { name: "email", type: "String", description: "Email", example: "\"\"" },
+        { name: "phoneNumber", type: "String", description: "Phone Number", example: "\"\"" }
+      ]}
+      ]},
     { name: "isShipping", type: "Boolean", description: "Reward shipping", example: "false" },
     { name: "quantity", type: "Integer", description: "Reward Quantity", example: "49998" },
     { name: "balanceQuantity", type: "Integer", description: "Reward Balance Quantity", example: "49991" },
@@ -134,29 +142,7 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
 <br />
 <a id="payload" />
 
-<strong>Payload object:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "tnc", type: "Array", example: "[\"T&C\"]" },
-    { name: "contactInfo", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-
 <br />
 <a id="contactinfo" />
-
-<strong>Contact Info object:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "email", type: "String", description: "Email", example: "\"\"" },
-    { name: "phoneNumber", type: "String", description: "Phone Number", example: "\"\"" }
-  ]}
-/>
-
 
 <br />

@@ -119,7 +119,25 @@ To create a store under one merchant.
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "item", type: "Array", description: "Array of store object", example: "(Refer to explanation below)" },
+    { name: "item", type: "Array", description: "Array of store object",
+      children: [
+        { name: "id", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
+        { name: "merchantSettlementId", type: "String", description: "Merchant Settlement ID", example: "\"6170506694335521334\"" },
+        { name: "name", type: "String", description: "Store Name", example: "\"REVENUE MONSTER\"" },
+        { name: "addressLine1", type: "String", description: "Store Address 1", example: "\"B-5-30, 5th Floor, Block Bougainvillea,\"" },
+        { name: "addressLine2", type: "String", description: "Store Address 2", example: "\"PJU 6A, Lebuhraya SPRINT, 10 Boulevard,\"" },
+        { name: "postCode", type: "String", description: "Postcode of store", example: "\"47400\"" },
+        { name: "city", type: "String", description: "City of store", example: "\"Petaling Jaya\"" },
+        { name: "state", type: "String", description: "State of store", example: "\"Selangor\"" },
+        { name: "country", type: "String", description: "Country of store", example: "\"Malaysia\"" },
+        { name: "countryCode", type: "String", description: "Country code of store contact number", example: "\"60\"" },
+        { name: "phoneNumber", type: "String", description: "Phone number of store", example: "\"377334080\"" },
+        { name: "geoLocation", type: "Object", description: "Geo Location (latitude and longitude) of store", example: "{\"latitude\": 3.1349857, \"longitude\": 101.6136659 }" },
+        { name: "status", type: "String", description: "Current status of store", example: "\"ACTIVE\"" },
+        { name: "isDefault", type: "String", description: "Default store of merchant (first store created upon signup)", example: "true" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2018-02-12T08:53:13Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time of store", example: "\"2018-02-12T08:53:13Z\"" }
+      ]},
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
@@ -128,28 +146,4 @@ To create a store under one merchant.
 <br/>
 
 <a id="item" />
-
-<strong>Array of store object <code>item</code>:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "id", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
-    { name: "merchantSettlementId", type: "String", description: "Merchant Settlement ID", example: "\"6170506694335521334\"" },
-    { name: "name", type: "String", description: "Store Name", example: "\"REVENUE MONSTER\"" },
-    { name: "addressLine1", type: "String", description: "Store Address 1", example: "\"B-5-30, 5th Floor, Block Bougainvillea,\"" },
-    { name: "addressLine2", type: "String", description: "Store Address 2", example: "\"PJU 6A, Lebuhraya SPRINT, 10 Boulevard,\"" },
-    { name: "postCode", type: "String", description: "Postcode of store", example: "\"47400\"" },
-    { name: "city", type: "String", description: "City of store", example: "\"Petaling Jaya\"" },
-    { name: "state", type: "String", description: "State of store", example: "\"Selangor\"" },
-    { name: "country", type: "String", description: "Country of store", example: "\"Malaysia\"" },
-    { name: "countryCode", type: "String", description: "Country code of store contact number", example: "\"60\"" },
-    { name: "phoneNumber", type: "String", description: "Phone number of store", example: "\"377334080\"" },
-    { name: "geoLocation", type: "Object", description: "Geo Location (latitude and longitude) of store", example: "{\"latitude\": 3.1349857, \"longitude\": 101.6136659 }" },
-    { name: "status", type: "String", description: "Current status of store", example: "\"ACTIVE\"" },
-    { name: "isDefault", type: "String", description: "Default store of merchant (first store created upon signup)", example: "true" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2018-02-12T08:53:13Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time of store", example: "\"2018-02-12T08:53:13Z\"" }
-  ]}
-/>
 

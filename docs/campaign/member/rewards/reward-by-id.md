@@ -89,7 +89,35 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "item", type: "Object", description: "Reward object", example: "(Refer to explanation below)" },
+    { name: "item", type: "Object", description: "Reward object",
+      children: [
+        { name: "id", type: "String", description: "Reward ID", example: "\"1575971661443933008\"" },
+        { name: "label", type: "String", description: "Reward Label", example: "\"Prudential RM 5 Cash Vouchers ( BoostPulse )\"" },
+        { name: "imageUrl", type: "String", description: "Reward Image", example: "\"\"" },
+        { name: "point", type: "Integer", description: "Reward Point", example: "1" },
+        { name: "payload", type: "Object", description: "Refer to explanation below",
+      children: [
+        { name: "tnc", type: "Array", example: "[\"T&C\"]" },
+        { name: "contactInfo", type: "Object", description: "Contact Info",
+      children: [
+        { name: "email", type: "String", description: "Email", example: "\"\"" },
+        { name: "phoneNumber", type: "String", description: "Phone Number", example: "\"\"" }
+      ]}
+      ]},
+        { name: "isShipping", type: "Boolean", description: "Credit Balance", example: "false" },
+        { name: "quantity", type: "Integer", description: "Reward Quantity", example: "49998" },
+        { name: "balanceQuantity", type: "Integer", description: "Reward Balance Quantity", example: "49991" },
+        { name: "usedQuantity", type: "Integer", description: "Reward Used Quantity", example: "2" },
+        { name: "redeemQuantity", type: "String", description: "Reward Redeem Quantity", example: "7" },
+        { name: "isEnabled", type: "Boolean", description: "Enable Reward", example: "true" },
+        { name: "limitPerUser", type: "Integer", description: "Set Limit per User use", example: "1" },
+        { name: "status", type: "String", description: "Reward status have (\"COMPLETED\", \"INPROGRESS\", \"FAILED\", \"EXPIRED\")", example: "\"COMPLETED\"" },
+        { name: "isCombo", type: "Boolean", description: "Reward is Combo", example: "false" },
+        { name: "type", type: "String", description: "Reward type have Combo or Batch", example: "\"\"" },
+        { name: "createdAt", type: "DateTime", description: "Create date time", example: "\"2020-11-18T06:43:19Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-11-25T05:58:56Z\"" },
+        { name: "expiredAt", type: "DateTime", description: "Expired date time", example: "\"2018-10-19T03:39:47Z\"" }
+      ]},
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
@@ -99,60 +127,12 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
 
 <a id="item" />
 
-<strong>Reward object <code>item</code>:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "id", type: "String", description: "Reward ID", example: "\"1575971661443933008\"" },
-    { name: "label", type: "String", description: "Reward Label", example: "\"Prudential RM 5 Cash Vouchers ( BoostPulse )\"" },
-    { name: "imageUrl", type: "String", description: "Reward Image", example: "\"\"" },
-    { name: "point", type: "Integer", description: "Reward Point", example: "1" },
-    { name: "payload", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" },
-    { name: "isShipping", type: "Boolean", description: "Credit Balance", example: "false" },
-    { name: "quantity", type: "Integer", description: "Reward Quantity", example: "49998" },
-    { name: "balanceQuantity", type: "Integer", description: "Reward Balance Quantity", example: "49991" },
-    { name: "usedQuantity", type: "Integer", description: "Reward Used Quantity", example: "2" },
-    { name: "redeemQuantity", type: "String", description: "Reward Redeem Quantity", example: "7" },
-    { name: "isEnabled", type: "Boolean", description: "Enable Reward", example: "true" },
-    { name: "limitPerUser", type: "Integer", description: "Set Limit per User use", example: "1" },
-    { name: "status", type: "String", description: "Reward status have (\"COMPLETED\", \"INPROGRESS\", \"FAILED\", \"EXPIRED\")", example: "\"COMPLETED\"" },
-    { name: "isCombo", type: "Boolean", description: "Reward is Combo", example: "false" },
-    { name: "type", type: "String", description: "Reward type have Combo or Batch", example: "\"\"" },
-    { name: "createdAt", type: "DateTime", description: "Create date time", example: "\"2020-11-18T06:43:19Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-11-25T05:58:56Z\"" },
-    { name: "expiredAt", type: "DateTime", description: "Expired date time", example: "\"2018-10-19T03:39:47Z\"" }
-  ]}
-/>
-
-
 <br />
 
 <a id="payload" />
 
-<strong>Payload object:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "tnc", type: "Array", example: "[\"T&C\"]" },
-    { name: "contactInfo", type: "Object", description: "Contact Info", example: "(Refer to explanation below)" }
-  ]}
-/>
-
 <br />
 
 <a id="contactinfo" />
-
-<strong>Contact Info object:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "email", type: "String", description: "Email", example: "\"\"" },
-    { name: "phoneNumber", type: "String", description: "Phone Number", example: "\"\"" }
-  ]}
-/>
-
 
 <br />

@@ -91,20 +91,15 @@ curl --location --request POST '{{open_base_path}}/v3/payment/online/checkout' \
 
 <ParamTable
   rows={[
-    { name: "item", type: "Object", description: "Object of refund details.", example: "(Refer to explanation below)" },
+    { name: "item", type: "Object", description: "Object of refund details.",
+      children: [
+        { name: "type", type: "String", description: "URL or QRCODE", example: "\"URL\"" },
+        { name: "url", type: "String", description: "Once you press this link it will redirect to the wallet.", example: "\"Url link show as below\"" }
+      ]},
     { name: "code", type: "String", description: "Status returned from Revenue Monster server, whether successfully called our endpoint or not.", example: "\"SUCCESS\"" }
   ]}
 />
-<br/>
 
-<strong>Item Object (item):</strong>
-
-<ParamTable
-  rows={[
-    { name: "type", type: "String", description: "URL or QRCODE", example: "\"URL\"" },
-    { name: "url", type: "String", description: "Once you press this link it will redirect to the wallet.", example: "\"Url link show as below\"" }
-  ]}
-/>
 > Example Response for URL
 
 ```json

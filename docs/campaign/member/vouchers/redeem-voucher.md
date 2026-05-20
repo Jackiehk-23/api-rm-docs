@@ -34,7 +34,55 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/loyalty/me/voucher/{voucher-
 
 <ParamTable
   rows={[
-    { name: "item", type: "Object", description: "Voucher object", example: "(Refer to explanation below)" },
+    { name: "item", type: "Object", description: "Voucher object",
+      children: [
+        { name: "key", type: "String", description: "Voucher Key (Internal Usage)", example: "\"EhIKBk1lbWJlchDOuOKz24XWkg4SGQoNTWVtYmVyUHJvZmlsZRDl-MTxiPOPjzY\"" },
+        { name: "label", type: "String", description: "Voucher Label", example: "\"asdasd\"" },
+        { name: "voucherBatchKey", type: "String", description: "Voucher Batch Key", example: "\"EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQs4n7iuzioaQW\"" },
+        { name: "type", type: "String", description: "Voucher Type (\"CASH\", \"DISCOUND\", \"GIFT\")", example: "\"CASH\"" },
+        { name: "amount", type: "Integer", description: "Amount of the voucher", example: "100" },
+        { name: "discountRate", type: "Integer", description: "Voucher Discount Rate", example: "0" },
+        { name: "minimumSpendAmount", type: "Integer", description: "Set a Minimum Spend Amount", example: "0" },
+        { name: "origin", type: "String", description: "Origin is for determine voucher source (\"SYSTEM\", \"SELF\", \"MARKETPLACE\" )", example: "\"SYSTEM\"" },
+        { name: "imageUrl", type: "String", description: "Voucher Image", example: "\"\"" },
+        { name: "memberProfile", type: "Object", description: "Member Profile (refer to profile page)", example: "null" },
+        { name: "assignedAt", type: "DateTime", description: "Voucher Assign at", example: "\"0001-01-01T00:00:00Z\"" },
+        { name: "payload", type: "Object", description: "Refer to explanation below",
+      children: [
+        { name: "tnc", type: "Array", example: "[\"T&C\"]" },
+        { name: "contactInfo", type: "Object", description: "Refer to explanation below",
+      children: [
+        { name: "email", type: "String", description: "Email", example: "\"\"" },
+        { name: "phoneNumber", type: "String", description: "Phone Number", example: "\"\"" }
+      ]}
+      ]},
+        { name: "qrUrl", type: "String", description: "Voucher QRcode URL", example: "\"\"" },
+        { name: "code", type: "String", description: "Voucher Code", example: "\"xR43u4bRhUU\"" },
+        { name: "isShipping", type: "Boolean", description: "Voucher Shipping", example: "false" },
+        { name: "address", type: "Object", description: "Refer to explanation below",
+      children: [
+        { name: "addressLine1", type: "String", description: "Address 1", example: "\"\"" },
+        { name: "addressLine2", type: "String", description: "Address 2", example: "\"\"" },
+        { name: "postcode", type: "String", description: "Postcode", example: "\"\"" },
+        { name: "city", type: "String", description: "City", example: "\"\"" },
+        { name: "state", type: "String", description: "State", example: "\"\"" },
+        { name: "country", type: "String", description: "Country", example: "\"\"" }
+      ]},
+        { name: "expiry", type: "Object", description: "Expiry date time",
+      children: [
+        { name: "type", type: "String", description: "Voucher Type (\"DYNAMIC\" , \"STATIC\")", example: "\"DYNAMIC\"" },
+        { name: "day", type: "Integer", description: "Expired Day", example: "1" },
+        { name: "expiredAt", type: "DateTime", description: "Voucher Expired", example: "\"2020-11-26T04:33:04Z\"" }
+      ]},
+        { name: "usedAt", type: "DateTime", description: "Voucher Use", example: "\"2020-11-25T13:58:55+08:00\"" },
+        { name: "redeemedAt", type: "DateTime", description: "Voucher Redeem", example: "\"2020-11-25T04:33:04Z\"" },
+        { name: "isDeviceRedeem", type: "Boolean", description: "Voucher Redeem Device", example: "true" },
+        { name: "status", type: "String", description: "Voucher Status (\"VALID\", \"ISSUE\", \"REDEEMED\", \"VOID\", \"EXPIRED\", \"MARKET_PLACE\", \"COMPLETE\")", example: "\"VOID\"" },
+        { name: "voucherComboKey", type: "String", description: "Voucher Combo Key", example: "null" },
+        { name: "isMarketPlace", type: "Boolean", description: "Last update date time", example: "false" },
+        { name: "createdAt", type: "DateTime", description: "Create date time", example: "\"2020-11-18T06:43:19Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-11-25T05:58:56Z\"" }
+      ]},
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
@@ -42,89 +90,21 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/loyalty/me/voucher/{voucher-
 
 <a id="item" />
 
-<strong>Voucher object <code>item</code>:</strong>
-
-<ParamTable
-  rows={[
-    { name: "key", type: "String", description: "Voucher Key (Internal Usage)", example: "\"EhIKBk1lbWJlchDOuOKz24XWkg4SGQoNTWVtYmVyUHJvZmlsZRDl-MTxiPOPjzY\"" },
-    { name: "label", type: "String", description: "Voucher Label", example: "\"asdasd\"" },
-    { name: "voucherBatchKey", type: "String", description: "Voucher Batch Key", example: "\"EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQs4n7iuzioaQW\"" },
-    { name: "type", type: "String", description: "Voucher Type (\"CASH\", \"DISCOUND\", \"GIFT\")", example: "\"CASH\"" },
-    { name: "amount", type: "Integer", description: "Amount of the voucher", example: "100" },
-    { name: "discountRate", type: "Integer", description: "Voucher Discount Rate", example: "0" },
-    { name: "minimumSpendAmount", type: "Integer", description: "Set a Minimum Spend Amount", example: "0" },
-    { name: "origin", type: "String", description: "Origin is for determine voucher source (\"SYSTEM\", \"SELF\", \"MARKETPLACE\" )", example: "\"SYSTEM\"" },
-    { name: "imageUrl", type: "String", description: "Voucher Image", example: "\"\"" },
-    { name: "memberProfile", type: "Object", description: "Member Profile (refer to profile page)", example: "null" },
-    { name: "assignedAt", type: "DateTime", description: "Voucher Assign at", example: "\"0001-01-01T00:00:00Z\"" },
-    { name: "payload", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" },
-    { name: "qrUrl", type: "String", description: "Voucher QRcode URL", example: "\"\"" },
-    { name: "code", type: "String", description: "Voucher Code", example: "\"xR43u4bRhUU\"" },
-    { name: "isShipping", type: "Boolean", description: "Voucher Shipping", example: "false" },
-    { name: "address", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" },
-    { name: "expiry", type: "Object", description: "Expiry date time", example: "(Refer to explanation below)" },
-    { name: "usedAt", type: "DateTime", description: "Voucher Use", example: "\"2020-11-25T13:58:55+08:00\"" },
-    { name: "redeemedAt", type: "DateTime", description: "Voucher Redeem", example: "\"2020-11-25T04:33:04Z\"" },
-    { name: "isDeviceRedeem", type: "Boolean", description: "Voucher Redeem Device", example: "true" },
-    { name: "status", type: "String", description: "Voucher Status (\"VALID\", \"ISSUE\", \"REDEEMED\", \"VOID\", \"EXPIRED\", \"MARKET_PLACE\", \"COMPLETE\")", example: "\"VOID\"" },
-    { name: "voucherComboKey", type: "String", description: "Voucher Combo Key", example: "null" },
-    { name: "isMarketPlace", type: "Boolean", description: "Last update date time", example: "false" },
-    { name: "createdAt", type: "DateTime", description: "Create date time", example: "\"2020-11-18T06:43:19Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-11-25T05:58:56Z\"" }
-  ]}
-/>
 <br />
 
 <a id="payload" />
 
-<strong>Payload object:</strong>
-
-<ParamTable
-  rows={[
-    { name: "tnc", type: "Array", example: "[\"T&C\"]" },
-    { name: "contactInfo", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
 <br />
 <a id="contactinfo" />
 
-<strong>Contact Info object:</strong>
-
-<ParamTable
-  rows={[
-    { name: "email", type: "String", description: "Email", example: "\"\"" },
-    { name: "phoneNumber", type: "String", description: "Phone Number", example: "\"\"" }
-  ]}
-/>
 <br />
 
 <a id="expiry" />
 
-<strong>Expiry object:</strong>
-
-<ParamTable
-  rows={[
-    { name: "type", type: "String", description: "Voucher Type (\"DYNAMIC\" , \"STATIC\")", example: "\"DYNAMIC\"" },
-    { name: "day", type: "Integer", description: "Expired Day", example: "1" },
-    { name: "expiredAt", type: "DateTime", description: "Voucher Expired", example: "\"2020-11-26T04:33:04Z\"" }
-  ]}
-/>
 <br />
 
 <a id="address" />
 
-<strong>Address object:</strong>
-
-<ParamTable
-  rows={[
-    { name: "addressLine1", type: "String", description: "Address 1", example: "\"\"" },
-    { name: "addressLine2", type: "String", description: "Address 2", example: "\"\"" },
-    { name: "postcode", type: "String", description: "Postcode", example: "\"\"" },
-    { name: "city", type: "String", description: "City", example: "\"\"" },
-    { name: "state", type: "String", description: "State", example: "\"\"" },
-    { name: "country", type: "String", description: "Country", example: "\"\"" }
-  ]}
-/>
 <br />
 
 <CodeBlock language="json" filename="Example Response">

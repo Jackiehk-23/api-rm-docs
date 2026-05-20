@@ -40,45 +40,34 @@ curl --location --request POST "https://sb-open.revenuemonster.my/v3/payment/rev
 
 <ParamTable
   rows={[
-    { name: "item", type: "Object", description: "Transaction object", example: "(Refer to explanation below)" },
+    { name: "item", type: "Object", description: "Transaction object",
+      children: [
+        { name: "referenceId", type: "String", description: "Transaction ID (from WeChat server)", example: "\"\"" },
+        { name: "transactionId", type: "String", description: "Transaction ID (from RM server)", example: "\"152161448229438994\"" },
+        { name: "order", type: "Object", description: "Order object",
+      children: [
+        { name: "id", type: "String", description: "Order ID (from Merchant), max: 24", example: "\"134850717797247290\"" },
+        { name: "title", type: "String", description: "Order title, max: 32", example: "\"Sales\"" },
+        { name: "detail", type: "String", description: "Order details, max: 600", example: "\"1 x iPhone X; 2 x SAMSUNG S8\"" },
+        { name: "amount", type: "Uint", description: "Amount of order in cent", example: "100" }
+      ]},
+        { name: "terminalId", type: "String", description: "ID of terminal for payment", example: "\"19382734937293\"" },
+        { name: "currencyType", type: "String", description: "Currency notation", example: "\"MYR\"" },
+        { name: "balanceAmount", type: "Uint", description: "Sales Amount", example: "123" },
+        { name: "payee", type: "Object", description: "Object of userID made payment (payment sender)", example: "{\"userId\": \"o74f0wjjzv9eKRu1fccrZswVFnOQ\"}" },
+        { name: "platform", type: "String", description: "Currently only support \"OPEN_API\"", example: "\"OPEN_API\"" },
+        { name: "method", type: "String", description: "RM currently supported method", example: "ALL" },
+        { name: "type", type: "String", description: "Currently only support \"QUICKPAY\"", example: "\"QUICKPAY\"" },
+        { name: "status", type: "String", description: "Status returned from WeChat server", example: "\"SUCCESS\"" },
+        { name: "region", type: "String", description: "Region of wallet, \"MALAYSIA\" or \"CHINA\"", example: "\"MALAYSIA\"" },
+        { name: "transactionAt", type: "DateTime", description: "Transaction date time (from wallet server)", example: "\"2018-08-02T09:34:53Z\"" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time of transaction", example: "\"2018-03-21T06:41:22Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time of transaction", example: "\"2018-03-21T06:41:22Z\"" }
+      ]},
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-<br />
-<strong>Transaction object (item):</strong>
 
-<ParamTable
-  rows={[
-    { name: "referenceId", type: "String", description: "Transaction ID (from WeChat server)", example: "\"\"" },
-    { name: "transactionId", type: "String", description: "Transaction ID (from RM server)", example: "\"152161448229438994\"" },
-    { name: "order", type: "Object", description: "Order object", example: "(Refer to explanation below)" },
-    { name: "terminalId", type: "String", description: "ID of terminal for payment", example: "\"19382734937293\"" },
-    { name: "currencyType", type: "String", description: "Currency notation", example: "\"MYR\"" },
-    { name: "balanceAmount", type: "Uint", description: "Sales Amount", example: "123" },
-    { name: "payee", type: "Object", description: "Object of userID made payment (payment sender)", example: "{\"userId\": \"o74f0wjjzv9eKRu1fccrZswVFnOQ\"}" },
-    { name: "platform", type: "String", description: "Currently only support \"OPEN_API\"", example: "\"OPEN_API\"" },
-    { name: "method", type: "String", description: "RM currently supported method", example: "ALL" },
-    { name: "type", type: "String", description: "Currently only support \"QUICKPAY\"", example: "\"QUICKPAY\"" },
-    { name: "status", type: "String", description: "Status returned from WeChat server", example: "\"SUCCESS\"" },
-    { name: "region", type: "String", description: "Region of wallet, \"MALAYSIA\" or \"CHINA\"", example: "\"MALAYSIA\"" },
-    { name: "transactionAt", type: "DateTime", description: "Transaction date time (from wallet server)", example: "\"2018-08-02T09:34:53Z\"" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time of transaction", example: "\"2018-03-21T06:41:22Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time of transaction", example: "\"2018-03-21T06:41:22Z\"" }
-  ]}
-/>
-<br />
-
-
-<strong>Order object (order):</strong>
-
-<ParamTable
-  rows={[
-    { name: "id", type: "String", description: "Order ID (from Merchant), max: 24", example: "\"134850717797247290\"" },
-    { name: "title", type: "String", description: "Order title, max: 32", example: "\"Sales\"" },
-    { name: "detail", type: "String", description: "Order details, max: 600", example: "\"1 x iPhone X; 2 x SAMSUNG S8\"" },
-    { name: "amount", type: "Uint", description: "Amount of order in cent", example: "100" }
-  ]}
-/>
 > Example Response
 
 ```json

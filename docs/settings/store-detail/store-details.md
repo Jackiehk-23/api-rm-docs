@@ -123,9 +123,31 @@ No request parameter is required for this endpoint.
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "items", type: "Array", description: "Array of store object", example: "(Refer to explanation below)" },
+    { name: "items", type: "Array", description: "Array of store object",
+      children: [
+        { name: "id", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
+        { name: "name", type: "String", description: "Store Name", example: "\"REVENUE MONSTER\"" },
+        { name: "addressLine1", type: "String", description: "Store Address 1", example: "\"B-5-30, 5th Floor, Block Bougainvillea,\"" },
+        { name: "addressLine2", type: "String", description: "Store Address 2", example: "\"PJU 6A, Lebuhraya SPRINT, 10 Boulevard,\"" },
+        { name: "postCode", type: "String", description: "Postcode of store", example: "\"47400\"" },
+        { name: "city", type: "String", description: "City of store", example: "\"Petaling Jaya\"" },
+        { name: "state", type: "String", description: "State of store", example: "\"Selangor\"" },
+        { name: "country", type: "String", description: "Country of store", example: "\"Malaysia\"" },
+        { name: "countryCode", type: "String", description: "Country code of store contact number", example: "\"60\"" },
+        { name: "phoneNumber", type: "String", description: "Phone number of store", example: "\"377334080\"" },
+        { name: "geoLocation", type: "Object", description: "Geo Location (latitude and longitude) of store", example: "{\"Lat\": 3.1349857, \"Lng\": 101.6136659 }" },
+        { name: "status", type: "String", description: "Current status of store", example: "\"ACTIVE\"" },
+        { name: "isDefault", type: "String", description: "Default store of merchant (first store created upon signup)", example: "true" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2018-02-12T08:53:13Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time of store", example: "\"2018-02-12T08:53:13Z\"" }
+      ]},
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" },
-    { name: "meta", type: "Object", description: "Database object", example: "(Refer to explanation below)" }
+    { name: "meta", type: "Object", description: "Database object",
+      children: [
+        { name: "count", type: "Integer", description: "Current page record", example: "1" },
+        { name: "total", type: "Integer", description: "Total record in database", example: "1" },
+        { name: "cursor", type: "Integer", description: "Optional, if pagination exists.", example: "1" }
+      ]}
   ]}
 />
 
@@ -133,41 +155,6 @@ No request parameter is required for this endpoint.
 <br/>
 <a id="items" />
 
-<strong>Array of store object <code>items</code>:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "id", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
-    { name: "name", type: "String", description: "Store Name", example: "\"REVENUE MONSTER\"" },
-    { name: "addressLine1", type: "String", description: "Store Address 1", example: "\"B-5-30, 5th Floor, Block Bougainvillea,\"" },
-    { name: "addressLine2", type: "String", description: "Store Address 2", example: "\"PJU 6A, Lebuhraya SPRINT, 10 Boulevard,\"" },
-    { name: "postCode", type: "String", description: "Postcode of store", example: "\"47400\"" },
-    { name: "city", type: "String", description: "City of store", example: "\"Petaling Jaya\"" },
-    { name: "state", type: "String", description: "State of store", example: "\"Selangor\"" },
-    { name: "country", type: "String", description: "Country of store", example: "\"Malaysia\"" },
-    { name: "countryCode", type: "String", description: "Country code of store contact number", example: "\"60\"" },
-    { name: "phoneNumber", type: "String", description: "Phone number of store", example: "\"377334080\"" },
-    { name: "geoLocation", type: "Object", description: "Geo Location (latitude and longitude) of store", example: "{\"Lat\": 3.1349857, \"Lng\": 101.6136659 }" },
-    { name: "status", type: "String", description: "Current status of store", example: "\"ACTIVE\"" },
-    { name: "isDefault", type: "String", description: "Default store of merchant (first store created upon signup)", example: "true" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2018-02-12T08:53:13Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time of store", example: "\"2018-02-12T08:53:13Z\"" }
-  ]}
-/>
-
-
 <br/>
 <a id="meta" />
-
-<strong>Database object <code>meta</code>:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "count", type: "Integer", description: "Current page record", example: "1" },
-    { name: "total", type: "Integer", description: "Total record in database", example: "1" },
-    { name: "cursor", type: "Integer", description: "Optional, if pagination exists.", example: "1" }
-  ]}
-/>
 

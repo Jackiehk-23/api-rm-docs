@@ -70,7 +70,11 @@ To issue vouchers for customer.
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "item", type: "Object", description: "Voucher object", example: "(Refer to explanation below)" },
+    { name: "item", type: "Object", description: "Voucher object",
+      children: [
+        { name: "code", type: "String", description: "Voucher Code, members can keep this code for future redemption. Same as the qrURL below except this code is not a URL.", example: "\"NAklEfbVdV\"" },
+        { name: "qrUrl", type: "String", description: "QR code for user to scan with Wechat or Facebook to add the voucher into their member account.", example: "QR Url link (refer to below code)" }
+      ]},
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
@@ -79,16 +83,4 @@ To issue vouchers for customer.
 <br/>
 
 <a id="item" />
-
-<strong>Voucher object <code>item</code>:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "code", type: "String", description: "Voucher Code, members can keep this code for future redemption. Same as the qrURL below except this code is not a URL.", example: "\"NAklEfbVdV\"" },
-    { name: "qrUrl", type: "String", description: "QR code for user to scan with Wechat or Facebook to add the voucher into their member account.", example: "QR Url link (refer to below code)" }
-  ]}
-/>
-
-
 

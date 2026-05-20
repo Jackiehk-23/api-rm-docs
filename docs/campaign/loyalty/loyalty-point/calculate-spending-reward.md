@@ -77,7 +77,10 @@ Use amount sales to Calculate Spending Reward points
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "item", type: "Object", description: "Point object", example: "(Refer to explanation below)" },
+    { name: "item", type: "Object", description: "Point object",
+      children: [
+        { name: "point", type: "Integer", description: "Loyalty point given to customers.", example: "3" }
+      ]},
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
@@ -86,15 +89,5 @@ Use amount sales to Calculate Spending Reward points
 <br/>
 
 <a id="item" />
-
-<strong>Point Object (item)</strong> <br/>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "point", type: "Integer", description: "Loyalty point given to customers.", example: "3" }
-  ]}
-/>
-
 
 Currency notation (currently only support MYR)

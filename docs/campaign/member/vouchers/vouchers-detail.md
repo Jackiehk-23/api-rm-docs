@@ -159,12 +159,33 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
     { name: "imageUrl", type: "String", description: "Voucher Image", example: "\"\"" },
     { name: "memberProfile", type: "Object", description: "Member Profile (refer to profile page)", example: "null" },
     { name: "assignedAt", type: "DateTime", description: "Voucher Assign", example: "\"0001-01-01T00:00:00Z\"" },
-    { name: "payload", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" },
+    { name: "payload", type: "Object", description: "Refer to explanation below",
+      children: [
+        { name: "tnc", type: "Array", example: "[\"T&C\"]" },
+        { name: "contactInfo", type: "Object", description: "Refer to explanation below",
+      children: [
+        { name: "email", type: "String", description: "Email", example: "\"\"" },
+        { name: "phoneNumber", type: "String", description: "Phone Number", example: "\"\"" }
+      ]}
+      ]},
     { name: "qrUrl", type: "String", description: "Voucher QRcode URL", example: "\"\"" },
     { name: "code", type: "String", description: "Voucher Code", example: "\"xR43u4bRhUU\"" },
     { name: "isShipping", type: "Boolean", description: "Voucher Shipping", example: "false" },
-    { name: "address", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" },
-    { name: "expiry", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" },
+    { name: "address", type: "Object", description: "Refer to explanation below",
+      children: [
+        { name: "addressLine1", type: "String", description: "Address 1", example: "\"\"" },
+        { name: "addressLine2", type: "String", description: "Address 2", example: "\"\"" },
+        { name: "postcode", type: "String", description: "Postcode", example: "\"\"" },
+        { name: "city", type: "String", description: "City", example: "\"\"" },
+        { name: "state", type: "String", description: "State", example: "\"\"" },
+        { name: "country", type: "String", description: "Country", example: "\"\"" }
+      ]},
+    { name: "expiry", type: "Object", description: "Refer to explanation below",
+      children: [
+        { name: "type", type: "String", description: "Voucher Type (\"DYNAMIC\" , \"STATIC\")", example: "\"DYNAMIC\"" },
+        { name: "day", type: "Integer", description: "Expired Day", example: "1" },
+        { name: "expiredAt", type: "DateTime", description: "Voucher Expired", example: "\"2020-11-26T04:33:04Z\"" }
+      ]},
     { name: "usedAt", type: "DateTime", description: "Voucher Use", example: "\"2020-11-25T13:58:55+08:00\"" },
     { name: "redeemedAt", type: "DateTime", description: "Voucher Redeem", example: "\"2020-11-25T04:33:04Z\"" },
     { name: "isDeviceRedeem", type: "Boolean", description: "Voucher Redeem Device", example: "true" },
@@ -181,62 +202,13 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
 
 <a id="payload" />
 
-<strong>Payload object:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "tnc", type: "Array", example: "[\"T&C\"]" },
-    { name: "contactInfo", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-
 <br />
 <a id="contactinfo" />
-
-<strong>Contact Info object:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "email", type: "String", description: "Email", example: "\"\"" },
-    { name: "phoneNumber", type: "String", description: "Phone Number", example: "\"\"" }
-  ]}
-/>
-
 
 <br/>
 <a id="expiry" />
 
-<strong>Expiry object:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "type", type: "String", description: "Voucher Type (\"DYNAMIC\" , \"STATIC\")", example: "\"DYNAMIC\"" },
-    { name: "day", type: "Integer", description: "Expired Day", example: "1" },
-    { name: "expiredAt", type: "DateTime", description: "Voucher Expired", example: "\"2020-11-26T04:33:04Z\"" }
-  ]}
-/>
-
-
 <br />
 <a id="address" />
-
-<strong>Address object:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "addressLine1", type: "String", description: "Address 1", example: "\"\"" },
-    { name: "addressLine2", type: "String", description: "Address 2", example: "\"\"" },
-    { name: "postcode", type: "String", description: "Postcode", example: "\"\"" },
-    { name: "city", type: "String", description: "City", example: "\"\"" },
-    { name: "state", type: "String", description: "State", example: "\"\"" },
-    { name: "country", type: "String", description: "Country", example: "\"\"" }
-  ]}
-/>
-
 
 <br />

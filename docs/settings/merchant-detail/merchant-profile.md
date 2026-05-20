@@ -88,61 +88,43 @@ No request parameter is required for this endpoint.
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "item", type: "Object", description: "Object of item details.", example: "(Refer explanantion below)" },
+    { name: "item", type: "Object", description: "Object of item details.",
+      children: [
+        { name: "id", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
+        { name: "companyName", type: "String", description: "Company name of merchant", example: "\"REVENUE MONSTER\"" },
+        { name: "companyType", type: "String", description: "Type of company incorporation", example: "\"SOLE PROPRIETOR\"" },
+        { name: "companyLogoUrl", type: "String", description: "Public URL to show merchant's logo", example: "\"https://storage.googleapis.com/rm-dev-asset/img/merchant.png\"" },
+        { name: "registrationNumber", type: "String", description: "Registration number of merchant", example: "“12344”" },
+        { name: "businessCategory", type: "String", description: "Business category of merchant", example: "\"SOFTWARE AND IT\"" },
+        { name: "establishedAt", type: "DateTime", description: "Established date time of merchant", example: "\"2018-03-26T04:50:57Z\"" },
+        { name: "countryCode", type: "String", description: "Country code of merchant contact number", example: "\"60\"" },
+        { name: "phoneNumber", type: "String", description: "Phone number of merchant", example: "\"377334080\"" },
+        { name: "addressLine1", type: "String", description: "Address 1 of merchant", example: "\"20, JALAN JASA 38, TAMAN MUTIARA RINI\"" },
+        { name: "addressLine2", type: "String", description: "Address 2 of merchant", example: "\"\"" },
+        { name: "postcode", type: "String", description: "Postcode of merchant", example: "“81300”" },
+        { name: "city", type: "String", description: "City of merchant", example: "\"Selangor\"" },
+        { name: "state", type: "String", description: "State of merchant", example: "\"Selangor\"" },
+        { name: "country", type: "String", description: "Country of merchant", example: "\"Malaysia\"" },
+        { name: "invoiceAddress", type: "Object", description: "Object of Invoice Address",
+      children: [
+        { name: "addressLine1", type: "String", description: "Address 1 of merchant", example: "\"20, JALAN JASA 38, TAMAN MUTIARA RINI\"" },
+        { name: "addressLine2", type: "String", description: "Address 2 of merchant", example: "\"\"" },
+        { name: "postcode", type: "String", description: "Postcode of merchant", example: "“81300”" },
+        { name: "city", type: "String", description: "City of merchant", example: "\"Selangor\"" },
+        { name: "state", type: "String", description: "State of merchant", example: "\"Selangor\"" },
+        { name: "country", type: "String", description: "Country of merchant", example: "\"Malaysia\"" }
+      ]},
+        { name: "isActive", type: "Boolean", description: "Merchant active or deactivated status", example: "true" },
+        { name: "status", type: "String", description: "Current status of merchant", example: "“REVIEWING”" },
+        { name: "isMasterMerchant", type: "Boolean", description: "Master Merchant flag", example: "true" },
+        { name: "masterMerchantId", type: "String", description: "Master Merchant ID, if any", example: "\"2301663653361832803\"" },
+        { name: "isPartner", type: "Boolean", description: "Partner Merchant flag", example: "true" },
+        { name: "partnerId", type: "String", description: "Partner Merchant ID, if any", example: "\"2301663653361832803\"" },
+        { name: "gstNo", type: "String", description: "GST No, if any", example: "\"\"" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time of merchant", example: "\"2018-02-12T08:53:13Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time of merchant", example: "\"2018-02-12T08:53:13Z\"" }
+      ]},
     { name: "code", type: "String", description: "Status returned from Revenue Monster server, whether successfully called our endpoint or not.", example: "\"SUCCESS\"" }
-  ]}
-/>
-
-
-<br/>
-
-<strong>Item Object <code>item</code>:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "id", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
-    { name: "companyName", type: "String", description: "Company name of merchant", example: "\"REVENUE MONSTER\"" },
-    { name: "companyType", type: "String", description: "Type of company incorporation", example: "\"SOLE PROPRIETOR\"" },
-    { name: "companyLogoUrl", type: "String", description: "Public URL to show merchant's logo", example: "\"https://storage.googleapis.com/rm-dev-asset/img/merchant.png\"" },
-    { name: "registrationNumber", type: "String", description: "Registration number of merchant", example: "“12344”" },
-    { name: "businessCategory", type: "String", description: "Business category of merchant", example: "\"SOFTWARE AND IT\"" },
-    { name: "establishedAt", type: "DateTime", description: "Established date time of merchant", example: "\"2018-03-26T04:50:57Z\"" },
-    { name: "countryCode", type: "String", description: "Country code of merchant contact number", example: "\"60\"" },
-    { name: "phoneNumber", type: "String", description: "Phone number of merchant", example: "\"377334080\"" },
-    { name: "addressLine1", type: "String", description: "Address 1 of merchant", example: "\"20, JALAN JASA 38, TAMAN MUTIARA RINI\"" },
-    { name: "addressLine2", type: "String", description: "Address 2 of merchant", example: "\"\"" },
-    { name: "postcode", type: "String", description: "Postcode of merchant", example: "“81300”" },
-    { name: "city", type: "String", description: "City of merchant", example: "\"Selangor\"" },
-    { name: "state", type: "String", description: "State of merchant", example: "\"Selangor\"" },
-    { name: "country", type: "String", description: "Country of merchant", example: "\"Malaysia\"" },
-    { name: "invoiceAddress", type: "Object", description: "Object of Invoice Address", example: "(Refer below)" },
-    { name: "isActive", type: "Boolean", description: "Merchant active or deactivated status", example: "true" },
-    { name: "status", type: "String", description: "Current status of merchant", example: "“REVIEWING”" },
-    { name: "isMasterMerchant", type: "Boolean", description: "Master Merchant flag", example: "true" },
-    { name: "masterMerchantId", type: "String", description: "Master Merchant ID, if any", example: "\"2301663653361832803\"" },
-    { name: "isPartner", type: "Boolean", description: "Partner Merchant flag", example: "true" },
-    { name: "partnerId", type: "String", description: "Partner Merchant ID, if any", example: "\"2301663653361832803\"" },
-    { name: "gstNo", type: "String", description: "GST No, if any", example: "\"\"" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time of merchant", example: "\"2018-02-12T08:53:13Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time of merchant", example: "\"2018-02-12T08:53:13Z\"" }
-  ]}
-/>
-
-
-<br/>
-
-<strong>Invoice Address Object:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "addressLine1", type: "String", description: "Address 1 of merchant", example: "\"20, JALAN JASA 38, TAMAN MUTIARA RINI\"" },
-    { name: "addressLine2", type: "String", description: "Address 2 of merchant", example: "\"\"" },
-    { name: "postcode", type: "String", description: "Postcode of merchant", example: "“81300”" },
-    { name: "city", type: "String", description: "City of merchant", example: "\"Selangor\"" },
-    { name: "state", type: "String", description: "State of merchant", example: "\"Selangor\"" },
-    { name: "country", type: "String", description: "Country of merchant", example: "\"Malaysia\"" }
   ]}
 />
 

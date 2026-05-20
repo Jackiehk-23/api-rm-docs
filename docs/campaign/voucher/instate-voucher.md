@@ -118,7 +118,36 @@ To reinstate voucher(s) of customer.
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "item", type: "Object", description: "Voucher object", example: "(Refer to explanation below)" },
+    { name: "item", type: "Object", description: "Voucher object",
+      children: [
+        { name: "key", type: "String", description: "Voucher key", example: "\"EhQKCE1lcmNoYW50EJXVzd3wraqTORIVCgdWb3VjaGVyGgpOQWtsRWZiVmRW\"" },
+        { name: "label", type: "String", description: "label of voucher for merchant remarks", example: "\"Free Breakfast\"" },
+        { name: "voucherBatchKey", type: "String", description: "Parent key of current voucher", example: "\"EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQkvnGweaB2uQg\"" },
+        { name: "type", type: "String", description: "Define type of vouchers: DISCOUNT, GIFT, CASH", example: "\"GIFT\"" },
+        { name: "amount", type: "Integer", description: "Required if type = CASH, notation in cents, eg. RM 1.00 = 100", example: "0" },
+        { name: "discountRate", type: "Integer", description: "Required if type = DISCOUNT, notation without decimals, eg. 1% = 100", example: "100" },
+        { name: "minimumSpendAmount", type: "Integer", description: "min amount to activate this voucher, required if type = CASH, DISCOUNT, notation in cents, eg. RM 1.00 = 100", example: "100" },
+        { name: "origin", type: "String", description: "SYSTEM (voucher code generated from RM server), SELF (voucher code uploaded from merchant csv file)", example: "\"SYSTEM\"" },
+        { name: "imageUrl", type: "String", description: "Image URL of current voucher, optional", example: "\"\"" },
+        { name: "memberProfile", type: "String", description: "Member profile of user's social media", example: "\"\"" },
+        { name: "assignedAt", type: "DateTime", description: "Date time of voucher issuance (UTC)", example: "\"2018-09-28T17:15:17Z\"" },
+        { name: "qrUrl", type: "String", description: "QR code for user to scan with Wechat or Facebook to add the voucher into their member account.", example: "QR Url link (refer to below code)" },
+        { name: "code", type: "String", description: "Voucher Code, members can keep this code for future redemption. Same as the qrURL below except this code is not a URL.", example: "\"NAklEfbVdV\"" },
+        { name: "isShipping", type: "Boolean", description: "True if items/goods to be delivered physically to customers", example: "false" },
+        { name: "address", type: "String", description: "Required if isShipping = true", example: "null" },
+        { name: "expiry", type: "Object", description: "Expiry date time of current voucher",
+      children: [
+        { name: "type", type: "String", description: "\"DYNAMIC\" (days from now), \"FIXED\" (specific fixed date)", example: "\"DYNAMIC\"" },
+        { name: "day", type: "Integer", description: "Only required by \"DYNAMIC\" expiry type. To indicate number of days from now until expiry.", example: "30" },
+        { name: "expiryAt", type: "DateTime", description: "Only required by \"FIXED\". To indicate specific expiry date.", example: "\"2020-10-07T17:44:26.679908+08:00\"" }
+      ]},
+        { name: "usedAt", type: "DateTime", description: "Date time of voucher being reinstateed (UTC)", example: "\"GIFT\"" },
+        { name: "redeemedAt", type: "DateTime", description: "Date time of voucher being redeemed (UTC)", example: "\"GIFT\"" },
+        { name: "isDeviceRedeem", type: "Boolean", description: "TRUE means only can be redeemed through merchant app. FALSE means customer can do redemption from own loyalty app.", example: "false" },
+        { name: "status", type: "String", description: "Status of current voucher: 1. Merchant created voucher batch (status=VALID)2. Merchant issued or going to transfer voucher to customer (status=ISSUED)3. Merchant shows voucher to customer and customer scans to get it (status=REDEEMED)4. Customers go back to shop and use the voucher (status=reinstate)", example: "\"VALID\"" },
+        { name: "createdAt", type: "DateTime", description: "Date time of voucher being created (UTC)", example: "\"2018-06-21T11:08:00Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Date time of voucher being updated (UTC)", example: "\"2018-09-28T17:19:44.686549977Z\"" }
+      ]},
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
@@ -127,50 +156,4 @@ To reinstate voucher(s) of customer.
 <br/>
 
 <a id="item" />
-
-<strong>Voucher object <code>item</code>:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "key", type: "String", description: "Voucher key", example: "\"EhQKCE1lcmNoYW50EJXVzd3wraqTORIVCgdWb3VjaGVyGgpOQWtsRWZiVmRW\"" },
-    { name: "label", type: "String", description: "label of voucher for merchant remarks", example: "\"Free Breakfast\"" },
-    { name: "voucherBatchKey", type: "String", description: "Parent key of current voucher", example: "\"EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQkvnGweaB2uQg\"" },
-    { name: "type", type: "String", description: "Define type of vouchers: DISCOUNT, GIFT, CASH", example: "\"GIFT\"" },
-    { name: "amount", type: "Integer", description: "Required if type = CASH, notation in cents, eg. RM 1.00 = 100", example: "0" },
-    { name: "discountRate", type: "Integer", description: "Required if type = DISCOUNT, notation without decimals, eg. 1% = 100", example: "100" },
-    { name: "minimumSpendAmount", type: "Integer", description: "min amount to activate this voucher, required if type = CASH, DISCOUNT, notation in cents, eg. RM 1.00 = 100", example: "100" },
-    { name: "origin", type: "String", description: "SYSTEM (voucher code generated from RM server), SELF (voucher code uploaded from merchant csv file)", example: "\"SYSTEM\"" },
-    { name: "imageUrl", type: "String", description: "Image URL of current voucher, optional", example: "\"\"" },
-    { name: "memberProfile", type: "String", description: "Member profile of user's social media", example: "\"\"" },
-    { name: "assignedAt", type: "DateTime", description: "Date time of voucher issuance (UTC)", example: "\"2018-09-28T17:15:17Z\"" },
-    { name: "qrUrl", type: "String", description: "QR code for user to scan with Wechat or Facebook to add the voucher into their member account.", example: "QR Url link (refer to below code)" },
-    { name: "code", type: "String", description: "Voucher Code, members can keep this code for future redemption. Same as the qrURL below except this code is not a URL.", example: "\"NAklEfbVdV\"" },
-    { name: "isShipping", type: "Boolean", description: "True if items/goods to be delivered physically to customers", example: "false" },
-    { name: "address", type: "String", description: "Required if isShipping = true", example: "null" },
-    { name: "expiry", type: "Object", description: "Expiry date time of current voucher", example: "(Refer below)" },
-    { name: "usedAt", type: "DateTime", description: "Date time of voucher being reinstateed (UTC)", example: "\"GIFT\"" },
-    { name: "redeemedAt", type: "DateTime", description: "Date time of voucher being redeemed (UTC)", example: "\"GIFT\"" },
-    { name: "isDeviceRedeem", type: "Boolean", description: "TRUE means only can be redeemed through merchant app. FALSE means customer can do redemption from own loyalty app.", example: "false" },
-    { name: "status", type: "String", description: "Status of current voucher: 1. Merchant created voucher batch (status=VALID)2. Merchant issued or going to transfer voucher to customer (status=ISSUED)3. Merchant shows voucher to customer and customer scans to get it (status=REDEEMED)4. Customers go back to shop and use the voucher (status=reinstate)", example: "\"VALID\"" },
-    { name: "createdAt", type: "DateTime", description: "Date time of voucher being created (UTC)", example: "\"2018-06-21T11:08:00Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Date time of voucher being updated (UTC)", example: "\"2018-09-28T17:19:44.686549977Z\"" }
-  ]}
-/>
-
-
-<br/>
-
-<strong>Expiry object <code>expiry</code>:</strong>
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "type", type: "String", description: "\"DYNAMIC\" (days from now), \"FIXED\" (specific fixed date)", example: "\"DYNAMIC\"" },
-    { name: "day", type: "Integer", description: "Only required by \"DYNAMIC\" expiry type. To indicate number of days from now until expiry.", example: "30" },
-    { name: "expiryAt", type: "DateTime", description: "Only required by \"FIXED\". To indicate specific expiry date.", example: "\"2020-10-07T17:44:26.679908+08:00\"" }
-  ]}
-/>
-
-
 
