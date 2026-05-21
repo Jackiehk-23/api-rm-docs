@@ -48,7 +48,7 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 Returns a payment redirect URL for GoBiz, Paydee, or Mastercard payment methods.
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -60,7 +60,7 @@ Returns a payment redirect URL for GoBiz, Paydee, or Mastercard payment methods.
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

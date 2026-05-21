@@ -62,7 +62,7 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 Creates a tokenized payment customer. The customer binds their card once on the RM-hosted page, after which you can charge them on demand using the [Create Customer Order](../customer/create-order.md) API.
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -78,7 +78,7 @@ Creates a tokenized payment customer. The customer binds their card once on the 
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

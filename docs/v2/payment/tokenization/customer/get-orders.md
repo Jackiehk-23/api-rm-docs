@@ -41,7 +41,7 @@ Returns the list of payment orders made for a recurring or tokenized customer.
 Only available after the customer has successfully bound their card.
 :::
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Path Parameters"
@@ -50,7 +50,7 @@ Only available after the customer has successfully bound their card.
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

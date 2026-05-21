@@ -58,29 +58,29 @@ No request parameter is required for this endpoint.
 
 ```json
 {
-    "item": {
-        "id": "1668148680519476516",
-        "paymentUrl": "https://sb-pg.revenuemonster.my/v1/recurring?customerId=1668148680519476516",
-        "recurringPaymentId": "",
-        "merchantId": "4118165203679668885",
-        "storeId": "1602660043994159611",
-        "email": "dev@revenuemonster.my",
-        "name": "RM Developer",
-        "countryCode": "60",
-        "phoneNumber": "103603440",
-        "isActive": false,
-        "createdAt": "2022-11-11T06:38:00Z",
-        "updatedAt": "2022-11-11T06:38:00Z",
-        "clientKey": "EhcKC09BdXRoQ2xpZW50EMWa54yytMPIFg",
-        "amount": 100,
-        "redirectUrl": "https://google.com",
-        "notifyUrl": "https://google.com",
-        "recurringInterval": "WEEKLY",
-        "recurringTarget": "1",
-        "productName": "some recurring product",
-        "productDescription": "some recurrnig description"
-    },
-    "code": "SUCCESS"
+  "item": {
+    "id": "1668148680519476516",
+    "paymentUrl": "https://sb-pg.revenuemonster.my/v1/recurring?customerId=1668148680519476516",
+    "recurringPaymentId": "",
+    "merchantId": "4118165203679668885",
+    "storeId": "1602660043994159611",
+    "email": "dev@revenuemonster.my",
+    "name": "RM Developer",
+    "countryCode": "60",
+    "phoneNumber": "103603440",
+    "isActive": false,
+    "createdAt": "2022-11-11T06:38:00Z",
+    "updatedAt": "2022-11-11T06:38:00Z",
+    "clientKey": "EhcKC09BdXRoQ2xpZW50EMWa54yytMPIFg",
+    "amount": 100,
+    "redirectUrl": "https://google.com",
+    "notifyUrl": "https://google.com",
+    "recurringInterval": "WEEKLY",
+    "recurringTarget": "1",
+    "productName": "some recurring product",
+    "productDescription": "some recurrnig description"
+  },
+  "code": "SUCCESS"
 }
 ```
 

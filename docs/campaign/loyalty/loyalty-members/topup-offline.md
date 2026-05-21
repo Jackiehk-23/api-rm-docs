@@ -46,54 +46,55 @@ examples:
     }
   response: |
     {
-        "item": {
-            "store": {
-                "id": "10946114768247530",
-                "name": "Ultropolis",
-                "imageUrl": "https://storage.googleapis.com/rm-sandbox-asset/img/store.png",
-                "addressLine1": "GLENMARIE LRT STATION,  SS7,  PETALING JAYA",
-                "addressLine2": "GLENMARIE LRT STATION,  SS7,  PETALING JAYA",
-                "postCode": "47301",
-                "city": "Petaling Jaya",
-                "state": "Selangor",
-                "country": "Malaysia",
-                "countryCode": "60",
-                "phoneNumber": "1123621544",
-                "geoLocation": {
-                    "latitude": 3.0956282,
-                    "longitude": 101.5900452
-                },
-                "status": "ACTIVE",
-                "createdAt": "2020-12-18T11:17:51Z",
-                "updatedAt": "2020-12-18T11:17:51Z"
-            },
-            "referenceId": "2021020522001472380501150230",
-            "transactionId": "210205115701010435429229",
-            "order": {
-                "id": "123asd1e1zz2ed",
-                "title": "Pay to Revenue Monster",
-                "detail": "[Loyalty Balance][4118165203679668885] Top Up MYR 1.00",
-                "additionalData": "Member ID: 1019317844027415630",
-                "amount": 100
-            },
-            "terminalId": "",
-            "payee": {
-                "userId": "2088622925272386"
-            },
-            "currencyType": "MYR",
-            "balanceAmount": 100,
-            "voucher": null,
-            "platform": "OPEN_API",
-            "method": "ALIPAY",
-            "transactionAt": "2021-02-05T11:57:14Z",
-            "type": "QUICK_PAY",
-            "status": "SUCCESS",
-            "region": "CHINA",
-            "createdAt": "2021-02-05T11:57:01Z",
-            "updatedAt": "2021-02-05T11:57:07Z"
+      "item": {
+        "store": {
+          "id": "10946114768247530",
+          "name": "Ultropolis",
+          "imageUrl": "https://storage.googleapis.com/rm-sandbox-asset/img/store.png",
+          "addressLine1": "GLENMARIE LRT STATION,  SS7,  PETALING JAYA",
+          "addressLine2": "GLENMARIE LRT STATION,  SS7,  PETALING JAYA",
+          "postCode": "47301",
+          "city": "Petaling Jaya",
+          "state": "Selangor",
+          "country": "Malaysia",
+          "countryCode": "60",
+          "phoneNumber": "1123621544",
+          "geoLocation": {
+            "latitude": 3.0956282,
+            "longitude": 101.5900452
+          },
+          "status": "ACTIVE",
+          "createdAt": "2020-12-18T11:17:51Z",
+          "updatedAt": "2020-12-18T11:17:51Z"
         },
-        "code": "SUCCESS"
+        "referenceId": "2021020522001472380501150230",
+        "transactionId": "210205115701010435429229",
+        "order": {
+          "id": "123asd1e1zz2ed",
+          "title": "Pay to Revenue Monster",
+          "detail": "[Loyalty Balance][4118165203679668885] Top Up MYR 1.00",
+          "additionalData": "Member ID: 1019317844027415630",
+          "amount": 100
+        },
+        "terminalId": "",
+        "payee": {
+          "userId": "2088622925272386"
+        },
+        "currencyType": "MYR",
+        "balanceAmount": 100,
+        "voucher": null,
+        "platform": "OPEN_API",
+        "method": "ALIPAY",
+        "transactionAt": "2021-02-05T11:57:14Z",
+        "type": "QUICK_PAY",
+        "status": "SUCCESS",
+        "region": "CHINA",
+        "createdAt": "2021-02-05T11:57:01Z",
+        "updatedAt": "2021-02-05T11:57:07Z"
+      },
+      "code": "SUCCESS"
     }
+
 ---
 
 

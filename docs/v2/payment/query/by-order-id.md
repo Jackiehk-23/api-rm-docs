@@ -2,6 +2,16 @@
 title: "Query By Order ID"
 sidebar_label: "Query By Order ID"
 
+api:
+  method: GET
+  url:
+    sandbox: https://sb-open.revenuemonster.my/v3/payment/transaction/{orderId}
+    prod: https://open.revenuemonster.my/v3/payment/transaction/{orderId}
+  requiresSignature: false
+  headers:
+    Authorization: Bearer {{access_token}}
+    X-Timestamp: "{{timestamp}}"
+
 examples:
   request: |
     curl --location --request GET "https://sb-open.revenuemonster.my/v3/payment/transaction/ODR-20230513-1001" \
@@ -30,7 +40,11 @@ Retrieve a transaction by the Order ID you provided when initiating the payment.
 Store the **Order ID** from every payment request — you will need it to look up transactions later.
 :::
 
-**Request Parameters**
+:::caution Rate Limit
+**3 requests per 5 seconds** per access token. Exceeding this returns a `429 Too Many Requests` response. Add a short delay between retries.
+:::
+
+## Request Parameters
 
 <ParamTable
   title="Path Parameters"
@@ -39,7 +53,7 @@ Store the **Order ID** from every payment request — you will need it to look u
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

@@ -15,7 +15,7 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/payment/online/checkout`
 To create a unified payment checkout page for your website.
 :::
 
-**Example of QR Code**
+## Example of QR Code
 
 <details open>
   <summary>

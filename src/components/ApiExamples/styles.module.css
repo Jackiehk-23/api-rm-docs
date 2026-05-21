@@ -79,6 +79,23 @@
   border-color: var(--ifm-color-primary);
 }
 
+/* ── JSON badge ── */
+
+.jsonBadge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-700);
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+[data-theme="dark"] .jsonBadge {
+  background: #374151;
+  color: #9ca3af;
+}
+
 /* ── Copy button ── */
 
 .copyBtn {
@@ -142,6 +159,7 @@
   padding: 0 20px 0 0;
   min-height: 22px;
   transition: background 0.1s ease;
+  white-space: pre;
 }
 
 .codeLine:hover {
@@ -154,26 +172,29 @@
 
 .lineNumber {
   user-select: none;
-  min-width: 44px;
-  padding: 0 16px 0 20px;
+  min-width: 2ch;
+  padding: 0 1.5rem 0 20px;
   color: var(--ifm-color-emphasis-600);
   font-size: 12px;
   text-align: right;
   flex-shrink: 0;
-  transition: color 0.15s ease;
+  opacity: 0.4;
+  transition: color 0.15s ease, opacity 0.15s ease;
   font-variant-numeric: tabular-nums;
 }
 
 [data-theme='dark'] .lineNumber {
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--ifm-color-emphasis-600);
 }
 
 .codeLine:hover .lineNumber {
   color: var(--ifm-color-emphasis-800);
+  opacity: 0.7;
 }
 
 [data-theme='dark'] .codeLine:hover .lineNumber {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--ifm-color-emphasis-800);
+  opacity: 0.7;
 }
 
 .lineContent {

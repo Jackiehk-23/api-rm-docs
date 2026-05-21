@@ -49,7 +49,7 @@ Currently available membership card: Alipay Gourmet Card (马来西亚美食优�
 Call this endpoint first to verify the membership card before processing payment.
 :::
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -59,7 +59,7 @@ Call this endpoint first to verify the membership card before processing payment
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

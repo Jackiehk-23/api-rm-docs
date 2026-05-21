@@ -96,8 +96,12 @@ export function generateGo({ method, url, headers = {}, body }: SnippetInput): s
   const b = bodyStr(body);
   const hasBody = !!b;
   const imports = ['"fmt"', '"io"', '"net/http"', ...(hasBody ? ['"strings"'] : ['"bytes"'])].join("\n\t");
+  // Indent every line of the JSON body by one tab so it visually aligns with
+  // the surrounding func body. Extra leading whitespace inside JSON is valid
+  // and is ignored by the server's JSON parser.
+  const indentedBody = b ? b.split("\n").map((l, i) => (i === 0 ? l : `\t${l}`)).join("\n") : "";
   const payloadBlock = hasBody
-    ? `payload := strings.NewReader(\`${b}\`)`
+    ? `payload := strings.NewReader(\`${indentedBody}\`)`
     : `payload := bytes.NewReader([]byte{})`;
   const headerLines = Object.entries(headers)
     .map(([k, v]) => `\treq.Header.Add("${k}", "${v}")`)

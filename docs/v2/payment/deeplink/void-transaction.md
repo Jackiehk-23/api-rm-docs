@@ -19,7 +19,7 @@ Sends a Void Transaction intent (`transactionType: 3`) to the RM Merchant App to
 startActivity(i)`}
 </CodeBlock>
 
-**Response**
+## Response
 
 <CodeBlock language="kotlin" filename="Response.kt" hideLineNumbers>
 {`val jsonString = intent?.getStringExtra("result")`}

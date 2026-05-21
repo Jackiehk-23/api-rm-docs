@@ -47,12 +47,12 @@ Check merchant wallet balance
 
 <CodeBlock language="json" filename="Example Response">
 {`{
-    "item": {
-        "id": "1585119930335618836",
-        "referenceId": "4118165203679668885",
-        "credit": 1952
-    },
-    "code": "SUCCESS"
+  "item": {
+    "id": "1585119930335618836",
+    "referenceId": "4118165203679668885",
+    "credit": 1952
+  },
+  "code": "SUCCESS"
 }`}
 </CodeBlock>
 

@@ -68,7 +68,7 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 After [verifying the membership card](./verify.md), use this endpoint to process the payment with the membership card discount applied.
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -87,7 +87,7 @@ After [verifying the membership card](./verify.md), use this endpoint to process
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

@@ -6,39 +6,74 @@ import { useDoc } from "@docusaurus/theme-common/internal";
 import { SNIPPET_LANGS, SnippetLang, generateSnippet } from "../../utils/snippets";
 import styles from "./styles.module.css";
 
+// ── Extend prism-react-renderer's bundled Prism with the languages we need.
+// The bundled Prism only ships markup/css/clike/js/jsx/ts/bash/yaml/etc.
+// PHP, Python, Go, and JSON must be registered manually or they render as plain text.
+import Prism from "prism-react-renderer/prism";
+(typeof global !== "undefined" ? global : window).Prism = Prism;
+// markup-templating MUST be registered before php (php depends on it).
+require("prismjs/components/prism-markup-templating");
+require("prismjs/components/prism-json");
+require("prismjs/components/prism-php");
+require("prismjs/components/prism-python");
+require("prismjs/components/prism-go");
+
+// ── Color palette (shared between light/dark for consistent semantics) ──
+// Keywords / property keys / tags / constants / variables-in-keyword-role → red/pink
+// Strings → green
+// Numbers / builtins → blue (light) / cyan (dark)
+// Functions / class-names / decorators → purple
+// Variables ($var, @var) → orange (distinguishes from keywords)
+// Regex / important → orange (light) / yellow (dark)
+// Comments → gray italic
+// Operators / punctuation → neutral
+
 // Light theme
 const lightTheme = {
-  plain: {
-    color: "#24292e",
-    backgroundColor: "transparent",
-  },
+  plain: { color: "#24292e", backgroundColor: "transparent" },
   styles: [
     { types: ["comment", "prolog", "doctype", "cdata"], style: { color: "#6a737d", fontStyle: "italic" as const } },
-    { types: ["punctuation"], style: { color: "#5e6687" } },
-    { types: ["property", "tag", "boolean", "number", "constant", "symbol", "deleted"], style: { color: "#d73a49" } },
-    { types: ["selector", "attr-name", "string", "char", "builtin", "inserted"], style: { color: "#22863a" } },
-    { types: ["operator", "entity", "url"], style: { color: "#005cc5" } },
+    { types: ["punctuation"], style: { color: "#24292e" } },
+    { types: ["operator"], style: { color: "#24292e" } },
+    { types: ["namespace"], style: { opacity: 0.7 } },
+    { types: ["property", "tag", "constant", "symbol", "deleted"], style: { color: "#d73a49" } },
+    { types: ["boolean"], style: { color: "#005cc5" } },
+    { types: ["number"], style: { color: "#005cc5" } },
+    { types: ["builtin"], style: { color: "#005cc5" } },
+    { types: ["string", "char", "attr-name", "inserted"], style: { color: "#22863a" } },
+    { types: ["selector"], style: { color: "#22863a" } },
+    { types: ["variable"], style: { color: "#e36209" } },
+    { types: ["entity", "url"], style: { color: "#d73a49" } },
     { types: ["atrule", "attr-value", "keyword"], style: { color: "#d73a49" } },
-    { types: ["function", "class-name"], style: { color: "#6f42c1" } },
-    { types: ["regex", "important", "variable"], style: { color: "#e36209" } },
+    { types: ["function", "class-name", "decorator"], style: { color: "#6f42c1" } },
+    { types: ["regex", "important"], style: { color: "#e36209" } },
+    { types: ["important", "bold"], style: { fontWeight: "bold" as const } },
+    { types: ["italic"], style: { fontStyle: "italic" as const } },
+    { types: ["entity"], style: { cursor: "help" } },
   ],
 };
 
 // Dark theme
 const darkTheme = {
-  plain: {
-    color: "#e2e8f0",
-    backgroundColor: "transparent",
-  },
+  plain: { color: "#e2e8f0", backgroundColor: "transparent" },
   styles: [
     { types: ["comment", "prolog", "doctype", "cdata"], style: { color: "#4a5568", fontStyle: "italic" as const } },
-    { types: ["punctuation"], style: { color: "#718096" } },
-    { types: ["property", "tag", "boolean", "number", "constant", "symbol", "deleted"], style: { color: "#fc8181" } },
-    { types: ["selector", "attr-name", "string", "char", "builtin", "inserted"], style: { color: "#68d391" } },
-    { types: ["operator", "entity", "url"], style: { color: "#76e4f7" } },
-    { types: ["atrule", "attr-value", "keyword"], style: { color: "#76e4f7" } },
-    { types: ["function", "class-name"], style: { color: "#f6ad55" } },
-    { types: ["regex", "important", "variable"], style: { color: "#faf089" } },
+    { types: ["punctuation"], style: { color: "#a0aec0" } },
+    { types: ["operator"], style: { color: "#a0aec0" } },
+    { types: ["namespace"], style: { opacity: 0.7 } },
+    { types: ["property", "tag", "constant", "symbol", "deleted"], style: { color: "#fc8181" } },
+    { types: ["boolean"], style: { color: "#76e4f7" } },
+    { types: ["number"], style: { color: "#76e4f7" } },
+    { types: ["builtin"], style: { color: "#76e4f7" } },
+    { types: ["string", "char", "attr-name", "inserted"], style: { color: "#68d391" } },
+    { types: ["selector"], style: { color: "#68d391" } },
+    { types: ["variable"], style: { color: "#f6ad55" } },
+    { types: ["entity", "url"], style: { color: "#fc8181" } },
+    { types: ["atrule", "attr-value", "keyword"], style: { color: "#fc8181" } },
+    { types: ["function", "class-name", "decorator"], style: { color: "#d6bcfa" } },
+    { types: ["regex", "important"], style: { color: "#faf089" } },
+    { types: ["important", "bold"], style: { fontWeight: "bold" as const } },
+    { types: ["italic"], style: { fontStyle: "italic" as const } },
   ],
 };
 
@@ -189,6 +224,7 @@ export default function ApiExamples() {
   const [openRes, setOpenRes] = useState(true);
   const [lang, setLang] = useState<SnippetLang>("cURL");
   const [copied, setCopied] = useState(false);
+  const [copiedRes, setCopiedRes] = useState(false);
 
   if (isBlank(completeCurl) && isBlank(exampleResponse)) return null;
 
@@ -198,6 +234,13 @@ export default function ApiExamples() {
     navigator.clipboard.writeText(snippet).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  const handleCopyRes = () => {
+    navigator.clipboard.writeText(exampleResponse!).then(() => {
+      setCopiedRes(true);
+      setTimeout(() => setCopiedRes(false), 2000);
     });
   };
 
@@ -242,7 +285,16 @@ export default function ApiExamples() {
         <div className={styles.card}>
           <div className={styles.header} onClick={() => setOpenRes(!openRes)}>
             <span>Example Response</span>
-            <span className={`${styles.chevron} ${!openRes ? styles.chevronCollapsed : ""}`}>▾</span>
+            <div className={styles.headerRight} onClick={(e) => e.stopPropagation()}>
+              <span className={styles.jsonBadge}>JSON</span>
+              <button
+                className={`${styles.copyBtn} ${copiedRes ? styles.copyBtnCopied : ""}`}
+                onClick={handleCopyRes}
+              >
+                {copiedRes ? "✓" : "Copy"}
+              </button>
+              <span className={`${styles.chevron} ${!openRes ? styles.chevronCollapsed : ""}`}>▾</span>
+            </div>
           </div>
           <div className={`${styles.codeWrapper} ${!openRes ? styles.codeWrapperCollapsed : ""}`}>
             <CodeHighlight code={exampleResponse!} language="json" />

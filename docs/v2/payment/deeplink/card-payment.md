@@ -22,7 +22,7 @@ startActivity(i)`}
 For terminal MF919, receipt printing cannot be controlled programmatically.
 :::
 
-**Response**
+## Response
 
 <CodeBlock language="kotlin" filename="Response.kt" hideLineNumbers>
 {`val jsonString = intent?.getStringExtra("result")`}

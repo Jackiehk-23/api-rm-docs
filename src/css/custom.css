@@ -131,7 +131,17 @@ body {
   background-color: var(--ifm-color-emphasis-100);
   border-color: var(--ifm-color-primary);
 }
- 
+
+[data-theme='dark'] .navbar__search-input {
+  --ifm-navbar-search-input-icon: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E");
+  background-size: 1rem 1rem;
+  background-repeat: no-repeat;
+  background-position: 0.75rem center;
+}
+[data-theme='dark'] .navbar__search-input::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
 .navbar__item--explore {
   display: block;
 }
@@ -489,8 +499,20 @@ html[data-theme="light"] .menu__list .menu__list {
   overflow-x: auto;
 }
 
-.docItemCol code {
+/* Inline <code> (not inside <pre>): allow long tokens to wrap so they don't
+   blow out the column. Excludes code inside fenced blocks so long URLs stay
+   on one line and scroll horizontally instead of being broken mid-character. */
+.docItemCol :not(pre) > code {
   word-break: break-word;
+}
+
+/* Fenced code blocks: keep content on one line and scroll horizontally so long
+   tokens (e.g. a long URL in a "Sorted Compact JSON" sample) don't get cut off. */
+.theme-code-block pre,
+pre[class*="language-"] {
+  overflow-x: auto;
+  white-space: pre;
+  word-wrap: normal;
 }
 
 /* ================================
@@ -580,14 +602,20 @@ details.section-details > summary.section-summary {
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
   border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  user-select: none;
+}
+
+details.section-details > summary.section-summary:hover {
+  opacity: 0.8;
 }
 
 [data-theme="dark"] details.section-details > summary.section-summary {
   border-bottom-color: rgba(102, 102, 235, 0.35);
 }
 
+/* Suppress the generic details::before arrow inside section summaries */
 details.section-details > summary.section-summary::before {
-  display: none;
+  display: none !important;
 }
 
 details.section-details > summary.section-summary h2 {
@@ -604,11 +632,14 @@ details.section-details > summary.section-summary h2 {
   opacity: 0.6;
   flex-shrink: 0;
   margin-left: 10px;
-  transition: transform 0.3s ease;
   display: inline-block;
   user-select: none;
+  /* Open state: arrow points down (▾) — no rotation */
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
 }
 
+/* Closed state: rotate arrow to point right */
 details.section-details:not([open]) .section-toggle {
   transform: rotate(-90deg);
 }
@@ -624,12 +655,28 @@ details.section-details:not([open]) .section-toggle {
   }
 }
 
+@media (max-width: 996px) {
+  /* overflow-x: hidden on html/body breaks position: sticky for the navbar,
+     so use position: fixed on mobile and offset the page content. */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--ifm-z-index-fixed, 200);
+  }
+
+  .main-wrapper {
+    padding-top: var(--ifm-navbar-height);
+  }
+}
+
 @media (max-width: 768px) {
   .navbar__items {
     flex-wrap: nowrap;
     overflow-x: auto;
   }
-  
+
   .navbar__item {
     flex-shrink: 0;
   }

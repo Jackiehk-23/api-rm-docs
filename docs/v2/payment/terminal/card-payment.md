@@ -44,7 +44,10 @@ examples:
       }
     }'
   response: |
-    { "code": "SUCCESS" }
+    {
+      "code": "SUCCESS"
+    }
+
 ---
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
@@ -57,7 +60,7 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 Sends a card payment event to the RM Terminal. The terminal will prompt the customer to tap, insert, or swipe their card.
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -74,7 +77,7 @@ Sends a card payment event to the RM Terminal. The terminal will prompt the cust
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

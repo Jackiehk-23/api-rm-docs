@@ -54,7 +54,19 @@ When RM calls your `notifyUrl`, the request body will be a JSON object. The foll
 
 Sort the JSON keys alphabetically (including nested objects), make it compact, then Base64-encode it.
 
-**Sorted, compact JSON:**
+**Sorted JSON (keys in alphabetical order):**
+
+<CodeBlock language="json" filename="Sorted JSON">
+{`{
+  "code": "SUCCESS",
+  "item": {
+    "checkoutId": "1617985392758071583",
+    "url": "https://sb-pg.revenuemonster.my/v2/checkout?checkoutId=1617985392758071583"
+  }
+}`}
+</CodeBlock>
+
+**Compact form (no whitespace) — this exact string is what gets Base64-encoded:**
 
 <CodeBlock language="json" filename="Sorted Compact JSON" hideLineNumbers>
 {`{"code":"SUCCESS","item":{"checkoutId":"1617985392758071583","url":"https://sb-pg.revenuemonster.my/v2/checkout?checkoutId=1617985392758071583"}}`}
@@ -74,7 +86,7 @@ Build the same signing string format used for requests. The values of `nonceStr`
 
 <ParamTable
   rows={[
-    { name: "data", type: "String", required: true, description: "Base64-encoded response body from Step 2. Omit if the body is empty.", example: "(See Step 2)" },
+    { name: "data", type: "String", required: true, description: "Base64-encoded response body from Step 2. Omit if the body is empty.", example: "(See Step 2)", anchor: "#step-2-base64-encode-the-response-json" },
     { name: "method", type: "String", required: true, description: "HTTP method of the callback, lowercase", example: "\"post\"" },
     { name: "nonceStr", type: "String", required: true, description: "Value of X-Nonce-Str from the RM callback request header.", example: "\"VYNknZohxwicZMaWbNdBKUrnrxDtaRhN\"" },
     { name: "requestUrl", type: "String", description: "Omit this parameter when verifying a callback — it is not included in the callback signature.", example: "N/A" },

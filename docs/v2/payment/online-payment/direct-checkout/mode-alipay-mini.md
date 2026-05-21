@@ -48,7 +48,7 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 Returns base64-encoded data to pass to the Alipay Mini Program payment API.
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -59,7 +59,7 @@ Returns base64-encoded data to pass to the Alipay Mini Program payment API.
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"
@@ -73,7 +73,7 @@ Returns base64-encoded data to pass to the Alipay Mini Program payment API.
   ]}
 />
 
-**Frontend Integration**
+## Frontend Integration
 
 :::note
 Use base64 decode on the `data` parameter and pass the result to the mini program API.

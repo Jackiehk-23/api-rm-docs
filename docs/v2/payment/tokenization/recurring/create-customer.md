@@ -74,7 +74,7 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 Creates a recurring payment customer. The customer will be redirected to bind their card, after which charges happen automatically on your defined schedule.
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -96,7 +96,7 @@ Creates a recurring payment customer. The customer will be redirected to bind th
   ]}
 />
 
-**Recurring Target Rules**
+## Recurring Target Rules
 
 | Interval | Target | Payment Behaviour |
 |---|---|---|
@@ -111,7 +111,7 @@ Creates a recurring payment customer. The customer will be redirected to bind th
 | `MONTHLY` | `0` | Start of every month |
 | `MONTHLY` | `1–28` | Day of the month |
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

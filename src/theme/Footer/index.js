@@ -37,7 +37,7 @@ function InstagramIcon() {
 const socialLinks = [
   { href: "https://www.facebook.com/RevenueMonster", Icon: FacebookIcon, label: "Facebook" },
   { href: "https://www.linkedin.com/company/revenuemonster", Icon: LinkedinIcon, label: "LinkedIn" },
-  { href: "https://www.youtube.com/channel/UCOUTWs39v891Tr7kx_MMedw", Icon: YoutubeIcon, label: "YouTube" },
+  { href: "https://www.youtube.com/@revenuemonster3803", Icon: YoutubeIcon, label: "YouTube" },
   { href: "https://www.instagram.com/revenuemonster/", Icon: InstagramIcon, label: "Instagram" },
 ];
 

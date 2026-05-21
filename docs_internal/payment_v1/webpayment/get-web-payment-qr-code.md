@@ -15,7 +15,7 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/payment/online/qrcode?checko
 Generate a QR code to display on your web or mobile for user to scan
 :::
 
-**Example of Indvidual QR Code**
+## Example of Indvidual QR Code
 
 <details>
   <summary>

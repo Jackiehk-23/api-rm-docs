@@ -52,7 +52,7 @@ Returns a redirect URL for the selected payment method. Redirect the customer to
 Poll [Query Payment Checkout](../query-checkout.md) every 3–5 seconds to track payment status.
 :::
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -63,7 +63,7 @@ Poll [Query Payment Checkout](../query-checkout.md) every 3–5 seconds to track
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

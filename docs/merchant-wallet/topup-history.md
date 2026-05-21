@@ -59,229 +59,229 @@ Check merchant wallet topup history
 />
 <CodeBlock language="json" filename="Example Response">
 {`{
-    "cursor": "EhB0b3B1cHRyYW5zYWN0aW9uGOOiw6Cp3q6IFg",
-    "items": [
-        {
-            "id": "1610358903738245784",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 10,
-            "createdAt": "2021-01-11T09:55:03Z"
-        },
-        {
-            "id": "1610358886697825817",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 10,
-            "createdAt": "2021-01-11T09:54:46Z"
-        },
-        {
-            "id": "1608265844473557156",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 10,
-            "createdAt": "2020-12-18T04:30:44Z"
-        },
-        {
-            "id": "1606715783856819424",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 100,
-            "createdAt": "2020-11-30T05:56:23Z"
-        },
-        {
-            "id": "1601284416420740159",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 10,
-            "createdAt": "2020-09-28T09:13:36Z"
-        },
-        {
-            "id": "1600767812731888504",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 10,
-            "createdAt": "2020-09-22T09:43:32Z"
-        },
-        {
-            "id": "1599322934290573511",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 10,
-            "createdAt": "2020-09-05T16:22:14Z"
-        },
-        {
-            "id": "1598969316445167528",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "SUCCESS",
-            "credit": 10,
-            "createdAt": "2020-09-01T14:08:36Z"
-        },
-        {
-            "id": "1598968817666361543",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 100,
-            "createdAt": "2020-09-01T14:00:17Z"
-        },
-        {
-            "id": "1598968790237499773",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 10,
-            "createdAt": "2020-09-01T13:59:51Z"
-        },
-        {
-            "id": "1598547453611414512",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 10,
-            "createdAt": "2020-08-27T16:57:33Z"
-        },
-        {
-            "id": "1598547443206063414",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 10,
-            "createdAt": "2020-08-27T16:57:23Z"
-        },
-        {
-            "id": "1598237166252470682",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "6855324897421142801",
-            "detail": "test",
-            "method": "BANK_IN",
-            "status": "SUCCESS",
-            "credit": 1200,
-            "createdAt": "2020-08-24T02:46:06Z"
-        },
-        {
-            "id": "1598237110634689248",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 10000,
-            "createdAt": "2020-08-24T02:45:10Z"
-        },
-        {
-            "id": "1596081463672087379",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 10,
-            "createdAt": "2020-07-30T03:57:43Z"
-        },
-        {
-            "id": "1596081443720817054",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 10,
-            "createdAt": "2020-07-30T03:57:23Z"
-        },
-        {
-            "id": "1595413037839967771",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 10,
-            "createdAt": "2020-07-22T10:17:17Z"
-        },
-        {
-            "id": "1593070654482816850",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 10,
-            "createdAt": "2020-06-25T07:37:34Z"
-        },
-        {
-            "id": "1589976273661708284",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 10,
-            "createdAt": "2020-05-20T12:04:33Z"
-        },
-        {
-            "id": "1589976219490767203",
-            "walletId": "1585119930335618836",
-            "referenceId": "4118165203679668885",
-            "adminId": "",
-            "detail": "online payment gateway topup",
-            "method": "ONLINE",
-            "status": "IN_PROCESS",
-            "credit": 10,
-            "createdAt": "2020-05-20T12:03:39Z"
-        }
-    ]
+  "cursor": "EhB0b3B1cHRyYW5zYWN0aW9uGOOiw6Cp3q6IFg",
+  "items": [
+    {
+      "id": "1610358903738245784",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 10,
+      "createdAt": "2021-01-11T09:55:03Z"
+    },
+    {
+      "id": "1610358886697825817",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 10,
+      "createdAt": "2021-01-11T09:54:46Z"
+    },
+    {
+      "id": "1608265844473557156",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 10,
+      "createdAt": "2020-12-18T04:30:44Z"
+    },
+    {
+      "id": "1606715783856819424",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 100,
+      "createdAt": "2020-11-30T05:56:23Z"
+    },
+    {
+      "id": "1601284416420740159",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 10,
+      "createdAt": "2020-09-28T09:13:36Z"
+    },
+    {
+      "id": "1600767812731888504",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 10,
+      "createdAt": "2020-09-22T09:43:32Z"
+    },
+    {
+      "id": "1599322934290573511",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 10,
+      "createdAt": "2020-09-05T16:22:14Z"
+    },
+    {
+      "id": "1598969316445167528",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "SUCCESS",
+      "credit": 10,
+      "createdAt": "2020-09-01T14:08:36Z"
+    },
+    {
+      "id": "1598968817666361543",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 100,
+      "createdAt": "2020-09-01T14:00:17Z"
+    },
+    {
+      "id": "1598968790237499773",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 10,
+      "createdAt": "2020-09-01T13:59:51Z"
+    },
+    {
+      "id": "1598547453611414512",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 10,
+      "createdAt": "2020-08-27T16:57:33Z"
+    },
+    {
+      "id": "1598547443206063414",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 10,
+      "createdAt": "2020-08-27T16:57:23Z"
+    },
+    {
+      "id": "1598237166252470682",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "6855324897421142801",
+      "detail": "test",
+      "method": "BANK_IN",
+      "status": "SUCCESS",
+      "credit": 1200,
+      "createdAt": "2020-08-24T02:46:06Z"
+    },
+    {
+      "id": "1598237110634689248",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 10000,
+      "createdAt": "2020-08-24T02:45:10Z"
+    },
+    {
+      "id": "1596081463672087379",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 10,
+      "createdAt": "2020-07-30T03:57:43Z"
+    },
+    {
+      "id": "1596081443720817054",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 10,
+      "createdAt": "2020-07-30T03:57:23Z"
+    },
+    {
+      "id": "1595413037839967771",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 10,
+      "createdAt": "2020-07-22T10:17:17Z"
+    },
+    {
+      "id": "1593070654482816850",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 10,
+      "createdAt": "2020-06-25T07:37:34Z"
+    },
+    {
+      "id": "1589976273661708284",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 10,
+      "createdAt": "2020-05-20T12:04:33Z"
+    },
+    {
+      "id": "1589976219490767203",
+      "walletId": "1585119930335618836",
+      "referenceId": "4118165203679668885",
+      "adminId": "",
+      "detail": "online payment gateway topup",
+      "method": "ONLINE",
+      "status": "IN_PROCESS",
+      "credit": 10,
+      "createdAt": "2020-05-20T12:03:39Z"
+    }
+  ]
 }`}
 </CodeBlock>
 

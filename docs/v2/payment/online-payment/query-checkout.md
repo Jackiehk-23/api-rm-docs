@@ -30,13 +30,13 @@ Payment checkout is not the same as payment transaction info. Checkout only retu
 Direct Payment Checkout requires polling this endpoint to keep payment status updated. Suggested polling interval is 3–5 seconds.
 :::
 
-**Request Parameters**
+## Request Parameters
 
 | Parameter | Type | Required | Description |
 |---|---|---|---|
 | `checkoutId` | QueryParam | Yes | Payment checkout ID |
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

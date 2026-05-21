@@ -32,7 +32,10 @@ examples:
       "data": { "receiptType": 3 }
     }'
   response: |
-    { "code": "SUCCESS" }
+    {
+      "code": "SUCCESS"
+    }
+
 ---
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
@@ -45,7 +48,7 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 Sends a card settlement event to the RM Terminal. The terminal will settle all pending card transactions in its batch.
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -56,7 +59,7 @@ Sends a card settlement event to the RM Terminal. The terminal will settle all p
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

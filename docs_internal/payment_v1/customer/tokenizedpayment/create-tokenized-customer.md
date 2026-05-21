@@ -66,26 +66,26 @@ Create Tokenized Customer
 
 ```json
 {
-    "item": {
-        "id": "1671769885610598325",
-        "merchantId": "4118165203679668885",
-        "storeId": "1602660043994159611",
-        "label": "",
-        "email": "oska.ng@revenuemonster.my",
-        "name": " Oska Ng OpenAPI",
-        "countryCode": "60",
-        "phoneNumber": "187824152",
-        "productName": "card tokenized binding",
-        "productDescription": "some description for card tokenized",
-        "isActive": false,
-        "createdAt": "2022-12-23T04:31:25Z",
-        "updatedAt": "2022-12-23T04:31:25Z",
-        "clientKey": "EhcKC09BdXRoQ2xpZW50EMWa54yytMPIFg",
-        "redirectUrl": "https://google.com",
-        "notifyUrl": "https://google.com",
-        "paymentUrl": "https://sb-pg.revenuemonster.my/v1/recurring?customerId=1671769885610598325"
-    },
-    "code": "SUCCESS"
+  "item": {
+    "id": "1671769885610598325",
+    "merchantId": "4118165203679668885",
+    "storeId": "1602660043994159611",
+    "label": "",
+    "email": "oska.ng@revenuemonster.my",
+    "name": " Oska Ng OpenAPI",
+    "countryCode": "60",
+    "phoneNumber": "187824152",
+    "productName": "card tokenized binding",
+    "productDescription": "some description for card tokenized",
+    "isActive": false,
+    "createdAt": "2022-12-23T04:31:25Z",
+    "updatedAt": "2022-12-23T04:31:25Z",
+    "clientKey": "EhcKC09BdXRoQ2xpZW50EMWa54yytMPIFg",
+    "redirectUrl": "https://google.com",
+    "notifyUrl": "https://google.com",
+    "paymentUrl": "https://sb-pg.revenuemonster.my/v1/recurring?customerId=1671769885610598325"
+  },
+  "code": "SUCCESS"
 }
 ```
 

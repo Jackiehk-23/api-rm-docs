@@ -15,7 +15,7 @@ Sends a Wallet Settlement intent (`transactionType: 4`) to the RM Merchant App t
 startActivity(i)`}
 </CodeBlock>
 
-**Response**
+## Response
 
 <CodeBlock language="kotlin" filename="Response.kt" hideLineNumbers>
 {`val jsonString = intent?.getStringExtra("result")`}

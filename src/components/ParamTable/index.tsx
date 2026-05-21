@@ -7,6 +7,12 @@ export interface ParamRow {
   required?: boolean;
   description?: string;
   example?: string;
+  /**
+   * Override the anchor href used when `example` matches a "Refer to …" or
+   * "See Step N" pattern. When omitted the component falls back to:
+   *   - "Refer to …"  → `#<name-slug>` (or `#<name>` if slug is the same)
+   *   - "See Step N"  → `#step-N`
+   */
   anchor?: string;
   children?: ParamRow[];
 }
@@ -85,13 +91,24 @@ function ParamRowItem({ row, last }: { row: ParamRow; last: boolean }) {
       {row.example && (
         <p className={styles.example}>
           <span className={styles.exampleLabel}>Example: </span>
-          {row.example === "(Refer to explanation below)" ? (
+          {/\(Refer to explanation below\)|Refer to explanation below/i.test(row.example) ? (
             <a
               href={`#${row.anchor ?? row.name.toLowerCase().replace(/\s+/g, "-")}`}
               className={styles.exampleRef}
             >
               {row.example}
             </a>
+          ) : /\(See Step\s+\d+[^)]*\)|See Step\s+\d+/i.test(row.example) ? (
+            (() => {
+              const stepMatch = row.example.match(/Step\s+(\d+)/i);
+              const stepNum = stepMatch ? stepMatch[1] : "1";
+              const href = row.anchor ?? `#step-${stepNum}`;
+              return (
+                <a href={href} className={styles.exampleRef}>
+                  {row.example}
+                </a>
+              );
+            })()
           ) : (
             <code className={styles.exampleValue}>{row.example}</code>
           )}

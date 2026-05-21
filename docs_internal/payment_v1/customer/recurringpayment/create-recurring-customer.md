@@ -86,33 +86,33 @@ Create Recurring Customer
 
 ```json
 {
-    "item": {
-        "id": "1671703158559365205",
-        "merchantId": "4118165203679668885",
-        "storeId": "1602660043994159611",
-        "label": "",
-        "email": "oska.ng@revenuemonster.my",
-        "name": " Oska Ng OpenAPI",
-        "countryCode": "60",
-        "phoneNumber": "187824152",
-        "isActive": false,
-        "createdAt": "2022-12-22T09:59:18Z",
-        "updatedAt": "2022-12-22T09:59:18Z",
-        "clientKey": "EhcKC09BdXRoQ2xpZW50EMWa54yytMPIFg",
-        "redirectUrl": "https://google.com",
-        "notifyUrl": "https://google.com",
-        "paymentUrl": "https://sb-pg.revenuemonster.my/v1/recurring?customerId=1671703158559365205",
-        "recurringPayment": {
-            "amount": 120,
-            "currency": "MYR",
-            "recurringInterval": "WEEKLY",
-            "recurringTarget": "1",
-            "productName": "Some Product Name",
-            "productDescription": "Some Product productDescription",
-            "recurringRepetition": 10
-        }
-    },
-    "code": "SUCCESS"
+  "item": {
+    "id": "1671703158559365205",
+    "merchantId": "4118165203679668885",
+    "storeId": "1602660043994159611",
+    "label": "",
+    "email": "oska.ng@revenuemonster.my",
+    "name": " Oska Ng OpenAPI",
+    "countryCode": "60",
+    "phoneNumber": "187824152",
+    "isActive": false,
+    "createdAt": "2022-12-22T09:59:18Z",
+    "updatedAt": "2022-12-22T09:59:18Z",
+    "clientKey": "EhcKC09BdXRoQ2xpZW50EMWa54yytMPIFg",
+    "redirectUrl": "https://google.com",
+    "notifyUrl": "https://google.com",
+    "paymentUrl": "https://sb-pg.revenuemonster.my/v1/recurring?customerId=1671703158559365205",
+    "recurringPayment": {
+      "amount": 120,
+      "currency": "MYR",
+      "recurringInterval": "WEEKLY",
+      "recurringTarget": "1",
+      "productName": "Some Product Name",
+      "productDescription": "Some Product productDescription",
+      "recurringRepetition": 10
+    }
+  },
+  "code": "SUCCESS"
 }
 ```
 

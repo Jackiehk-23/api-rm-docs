@@ -58,7 +58,7 @@ Charges a customer's bound card immediately. Used for tokenized payment customer
 This charges the customer's card — it is not a manual order creation. The amount is applied directly to the stored token.
 :::
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Path Parameters"
@@ -77,7 +77,7 @@ This charges the customer's card — it is not a manual order creation. The amou
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

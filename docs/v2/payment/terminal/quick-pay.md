@@ -46,7 +46,10 @@ examples:
       }
     }'
   response: |
-    { "code": "SUCCESS" }
+    {
+      "code": "SUCCESS"
+    }
+
 ---
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
@@ -63,7 +66,7 @@ If your hardware device has its own scanner to scan payment QR codes, use [Stand
 
 Sends an e-wallet Quick Pay event to the RM Terminal. The terminal will open its camera to scan the customer's QR code.
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -81,7 +84,7 @@ Sends an e-wallet Quick Pay event to the RM Terminal. The terminal will open its
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

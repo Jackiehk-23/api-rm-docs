@@ -86,7 +86,7 @@ Quick Pay is an **offline payment method**. Its subscription rate is based on th
 
 ---
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -103,7 +103,7 @@ Quick Pay is an **offline payment method**. Its subscription rate is based on th
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

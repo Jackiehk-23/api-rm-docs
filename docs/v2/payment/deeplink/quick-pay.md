@@ -18,7 +18,7 @@ Sends a Quick Pay intent (`transactionType: 1`) to the RM Merchant App to accept
 startActivity(i)`}
 </CodeBlock>
 
-**Response**
+## Response
 
 <CodeBlock language="kotlin" filename="Response.kt" hideLineNumbers>
 {`val jsonString = intent?.getStringExtra("result")`}

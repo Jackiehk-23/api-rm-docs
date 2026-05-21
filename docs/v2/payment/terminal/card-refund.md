@@ -44,7 +44,10 @@ examples:
       }
     }'
   response: |
-    { "code": "SUCCESS" }
+    {
+      "code": "SUCCESS"
+    }
+
 ---
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
@@ -61,7 +64,7 @@ Sends a card refund event to the RM Terminal. The terminal will process the refu
 For e-wallet refunds, use [Cancel Transaction — Refund](../cancel-transaction/refund-transaction.mdx) via the server API instead.
 :::
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -76,7 +79,7 @@ For e-wallet refunds, use [Cancel Transaction — Refund](../cancel-transaction/
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

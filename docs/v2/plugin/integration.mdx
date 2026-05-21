@@ -142,7 +142,7 @@ To inform our application the handshake step is completed.
 
 <CodeBlock language="json" filename="Request">
 {`{
-    "action": "FINISH_HANDSHAKE"
+  "action": "FINISH_HANDSHAKE"
 }`}
 </CodeBlock>
 
@@ -154,7 +154,7 @@ To get the signed request. Most of the time you will get it when initialize so t
 
 <CodeBlock language="json" filename="Request">
 {`{
-    "action": "REQUEST_SIGNED_REQUEST"
+  "action": "REQUEST_SIGNED_REQUEST"
 }`}
 </CodeBlock>
 
@@ -162,8 +162,8 @@ To get the signed request. Most of the time you will get it when initialize so t
 
 <CodeBlock language="json" filename="Response">
 {`{
-    "action": "REQUEST_SIGNED_REQUEST",
-    "data": "_FuBOoZR8iGNThRTj9FpEfcBPI4Jhh6ZGPqMU76HnSA=.eyJtZXJjaGFudElkIjoiNDExODE2NTIwMzY3OTY2ODg4NSIsIm5vbmNlU3RyIjoiMTY4ODEwMjQwMiIsInBsYXRmb3JtIjoiV0VCX1BPUlRBTCIsInJlZmVyZW5jZUlkIjoiODE5MDY1NjA0NTE2NjIzMjcxNiIsInJlZmVyZW5jZUxhYmVsIjoiREVWIFJNUyIsInJlZmVyZW5jZVJvbGUiOiJPV05FUiIsInJlZmVyZW5jZVR5cGUiOiJVU0VSIiwic3RvcmVJZHMiOltdLCJzdWJzY3JpcHRpb25FeHBpcmVkQXQiOiIyMDUwLTEyLTMxVDIzOjU5OjU5WiIsInN1YnNjcmlwdGlvblN0YXR1cyI6IkFDVElWRSIsInRpbWVzdGFtcCI6IjE2ODgxMDI0MDIiLCJ1cmwiOiJodHRwOi8vMTI3LjAuMC4xOjU1MDAvaW5kZXguaHRtbCIsInVzZXJDb3VudHJ5Q29kZSI6IjYwIiwidXNlcklkIjoiODE5MDY1NjA0NTE2NjIzMjcxNiIsInVzZXJQaG9uZSI6IjEyODUzNDQ4OCJ9"
+  "action": "REQUEST_SIGNED_REQUEST",
+  "data": "_FuBOoZR8iGNThRTj9FpEfcBPI4Jhh6ZGPqMU76HnSA=.eyJtZXJjaGFudElkIjoiNDExODE2NTIwMzY3OTY2ODg4NSIsIm5vbmNlU3RyIjoiMTY4ODEwMjQwMiIsInBsYXRmb3JtIjoiV0VCX1BPUlRBTCIsInJlZmVyZW5jZUlkIjoiODE5MDY1NjA0NTE2NjIzMjcxNiIsInJlZmVyZW5jZUxhYmVsIjoiREVWIFJNUyIsInJlZmVyZW5jZVJvbGUiOiJPV05FUiIsInJlZmVyZW5jZVR5cGUiOiJVU0VSIiwic3RvcmVJZHMiOltdLCJzdWJzY3JpcHRpb25FeHBpcmVkQXQiOiIyMDUwLTEyLTMxVDIzOjU5OjU5WiIsInN1YnNjcmlwdGlvblN0YXR1cyI6IkFDVElWRSIsInRpbWVzdGFtcCI6IjE2ODgxMDI0MDIiLCJ1cmwiOiJodHRwOi8vMTI3LjAuMC4xOjU1MDAvaW5kZXguaHRtbCIsInVzZXJDb3VudHJ5Q29kZSI6IjYwIiwidXNlcklkIjoiODE5MDY1NjA0NTE2NjIzMjcxNiIsInVzZXJQaG9uZSI6IjEyODUzNDQ4OCJ9"
 }`}
 </CodeBlock>
 
@@ -175,8 +175,8 @@ To open up new link url on user browser.
 
 <CodeBlock language="json" filename="Request">
 {`{
-    "action": "WHATS_APP_LINK",
-    "message": "https://google.com"
+  "action": "WHATS_APP_LINK",
+  "message": "https://google.com"
 }`}
 </CodeBlock>
 
@@ -188,7 +188,7 @@ To trigger loader, will work as on/off strategy.
 
 <CodeBlock language="json" filename="Request">
 {`{
-    "action": "TOGGLE_LOADER"
+  "action": "TOGGLE_LOADER"
 }`}
 </CodeBlock>
 
@@ -200,8 +200,8 @@ To show toast notification to user
 
 <CodeBlock language="json" filename="Request">
 {`{
-    "action": "SHOW_NOTIFICATION",
-    "message": "some notification message toast"
+  "action": "SHOW_NOTIFICATION",
+  "message": "some notification message toast"
 }`}
 </CodeBlock>
 
@@ -213,9 +213,9 @@ Set the cookie value with `type` as a key
 
 <CodeBlock language="json" filename="Request">
 {`{
-    "action": "SET_COOKIE",
-    "type": "some_key",
-    "message": "some_value"
+  "action": "SET_COOKIE",
+  "type": "some_key",
+  "message": "some_value"
 }`}
 </CodeBlock>
 
@@ -227,9 +227,9 @@ Set the session storage value with `type` as a key
 
 <CodeBlock language="json" filename="Request">
 {`{
-    "action": "SET_SESSION_STORAGE",
-    "type": "some_key",
-    "message": "some_value"
+  "action": "SET_SESSION_STORAGE",
+  "type": "some_key",
+  "message": "some_value"
 }`}
 </CodeBlock>
 
@@ -241,9 +241,9 @@ Set the session storage value with `type` as a key
 
 <CodeBlock language="json" filename="Request">
 {`{
-    "action": "SET_LOCAL_STORAGE",
-    "type": "some_key",
-    "message": "some_value"
+  "action": "SET_LOCAL_STORAGE",
+  "type": "some_key",
+  "message": "some_value"
 }`}
 </CodeBlock>
 
@@ -255,8 +255,8 @@ Delete the cookie value with `type` as a key
 
 <CodeBlock language="json" filename="Request">
 {`{
-    "action": "REMOVE_COOKIE",
-    "type": "some_key"
+  "action": "REMOVE_COOKIE",
+  "type": "some_key"
 }`}
 </CodeBlock>
 
@@ -268,8 +268,8 @@ Set the session storage value with `type` as a key
 
 <CodeBlock language="json" filename="Request">
 {`{
-    "action": "REMOVE_SESSION_STORAGE",
-    "type": "some_key"
+  "action": "REMOVE_SESSION_STORAGE",
+  "type": "some_key"
 }`}
 </CodeBlock>
 
@@ -281,8 +281,8 @@ Set the session storage value with `type` as a key
 
 <CodeBlock language="json" filename="Request">
 {`{
-    "action": "REMOVE_LOCAL_STORAGE",
-    "type": "some_key"
+  "action": "REMOVE_LOCAL_STORAGE",
+  "type": "some_key"
 }`}
 </CodeBlock>
 
@@ -294,8 +294,8 @@ Get the cookie value with `type` as a key
 
 <CodeBlock language="json" filename="Request">
 {`{
-    "action": "GET_COOKIE",
-    "type": "some_key"
+  "action": "GET_COOKIE",
+  "type": "some_key"
 }`}
 </CodeBlock>
 
@@ -303,9 +303,9 @@ Get the cookie value with `type` as a key
 
 <CodeBlock language="json" filename="Response">
 {`{
-    "type": "some_key",
-    "action": "GET_COOKIE",
-    "data": "some_value"
+  "type": "some_key",
+  "action": "GET_COOKIE",
+  "data": "some_value"
 }`}
 </CodeBlock>
 
@@ -317,8 +317,8 @@ Get the session storage value with `type` as a key
 
 <CodeBlock language="json" filename="Request">
 {`{
-    "action": "GET_SESSION_STORAGE",
-    "type": "some_key"
+  "action": "GET_SESSION_STORAGE",
+  "type": "some_key"
 }`}
 </CodeBlock>
 
@@ -326,9 +326,9 @@ Get the session storage value with `type` as a key
 
 <CodeBlock language="json" filename="Response">
 {`{
-    "type": "some_key",
-    "action": "GET_SESSION_STORAGE",
-    "data": "some_value"
+  "type": "some_key",
+  "action": "GET_SESSION_STORAGE",
+  "data": "some_value"
 }`}
 </CodeBlock>
 
@@ -340,8 +340,8 @@ Get the session storage value with `type` as a key
 
 <CodeBlock language="json" filename="Request">
 {`{
-    "action": "GET_LOCAL_STORAGE",
-    "type": "some_key"
+  "action": "GET_LOCAL_STORAGE",
+  "type": "some_key"
 }`}
 </CodeBlock>
 
@@ -349,8 +349,8 @@ Get the session storage value with `type` as a key
 
 <CodeBlock language="json" filename="Response">
 {`{
-    "type": "some_key",
-    "action": "GET_LOCAL_STORAGE",
-    "data": "some_value"
+  "type": "some_key",
+  "action": "GET_LOCAL_STORAGE",
+  "data": "some_value"
 }`}
 </CodeBlock>

@@ -77,60 +77,60 @@ Create Customer Order
 
 ```json
 {
-    "item": {
-        "referenceId": "",
-        "transactionId": "221111072221600425841118",
-        "order": {
-            "id": "1668151341700658887R0",
-            "title": "Some Product Name",
-            "detail": "Some Product productDescription",
-            "additionalData": "1668151341700658887",
-            "amount": 300
-        },
-        "terminalId": "",
-        "currencyType": "MYR",
-        "balanceAmount": 0,
-        "finalAmount": 300,
-        "voucher": null,
-        "platform": "OPEN_API",
-        "method": "GOBIZ",
-        "error": {
-            "message": "9010"
-        },
-        "transactionAt": "0001-01-01T00:00:00Z",
-        "type": "RECURRING_PAYMENT",
-        "status": "FAILED",
-        "region": "MALAYSIA",
-        "extraInfo": {
-            "card": {
-                "cardType": null,
-                "provider": "",
-                "isTokenization": false,
-                "token": "",
-                "maskNo": "",
-                "inputType": "",
-                "referenceId": "",
-                "domain": "https://sb-pg.revenuemonster.my",
-                "secondaryReferenceId": ""
-            },
-            "onlineBanking": null,
-            "manualRefund": null
-        },
-        "extendInfo": {
-            "inHousePromo": {
-                "amount": 0,
-                "info": null
-            },
-            "buyNowPayLater": {
-                "isBuyNowPayLater": false,
-                "installmentMonth": 0
-            }
-        },
-        "source": "RECURRING",
-        "createdAt": "2022-11-11T07:22:21Z",
-        "updatedAt": "2022-11-11T07:23:23Z"
+  "item": {
+    "referenceId": "",
+    "transactionId": "221111072221600425841118",
+    "order": {
+      "id": "1668151341700658887R0",
+      "title": "Some Product Name",
+      "detail": "Some Product productDescription",
+      "additionalData": "1668151341700658887",
+      "amount": 300
     },
-    "code": "SUCCESS"
+    "terminalId": "",
+    "currencyType": "MYR",
+    "balanceAmount": 0,
+    "finalAmount": 300,
+    "voucher": null,
+    "platform": "OPEN_API",
+    "method": "GOBIZ",
+    "error": {
+      "message": "9010"
+    },
+    "transactionAt": "0001-01-01T00:00:00Z",
+    "type": "RECURRING_PAYMENT",
+    "status": "FAILED",
+    "region": "MALAYSIA",
+    "extraInfo": {
+      "card": {
+        "cardType": null,
+        "provider": "",
+        "isTokenization": false,
+        "token": "",
+        "maskNo": "",
+        "inputType": "",
+        "referenceId": "",
+        "domain": "https://sb-pg.revenuemonster.my",
+        "secondaryReferenceId": ""
+      },
+      "onlineBanking": null,
+      "manualRefund": null
+    },
+    "extendInfo": {
+      "inHousePromo": {
+        "amount": 0,
+        "info": null
+      },
+      "buyNowPayLater": {
+        "isBuyNowPayLater": false,
+        "installmentMonth": 0
+      }
+    },
+    "source": "RECURRING",
+    "createdAt": "2022-11-11T07:22:21Z",
+    "updatedAt": "2022-11-11T07:23:23Z"
+  },
+  "code": "SUCCESS"
 }
 ```
 

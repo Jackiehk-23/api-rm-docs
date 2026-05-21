@@ -55,7 +55,7 @@ export default function LayoutWrapper(props) {
       </div>
 
       {/* Edge strip with collapse handle — desktop only */}
-      <div className={styles.playgroundEdge}>
+      <div className={`${styles.playgroundEdge} ${isPanelCollapsed ? styles.playgroundEdgeCollapsed : ""}`}>
         <button
           className={`${styles.collapseHandle} ${isPanelCollapsed ? styles.collapseHandleCollapsed : ""}`}
           onClick={togglePanel}

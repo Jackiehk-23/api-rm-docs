@@ -84,7 +84,7 @@ Creates a unified payment checkout page for both web and mobile. The customer is
 
 ---
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -108,7 +108,7 @@ Creates a unified payment checkout page for both web and mobile. The customer is
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

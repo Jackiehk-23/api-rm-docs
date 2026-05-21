@@ -73,15 +73,20 @@
   z-index: 10;
 }
 
+.playgroundEdgeCollapsed {
+  width: 0;
+  border: none;
+}
+
 .collapseHandle {
   position: absolute;
-  left: -13px;
-  width: 26px;
-  height: 26px;
+  left: -16px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: var(--ifm-background-color);
   border: 1px solid var(--ifm-toc-border-color);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,8 +110,8 @@
 }
 
 .collapseHandleIcon {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   flex-shrink: 0;
   /* Default: chevron points left (‹) — playground visible, clicking collapses to the right */
   transform: rotate(180deg);

@@ -1,6 +1,6 @@
 ---
 title: "Quick Pay + Voucher"
-sidebar_label: "Quick Pay + Voucher"
+sidebar_label: "Voucher"
 
 api:
   method: POST
@@ -68,7 +68,7 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 Vouchers can be generated as QR codes for scanning. Scan the voucher QR code first, then scan the wallet QR code.
 :::
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -86,7 +86,7 @@ Vouchers can be generated as QR codes for scanning. Scan the voucher QR code fir
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

@@ -35,40 +35,41 @@ examples:
     There is no example body request.
   response: |
     {
-        "item": {
-            "key": "EhQKCE1lcmNoYW50EJXVzd3wraqTORITCgdWb3VjaGVyGgg4SndwTTNCQw",
-            "label": "1",
-            "redemptionRuleKey": "EhQKCE1lcmNoYW50EJXVzd3wraqTORIaCg5SZWRlbXB0aW9uUnVsZRCR8Jqz_tGOmhg",
-            "voucherBatchKey": "EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQtfzY7rPRjpoY",
-            "type": "CASH",
-            "amount": 200,
-            "discountRate": 0,
-            "minimumSpendAmount": 100,
-            "origin": "SYSTEM",
-            "imageUrl": "",
-            "memberProfile": null,
-            "assignedAt": "2025-04-08T03:35:45Z",
-            "payload": null,
-            "qrUrl": "",
-            "code": "8JwpM3BC",
-            "isShipping": false,
-            "address": null,
-            "expiry": {
-                "type": "DYNAMIC",
-                "day": 30,
-                "expiredAt": "2025-05-08T03:36:17Z"
-            },
-            "usedAt": "2025-04-08T03:36:22Z",
-            "redeemedAt": "2025-04-08T03:36:17Z",
-            "isDeviceRedeem": false,
-            "status": "REDEEMED",
-            "voucherComboKey": null,
-            "isMarketPlace": false,
-            "createdAt": "2025-04-08T03:35:25Z",
-            "updatedAt": "2025-04-08T03:36:56Z"
+      "item": {
+        "key": "EhQKCE1lcmNoYW50EJXVzd3wraqTORITCgdWb3VjaGVyGgg4SndwTTNCQw",
+        "label": "1",
+        "redemptionRuleKey": "EhQKCE1lcmNoYW50EJXVzd3wraqTORIaCg5SZWRlbXB0aW9uUnVsZRCR8Jqz_tGOmhg",
+        "voucherBatchKey": "EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQtfzY7rPRjpoY",
+        "type": "CASH",
+        "amount": 200,
+        "discountRate": 0,
+        "minimumSpendAmount": 100,
+        "origin": "SYSTEM",
+        "imageUrl": "",
+        "memberProfile": null,
+        "assignedAt": "2025-04-08T03:35:45Z",
+        "payload": null,
+        "qrUrl": "",
+        "code": "8JwpM3BC",
+        "isShipping": false,
+        "address": null,
+        "expiry": {
+          "type": "DYNAMIC",
+          "day": 30,
+          "expiredAt": "2025-05-08T03:36:17Z"
         },
-        "code": "SUCCESS"
+        "usedAt": "2025-04-08T03:36:22Z",
+        "redeemedAt": "2025-04-08T03:36:17Z",
+        "isDeviceRedeem": false,
+        "status": "REDEEMED",
+        "voucherComboKey": null,
+        "isMarketPlace": false,
+        "createdAt": "2025-04-08T03:35:25Z",
+        "updatedAt": "2025-04-08T03:36:56Z"
+      },
+      "code": "SUCCESS"
     }
+
 ---
 
 

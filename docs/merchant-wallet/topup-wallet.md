@@ -44,8 +44,8 @@ Topup merchant wallet
 
 <CodeBlock language="json" filename="Example Response">
 {`{
-    "item": "http://localhost:5001/v1/checkout?checkoutId=1612427954630524631",
-    "code": "SUCCESS"
+  "item": "http://localhost:5001/v1/checkout?checkoutId=1612427954630524631",
+  "code": "SUCCESS"
 }`}
 </CodeBlock>
 

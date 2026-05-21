@@ -2,6 +2,16 @@
 title: "Get All Transactions"
 sidebar_label: "Get All Transactions"
 
+api:
+  method: GET
+  url:
+    sandbox: https://sb-open.revenuemonster.my/v3/payment/transactions
+    prod: https://open.revenuemonster.my/v3/payment/transactions
+  requiresSignature: false
+  headers:
+    Authorization: Bearer {{access_token}}
+    X-Timestamp: "{{timestamp}}"
+
 examples:
   request: |
     curl --location --request GET "https://sb-open.revenuemonster.my/v3/payment/transactions?limit=10" \
@@ -26,7 +36,7 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 Fetch a paginated list of all transactions for your store.
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Query Parameters"
@@ -35,7 +45,7 @@ Fetch a paginated list of all transactions for your store.
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

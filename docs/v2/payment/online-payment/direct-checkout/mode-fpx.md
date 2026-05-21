@@ -50,7 +50,7 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 Returns an FPX payment redirect URL. Use the FPX bank list endpoint to get available bank codes.
 
-**Get FPX Bank List**
+## Get FPX Bank List
 
 **Method:** <HttpMethodBadge method="GET" /> `https://sb-open.revenuemonster.my/v3/payment/fpx-bank`
 
@@ -78,7 +78,7 @@ Returns an FPX payment redirect URL. Use the FPX bank list endpoint to get avail
 
 ---
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -90,7 +90,7 @@ Returns an FPX payment redirect URL. Use the FPX bank list endpoint to get avail
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

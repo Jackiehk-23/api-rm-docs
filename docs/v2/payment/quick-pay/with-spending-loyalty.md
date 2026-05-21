@@ -1,6 +1,6 @@
 ---
 title: "Quick Pay + Spending Loyalty"
-sidebar_label: "Quick Pay + Spending Loyalty"
+sidebar_label: "Spending Loyalty"
 
 api:
   method: POST
@@ -74,7 +74,7 @@ You will receive extra parameters in the transaction response. You need to print
 See [Transaction Object > Spending Loyalty](../query/transaction-object.md#spending-loyalty)
 :::
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -95,7 +95,7 @@ See [Transaction Object > Spending Loyalty](../query/transaction-object.md#spend
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"

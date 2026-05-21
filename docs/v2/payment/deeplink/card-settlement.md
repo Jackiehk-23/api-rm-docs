@@ -14,7 +14,7 @@ Sends a Card Settlement intent (`transactionType: 5`) to the RM Merchant App to 
 startActivity(i)`}
 </CodeBlock>
 
-**Response**
+## Response
 
 <CodeBlock language="kotlin" filename="Response.kt" hideLineNumbers>
 {`val jsonString = intent?.getStringExtra("result")`}

@@ -43,69 +43,70 @@ examples:
     There is no example body request.
   response: |
     {
-    	"item": {
-    		"createdAt": "2022-03-03T01:43:46.155000",
-    		"faceAction": "NONE_REQUIRED",
-    		"faceCompareRequestId": "62201d51239b18052126e288",
-    		"faceResult": {
-    			"isSamePerson": false,
-    			"similarity": 32
-    		},
-    		"id": "62201d52239b18052126e289",
-    		"mykadAction": "NONE_REQUIRED",
-    		"mykadRequestId": "62201d48a694817dede84b35",
-    		"reasons": [
-    			"Face and liveness verification was unsuccessful"
-    		],
-    		"results": [
-    			{
-    				"data": {
-    					"address": {
-    						"addressLine1": "GDW KAMPUNG BAYANGAN",
-    						"addressLine2": "80000 KENINGAU",
-    						"addressLine3": "SABAH",
-    						"city": "KENINGAU",
-    						"postcode": "80000",
-    						"state": "SABAH"
-    					},
-    					"gender": "Not found",
-    					"ic": "550106-12-5821",
-    					"isMuslim": false,
-    					"name": "ROWAN SEBASTIAN ATKINSON"
-    				},
-    				"duration": 1.8658,
-    				"faces": [
-    					{
-    						"boxes": [
-    							{
-    								"x": 428,
-    								"y": 137
-    							},
-    							{
-    								"x": 372,
-    								"y": 272
-    							}
-    						],
-    						"confidence": 1
-    					}
-    				],
-    				"object": {
-    					"confidence": 0.709,
-    					"prediction": "ic_1_front"
-    				},
-    				"scores": {
-    					"landmarks": 0.5443,
-    					"ocr": 0.9562,
-    					"searcher": 0.9,
-    					"total": 0.8401
-    				}
-    			}
-    		],
-    		"status": "SUCCESS",
-    		"updatedAt": "2022-03-03T01:43:46.155000",
-    		"verdict": "ATTENTION_REQUIRED"
-    	}
+      "item": {
+        "createdAt": "2022-03-03T01:43:46.155000",
+        "faceAction": "NONE_REQUIRED",
+        "faceCompareRequestId": "62201d51239b18052126e288",
+        "faceResult": {
+          "isSamePerson": false,
+          "similarity": 32
+        },
+        "id": "62201d52239b18052126e289",
+        "mykadAction": "NONE_REQUIRED",
+        "mykadRequestId": "62201d48a694817dede84b35",
+        "reasons": [
+          "Face and liveness verification was unsuccessful"
+        ],
+        "results": [
+          {
+            "data": {
+              "address": {
+                "addressLine1": "GDW KAMPUNG BAYANGAN",
+                "addressLine2": "80000 KENINGAU",
+                "addressLine3": "SABAH",
+                "city": "KENINGAU",
+                "postcode": "80000",
+                "state": "SABAH"
+              },
+              "gender": "Not found",
+              "ic": "550106-12-5821",
+              "isMuslim": false,
+              "name": "ROWAN SEBASTIAN ATKINSON"
+            },
+            "duration": 1.8658,
+            "faces": [
+              {
+                "boxes": [
+                  {
+                    "x": 428,
+                    "y": 137
+                  },
+                  {
+                    "x": 372,
+                    "y": 272
+                  }
+                ],
+                "confidence": 1
+              }
+            ],
+            "object": {
+              "confidence": 0.709,
+              "prediction": "ic_1_front"
+            },
+            "scores": {
+              "landmarks": 0.5443,
+              "ocr": 0.9562,
+              "searcher": 0.9,
+              "total": 0.8401
+            }
+          }
+        ],
+        "status": "SUCCESS",
+        "updatedAt": "2022-03-03T01:43:46.155000",
+        "verdict": "ATTENTION_REQUIRED"
+      }
     }
+
 ---
 
 

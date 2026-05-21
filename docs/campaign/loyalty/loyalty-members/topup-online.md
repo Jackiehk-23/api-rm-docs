@@ -34,11 +34,12 @@ examples:
     }
   response: |
     {
-        "item": {
-            "paymentUrl": "http://localhost:5001/v3/checkout?checkoutId=1612416816182682217"
-        },
-        "code": "SUCCESS"
+      "item": {
+        "paymentUrl": "http://localhost:5001/v3/checkout?checkoutId=1612416816182682217"
+      },
+      "code": "SUCCESS"
     }
+
 ---
 
 

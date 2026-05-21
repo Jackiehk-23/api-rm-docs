@@ -30,7 +30,10 @@ examples:
       "type": "CANCEL"
     }'
   response: |
-    { "code": "SUCCESS" }
+    {
+      "code": "SUCCESS"
+    }
+
 ---
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
@@ -43,7 +46,7 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 Cancels any ongoing event on the RM Terminal (e.g., an active Quick Pay or Card Payment that has not yet completed).
 
-**Request Parameters**
+## Request Parameters
 
 <ParamTable
   title="Details"
@@ -53,7 +56,7 @@ Cancels any ongoing event on the RM Terminal (e.g., an active Quick Pay or Card 
   ]}
 />
 
-**Response Parameters**
+## Response Parameters
 
 <ParamTable
   title="Details"
