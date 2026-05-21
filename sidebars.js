@@ -3,7 +3,7 @@
 
 module.exports = {
   someSidebar: {
-    Introduction: ["introduction/overview", "introduction/usecase"],
+    Introduction: ["introduction/overview"],
 
     "Quick Start": [
       {
