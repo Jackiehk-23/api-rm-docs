@@ -32,6 +32,13 @@ The transaction object is returned in the `item` (or `items[]`) field of query r
   ]}
 />
 
+<details className="section-details">
+<summary className="section-summary">
+  <span>Show Example Transaction</span>
+  <span className="section-toggle">▾</span>
+</summary>
+<div className="section-body">
+
 <CodeBlock language="json" filename="Example Transaction">
 {`{
   "referenceId": "230522162302AC0570UM",
@@ -56,6 +63,9 @@ The transaction object is returned in the `item` (or `items[]`) field of query r
   "updatedAt": "2023-05-22T08:23:11Z"
 }`}
 </CodeBlock>
+
+</div>
+</details>
 
 ---
 

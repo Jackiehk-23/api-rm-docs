@@ -119,15 +119,28 @@ export default function CodeBlock({
     <div className={styles.wrapper}>
       {/* Header */}
       <div className={styles.header}>
+        {/* Collapse toggle — far left */}
+        <button
+          className={styles.collapseBtn}
+          onClick={() => setCollapsed(c => !c)}
+          aria-label={collapsed ? "Expand code" : "Collapse code"}
+          type="button"
+        >
+          <svg
+            className={`${styles.collapseIcon} ${collapsed ? "" : styles.collapseIconOpen}`}
+            width="12" height="12" viewBox="0 0 12 12" fill="none"
+          >
+            <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+
         <div className={styles.headerLeft}>
-          {/* Filename */}
           {filename && (
             <span className={styles.filename}>{filename}</span>
           )}
         </div>
 
         <div className={styles.headerRight}>
-          {/* Language badge */}
           <span
             className={styles.langBadge}
             style={{ color: meta.color, background: meta.bg, borderColor: `${meta.color}33` }}
@@ -135,22 +148,6 @@ export default function CodeBlock({
             {meta.label}
           </span>
 
-          {/* Collapse toggle */}
-          <button
-            className={styles.collapseBtn}
-            onClick={() => setCollapsed(c => !c)}
-            aria-label={collapsed ? "Expand code" : "Collapse code"}
-            type="button"
-          >
-            <svg
-              className={`${styles.collapseIcon} ${collapsed ? "" : styles.collapseIconOpen}`}
-              width="12" height="12" viewBox="0 0 12 12" fill="none"
-            >
-              <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-
-          {/* Copy button */}
           <button
             className={`${styles.copyBtn} ${copied ? styles.copyBtnSuccess : ""}`}
             onClick={handleCopy}
