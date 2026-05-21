@@ -4,71 +4,151 @@ title: Overview
 sidebar_label: Overview
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Admonition from '@theme/Admonition';
+# Revenue Monster Open APIs
 
-# Overview
+Integrate payments, user management, store operations, and loyalty programs via RESTful API or SDK.
 
-Revenue Monster (RM) Open APIs let developers integrate payments, user management, store operations, and loyalty programs via RESTful API or SDK.
+---
 
 ## Environments
 
-<Tabs groupId="env">
-  <TabItem value="sandbox" label="Sandbox">
+<div className="ov-grid-2">
 
-| Service | URL |
-|---|---|
-| **OAuth Server** | `https://sb-oauth.revenuemonster.my` |
-| **Open API Server** | `https://sb-open.revenuemonster.my` |
+<div className="ov-card">
+  <span className="ov-card-label">Development</span>
+  <h3 style={{margin:'0 0 14px',fontSize:'1rem'}}>Sandbox</h3>
+  <p className="ov-card-sub">OAuth Server</p>
+  <code className="ov-card-url">https://sb-oauth.revenuemonster.my</code>
+  <p className="ov-card-sub">API Server</p>
+  <code className="ov-card-url">https://sb-open.revenuemonster.my</code>
+  <p className="ov-card-footer">Free testing environment. No charges, instant access.</p>
+</div>
 
-  </TabItem>
-  <TabItem value="production" label="Production">
+<div className="ov-card">
+  <div style={{display:'flex',alignItems:'center',gap:'6px',marginBottom:'10px'}}>
+    <span>🔒</span>
+    <span className="ov-card-label ov-card-label--primary">Production</span>
+  </div>
+  <h3 style={{margin:'0 0 14px',fontSize:'1rem'}}>Production</h3>
+  <p className="ov-card-sub">OAuth Server</p>
+  <code className="ov-card-url">https://oauth.revenuemonster.my</code>
+  <p className="ov-card-sub">API Server</p>
+  <code className="ov-card-url">https://open.revenuemonster.my</code>
+  <p className="ov-card-footer">Live environment. Requires approval (2–3 business days).</p>
+</div>
 
-| Service | URL |
-|---|---|
-| **OAuth Server** | `https://oauth.revenuemonster.my` |
-| **Open API Server** | `https://open.revenuemonster.my` |
+</div>
 
-  </TabItem>
-</Tabs>
+:::danger Always Test in Sandbox First
+Test your integration in the sandbox environment before going live. Contact [support@revenuemonster.my](mailto:support@revenuemonster.my) to activate your sandbox account.
+:::
 
-<Admonition type="danger" title="Always Test in Sandbox First">
-  Test your integration in the sandbox environment before going live. Contact <a href="mailto:support@revenuemonster.my">support@revenuemonster.my</a> to activate your sandbox account.
-</Admonition>
+---
 
 ## Before You Start
 
-### Step 1 — Create a Merchant Account
+<div className="ov-grid-auto">
 
-Sign up on the merchant portal for your target environment:
+<div className="ov-card">
+  <div className="ov-card-icon">1️⃣</div>
+  <span className="ov-card-title">Create a Merchant Account</span>
+  <p className="ov-card-desc">Sign up on the <a href="https://sb-merchant.revenuemonster.my/">Sandbox Portal</a> or <a href="https://merchant.revenuemonster.my/">Production Portal</a> for your target environment.</p>
+</div>
 
-| Environment | Portal URL |
-|---|---|
-| **Sandbox** | [Sandbox Merchant Portal](https://sb-merchant.revenuemonster.my/) |
-| **Production** | [Merchant Portal](https://merchant.revenuemonster.my/) |
+<div className="ov-card">
+  <div className="ov-card-icon">2️⃣</div>
+  <span className="ov-card-title">Submit Required Documents</span>
+  <p className="ov-card-desc">Complete all document submissions in the portal. Your account will be reviewed and approved by an administrator.</p>
+</div>
 
-### Step 2 — Submit Required Documents
+<div className="ov-card">
+  <div className="ov-card-icon">3️⃣</div>
+  <span className="ov-card-title">Get Your API Credentials</span>
+  <p className="ov-card-desc">Once approved, retrieve your Client ID and Secret key from the Merchant Portal to start making API calls.</p>
+</div>
 
-Complete all required document submissions shown in the portal. Your account will be reviewed and approved by an administrator.
-
-### Step 3 — Get Help (Optional)
-
-Need assistance? Contact our business development team:
-
-- **Email:** [bd@revenuemonster.my](mailto:bd@revenuemonster.my)
-- **Support:** [support@revenuemonster.my](mailto:support@revenuemonster.my)
+</div>
 
 :::info SDK vs REST API
 This documentation covers the **RESTful API**. For language-specific SDKs, see the [SDK section](../quickstart/sdk).
 :::
 
-## Next Steps
+---
 
-Start integrating with Revenue Monster:
+## What do you want to do?
 
-- [Quick Start: Signature Algorithm](../quickstart/signature-algorithm) — Learn how to sign API requests
-- [Merchant Onboarding](../merchant-onboarding/introduction) — Set up your merchant account
-- [SDK Reference](../quickstart/sdk) — Use our language-specific SDKs
+<div className="ov-grid-auto">
 
-<!-- SPDX-License-Identifier: Apache-2.0 -->
+<a href="../quickstart/signature-algorithm" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon">⚡</div>
+    <span className="ov-card-title">Quick Start</span>
+    <span className="ov-card-desc">Get up in 5 minutes</span>
+  </div>
+</a>
+
+<a href="../merchant-onboarding/introduction" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon">🏪</div>
+    <span className="ov-card-title">Merchant Onboarding</span>
+    <span className="ov-card-desc">Set up your merchant account</span>
+  </div>
+</a>
+
+<a href="../v2/payment/quick-pay/standard" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon">💳</div>
+    <span className="ov-card-title">Payments</span>
+    <span className="ov-card-desc">Accept transactions</span>
+  </div>
+</a>
+
+<a href="../campaign/member/register-loyalty-member" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon">🎁</div>
+    <span className="ov-card-title">Loyalty</span>
+    <span className="ov-card-desc">Build rewards programs</span>
+  </div>
+</a>
+
+<a href="../quickstart/sdk" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon">📦</div>
+    <span className="ov-card-title">SDK Reference</span>
+    <span className="ov-card-desc">Language-specific SDKs</span>
+  </div>
+</a>
+
+<a href="../ekyc/mykad-recognition" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon">🪪</div>
+    <span className="ov-card-title">eKYC</span>
+    <span className="ov-card-desc">Identity verification</span>
+  </div>
+</a>
+
+</div>
+
+---
+
+## Support
+
+<div className="ov-grid-2">
+
+<div className="ov-card">
+  <div style={{display:'flex',alignItems:'center',gap:'8px',marginBottom:'8px'}}>
+    <span>✉️</span>
+    <span className="ov-card-title">Business Inquiries</span>
+  </div>
+  <a href="mailto:bd@revenuemonster.my">bd@revenuemonster.my</a>
+</div>
+
+<div className="ov-card">
+  <div style={{display:'flex',alignItems:'center',gap:'8px',marginBottom:'8px'}}>
+    <span>🎧</span>
+    <span className="ov-card-title">Technical Support</span>
+  </div>
+  <a href="mailto:support@revenuemonster.my">support@revenuemonster.my</a>
+</div>
+
+</div>
