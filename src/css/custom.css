@@ -30,6 +30,10 @@ article h1 {
   font-size: 1.8rem !important;
 }
 
+article h2 {
+  font-size: 1.15rem !important;
+}
+
 /* ================================
    PREVENT BODY-LEVEL OVERFLOW
 ================================ */
