@@ -36,7 +36,7 @@ export default function LayoutWrapper(props) {
 
   if (!api) {
     return (
-      <div className={styles.docItemWrapper}>
+      <div className={`${styles.docItemWrapper} non-api-layout`}>
         <div className={styles.articleWrapper}>
           <Layout {...props} />
         </div>

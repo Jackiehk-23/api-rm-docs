@@ -452,6 +452,26 @@ html[data-theme="light"] .menu__list .menu__list {
   }
 }
 
+/* Non-API pages: strip container max-width and expand content column to full width */
+.non-api-layout .container {
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.non-api-layout .row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* docItemCol is a hashed CSS module class — use attribute selector to match it */
+.non-api-layout [class*="docItemCol"],
+.non-api-layout .col {
+  max-width: 100% !important;
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+}
+
 @media (max-width: 996px) {
   .theme-doc-toc-mobile {
     display: none !important;
