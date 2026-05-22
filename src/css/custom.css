@@ -771,6 +771,9 @@ details.section-details:not([open]) .section-toggle {
 .ov-card-icon {
   font-size: 22px;
   margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  color: var(--ifm-color-primary);
 }
 
 .ov-card-title {

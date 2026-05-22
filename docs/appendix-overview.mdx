@@ -1,0 +1,52 @@
+---
+id: appendix-overview
+title: Appendix
+sidebar_label: Overview
+---
+
+import { LuBook, LuCreditCard, LuFileText, LuCircleAlert, LuLandmark } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuBook size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Appendix</h1>
+</div>
+
+Reference tables used across the RM API — payment methods, product terms, error codes, and bank codes.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./payment-method" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuCreditCard size={22} /></div>
+    <span className="ov-card-title">Payment Methods</span>
+    <span className="ov-card-desc">All supported payment method codes (GrabPay, Touch 'n Go, DuitNow, FPX, etc.).</span>
+  </div>
+</a>
+
+<a href="./product-terms" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuFileText size={22} /></div>
+    <span className="ov-card-title">Product Terms</span>
+    <span className="ov-card-desc">Terminology and definitions used across RM products and APIs.</span>
+  </div>
+</a>
+
+<a href="./error-codes" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuCircleAlert size={22} /></div>
+    <span className="ov-card-title">Error Codes</span>
+    <span className="ov-card-desc">Complete list of API error codes with descriptions and resolution steps.</span>
+  </div>
+</a>
+
+<a href="./bank-code" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuLandmark size={22} /></div>
+    <span className="ov-card-title">Bank Codes</span>
+    <span className="ov-card-desc">Malaysian bank codes used in FPX and direct debit integrations.</span>
+  </div>
+</a>
+
+</div>

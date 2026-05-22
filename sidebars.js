@@ -6,6 +6,7 @@ module.exports = {
     Introduction: ["introduction/overview"],
 
     "Quick Start": [
+      "quickstart/overview",
       {
         type: "category",
         label: "SDK",
@@ -38,6 +39,7 @@ module.exports = {
     ],
 
 "Merchant Onboarding": [
+  "merchant-onboarding/overview",
   "merchant-onboarding/introduction",
 
   {
@@ -97,6 +99,7 @@ module.exports = {
 
 
 Payment: [
+  "v2/payment/overview",
   {
     type: "category",
     label: "Quick Pay",
@@ -295,6 +298,7 @@ Payment: [
     // ],
 
 "Visa Offers Platform": [
+  "visa-vop/overview",
   {
     type: "doc",
     id: "visa-vop/enroll-user",
@@ -320,11 +324,13 @@ Payment: [
 
 
     Plugin: [
+  "v2/plugin/overview",
   "v2/plugin/introduction",
   "v2/plugin/integration",
 ],
 
 "à la carte": [
+  "alacarte-open/overview",
   "alacarte-open/introduction",
   {
     type: "category",
@@ -433,6 +439,7 @@ Payment: [
 
 
 "Loyalty & Voucher": [
+  "campaign/overview",
   {
     type: "category",
     label: "Member",
@@ -657,6 +664,7 @@ Payment: [
     //   "merchant-wallet/topup-history",
     // ],
 Settings: [
+  "settings/overview",
   {
     type: "category",
     label: "Account",
@@ -749,6 +757,7 @@ Settings: [
 ],
 
 "eKYC": [
+  "ekyc/overview",
   {
     type: "doc",
     id: "ekyc/mykad-recognition",
@@ -777,6 +786,7 @@ Settings: [
 ],
 
 "Short Message Service": [
+  "sms/overview",
   {
     type: "doc",
     id: "sms/send-sms",
@@ -785,6 +795,7 @@ Settings: [
 ],
 
 "Push Notification": [
+  "push-notification/overview",
   {
     type: "doc",
     id: "push-notification/push-to-merchant",
@@ -793,12 +804,14 @@ Settings: [
 ],
 
     Downloads: [
+      "downloads/overview",
       "downloads/revenue-monster-logo",
       "downloads/application",
       "downloads/logo",
       "downloads/testing-wallets",
     ],
     "e-Commerce Plugin": [
+      "ecom-plugin/overview",
       "ecom-plugin/lowCodeCheckout",
       "ecom-plugin/wooCommerce",
       "ecom-plugin/opencart",
@@ -809,6 +822,6 @@ Settings: [
         href: "https://support.sitegiant.com/knowledge-base/how-to-set-up-revenue-monster-payment-gateway/",
       },
     ],
-    Appendix: ["payment-method", "product-terms", "error-codes", "bank-code"],
+    Appendix: ["appendix-overview", "payment-method", "product-terms", "error-codes", "bank-code"],
   },
 };

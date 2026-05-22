@@ -1,0 +1,58 @@
+---
+id: overview
+title: à la carte
+sidebar_label: Overview
+---
+
+import { LuUtensilsCrossed, LuClipboardList, LuStore, LuPackage, LuBell } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuUtensilsCrossed size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>à la carte</h1>
+</div>
+
+RM's digital ordering solution for F&B and retail. Manage orders, stores, and inventory programmatically — supports walk-in, pick-up, drive-thru, and delivery.
+
+---
+
+## APIs
+
+<div className="ov-grid-auto">
+
+<a href="./orders/get-orders-by-store-id" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuClipboardList size={22} /></div>
+    <span className="ov-card-title">Orders</span>
+    <span className="ov-card-desc">Fetch, update status, and refund customer orders by store.</span>
+  </div>
+</a>
+
+<a href="./store/get-store-by-id" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuStore size={22} /></div>
+    <span className="ov-card-title">Store</span>
+    <span className="ov-card-desc">Retrieve and update store settings — delivery, order types, and availability.</span>
+  </div>
+</a>
+
+<a href="./inventory/create-category-by-store-id" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuPackage size={22} /></div>
+    <span className="ov-card-title">Inventory</span>
+    <span className="ov-card-desc">Manage categories, menu items, and stock quantities.</span>
+  </div>
+</a>
+
+<a href="./set-notification" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuBell size={22} /></div>
+    <span className="ov-card-title">Notifications</span>
+    <span className="ov-card-desc">Set a webhook URL to receive real-time order event callbacks.</span>
+  </div>
+</a>
+
+</div>
+
+:::note Base URL
+All à la carte API calls use the same RM Open API base URL: `https://open.revenuemonster.my/v3/service`
+:::

@@ -1,0 +1,54 @@
+---
+id: overview
+title: Settings
+sidebar_label: Overview
+---
+
+import { LuSettings, LuBuilding2, LuStore, LuUser, LuFileCheck } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuSettings size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Settings</h1>
+</div>
+
+Programmatically read and update your RM configuration — accounts, stores, merchant profile, and user details.
+
+---
+
+## Configuration APIs
+
+<div className="ov-grid-auto">
+
+<a href="./account-detail/get-accounts" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuFileCheck size={22} /></div>
+    <span className="ov-card-title">Account</span>
+    <span className="ov-card-desc">Create, retrieve, update accounts, and submit for RM review.</span>
+  </div>
+</a>
+
+<a href="./store-detail/store-details" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuStore size={22} /></div>
+    <span className="ov-card-title">Store</span>
+    <span className="ov-card-desc">Create, update, and delete stores. Fetch store details by merchant or ID.</span>
+  </div>
+</a>
+
+<a href="./merchant-detail/merchant-profile" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuBuilding2 size={22} /></div>
+    <span className="ov-card-title">Merchant</span>
+    <span className="ov-card-desc">Retrieve merchant profile and active subscription information.</span>
+  </div>
+</a>
+
+<a href="./user-profile" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuUser size={22} /></div>
+    <span className="ov-card-title">User</span>
+    <span className="ov-card-desc">Fetch the profile of the authenticated user.</span>
+  </div>
+</a>
+
+</div>

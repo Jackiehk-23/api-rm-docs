@@ -1,0 +1,84 @@
+---
+id: overview
+title: Merchant Onboarding
+sidebar_label: Overview
+---
+
+import { LuBuilding2, LuUserPlus, LuUsers, LuPencil, LuSend, LuUpload, LuAppWindow } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuBuilding2 size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Merchant Onboarding</h1>
+</div>
+
+For platforms and aggregators: programmatically create, manage, and submit merchant accounts into RM's system on behalf of your merchants. Requires a Partner account — [contact us](https://revenuemonster.my/about-us) to activate.
+
+---
+
+## Merchant Management
+
+<div className="ov-grid-auto">
+
+<a href="./create-merchant" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuUserPlus size={22} /></div>
+    <span className="ov-card-title">Create Merchant</span>
+    <span className="ov-card-desc">Register a new merchant under your partner account.</span>
+  </div>
+</a>
+
+<a href="./get-merchants" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuUsers size={22} /></div>
+    <span className="ov-card-title">Get Merchants</span>
+    <span className="ov-card-desc">List all merchants under your partner account.</span>
+  </div>
+</a>
+
+<a href="./get-merchant" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuBuilding2 size={22} /></div>
+    <span className="ov-card-title">Get Merchant</span>
+    <span className="ov-card-desc">Retrieve details and application status for a single merchant.</span>
+  </div>
+</a>
+
+<a href="./update-merchant" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuPencil size={22} /></div>
+    <span className="ov-card-title">Update Merchant</span>
+    <span className="ov-card-desc">Update merchant profile information.</span>
+  </div>
+</a>
+
+<a href="./submit-merchant-for-review" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuSend size={22} /></div>
+    <span className="ov-card-title">Submit for Review</span>
+    <span className="ov-card-desc">Send the merchant application to RM for approval.</span>
+  </div>
+</a>
+
+<a href="./upload-merchant-file" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuUpload size={22} /></div>
+    <span className="ov-card-title">Upload File</span>
+    <span className="ov-card-desc">Attach supporting documents to a merchant application.</span>
+  </div>
+</a>
+
+</div>
+
+## Application Clients
+
+<div className="ov-grid-auto">
+
+<a href="./application-clients/get-application-clients" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuAppWindow size={22} /></div>
+    <span className="ov-card-title">Application Clients</span>
+    <span className="ov-card-desc">Create and manage OAuth application clients for a merchant.</span>
+  </div>
+</a>
+
+</div>

@@ -1,0 +1,32 @@
+---
+id: overview
+title: Short Message Service
+sidebar_label: Overview
+---
+
+import { LuMessageSquare } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuMessageSquare size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Short Message Service</h1>
+</div>
+
+Send SMS messages to any Malaysian mobile number via RM's gateway. Useful for OTP delivery, transaction alerts, and customer notifications.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./send-sms" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuMessageSquare size={22} /></div>
+    <span className="ov-card-title">Send SMS</span>
+    <span className="ov-card-desc">Send a text message to a phone number. Specify country code, number, and message body.</span>
+  </div>
+</a>
+
+</div>
+
+:::note
+This API requires an active RM account with SMS credits. Contact [support@revenuemonster.my](mailto:support@revenuemonster.my) to enable SMS for your account.
+:::

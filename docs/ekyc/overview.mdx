@@ -1,0 +1,54 @@
+---
+id: overview
+title: eKYC
+sidebar_label: Overview
+---
+
+import { LuScanFace, LuIdCard, LuEye, LuUserCheck, LuClipboardCheck } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuScanFace size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>eKYC</h1>
+</div>
+
+Digital identity verification using Malaysian MyKad (IC). Scan and extract IC data, verify liveness, match faces, and retrieve KYC results — all via API.
+
+---
+
+## Verification APIs
+
+<div className="ov-grid-auto">
+
+<a href="./mykad-recognition" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuIdCard size={22} /></div>
+    <span className="ov-card-title">MyKad Recognition</span>
+    <span className="ov-card-desc">Extract name, IC number, address, and photo from a Malaysian IC image.</span>
+  </div>
+</a>
+
+<a href="./liveness-check-with-face-verification" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuEye size={22} /></div>
+    <span className="ov-card-title">Liveness + Face Verification</span>
+    <span className="ov-card-desc">Detect a live person and match their face against the MyKad photo in one step.</span>
+  </div>
+</a>
+
+<a href="./face-verification" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuUserCheck size={22} /></div>
+    <span className="ov-card-title">Face Verification</span>
+    <span className="ov-card-desc">Compare two face images and return a similarity confidence score.</span>
+  </div>
+</a>
+
+<a href="./get-mykad-result" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuClipboardCheck size={22} /></div>
+    <span className="ov-card-title">Get Results</span>
+    <span className="ov-card-desc">Poll for MyKad recognition or eKYC verification results by session ID.</span>
+  </div>
+</a>
+
+</div>

@@ -1,0 +1,74 @@
+---
+id: overview
+title: Quick Start
+sidebar_label: Overview
+---
+
+import { LuZap, LuKeyRound, LuShieldCheck, LuPackage, LuSmartphone, LuLock } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuZap size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Quick Start</h1>
+</div>
+
+Set up authentication and make your first RM API call. All endpoints require a valid HMAC-SHA256 signature and an access token — start here.
+
+---
+
+## Prerequisites
+
+<div className="ov-grid-auto">
+
+<a href="./signature-algorithm" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuShieldCheck size={22} /></div>
+    <span className="ov-card-title">Signature Algorithm</span>
+    <span className="ov-card-desc">HMAC-SHA256 request signing required on every API call.</span>
+  </div>
+</a>
+
+<a href="./verify-signature" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuLock size={22} /></div>
+    <span className="ov-card-title">Verify Signature</span>
+    <span className="ov-card-desc">Validate incoming webhook payloads from RM servers.</span>
+  </div>
+</a>
+
+<a href="./accesstoken/client-credentials" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuKeyRound size={22} /></div>
+    <span className="ov-card-title">Access Token</span>
+    <span className="ov-card-desc">Obtain OAuth 2.0 tokens via client credentials or authorization code flow.</span>
+  </div>
+</a>
+
+</div>
+
+## SDKs
+
+<div className="ov-grid-auto">
+
+<a href="./sdk" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuPackage size={22} /></div>
+    <span className="ov-card-title">SDK Reference</span>
+    <span className="ov-card-desc">Node.js, PHP, Python, Go, Java, and more.</span>
+  </div>
+</a>
+
+<a href="./mobile-sdk" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuSmartphone size={22} /></div>
+    <span className="ov-card-title">Mobile SDK</span>
+    <span className="ov-card-desc">iOS and Android SDK for native app integrations.</span>
+  </div>
+</a>
+
+</div>
+
+:::tip Recommended Order
+1. Read [Signature Algorithm](./signature-algorithm) — required for every request.
+2. Get an [Access Token](./accesstoken/client-credentials).
+3. Make your first API call.
+:::

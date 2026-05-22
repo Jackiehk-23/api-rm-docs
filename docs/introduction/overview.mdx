@@ -4,6 +4,8 @@ title: Overview
 sidebar_label: Overview
 ---
 
+import { LuZap, LuBuilding2, LuCreditCard, LuGift, LuPackage, LuScanFace, LuMail, LuHeadphones, LuLock } from "react-icons/lu";
+
 # Revenue Monster Open APIs
 
 Integrate payments, user management, store operations, and loyalty programs via RESTful API or SDK.
@@ -26,7 +28,7 @@ Integrate payments, user management, store operations, and loyalty programs via 
 
 <div className="ov-card">
   <div style={{display:'flex',alignItems:'center',gap:'6px',marginBottom:'10px'}}>
-    <span>🔒</span>
+    <LuLock size={14} style={{color:'#fff',flexShrink:0}} />
     <span className="ov-card-label ov-card-label--primary">Production</span>
   </div>
   <h3 style={{margin:'0 0 14px',fontSize:'1rem'}}>Production</h3>
@@ -50,19 +52,19 @@ Test your integration in the sandbox environment before going live. Contact [sup
 <div className="ov-grid-auto">
 
 <div className="ov-card">
-  <div className="ov-card-icon">1️⃣</div>
+  <div className="ov-card-icon" style={{fontSize:'1.2rem'}}>1️⃣</div>
   <span className="ov-card-title">Create a Merchant Account</span>
   <p className="ov-card-desc">Sign up on the <a href="https://sb-merchant.revenuemonster.my/">Sandbox Portal</a> or <a href="https://merchant.revenuemonster.my/">Production Portal</a> for your target environment.</p>
 </div>
 
 <div className="ov-card">
-  <div className="ov-card-icon">2️⃣</div>
+  <div className="ov-card-icon" style={{fontSize:'1.2rem'}}>2️⃣</div>
   <span className="ov-card-title">Submit Required Documents</span>
   <p className="ov-card-desc">Complete all document submissions in the portal. Your account will be reviewed and approved by an administrator.</p>
 </div>
 
 <div className="ov-card">
-  <div className="ov-card-icon">3️⃣</div>
+  <div className="ov-card-icon" style={{fontSize:'1.2rem'}}>3️⃣</div>
   <span className="ov-card-title">Get Your API Credentials</span>
   <p className="ov-card-desc">Once approved, retrieve your Client ID and Secret key from the Merchant Portal to start making API calls.</p>
 </div>
@@ -79,51 +81,51 @@ This documentation covers the **RESTful API**. For language-specific SDKs, see t
 
 <div className="ov-grid-auto">
 
-<a href="../quickstart/signature-algorithm" className="ov-card--link">
+<a href="../quickstart/overview" className="ov-card--link">
   <div className="ov-card">
-    <div className="ov-card-icon">⚡</div>
+    <div className="ov-card-icon"><LuZap size={22} /></div>
     <span className="ov-card-title">Quick Start</span>
-    <span className="ov-card-desc">Get up in 5 minutes</span>
+    <span className="ov-card-desc">Set up auth and make your first API call</span>
   </div>
 </a>
 
-<a href="../merchant-onboarding/introduction" className="ov-card--link">
+<a href="../merchant-onboarding/overview" className="ov-card--link">
   <div className="ov-card">
-    <div className="ov-card-icon">🏪</div>
+    <div className="ov-card-icon"><LuBuilding2 size={22} /></div>
     <span className="ov-card-title">Merchant Onboarding</span>
-    <span className="ov-card-desc">Set up your merchant account</span>
+    <span className="ov-card-desc">Create and manage merchant accounts programmatically</span>
   </div>
 </a>
 
-<a href="../v2/payment/quick-pay/standard" className="ov-card--link">
+<a href="../v2/payment/overview" className="ov-card--link">
   <div className="ov-card">
-    <div className="ov-card-icon">💳</div>
+    <div className="ov-card-icon"><LuCreditCard size={22} /></div>
     <span className="ov-card-title">Payments</span>
-    <span className="ov-card-desc">Accept transactions</span>
+    <span className="ov-card-desc">QR, online checkout, terminal, and tokenized payments</span>
   </div>
 </a>
 
-<a href="../campaign/member/register-loyalty-member" className="ov-card--link">
+<a href="../campaign/overview" className="ov-card--link">
   <div className="ov-card">
-    <div className="ov-card-icon">🎁</div>
-    <span className="ov-card-title">Loyalty</span>
-    <span className="ov-card-desc">Build rewards programs</span>
+    <div className="ov-card-icon"><LuGift size={22} /></div>
+    <span className="ov-card-title">Loyalty & Voucher</span>
+    <span className="ov-card-desc">Points, membership, vouchers, and campaigns</span>
   </div>
 </a>
 
 <a href="../quickstart/sdk" className="ov-card--link">
   <div className="ov-card">
-    <div className="ov-card-icon">📦</div>
+    <div className="ov-card-icon"><LuPackage size={22} /></div>
     <span className="ov-card-title">SDK Reference</span>
     <span className="ov-card-desc">Language-specific SDKs</span>
   </div>
 </a>
 
-<a href="../ekyc/mykad-recognition" className="ov-card--link">
+<a href="../ekyc/overview" className="ov-card--link">
   <div className="ov-card">
-    <div className="ov-card-icon">🪪</div>
+    <div className="ov-card-icon"><LuScanFace size={22} /></div>
     <span className="ov-card-title">eKYC</span>
-    <span className="ov-card-desc">Identity verification</span>
+    <span className="ov-card-desc">MyKad recognition and identity verification</span>
   </div>
 </a>
 
@@ -137,7 +139,7 @@ This documentation covers the **RESTful API**. For language-specific SDKs, see t
 
 <div className="ov-card">
   <div style={{display:'flex',alignItems:'center',gap:'8px',marginBottom:'8px'}}>
-    <span>✉️</span>
+    <LuMail size={16} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
     <span className="ov-card-title">Business Inquiries</span>
   </div>
   <a href="mailto:bd@revenuemonster.my">bd@revenuemonster.my</a>
@@ -145,7 +147,7 @@ This documentation covers the **RESTful API**. For language-specific SDKs, see t
 
 <div className="ov-card">
   <div style={{display:'flex',alignItems:'center',gap:'8px',marginBottom:'8px'}}>
-    <span>🎧</span>
+    <LuHeadphones size={16} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
     <span className="ov-card-title">Technical Support</span>
   </div>
   <a href="mailto:support@revenuemonster.my">support@revenuemonster.my</a>
