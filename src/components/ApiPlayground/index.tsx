@@ -239,6 +239,8 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
           </div>
         )}
 
+        {children}
+
         <button
           className={`${styles.send} ${notReady ? styles.sendBlocked : ""}`}
           onClick={handleSend}
@@ -318,7 +320,6 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
             })()}
           </div>
         )}
-        {children}
       </div>
     </div>
   );

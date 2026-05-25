@@ -426,14 +426,6 @@ module.exports = {
       { type: "doc", id: "push-notification/push-to-merchant", className: "api-post" },
     ]},
 
-    { type: "category", label: "Downloads", items: [
-      "downloads/overview",
-      "downloads/revenue-monster-logo",
-      "downloads/application",
-      "downloads/logo",
-      "downloads/testing-wallets",
-    ]},
-
     { type: "category", label: "e-Commerce Plugin", items: [
       "ecom-plugin/overview",
       "ecom-plugin/lowCodeCheckout",
@@ -455,6 +447,7 @@ module.exports = {
       "bank-code",
       "quickstart/sdk",
       "quickstart/mobile-sdk",
+      "appendix-downloads",
     ]},
   ],
 };

@@ -32,9 +32,12 @@ Direct Payment Checkout requires polling this endpoint to keep payment status up
 
 ## Request Parameters
 
-| Parameter | Type | Required | Description |
-|---|---|---|---|
-| `checkoutId` | QueryParam | Yes | Payment checkout ID |
+<ParamTable
+  title="Details"
+  rows={[
+    { name: "checkoutId", type: "Param", required: true, description: "Payment checkout ID (query parameter)" },
+  ]}
+/>
 
 ## Response Parameters
 
@@ -62,7 +65,6 @@ Direct Payment Checkout requires polling this endpoint to keep payment status up
         { name: "amount", type: "Integer", description: "Order amount." },
         { name: "detail", type: "String", description: "Order detail." },
         { name: "additionalData", type: "String", description: "Order additional data." },
-      { name: "updatedAt", type: "String", description: "Payment checkout last updated date time." },
         ]
       },
       { name: "platform", type: "String", description: "Payment checkout platform." },
@@ -72,6 +74,7 @@ Direct Payment Checkout requires polling this endpoint to keep payment status up
       { name: "startAt", type: "String", description: "Payment checkout start date time." },
       { name: "status", type: "String", description: "Payment checkout status." },
       { name: "createdAt", type: "String", description: "Payment checkout created date time." },
+      { name: "updatedAt", type: "String", description: "Payment checkout last updated date time." },
       ]
     },
   ]}

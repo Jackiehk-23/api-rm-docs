@@ -216,29 +216,21 @@
   cursor: pointer;
   font-size: 0.76rem;
   font-weight: 500;
-  color: var(--ifm-color-emphasis-700);
+  color: var(--ifm-color-primary);
   transition: background 0.15s ease, border-color 0.15s ease;
   text-align: left;
 }
 
 .childToggleOpen {
-  border-color: var(--ifm-color-primary);
-  background: var(--ifm-color-primary-lightest, #eff6ff);
+  border-color: var(--ifm-color-emphasis-400);
+  background: var(--ifm-color-emphasis-100);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-[data-theme="dark"] .childToggleOpen {
-  background: rgba(99, 102, 241, 0.1);
-}
-
 .childToggle:hover {
-  background: var(--ifm-color-primary-lightest, #eff6ff);
-  border-color: var(--ifm-color-primary);
-}
-
-[data-theme="dark"] .childToggle:hover {
-  background: rgba(99, 102, 241, 0.1);
+  background: var(--ifm-color-emphasis-200);
+  border-color: var(--ifm-color-emphasis-400);
 }
 
 /* ─── Child body animation ────────────────────────────── */
@@ -247,7 +239,7 @@
   transition:
     grid-template-rows 0.25s cubic-bezier(0.4, 0, 0.2, 1),
     opacity 0.2s ease;
-  border: 1px solid var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-emphasis-400);
   border-top: none;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;

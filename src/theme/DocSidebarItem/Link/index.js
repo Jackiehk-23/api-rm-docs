@@ -159,7 +159,11 @@ export default function DocSidebarItemLink({
         })}
         {...props}
       >
-        {label}
+        {typeof label === 'string' && label.includes('\n')
+          ? label.split('\n').map((line, i, arr) => (
+              <React.Fragment key={i}>{line}{i < arr.length - 1 && <br />}</React.Fragment>
+            ))
+          : label}
         {!isInternalLink && <IconExternalLink />}
       </Link>
 

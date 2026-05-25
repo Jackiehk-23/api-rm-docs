@@ -51,15 +51,20 @@ const darkTheme = {
   ],
 };
 
-const LANG_META: Record<string, { label: string; color: string; bg: string }> = {
-  json:       { label: "JSON",       color: "#f6ad55", bg: "rgba(246,173,85,0.12)" },
-  bash:       { label: "Bash",       color: "#68d391", bg: "rgba(104,211,145,0.12)" },
-  curl:       { label: "cURL",       color: "#68d391", bg: "rgba(104,211,145,0.12)" },
-  javascript: { label: "JavaScript", color: "#faf089", bg: "rgba(250,240,137,0.12)" },
-  typescript: { label: "TypeScript", color: "#76e4f7", bg: "rgba(118,228,247,0.12)" },
-  jsx:        { label: "JSX",        color: "#f687b3", bg: "rgba(246,135,179,0.12)" },
-  tsx:        { label: "TSX",        color: "#f687b3", bg: "rgba(246,135,179,0.12)" },
+const LANG_META: Record<string, { label: string; color: string; bg: string; colorLight?: string; bgLight?: string }> = {
+  json:       { label: "JSON",       color: "#f6ad55", bg: "rgba(246,173,85,0.12)",    colorLight: "#b45309", bgLight: "rgba(180,83,9,0.08)"    },
+  bash:       { label: "Bash",       color: "#68d391", bg: "rgba(104,211,145,0.12)",   colorLight: "#15803d", bgLight: "rgba(21,128,61,0.08)"   },
+  curl:       { label: "cURL",       color: "#68d391", bg: "rgba(104,211,145,0.12)",   colorLight: "#15803d", bgLight: "rgba(21,128,61,0.08)"   },
+  javascript: { label: "JavaScript", color: "#faf089", bg: "rgba(250,240,137,0.12)",   colorLight: "#b45309", bgLight: "rgba(180,83,9,0.08)"    },
+  typescript: { label: "TypeScript", color: "#76e4f7", bg: "rgba(118,228,247,0.12)",   colorLight: "#0e7490", bgLight: "rgba(14,116,144,0.08)"  },
+  jsx:        { label: "JSX",        color: "#f687b3", bg: "rgba(246,135,179,0.12)",   colorLight: "#be185d", bgLight: "rgba(190,24,93,0.08)"   },
+  tsx:        { label: "TSX",        color: "#f687b3", bg: "rgba(246,135,179,0.12)",   colorLight: "#be185d", bgLight: "rgba(190,24,93,0.08)"   },
   plaintext:  { label: "Text",       color: "#a0aec0", bg: "rgba(160,174,192,0.12)" },
+  kotlin:     { label: "Kotlin",     color: "#c792ea", bg: "rgba(199,146,234,0.12)",   colorLight: "#7c3aed", bgLight: "rgba(124,58,237,0.08)"  },
+  swift:      { label: "Swift",      color: "#fd9168", bg: "rgba(253,145,104,0.12)",   colorLight: "#c2410c", bgLight: "rgba(194,65,12,0.08)"   },
+  java:       { label: "Java",       color: "#f07178", bg: "rgba(240,113,120,0.12)",   colorLight: "#b91c1c", bgLight: "rgba(185,28,28,0.08)"   },
+  python:     { label: "Python",     color: "#82aaff", bg: "rgba(130,170,255,0.12)",   colorLight: "#1d4ed8", bgLight: "rgba(29,78,216,0.08)"   },
+  php:        { label: "PHP",        color: "#c792ea", bg: "rgba(199,146,234,0.12)",   colorLight: "#7c3aed", bgLight: "rgba(124,58,237,0.08)"  },
 };
 
 interface Props {
@@ -113,6 +118,8 @@ export default function CodeBlock({
   ) as Language;
 
   const meta = LANG_META[language] ?? LANG_META["plaintext"];
+  const badgeColor = isDark ? meta.color : (meta.colorLight ?? meta.color);
+  const badgeBg    = isDark ? meta.bg    : (meta.bgLight    ?? meta.bg);
   const theme = isDark ? darkTheme : lightTheme;
 
   return (
@@ -143,7 +150,7 @@ export default function CodeBlock({
         <div className={styles.headerRight}>
           <span
             className={styles.langBadge}
-            style={{ color: meta.color, background: meta.bg, borderColor: `${meta.color}33` }}
+            style={{ color: badgeColor, background: badgeBg, borderColor: `${badgeColor}33` }}
           >
             {meta.label}
           </span>

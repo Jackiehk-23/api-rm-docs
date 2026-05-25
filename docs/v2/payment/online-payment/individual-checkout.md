@@ -19,11 +19,14 @@ The redirect URL brings the customer back to your page after payment. It can be 
 
 **Method:** <HttpMethodBadge method="GET" />
 
-| Parameter | Type | Required | Description |
-|---|---|---|---|
-| `status` | String | Yes | Payment status |
-| `orderId` | String | Yes | Payment order ID |
-| `reason` | String | No | Payment failure reason |
+<ParamTable
+  title="Details"
+  rows={[
+    { name: "status", type: "String", required: true, description: "Payment status" },
+    { name: "orderId", type: "String", required: true, description: "Payment order ID" },
+    { name: "reason", type: "String", description: "Payment failure reason" },
+  ]}
+/>
 
 ---
 

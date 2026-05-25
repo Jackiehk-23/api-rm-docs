@@ -1,6 +1,6 @@
 ---
-title: "Direct Checkout — Mode: GoBiz / Paydee / Mastercard"
-sidebar_label: "Mode: GoBiz / Paydee / Mastercard"
+title: "Direct Checkout — Mode: Card Payment"
+sidebar_label: "Mode: Card\nPayment"
 
 api:
   method: POST

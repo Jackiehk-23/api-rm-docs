@@ -1,0 +1,125 @@
+---
+id: appendix-downloads
+title: Downloads
+sidebar_label: Downloads
+---
+
+import { LuImage, LuPalette, LuSmartphone, LuWallet } from "react-icons/lu";
+
+Official Revenue Monster branding assets, app downloads, and sandbox testing credentials.
+
+---
+
+## Branding Assets
+
+<div style={{display:"flex",flexDirection:"column",gap:"12px",marginBottom:"1.5rem"}}>
+
+<div style={{display:"flex",alignItems:"center",gap:"14px",padding:"14px 18px",border:"1px solid var(--ifm-color-emphasis-300)",borderRadius:"10px",background:"var(--ifm-color-emphasis-0)"}}>
+  <div style={{width:"38px",height:"38px",borderRadius:"8px",background:"var(--ifm-color-emphasis-100)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+    <LuImage size={20} style={{color:"var(--ifm-color-primary)"}} />
+  </div>
+  <div style={{flex:1,minWidth:0}}>
+    <div style={{fontWeight:600,fontSize:"0.95rem",marginBottom:"2px"}}>Revenue Monster Logo</div>
+    <div style={{fontSize:"0.82rem",color:"var(--ifm-color-emphasis-600)"}}>Official RM wordmark and icon in various formats</div>
+  </div>
+  <a
+    href="https://drive.google.com/file/d/1AFS5P_qgNsWHDKBMaok51tbcVDfKIU41/view?usp=sharing"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{padding:"6px 14px",background:"var(--ifm-color-primary)",color:"#fff",borderRadius:"6px",fontSize:"0.82rem",fontWeight:500,textDecoration:"none",whiteSpace:"nowrap",flexShrink:0}}
+  >
+    Download
+  </a>
+</div>
+
+<div style={{display:"flex",alignItems:"center",gap:"14px",padding:"14px 18px",border:"1px solid var(--ifm-color-emphasis-300)",borderRadius:"10px",background:"var(--ifm-color-emphasis-0)"}}>
+  <div style={{width:"38px",height:"38px",borderRadius:"8px",background:"var(--ifm-color-emphasis-100)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+    <LuPalette size={20} style={{color:"var(--ifm-color-primary)"}} />
+  </div>
+  <div style={{flex:1,minWidth:0}}>
+    <div style={{fontWeight:600,fontSize:"0.95rem",marginBottom:"2px"}}>Payment Method Logos</div>
+    <div style={{fontSize:"0.82rem",color:"var(--ifm-color-emphasis-600)"}}>Logos for all supported e-wallets and payment providers (GrabPay, Touch 'n Go, DuitNow, etc.)</div>
+  </div>
+  <a
+    href="https://drive.google.com/drive/folders/1jHRMT6GlWuvgvE5xL_vid8xkWtMb9twG?usp=sharing"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{padding:"6px 14px",background:"var(--ifm-color-primary)",color:"#fff",borderRadius:"6px",fontSize:"0.82rem",fontWeight:500,textDecoration:"none",whiteSpace:"nowrap",flexShrink:0}}
+  >
+    Download
+  </a>
+</div>
+
+</div>
+
+---
+
+## Applications
+
+<div style={{display:"flex",flexDirection:"column",gap:"12px",marginBottom:"1.5rem"}}>
+
+<div style={{display:"flex",alignItems:"center",gap:"14px",padding:"14px 18px",border:"1px solid var(--ifm-color-emphasis-300)",borderRadius:"10px",background:"var(--ifm-color-emphasis-0)"}}>
+  <div style={{width:"38px",height:"38px",borderRadius:"8px",background:"var(--ifm-color-emphasis-100)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+    <LuSmartphone size={20} style={{color:"var(--ifm-color-primary)"}} />
+  </div>
+  <div style={{flex:1,minWidth:0}}>
+    <div style={{fontWeight:600,fontSize:"0.95rem",marginBottom:"2px"}}>RM Merchant App — Production</div>
+    <div style={{fontSize:"0.82rem",color:"var(--ifm-color-emphasis-600)"}}>Production build of the Revenue Monster Merchant Android application</div>
+  </div>
+  <a
+    href="https://install.appcenter.ms/orgs/revenue-monster/apps/revenue-monster-merchant-android/distribution_groups/public"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{padding:"6px 14px",background:"var(--ifm-color-primary)",color:"#fff",borderRadius:"6px",fontSize:"0.82rem",fontWeight:500,textDecoration:"none",whiteSpace:"nowrap",flexShrink:0}}
+  >
+    Install
+  </a>
+</div>
+
+<div style={{display:"flex",alignItems:"center",gap:"14px",padding:"14px 18px",border:"1px solid var(--ifm-color-emphasis-300)",borderRadius:"10px",background:"var(--ifm-color-emphasis-0)"}}>
+  <div style={{width:"38px",height:"38px",borderRadius:"8px",background:"var(--ifm-color-emphasis-100)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+    <LuSmartphone size={20} style={{color:"var(--ifm-color-primary)"}} />
+  </div>
+  <div style={{flex:1,minWidth:0}}>
+    <div style={{fontWeight:600,fontSize:"0.95rem",marginBottom:"2px"}}>RM Merchant App — Sandbox</div>
+    <div style={{fontSize:"0.82rem",color:"var(--ifm-color-emphasis-600)"}}>Sandbox build for testing payment flows before going live</div>
+  </div>
+  <a
+    href="https://install.appcenter.ms/orgs/revenue-monster/apps/revenue-monster-merchant-android/distribution_groups/staging"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{padding:"6px 14px",background:"var(--ifm-color-primary)",color:"#fff",borderRadius:"6px",fontSize:"0.82rem",fontWeight:500,textDecoration:"none",whiteSpace:"nowrap",flexShrink:0}}
+  >
+    Install
+  </a>
+</div>
+
+</div>
+
+---
+
+## Testing Wallets
+
+:::note
+- Only limited wallets provide testing accounts — most are in beta (unstable).
+- WeChat Pay is the only wallet usable with a real production wallet in **both** production and sandbox environments.
+- Recommend using WeChat Pay in sandbox for one round of testing, then move to production for other wallets.
+:::
+
+<div style={{display:"flex",alignItems:"center",gap:"10px",marginBottom:"12px"}}>
+  <LuWallet size={18} style={{color:"var(--ifm-color-primary)",flexShrink:0}} />
+  <span style={{fontWeight:600}}>Wallet availability by environment</span>
+</div>
+
+| Wallet | Production | Sandbox |
+|---|---|---|
+| WeChat Pay | Yes | No |
+| Alipay | Yes | Yes |
+| ShopeePay | Yes | Yes |
+| Maybank | Yes | Yes |
+| GrabPay | Yes | No |
+| RazerPay | Yes | Yes |
+| TaPay | Yes | No |
+| GoBiz | Credit Card | No |
+| Zapp | Yes | No |
+| MCash | Yes | No |
