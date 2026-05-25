@@ -13,13 +13,23 @@ function flatIds(items: readonly TOCItem[]): string[] {
   return items.flatMap(item => [item.id, ...flatIds(item.children ?? [])]);
 }
 
+function flatItems(items: readonly TOCItem[]): TOCItem[] {
+  return items.flatMap(item => [item, ...flatItems(item.children ?? [])]);
+}
+
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]+>/g, '');
+}
+
 function TOCLinks({
   items,
   activeId,
+  indexMap,
   depth = 0,
 }: {
   items: readonly TOCItem[];
   activeId: string;
+  indexMap: Map<string, number>;
   depth?: number;
 }) {
   return (
@@ -29,10 +39,12 @@ function TOCLinks({
           <a
             href={`#${item.id}`}
             className={`${styles.tocLink} ${activeId === item.id ? styles.tocLinkActive : ''}`}
-            dangerouslySetInnerHTML={{ __html: item.value }}
-          />
+            title={stripHtml(item.value)}
+          >
+            {`Step ${indexMap.get(item.id)}`}
+          </a>
           {item.children && item.children.length > 0 && (
-            <TOCLinks items={item.children} activeId={activeId} depth={depth + 1} />
+            <TOCLinks items={item.children} activeId={activeId} indexMap={indexMap} depth={depth + 1} />
           )}
         </li>
       ))}
@@ -87,10 +99,12 @@ export default function DocTOC(): JSX.Element | null {
 
   if (!toc || toc.length === 0) return null;
 
+  const indexMap = new Map(flatItems(toc).map((item, i) => [item.id, i + 1]));
+
   return (
     <div className={styles.docTOC}>
       <div className={styles.tocLabel}>On this page</div>
-      <TOCLinks items={toc} activeId={activeId} />
+      <TOCLinks items={toc} activeId={activeId} indexMap={indexMap} />
     </div>
   );
 }
