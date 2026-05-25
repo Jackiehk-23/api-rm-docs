@@ -94,7 +94,7 @@ module.exports = {
         type: "category",
         label: "Quick Pay",
         collapsible: true,
-        collapsed: false,
+        collapsed: true,
         items: [
           { type: "doc", id: "v2/payment/quick-pay/standard", className: "api-post" },
           { type: "doc", id: "v2/payment/quick-pay/with-voucher", className: "api-post" },
@@ -113,7 +113,7 @@ module.exports = {
         type: "category",
         label: "Query",
         collapsible: true,
-        collapsed: false,
+        collapsed: true,
         items: [
           { type: "doc", id: "v2/payment/query/by-order-id", className: "api-get" },
           { type: "doc", id: "v2/payment/query/by-transaction-id", className: "api-get" },
@@ -125,7 +125,7 @@ module.exports = {
         type: "category",
         label: "Cancel Transaction",
         collapsible: true,
-        collapsed: false,
+        collapsed: true,
         items: [
           { type: "doc", id: "v2/payment/cancel-transaction/reverse-transaction", className: "api-post" },
           { type: "doc", id: "v2/payment/cancel-transaction/refund-transaction", className: "api-post" },
