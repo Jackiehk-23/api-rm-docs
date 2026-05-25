@@ -1,4 +1,5 @@
 import React, { useState, useRef, useLayoutEffect } from "react";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import { lookupError, extractErrorCodes } from "../../utils/errorCodes";
 import TokenBanner from "./TokenBanner";
 // import PrivateKeyBanner from "./PrivateKeyBanner";
@@ -100,9 +101,11 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
     }
   };
 
+  const envPageUrl = useBaseUrl("docs/introduction/overview") + "#environments";
+
   if (!baseUrl) return null;
 
-  const KNOWN_SERVERS = [
+  const KNOWN_SERVERS: { prefix: string; label: string }[] = [
     { prefix: "https://sb-oauth.revenuemonster.my", label: "OAuth Server" },
     { prefix: "https://oauth.revenuemonster.my",    label: "OAuth Server" },
     { prefix: "https://sb-open.revenuemonster.my",  label: "API Server"   },
@@ -119,40 +122,55 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
     }
   }
 
-  const ENV_LINK = "/api-rm-docs/introduction/overview#environments";
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <HttpMethodBadge method={method} />
         <span className={styles.url}>
-          {serverLabel && (
-            <a
-              href={ENV_LINK}
-              className={styles.urlServer}
-              title="View environment URLs"
-            >
-              {serverLabel}
-            </a>
+          {serverLabel ? (
+            <>
+              <a href={envPageUrl} className={styles.urlServer}>
+                {serverLabel}
+              </a>
+              {urlPath.split(/({[^}]+})/g).map((part, i) => {
+                const match = part.match(/{([^}]+)}/);
+                if (!match) return <span key={i}>{part}</span>;
+                const key = match[1];
+                return (
+                  <span
+                    key={i}
+                    contentEditable
+                    suppressContentEditableWarning
+                    className={styles.urlParam}
+                    onBlur={(e) =>
+                      setParams({ ...params, [key]: e.currentTarget.innerText.trim() })
+                    }
+                  >
+                    {params[key] ?? key}
+                  </span>
+                );
+              })}
+            </>
+          ) : (
+            baseUrl.split(/({[^}]+})/g).map((part, i) => {
+              const match = part.match(/{([^}]+)}/);
+              if (!match) return <span key={i}>{part}</span>;
+              const key = match[1];
+              return (
+                <span
+                  key={i}
+                  contentEditable
+                  suppressContentEditableWarning
+                  className={styles.urlParam}
+                  onBlur={(e) =>
+                    setParams({ ...params, [key]: e.currentTarget.innerText.trim() })
+                  }
+                >
+                  {params[key] ?? key}
+                </span>
+              );
+            })
           )}
-          {urlPath.split(/({[^}]+})/g).map((part, i) => {
-            const match = part.match(/{([^}]+)}/);
-            if (!match) return <span key={i}>{part}</span>;
-            const key = match[1];
-            return (
-              <span
-                key={i}
-                contentEditable
-                suppressContentEditableWarning
-                className={styles.urlParam}
-                onBlur={(e) =>
-                  setParams({ ...params, [key]: e.currentTarget.innerText.trim() })
-                }
-              >
-                {params[key] ?? key}
-              </span>
-            );
-          })}
         </span>
       </div>
 
