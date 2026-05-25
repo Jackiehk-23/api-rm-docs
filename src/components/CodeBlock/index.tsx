@@ -3,6 +3,15 @@ import Highlight, { defaultProps } from "prism-react-renderer";
 import type { Language } from "prism-react-renderer";
 import styles from "./styles.module.css";
 
+import Prism from "prism-react-renderer/prism";
+(typeof global !== "undefined" ? global : window).Prism = Prism;
+require("prismjs/components/prism-kotlin");
+require("prismjs/components/prism-swift");
+require("prismjs/components/prism-java");
+require("prismjs/components/prism-python");
+require("prismjs/components/prism-php");
+require("prismjs/components/prism-markup-templating");
+
 // Light theme for syntax highlighting
 const lightTheme = {
   plain: {
@@ -15,7 +24,7 @@ const lightTheme = {
     // JSON keys / object properties → blue
     { types: ["property"], style: { color: "#005cc5", fontWeight: "500" as const } },
     // Strings → green
-    { types: ["string", "attr-name", "char", "builtin", "inserted", "selector"], style: { color: "#22863a" } },
+    { types: ["string", "string-literal", "attr-name", "char", "builtin", "inserted", "selector"], style: { color: "#22863a" } },
     // Numbers → orange
     { types: ["number", "unit"], style: { color: "#e36209" } },
     // Booleans / null / constants → red
