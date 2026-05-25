@@ -102,12 +102,40 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
 
   if (!baseUrl) return null;
 
+  const KNOWN_SERVERS = [
+    { prefix: "https://sb-oauth.revenuemonster.my", label: "OAuth Server" },
+    { prefix: "https://oauth.revenuemonster.my",    label: "OAuth Server" },
+    { prefix: "https://sb-open.revenuemonster.my",  label: "API Server"   },
+    { prefix: "https://open.revenuemonster.my",     label: "API Server"   },
+  ];
+
+  let serverLabel = "";
+  let urlPath = baseUrl;
+  for (const s of KNOWN_SERVERS) {
+    if (baseUrl.startsWith(s.prefix)) {
+      serverLabel = s.label;
+      urlPath = baseUrl.slice(s.prefix.length);
+      break;
+    }
+  }
+
+  const ENV_LINK = "/api-rm-docs/introduction/overview#environments";
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <HttpMethodBadge method={method} />
         <span className={styles.url}>
-          {baseUrl.split(/({[^}]+})/g).map((part, i) => {
+          {serverLabel && (
+            <a
+              href={ENV_LINK}
+              className={styles.urlServer}
+              title="View environment URLs"
+            >
+              {serverLabel}
+            </a>
+          )}
+          {urlPath.split(/({[^}]+})/g).map((part, i) => {
             const match = part.match(/{([^}]+)}/);
             if (!match) return <span key={i}>{part}</span>;
             const key = match[1];
