@@ -23,12 +23,16 @@ The transaction object is returned in the `item` (or `items[]`) field of query r
     { name: "transactionAt", type: "String", description: "Transaction date time (exists only when SUCCESS)" },
     { name: "createdAt", type: "String", required: true, description: "Transaction created date time" },
     { name: "updatedAt", type: "String", required: true, description: "Transaction last updated date time" },
-    { name: "order.id", type: "String", required: true, description: "Order ID" },
-    { name: "order.title", type: "String", required: true, description: "Order title" },
-    { name: "order.currencyType", type: "String", required: true, description: "Order currency type" },
-    { name: "order.amount", type: "Integer", required: true, description: "Order amount" },
-    { name: "order.detail", type: "String", description: "Order detail" },
-    { name: "order.additionalData", type: "String", description: "Order additional data" }
+    { name: "order", type: "Object", required: true, description: "Order details",
+      children: [
+      { name: "id", type: "String", required: true, description: "Order ID" },
+      { name: "title", type: "String", required: true, description: "Order title" },
+      { name: "currencyType", type: "String", required: true, description: "Order currency type" },
+      { name: "amount", type: "Integer", required: true, description: "Order amount" },
+      { name: "detail", type: "String", description: "Order detail" },
+      { name: "additionalData", type: "String", description: "Order additional data" },
+      ]
+    },
   ]}
 />
 
@@ -84,8 +88,12 @@ The transaction object is returned in the `item` (or `items[]`) field of query r
     { name: "country", type: "String", description: "Store country" },
     { name: "countryCode", type: "String", description: "Store country code for phone number" },
     { name: "phoneNumber", type: "String", description: "Store phone number" },
-    { name: "geoLocation.latitude", type: "Float", description: "Store latitude" },
-    { name: "geoLocation.longitude", type: "Float", description: "Store longitude" },
+    { name: "geoLocation", type: "Object", description: "Geographic coordinates",
+      children: [
+      { name: "latitude", type: "Float", description: "Store latitude" },
+      { name: "longitude", type: "Float", description: "Store longitude" },
+      ]
+    },
     { name: "status", type: "String", description: "Store status" },
     { name: "createdAt", type: "String", description: "Store created time" },
     { name: "updatedAt", type: "String", description: "Store last updated time" }
@@ -120,12 +128,16 @@ The transaction object is returned in the `item` (or `items[]`) field of query r
 
 <ParamTable
   rows={[
-    { name: "cardType.brand", type: "String", description: "Card brand" },
-    { name: "cardType.type", type: "String", description: "Card type (CREDIT, DEBIT)" },
-    { name: "cardType.issuer", type: "String", description: "Card issuer" },
-    { name: "cardType.alpha2", type: "String", description: "Card country in alpha2 code" },
-    { name: "cardType.alpha3", type: "String", description: "Card country in alpha3 code" },
-    { name: "cardType.country", type: "String", description: "Card country full name" },
+    { name: "cardType", type: "Object", description: "Card type details",
+      children: [
+      { name: "brand", type: "String", description: "Card brand" },
+      { name: "type", type: "String", description: "Card type (CREDIT, DEBIT)" },
+      { name: "issuer", type: "String", description: "Card issuer" },
+      { name: "alpha2", type: "String", description: "Card country in alpha2 code" },
+      { name: "alpha3", type: "String", description: "Card country in alpha3 code" },
+      { name: "country", type: "String", description: "Card country full name" },
+      ]
+    },
     { name: "provider", type: "String", description: "(Internal) Card provider" },
     { name: "isTokenization", type: "Boolean", description: "Whether payment uses a token instead of PAN" },
     { name: "token", type: "String", description: "Token used for tokenized payment" },

@@ -55,30 +55,42 @@ Only available after the customer has successfully bound their card.
 <ParamTable
   title="Details"
   rows={[
-    { name: "item.id", type: "String", description: "Customer ID" },
-    { name: "item.merchantId", type: "String", description: "Merchant ID" },
-    { name: "item.storeId", type: "String", description: "Store ID" },
-    { name: "item.label", type: "String", description: "Customer card: front six and last four digits" },
-    { name: "item.email", type: "String", description: "Customer email" },
-    { name: "item.countryCode", type: "String", description: "Customer country code" },
-    { name: "item.phoneNumber", type: "String", description: "Customer phone number" },
-    { name: "item.productName", type: "String", description: "Product name" },
-    { name: "item.productDescription", type: "String", description: "Product description" },
-    { name: "item.isActive", type: "Boolean", description: "Whether the token is active after toggle" },
-    { name: "item.createdAt", type: "String", description: "Created date time" },
-    { name: "item.updatedAt", type: "String", description: "Last updated date time" },
-    { name: "item.clientKey", type: "String", description: "Internal usage only" },
-    { name: "item.redirectUrl", type: "String", description: "Redirect URL" },
-    { name: "item.notifyUrl", type: "String", description: "Notify URL" },
-    { name: "item.paymentUrl", type: "String", description: "Card binding URL" },
-    { name: "item.recurringPayment.amount", type: "Integer", description: "Recurring payment amount" },
-    { name: "item.recurringPayment.currency", type: "String", description: "Recurring payment currency" },
-    { name: "item.recurringPayment.recurringInterval", type: "String", description: "Recurring interval" },
-    { name: "item.recurringPayment.recurringTarget", type: "String", description: "Recurring target rules" },
-    { name: "item.recurringPayment.recurringRepetition", type: "Integer", description: "Number of repetitions" },
+    { name: "item", type: "Object", description: "Response item",
+      children: [
+      { name: "id", type: "String", description: "Customer ID" },
+      { name: "merchantId", type: "String", description: "Merchant ID" },
+      { name: "storeId", type: "String", description: "Store ID" },
+      { name: "label", type: "String", description: "Customer card: front six and last four digits" },
+      { name: "email", type: "String", description: "Customer email" },
+      { name: "countryCode", type: "String", description: "Customer country code" },
+      { name: "phoneNumber", type: "String", description: "Customer phone number" },
+      { name: "productName", type: "String", description: "Product name" },
+      { name: "productDescription", type: "String", description: "Product description" },
+      { name: "isActive", type: "Boolean", description: "Whether the token is active after toggle" },
+      { name: "createdAt", type: "String", description: "Created date time" },
+      { name: "updatedAt", type: "String", description: "Last updated date time" },
+      { name: "clientKey", type: "String", description: "Internal usage only" },
+      { name: "redirectUrl", type: "String", description: "Redirect URL" },
+      { name: "notifyUrl", type: "String", description: "Notify URL" },
+      { name: "paymentUrl", type: "String", description: "Card binding URL" },
+      { name: "recurringPayment", type: "Object", description: "recurringPayment details",
+        children: [
+        { name: "amount", type: "Integer", description: "Recurring payment amount" },
+        { name: "currency", type: "String", description: "Recurring payment currency" },
+        { name: "recurringInterval", type: "String", description: "Recurring interval" },
+        { name: "recurringTarget", type: "String", description: "Recurring target rules" },
+        { name: "recurringRepetition", type: "Integer", description: "Number of repetitions" },
+        ]
+      },
+      ]
+    },
     { name: "code", type: "String", description: "\"SUCCESS\" if the request succeeded, otherwise an error code." },
-    { name: "error.code", type: "String", description: "Error code if the request failed." },
-    { name: "error.message", type: "String", description: "Error message if the request failed." },
-    { name: "error.debug", type: "String", description: "Debug message (sandbox only)." }
+    { name: "error", type: "Object", description: "Error details",
+      children: [
+      { name: "code", type: "String", description: "Error code if the request failed." },
+      { name: "message", type: "String", description: "Error message if the request failed." },
+      { name: "debug", type: "String", description: "Debug message (sandbox only)." },
+      ]
+    },
   ]}
 />

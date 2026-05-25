@@ -86,7 +86,11 @@ Returns an FPX payment redirect URL. Use the FPX bank list endpoint to get avail
     { name: "checkoutId", type: "String", required: true, description: "Checkout ID from the Hosted Payment Checkout response." },
     { name: "type", type: "String", required: true, description: "Checkout type. Set to \"URL\"." },
     { name: "method", type: "String", required: true, description: "Payment method. Set to \"FPX_MY\"." },
-    { name: "fpx.bankCode", type: "String", required: true, description: "FPX bank code from the table above." }
+    { name: "fpx", type: "Object", required: true, description: "FPX banking details",
+      children: [
+      { name: "bankCode", type: "String", required: true, description: "FPX bank code from the table above." },
+      ]
+    },
   ]}
 />
 
@@ -95,11 +99,19 @@ Returns an FPX payment redirect URL. Use the FPX bank list endpoint to get avail
 <ParamTable
   title="Details"
   rows={[
-    { name: "item.type", type: "String", description: "Checkout session type." },
-    { name: "item.url", type: "String", description: "FPX payment URL to redirect the customer to." },
+    { name: "item", type: "Object", description: "Response item",
+      children: [
+      { name: "type", type: "String", description: "Checkout session type." },
+      { name: "url", type: "String", description: "FPX payment URL to redirect the customer to." },
+      ]
+    },
     { name: "code", type: "String", description: "\"SUCCESS\" if the request succeeded." },
-    { name: "error.code", type: "String", description: "Error code." },
-    { name: "error.message", type: "String", description: "Error message." },
-    { name: "error.debug", type: "String", description: "Debug message (sandbox only)." }
+    { name: "error", type: "Object", description: "Error details",
+      children: [
+      { name: "code", type: "String", description: "Error code." },
+      { name: "message", type: "String", description: "Error message." },
+      { name: "debug", type: "String", description: "Debug message (sandbox only)." },
+      ]
+    },
   ]}
 />

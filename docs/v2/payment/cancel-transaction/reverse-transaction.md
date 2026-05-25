@@ -99,9 +99,13 @@ Send the reverse request with the `orderId`. Check the `code` field in the respo
         { name: "updatedAt", type: "String", description: "Last updated date time" }
       ] },
     { name: "code", type: "String", description: "\"SUCCESS\" if the reverse succeeded, otherwise an error code." },
-    { name: "error.code", type: "String", description: "Error code if the request failed." },
-    { name: "error.message", type: "String", description: "Error message if the request failed." },
-    { name: "error.debug", type: "String", description: "Debug message (sandbox only)." }
+    { name: "error", type: "Object", description: "Error details",
+      children: [
+      { name: "code", type: "String", description: "Error code if the request failed." },
+      { name: "message", type: "String", description: "Error message if the request failed." },
+      { name: "debug", type: "String", description: "Debug message (sandbox only)." },
+      ]
+    },
   ]}
 />
 

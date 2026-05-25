@@ -15,18 +15,22 @@ Notify is only called on success — failed payments do not trigger a notify. Us
   title="Details"
   rows={[
     { name: "eventType", type: "String", required: true, description: "Notify event type" },
-    { name: "data.amount", type: "Integer", required: true, description: "Recurring payment amount" },
-    { name: "data.currency", type: "String", required: true, description: "Recurring order currency" },
-    { name: "data.countryCode", type: "String", required: true, description: "Recurring customer country code" },
-    { name: "data.phoneNumber", type: "String", required: true, description: "Recurring customer phone number" },
-    { name: "data.customerId", type: "String", required: true, description: "Recurring customer ID" },
-    { name: "data.email", type: "String", required: true, description: "Recurring customer email" },
-    { name: "data.name", type: "String", required: true, description: "Recurring customer name" },
-    { name: "data.merchantId", type: "String", required: true, description: "Merchant ID" },
-    { name: "data.storeId", type: "String", required: true, description: "Store ID" },
-    { name: "data.orderId", type: "String", required: true, description: "Recurring transaction order ID" },
-    { name: "data.status", type: "String", required: true, description: "Recurring order status" },
-    { name: "data.createdAt", type: "String", required: true, description: "Recurring order created date time" },
-    { name: "data.updatedAt", type: "String", required: true, description: "Recurring order updated date time" }
+    { name: "data", type: "Object", required: true, description: "Request data",
+      children: [
+      { name: "amount", type: "Integer", required: true, description: "Recurring payment amount" },
+      { name: "currency", type: "String", required: true, description: "Recurring order currency" },
+      { name: "countryCode", type: "String", required: true, description: "Recurring customer country code" },
+      { name: "phoneNumber", type: "String", required: true, description: "Recurring customer phone number" },
+      { name: "customerId", type: "String", required: true, description: "Recurring customer ID" },
+      { name: "email", type: "String", required: true, description: "Recurring customer email" },
+      { name: "name", type: "String", required: true, description: "Recurring customer name" },
+      { name: "merchantId", type: "String", required: true, description: "Merchant ID" },
+      { name: "storeId", type: "String", required: true, description: "Store ID" },
+      { name: "orderId", type: "String", required: true, description: "Recurring transaction order ID" },
+      { name: "status", type: "String", required: true, description: "Recurring order status" },
+      { name: "createdAt", type: "String", required: true, description: "Recurring order created date time" },
+      { name: "updatedAt", type: "String", required: true, description: "Recurring order updated date time" },
+      ]
+    },
   ]}
 />

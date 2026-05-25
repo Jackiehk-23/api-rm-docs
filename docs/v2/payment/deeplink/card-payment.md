@@ -32,7 +32,11 @@ For terminal MF919, receipt printing cannot be controlled programmatically.
   rows={[
     { name: "item", type: "JSON", description: "Transaction response object" },
     { name: "code", type: "String", description: "\"SUCCESS\" if the payment succeeded, otherwise an error code." },
-    { name: "error.code", type: "String", description: "Error code if the request failed." },
-    { name: "error.message", type: "String", description: "Error message if the request failed." }
+    { name: "error", type: "Object", description: "Error details",
+      children: [
+      { name: "code", type: "String", description: "Error code if the request failed." },
+      { name: "message", type: "String", description: "Error message if the request failed." },
+      ]
+    },
   ]}
 />

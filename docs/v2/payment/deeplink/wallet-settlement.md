@@ -27,13 +27,25 @@ startActivity(i)`}
     { name: "totalSalesCount", type: "Integer", description: "Total sales count" },
     { name: "totalRefundedAmount", type: "Integer", description: "Total refunded amount" },
     { name: "totalRefundedCount", type: "Integer", description: "Total refunded count" },
-    { name: "wallet[*].name", type: "String", description: "Wallet name" },
-    { name: "wallet[*].method", type: "String", description: "Wallet method" },
-    { name: "wallet[*].region", type: "String", description: "Wallet region" },
-    { name: "wallet[*].sales.count", type: "Integer", description: "Wallet sales count" },
-    { name: "wallet[*].sales.amount", type: "Integer", description: "Wallet sales amount" },
-    { name: "wallet[*].refunded.count", type: "Integer", description: "Wallet refunded count" },
-    { name: "wallet[*].refunded.amount", type: "Integer", description: "Wallet refunded amount" },
-    { name: "range[*]", type: "String", description: "Range of settlement dates" }
+    { name: "wallet", type: "Array", description: "Per-wallet breakdown",
+      children: [
+        { name: "name", type: "String", description: "Wallet name" },
+        { name: "method", type: "String", description: "Wallet method" },
+        { name: "region", type: "String", description: "Wallet region" },
+        { name: "sales", type: "Object", description: "Sales totals",
+          children: [
+            { name: "count", type: "Integer", description: "Sales count" },
+            { name: "amount", type: "Integer", description: "Sales amount" },
+          ]
+        },
+        { name: "refunded", type: "Object", description: "Refund totals",
+          children: [
+            { name: "count", type: "Integer", description: "Refunded count" },
+            { name: "amount", type: "Integer", description: "Refunded amount" },
+          ]
+        },
+      ]
+    },
+    { name: "range", type: "Array", description: "Range of settlement dates" }
   ]}
 />

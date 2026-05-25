@@ -97,16 +97,24 @@ Creates a unified payment checkout page for both web and mobile. The customer is
     { name: "method", type: "Array", description: "Payment methods to enable.", children: [
         { name: "[item]", type: "String", description: "Payment method identifier (e.g., \"WECHATPAY\", \"ALIPAY\", \"FPX\")" }
       ] },
-    { name: "order.id", type: "String", required: true, description: "Order ID" },
-    { name: "order.title", type: "String", required: true, description: "Order title" },
-    { name: "order.currencyType", type: "String", required: true, description: "Order currency type (currently supported MYR only)" },
-    { name: "order.amount", type: "Integer", required: true, description: "Order amount" },
-    { name: "order.detail", type: "String", description: "Order detail" },
-    { name: "order.additionalData", type: "String", description: "Order additional data" },
-    { name: "customer.userId", type: "String", description: "Required when tokenization is enabled." },
-    { name: "customer.email", type: "String", description: "Customer email address." },
-    { name: "customer.countryCode", type: "String", description: "Customer country code." },
-    { name: "customer.phoneNumber", type: "String", description: "Customer phone number." }
+    { name: "order", type: "Object", required: true, description: "Order details",
+      children: [
+      { name: "id", type: "String", required: true, description: "Order ID" },
+      { name: "title", type: "String", required: true, description: "Order title" },
+      { name: "currencyType", type: "String", required: true, description: "Order currency type (currently supported MYR only)" },
+      { name: "amount", type: "Integer", required: true, description: "Order amount" },
+      { name: "detail", type: "String", description: "Order detail" },
+      { name: "additionalData", type: "String", description: "Order additional data" },
+      ]
+    },
+    { name: "customer", type: "Object", description: "Customer details",
+      children: [
+      { name: "userId", type: "String", description: "Required when tokenization is enabled." },
+      { name: "email", type: "String", description: "Customer email address." },
+      { name: "countryCode", type: "String", description: "Customer country code." },
+      { name: "phoneNumber", type: "String", description: "Customer phone number." },
+      ]
+    },
   ]}
 />
 
@@ -115,11 +123,19 @@ Creates a unified payment checkout page for both web and mobile. The customer is
 <ParamTable
   title="Details"
   rows={[
-    { name: "item.checkoutId", type: "String", description: "Checkout session ID" },
-    { name: "item.url", type: "String", description: "Checkout session URL to redirect the customer to" },
+    { name: "item", type: "Object", description: "Response item",
+      children: [
+      { name: "checkoutId", type: "String", description: "Checkout session ID" },
+      { name: "url", type: "String", description: "Checkout session URL to redirect the customer to" },
+      ]
+    },
     { name: "code", type: "String", description: "\"SUCCESS\" if the request succeeded, otherwise an error code." },
-    { name: "error.code", type: "String", description: "Error code if the request failed." },
-    { name: "error.message", type: "String", description: "Error message." },
-    { name: "error.debug", type: "String", description: "Debug message (sandbox only)." }
+    { name: "error", type: "Object", description: "Error details",
+      children: [
+      { name: "code", type: "String", description: "Error code if the request failed." },
+      { name: "message", type: "String", description: "Error message." },
+      { name: "debug", type: "String", description: "Debug message (sandbox only)." },
+      ]
+    },
   ]}
 />

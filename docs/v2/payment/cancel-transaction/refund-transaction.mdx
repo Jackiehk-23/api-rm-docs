@@ -79,9 +79,13 @@ Send the refund request. Check the `code` field in the response — if `"SUCCESS
   title="Details"
   rows={[
     { name: "transactionId", type: "String", required: true, description: "Transaction ID to refund", example: "\"180730103903010431152179\"" },
-    { name: "refund.type", type: "String", required: true, description: "Refund type (e.g., \"FULL\")", example: "\"FULL\"" },
-    { name: "refund.currencyType", type: "String", required: true, description: "Refund currency type", example: "\"MYR\"" },
-    { name: "refund.amount", type: "Integer", required: true, description: "Refund amount in smallest currency unit", example: "100" },
+    { name: "refund", type: "Object", required: true, description: "Refund details",
+      children: [
+      { name: "type", type: "String", required: true, description: "Refund type (e.g., \"FULL\")", example: "\"FULL\"" },
+      { name: "currencyType", type: "String", required: true, description: "Refund currency type", example: "\"MYR\"" },
+      { name: "amount", type: "Integer", required: true, description: "Refund amount in smallest currency unit", example: "100" },
+      ]
+    },
     { name: "reason", type: "String", required: true, description: "Reason for the refund" }
   ]}
 />
@@ -119,9 +123,13 @@ Send the refund request. Check the `code` field in the response — if `"SUCCESS
         { name: "updatedAt", type: "String", description: "Last updated date time" }
       ] },
     { name: "code", type: "String", description: "\"SUCCESS\" if the refund succeeded, otherwise an error code." },
-    { name: "error.code", type: "String", description: "Error code if the request failed." },
-    { name: "error.message", type: "String", description: "Error message if the request failed." },
-    { name: "error.debug", type: "String", description: "Debug message (sandbox only)." }
+    { name: "error", type: "Object", description: "Error details",
+      children: [
+      { name: "code", type: "String", description: "Error code if the request failed." },
+      { name: "message", type: "String", description: "Error message if the request failed." },
+      { name: "debug", type: "String", description: "Debug message (sandbox only)." },
+      ]
+    },
   ]}
 />
 

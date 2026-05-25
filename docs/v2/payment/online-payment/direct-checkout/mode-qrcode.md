@@ -68,12 +68,24 @@ Poll [Query Payment Checkout](../query-checkout.md) every 3–5 seconds to track
 <ParamTable
   title="Details"
   rows={[
-    { name: "item.type", type: "String", description: "Checkout session type." },
-    { name: "item.qrcode.base64Image", type: "String", description: "Base64-encoded QR code image." },
-    { name: "item.qrcode.data", type: "String", description: "QR code data string." },
+    { name: "item", type: "Object", description: "Response item",
+      children: [
+      { name: "type", type: "String", description: "Checkout session type." },
+      { name: "qrcode", type: "Object", description: "qrcode details",
+        children: [
+        { name: "base64Image", type: "String", description: "Base64-encoded QR code image." },
+        { name: "data", type: "String", description: "QR code data string." },
+        ]
+      },
+      ]
+    },
     { name: "code", type: "String", description: "\"SUCCESS\" if the request succeeded." },
-    { name: "error.code", type: "String", description: "Error code." },
-    { name: "error.message", type: "String", description: "Error message." },
-    { name: "error.debug", type: "String", description: "Debug message (sandbox only)." }
+    { name: "error", type: "Object", description: "Error details",
+      children: [
+      { name: "code", type: "String", description: "Error code." },
+      { name: "message", type: "String", description: "Error message." },
+      { name: "debug", type: "String", description: "Debug message (sandbox only)." },
+      ]
+    },
   ]}
 />

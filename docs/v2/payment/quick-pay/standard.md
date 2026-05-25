@@ -94,12 +94,16 @@ Quick Pay is an **offline payment method**. Its subscription rate is based on th
     { name: "authCode", type: "String", required: true, description: "Auth code of QR code/barcode being scanned" },
     { name: "ipAddress", type: "String", required: true, description: "IP address of terminal/application for payment" },
     { name: "storeId", type: "String", required: true, description: "Revenue Monster Store ID" },
-    { name: "order.id", type: "String", required: true, description: "Order ID" },
-    { name: "order.title", type: "String", required: true, description: "Order Title" },
-    { name: "order.currencyType", type: "String", required: true, description: "Order Currency Type (currently supported MYR only)" },
-    { name: "order.amount", type: "Integer", required: true, description: "Order Amount" },
-    { name: "order.detail", type: "String", description: "Order Detail" },
-    { name: "order.additionalData", type: "String", description: "Order Additional Data" }
+    { name: "order", type: "Object", required: true, description: "Order details",
+      children: [
+      { name: "id", type: "String", required: true, description: "Order ID" },
+      { name: "title", type: "String", required: true, description: "Order Title" },
+      { name: "currencyType", type: "String", required: true, description: "Order Currency Type (currently supported MYR only)" },
+      { name: "amount", type: "Integer", required: true, description: "Order Amount" },
+      { name: "detail", type: "String", description: "Order Detail" },
+      { name: "additionalData", type: "String", description: "Order Additional Data" },
+      ]
+    },
   ]}
 />
 
@@ -136,8 +140,12 @@ Quick Pay is an **offline payment method**. Its subscription rate is based on th
         { name: "updatedAt", type: "String", description: "Last updated date time" }
       ] },
     { name: "code", type: "String", description: "\"SUCCESS\" if the payment succeeded, otherwise an error code" },
-    { name: "error.code", type: "String", description: "Error code if the request failed" },
-    { name: "error.message", type: "String", description: "Error message if the request failed" },
-    { name: "error.debug", type: "String", description: "Debug message (sandbox only)" }
+    { name: "error", type: "Object", description: "Error details",
+      children: [
+      { name: "code", type: "String", description: "Error code if the request failed" },
+      { name: "message", type: "String", description: "Error message if the request failed" },
+      { name: "debug", type: "String", description: "Debug message (sandbox only)" },
+      ]
+    },
   ]}
 />

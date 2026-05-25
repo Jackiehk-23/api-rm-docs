@@ -68,12 +68,16 @@ Sends a card payment event to the RM Terminal. The terminal will prompt the cust
     { name: "terminalId", type: "String", required: true, description: "RM Terminal ID" },
     { name: "type", type: "String", required: true, description: "Payment type. Set to \"CARD\"." },
     { name: "receiptType", type: "Integer", required: true, description: "Receipt setting: 1 = Print both copies, 2 = Print customer copy only, 3 = Do not print" },
-    { name: "order.id", type: "String", required: true, description: "Order ID" },
-    { name: "order.title", type: "String", required: true, description: "Order title" },
-    { name: "order.currencyType", type: "String", required: true, description: "Currency type (currently supported MYR only)" },
-    { name: "order.amount", type: "Integer", required: true, description: "Order amount" },
-    { name: "order.detail", type: "String", description: "Order detail" },
-    { name: "order.additionalData", type: "String", description: "Order additional data" }
+    { name: "order", type: "Object", required: true, description: "Order details",
+      children: [
+      { name: "id", type: "String", required: true, description: "Order ID" },
+      { name: "title", type: "String", required: true, description: "Order title" },
+      { name: "currencyType", type: "String", required: true, description: "Currency type (currently supported MYR only)" },
+      { name: "amount", type: "Integer", required: true, description: "Order amount" },
+      { name: "detail", type: "String", description: "Order detail" },
+      { name: "additionalData", type: "String", description: "Order additional data" },
+      ]
+    },
   ]}
 />
 
@@ -110,8 +114,12 @@ Sends a card payment event to the RM Terminal. The terminal will prompt the cust
         { name: "updatedAt", type: "String", description: "Last updated date time" }
       ] },
     { name: "code", type: "String", description: "\"SUCCESS\" if the event was sent to terminal, otherwise an error code." },
-    { name: "error.code", type: "String", description: "Error code if the request failed." },
-    { name: "error.message", type: "String", description: "Error message if the request failed." },
-    { name: "error.debug", type: "String", description: "Debug message (sandbox only)." }
+    { name: "error", type: "Object", description: "Error details",
+      children: [
+      { name: "code", type: "String", description: "Error code if the request failed." },
+      { name: "message", type: "String", description: "Error message if the request failed." },
+      { name: "debug", type: "String", description: "Debug message (sandbox only)." },
+      ]
+    },
   ]}
 />

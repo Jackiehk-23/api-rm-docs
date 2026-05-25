@@ -114,11 +114,19 @@ Each item in `items` represents a settled transaction. Use `meta.cursor` for pag
         { name: "settlementAmount", type: "String", description: "Net settlement amount" }
       ]
     },
-    { name: "meta.cursor", type: "String", description: "Pagination cursor for next page" },
+    { name: "meta", type: "Object", description: "Pagination metadata",
+      children: [
+      { name: "cursor", type: "String", description: "Pagination cursor for next page" },
+      ]
+    },
     { name: "code", type: "String", description: "\"SUCCESS\" if the request succeeded, otherwise an error code." },
-    { name: "error.code", type: "String", description: "Error code if the request failed." },
-    { name: "error.message", type: "String", description: "Error message if the request failed." },
-    { name: "error.debug", type: "String", description: "Debug message (sandbox only)." }
+    { name: "error", type: "Object", description: "Error details",
+      children: [
+      { name: "code", type: "String", description: "Error code if the request failed." },
+      { name: "message", type: "String", description: "Error message if the request failed." },
+      { name: "debug", type: "String", description: "Debug message (sandbox only)." },
+      ]
+    },
   ]}
 />
 

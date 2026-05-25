@@ -102,16 +102,28 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "item.card.id", type: "String", description: "RM VOP Card ID", example: "\"1699331101967521138\"" },
-    { name: "item.card.userId", type: "String", description: "RM VOP User ID", example: "\"1699331101742889953\"" },
-    { name: "item.card.name", type: "String", description: "Name of the card", example: "\"Ambank Visa Infinite\"" },
-    { name: "item.card.panLastFour", type: "String", description: "Last four number of the card", example: "\"2449\"" },
-    { name: "item.card.type", type: "String", description: "Type of card", example: "\"CREDIT\"" },
-    { name: "item.card.createdAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:00Z\"" },
-    { name: "item.card.updatedAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:00Z\"" },
-    { name: "item.user.id", type: "String", description: "RM VOP User ID", example: "\"1699331101742889953\"" },
-    { name: "item.user.createdAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:00Z\"" },
-    { name: "item.user.updatedAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:00Z\"" },
+    { name: "item", type: "Object", description: "Response item",
+      children: [
+      { name: "card", type: "Object", description: "Card details",
+        children: [
+        { name: "id", type: "String", description: "RM VOP Card ID", example: "\"1699331101967521138\"" },
+        { name: "userId", type: "String", description: "RM VOP User ID", example: "\"1699331101742889953\"" },
+        { name: "name", type: "String", description: "Name of the card", example: "\"Ambank Visa Infinite\"" },
+        { name: "panLastFour", type: "String", description: "Last four number of the card", example: "\"2449\"" },
+        { name: "type", type: "String", description: "Type of card", example: "\"CREDIT\"" },
+        { name: "createdAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:00Z\"" },
+        { name: "updatedAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:00Z\"" },
+        ]
+      },
+      { name: "user", type: "Object", description: "User details",
+        children: [
+        { name: "id", type: "String", description: "RM VOP User ID", example: "\"1699331101742889953\"" },
+        { name: "createdAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:00Z\"" },
+        { name: "updatedAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:00Z\"" },
+        ]
+      },
+      ]
+    },
     { name: "code", type: "String", description: "Status of the enrollment", example: "\"SUCCESS\"" }
   ]}
 />

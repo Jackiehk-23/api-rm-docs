@@ -71,11 +71,15 @@ For e-wallet refunds, use [Cancel Transaction — Refund](../cancel-transaction/
   rows={[
     { name: "terminalId", type: "String", required: true, description: "RM Terminal ID" },
     { name: "type", type: "String", required: true, description: "Event type. Set to \"REFUND\"." },
-    { name: "data.transactionId", type: "String", required: true, description: "Transaction ID to refund" },
-    { name: "data.receiptType", type: "Integer", description: "Receipt setting: 1 = Print both copies, 2 = Print customer copy only, 3 = Do not print" },
-    { name: "data.reason", type: "String", description: "Reason for the refund" },
-    { name: "data.email", type: "String", required: true, description: "Email address matching the refund PIN" },
-    { name: "data.pin", type: "String", required: true, description: "Refund PIN" }
+    { name: "data", type: "Object", required: true, description: "Request data",
+      children: [
+      { name: "transactionId", type: "String", required: true, description: "Transaction ID to refund" },
+      { name: "receiptType", type: "Integer", description: "Receipt setting: 1 = Print both copies, 2 = Print customer copy only, 3 = Do not print" },
+      { name: "reason", type: "String", description: "Reason for the refund" },
+      { name: "email", type: "String", required: true, description: "Email address matching the refund PIN" },
+      { name: "pin", type: "String", required: true, description: "Refund PIN" },
+      ]
+    },
   ]}
 />
 
@@ -112,8 +116,12 @@ For e-wallet refunds, use [Cancel Transaction — Refund](../cancel-transaction/
         { name: "updatedAt", type: "String", description: "Last updated date time" }
       ] },
     { name: "code", type: "String", description: "\"SUCCESS\" if the event was sent to terminal, otherwise an error code." },
-    { name: "error.code", type: "String", description: "Error code if the request failed." },
-    { name: "error.message", type: "String", description: "Error message if the request failed." },
-    { name: "error.debug", type: "String", description: "Debug message (sandbox only)." }
+    { name: "error", type: "Object", description: "Error details",
+      children: [
+      { name: "code", type: "String", description: "Error code if the request failed." },
+      { name: "message", type: "String", description: "Error message if the request failed." },
+      { name: "debug", type: "String", description: "Debug message (sandbox only)." },
+      ]
+    },
   ]}
 />

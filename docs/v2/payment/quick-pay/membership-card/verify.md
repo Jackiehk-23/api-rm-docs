@@ -65,8 +65,12 @@ Call this endpoint first to verify the membership card before processing payment
   title="Details"
   rows={[
     { name: "code", type: "String", description: "\"SUCCESS\" if the verification succeeded, otherwise an error code" },
-    { name: "error.code", type: "String", description: "Error code if the request failed" },
-    { name: "error.message", type: "String", description: "Error message if the request failed" },
-    { name: "error.debug", type: "String", description: "Debug message (sandbox only)" }
+    { name: "error", type: "Object", description: "Error details",
+      children: [
+      { name: "code", type: "String", description: "Error code if the request failed" },
+      { name: "message", type: "String", description: "Error message if the request failed" },
+      { name: "debug", type: "String", description: "Debug message (sandbox only)" },
+      ]
+    },
   ]}
 />

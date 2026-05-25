@@ -64,12 +64,20 @@ Returns base64-encoded data to pass to the Alipay Mini Program payment API.
 <ParamTable
   title="Details"
   rows={[
-    { name: "item.type", type: "String", description: "Checkout session type." },
-    { name: "item.data", type: "String", description: "Base64-encoded data to pass to the mini program API." },
+    { name: "item", type: "Object", description: "Response item",
+      children: [
+      { name: "type", type: "String", description: "Checkout session type." },
+      { name: "data", type: "String", description: "Base64-encoded data to pass to the mini program API." },
+      ]
+    },
     { name: "code", type: "String", description: "\"SUCCESS\" if the request succeeded." },
-    { name: "error.code", type: "String", description: "Error code." },
-    { name: "error.message", type: "String", description: "Error message." },
-    { name: "error.debug", type: "String", description: "Debug message (sandbox only)." }
+    { name: "error", type: "Object", description: "Error details",
+      children: [
+      { name: "code", type: "String", description: "Error code." },
+      { name: "message", type: "String", description: "Error message." },
+      { name: "debug", type: "String", description: "Debug message (sandbox only)." },
+      ]
+    },
   ]}
 />
 

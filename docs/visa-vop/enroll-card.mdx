@@ -91,13 +91,17 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "item.id", type: "String", description: "RM VOP Card ID", example: "\"1699331146943520156\"" },
-    { name: "item.userId", type: "String", description: "RM VOP User ID", example: "\"1699331101742889953\"" },
-    { name: "item.name", type: "String", description: "Name of the card", example: "\"Ambank Visa Infinite\"" },
-    { name: "item.panLastFour", type: "String", description: "Last four number of the card", example: "\"2451\"" },
-    { name: "item.type", type: "String", description: "Type of card", example: "\"CREDIT\"" },
-    { name: "item.createdAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:46Z\"" },
-    { name: "item.updatedAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:46Z\"" },
+    { name: "item", type: "Object", description: "Response item",
+      children: [
+      { name: "id", type: "String", description: "RM VOP Card ID", example: "\"1699331146943520156\"" },
+      { name: "userId", type: "String", description: "RM VOP User ID", example: "\"1699331101742889953\"" },
+      { name: "name", type: "String", description: "Name of the card", example: "\"Ambank Visa Infinite\"" },
+      { name: "panLastFour", type: "String", description: "Last four number of the card", example: "\"2451\"" },
+      { name: "type", type: "String", description: "Type of card", example: "\"CREDIT\"" },
+      { name: "createdAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:46Z\"" },
+      { name: "updatedAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:46Z\"" },
+      ]
+    },
     { name: "code", type: "String", description: "Status of the enrollment", example: "\"SUCCESS\"" }
   ]}
 />

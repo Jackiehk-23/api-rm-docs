@@ -55,7 +55,11 @@ Sends a card settlement event to the RM Terminal. The terminal will settle all p
   rows={[
     { name: "terminalId", type: "String", required: true, description: "RM Terminal ID" },
     { name: "type", type: "String", required: true, description: "Event type. Set to \"SETTLEMENT\"." },
-    { name: "data.receiptType", type: "Integer", description: "Receipt setting: 1 = Print both copies, 2 = Print customer copy only, 3 = Do not print" }
+    { name: "data", type: "Object", description: "Request data",
+      children: [
+      { name: "receiptType", type: "Integer", description: "Receipt setting: 1 = Print both copies, 2 = Print customer copy only, 3 = Do not print" },
+      ]
+    },
   ]}
 />
 
@@ -65,18 +69,30 @@ Sends a card settlement event to the RM Terminal. The terminal will settle all p
   title="Details"
   rows={[
     { name: "code", type: "String", description: "\"SUCCESS\" if the event was sent to terminal, otherwise an error code." },
-    { name: "error.code", type: "String", description: "Error code if the request failed." },
-    { name: "error.message", type: "String", description: "Error message if the request failed." },
-    { name: "error.debug", type: "String", description: "Debug message (sandbox only)." },
-    { name: "summary.batchNo", type: "String", description: "Terminal settlement sequence number" },
-    { name: "summary.currencyType", type: "String", description: "Settlement currency type (currently supported MYR only)" },
-    { name: "summary.noOfTransactions", type: "Integer", description: "Count of settled transactions" },
-    { name: "summary.settlementAt", type: "String", description: "Date and time of settlement" },
-    { name: "summary.totalSalesAmount", type: "Integer", description: "Total sales amount in cents" },
-    { name: "transactions[*].amount", type: "Integer", description: "Transaction amount in cents" },
-    { name: "transactions[*].currencyType", type: "Integer", description: "Transaction currency type" },
-    { name: "transactions[*].transactionAt", type: "String", description: "Transaction date and time" },
-    { name: "transactions[*].transactionId", type: "String", description: "Transaction ID" },
-    { name: "transactions[*].type", type: "String", description: "Transaction type" }
+    { name: "error", type: "Object", description: "Error details",
+      children: [
+      { name: "code", type: "String", description: "Error code if the request failed." },
+      { name: "message", type: "String", description: "Error message if the request failed." },
+      { name: "debug", type: "String", description: "Debug message (sandbox only)." },
+      ]
+    },
+    { name: "summary", type: "Object", description: "Settlement summary",
+      children: [
+      { name: "batchNo", type: "String", description: "Terminal settlement sequence number" },
+      { name: "currencyType", type: "String", description: "Settlement currency type (currently supported MYR only)" },
+      { name: "noOfTransactions", type: "Integer", description: "Count of settled transactions" },
+      { name: "settlementAt", type: "String", description: "Date and time of settlement" },
+      { name: "totalSalesAmount", type: "Integer", description: "Total sales amount in cents" },
+      ]
+    },
+    { name: "transactions[*]", type: "Object", description: "transactions[*] details",
+      children: [
+      { name: "amount", type: "Integer", description: "Transaction amount in cents" },
+      { name: "currencyType", type: "Integer", description: "Transaction currency type" },
+      { name: "transactionAt", type: "String", description: "Transaction date and time" },
+      { name: "transactionId", type: "String", description: "Transaction ID" },
+      { name: "type", type: "String", description: "Transaction type" },
+      ]
+    },
   ]}
 />

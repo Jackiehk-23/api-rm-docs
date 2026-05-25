@@ -116,30 +116,42 @@ Creates a recurring payment customer. The customer will be redirected to bind th
 <ParamTable
   title="Details"
   rows={[
-    { name: "item.id", type: "String", description: "Recurring payment ID" },
-    { name: "item.merchantId", type: "String", description: "Merchant ID" },
-    { name: "item.storeId", type: "String", description: "Store ID" },
-    { name: "item.label", type: "String", description: "Customer card: front six and last four digits" },
-    { name: "item.email", type: "String", description: "Customer email" },
-    { name: "item.countryCode", type: "String", description: "Customer country code" },
-    { name: "item.phoneNumber", type: "String", description: "Customer phone number" },
-    { name: "item.productName", type: "String", description: "Recurring product name" },
-    { name: "item.productDescription", type: "String", description: "Recurring product description" },
-    { name: "item.isActive", type: "Boolean", description: "Whether the recurring payment is active. Becomes true after card is bound successfully." },
-    { name: "item.createdAt", type: "String", description: "Recurring created date time" },
-    { name: "item.updatedAt", type: "String", description: "Recurring last updated date time" },
-    { name: "item.clientKey", type: "String", description: "Internal usage only" },
-    { name: "item.redirectUrl", type: "String", description: "URL for customer to redirect after card binding" },
-    { name: "item.notifyUrl", type: "String", description: "URL for payment notifications" },
-    { name: "item.paymentUrl", type: "String", description: "URL for customer to bind their card" },
-    { name: "item.recurringPayment.amount", type: "Integer", description: "Recurring payment amount" },
-    { name: "item.recurringPayment.currency", type: "String", description: "Recurring payment currency" },
-    { name: "item.recurringPayment.recurringInterval", type: "String", description: "Recurring interval" },
-    { name: "item.recurringPayment.recurringTarget", type: "String", description: "Recurring target rules" },
-    { name: "item.recurringPayment.recurringRepetition", type: "Integer", description: "Number of repetitions" },
+    { name: "item", type: "Object", description: "Response item",
+      children: [
+      { name: "id", type: "String", description: "Recurring payment ID" },
+      { name: "merchantId", type: "String", description: "Merchant ID" },
+      { name: "storeId", type: "String", description: "Store ID" },
+      { name: "label", type: "String", description: "Customer card: front six and last four digits" },
+      { name: "email", type: "String", description: "Customer email" },
+      { name: "countryCode", type: "String", description: "Customer country code" },
+      { name: "phoneNumber", type: "String", description: "Customer phone number" },
+      { name: "productName", type: "String", description: "Recurring product name" },
+      { name: "productDescription", type: "String", description: "Recurring product description" },
+      { name: "isActive", type: "Boolean", description: "Whether the recurring payment is active. Becomes true after card is bound successfully." },
+      { name: "createdAt", type: "String", description: "Recurring created date time" },
+      { name: "updatedAt", type: "String", description: "Recurring last updated date time" },
+      { name: "clientKey", type: "String", description: "Internal usage only" },
+      { name: "redirectUrl", type: "String", description: "URL for customer to redirect after card binding" },
+      { name: "notifyUrl", type: "String", description: "URL for payment notifications" },
+      { name: "paymentUrl", type: "String", description: "URL for customer to bind their card" },
+      { name: "recurringPayment", type: "Object", description: "recurringPayment details",
+        children: [
+        { name: "amount", type: "Integer", description: "Recurring payment amount" },
+        { name: "currency", type: "String", description: "Recurring payment currency" },
+        { name: "recurringInterval", type: "String", description: "Recurring interval" },
+        { name: "recurringTarget", type: "String", description: "Recurring target rules" },
+        { name: "recurringRepetition", type: "Integer", description: "Number of repetitions" },
+        ]
+      },
+      ]
+    },
     { name: "code", type: "String", description: "\"SUCCESS\" if the request succeeded, otherwise an error code." },
-    { name: "error.code", type: "String", description: "Error code if the request failed." },
-    { name: "error.message", type: "String", description: "Error message if the request failed." },
-    { name: "error.debug", type: "String", description: "Debug message (sandbox only)." }
+    { name: "error", type: "Object", description: "Error details",
+      children: [
+      { name: "code", type: "String", description: "Error code if the request failed." },
+      { name: "message", type: "String", description: "Error message if the request failed." },
+      { name: "debug", type: "String", description: "Debug message (sandbox only)." },
+      ]
+    },
   ]}
 />
