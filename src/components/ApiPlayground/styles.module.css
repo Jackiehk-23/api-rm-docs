@@ -54,6 +54,22 @@
   flex: 1;
 }
 
+.urlServer {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--ifm-color-primary);
+  margin-right: 1px;
+  opacity: 0.85;
+  transition: opacity 0.15s;
+}
+
+.urlServer:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
 /* ================= ENV ================= */
 
 .envToggle {
