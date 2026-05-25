@@ -78,18 +78,12 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
     { name: "service", type: "String", description: "EKYC service", example: "\"ekyc\"" },
     { name: "version", type: "String", description: "Currently only support 'v1\"", example: "\"v1\"" },
     { name: "function", type: "String", description: "Selected function", example: "\"id-mykad\"" },
-    { name: "request", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-
-<a id="request" />
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "notify_url", type: "String", description: "URL to receive ekyc result", example: "\"\"" },
-    { name: "query_image_content", type: "String", description: "Mykad image (Base64 image string)", example: "\"\"" }
+    { name: "request", type: "Object", description: "Refer to explanation below",
+      children: [
+        { name: "notify_url", type: "String", description: "URL to receive ekyc result", example: "\"\"" },
+        { name: "query_image_content", type: "String", description: "Mykad image (Base64 image string)", example: "\"\"" }
+      ]
+    }
   ]}
 />
 

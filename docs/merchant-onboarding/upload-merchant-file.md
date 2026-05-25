@@ -107,20 +107,13 @@ Check the `code` field. If `"SUCCESS"`, the file was uploaded and the `fileUrl` 
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "item", type: "Object", description: "Contains fileName and fileUrl.", example: "(Refer to explanation below)" },
+    { name: "item", type: "Object", description: "Contains fileName and fileUrl.",
+      children: [
+        { name: "fileName", type: "String", description: "Name of the uploaded file.", example: "\"testing\"" },
+        { name: "fileUrl", type: "String", description: "URL where the file is stored.", example: "\"https://rm-sandbox-document.oss-ap-southeast-3.aliyuncs.com/...pdf\"" }
+      ]
+    },
     { name: "code", type: "String", description: "\"SUCCESS\" if the file was uploaded. Otherwise returns an error code.", example: "\"SUCCESS\"" }
-  ]}
-/>
-
-<a id="item" />
-
-**Item object:**
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "fileName", type: "String", description: "Name of the uploaded file.", example: "\"testing\"" },
-    { name: "fileUrl", type: "String", description: "URL where the file is stored.", example: "\"https://rm-sandbox-document.oss-ap-southeast-3.aliyuncs.com/...pdf\"" }
   ]}
 />
 

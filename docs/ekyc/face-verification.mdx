@@ -89,18 +89,12 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
     { name: "service", type: "String", description: "EKYC service", example: "\"ekyc\"" },
     { name: "version", type: "String", description: "Currently only support 'v1\"", example: "\"v1\"" },
     { name: "function", type: "String", description: "Selected function", example: "\"face-compare\"" },
-    { name: "request", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-
-<a id="request" />
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "query_image_content_1", type: "String", description: "First face image (Base64 image string)", example: "\"\"" },
-    { name: "query_image_content_2", type: "String", description: "Second face image (Base64 image string)", example: "\"\"" }
+    { name: "request", type: "Object", description: "Refer to explanation below",
+      children: [
+        { name: "query_image_content_1", type: "String", description: "First face image (Base64 image string)", example: "\"\"" },
+        { name: "query_image_content_2", type: "String", description: "Second face image (Base64 image string)", example: "\"\"" }
+      ]
+    }
   ]}
 />
 

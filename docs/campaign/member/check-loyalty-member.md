@@ -70,7 +70,11 @@ Check user is it a member by input the **country code** and **phone number**
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "item", type: "Object", description: "Inside item is an \"exist\":true", example: "true" },
+    { name: "item", type: "Object", description: "Member existence check result",
+      children: [
+        { name: "exist", type: "Boolean", description: "Whether the member exists", example: "true" }
+      ]
+    },
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />

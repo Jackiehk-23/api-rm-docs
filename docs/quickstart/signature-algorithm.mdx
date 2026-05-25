@@ -31,10 +31,30 @@ Refer to which API endpoint you are calling. Below request parameter is just an 
 <ParamTable
   title="Request Body Parameters"
   rows={[
-    { name: "order", type: "Object", required: true, description: "Object of order", example: "(Refer to explanation below)" },
-    { name: "customer", type: "Object", required: true, description: "Object of customer", example: "(Refer to explanation below)" },
+    { name: "order", type: "Object", required: true, description: "Object of order",
+      children: [
+        { name: "title", type: "String", required: true, description: "Order title. Max 32 characters.", example: "\"Sales\"" },
+        { name: "detail", type: "String", required: true, description: "Order detail. Max 600 characters.", example: "\"1 x iPhone X; 2 x SAMSUNG S8\"" },
+        { name: "additionalData", type: "String", required: true, description: "Additional order description.", example: "\"Sales\"" },
+        { name: "amount", type: "Integer", required: true, description: "Amount of order in cents. Minimum is RM 0.10 (amount: 10). Required only when isPrefillAmount = true.", example: "100" },
+        { name: "currencyType", type: "String", required: true, description: "Currency notation. Currently only MYR is supported.", example: "\"MYR\"" },
+        { name: "id", type: "String", description: "Your internal order reference ID.", example: "\"6170506694335521334\"" }
+      ]
+    },
+    { name: "customer", type: "Object", required: true, description: "Object of customer",
+      children: [
+        { name: "userId", type: "String", required: true, description: "Required if tokenization is enabled.", example: "\"13245876\"" },
+        { name: "email", type: "String", description: "Customer email address.", example: "\"\"" },
+        { name: "countryCode", type: "String", description: "Customer country code.", example: "\"\"" },
+        { name: "phoneNumber", type: "String", description: "Customer phone number.", example: "\"\"" }
+      ]
+    },
     { name: "method", type: "Array", required: true, description: "RM currently supported method", example: "[]" },
-    { name: "type", type: "Object", required: true, description: "Object of type. See Type Object below.", example: "(Refer to explanation below)" },
+    { name: "type", type: "Object", required: true, description: "Object of type",
+      children: [
+        { name: "type", type: "String", required: true, description: "Use WEB_PAYMENT for browser-based payments or MOBILE_PAYMENT for mobile app payments.", example: "\"WEB_PAYMENT\"" }
+      ]
+    },
     { name: "storeId", type: "String", required: true, description: "ID of the store to create QR code", example: "\"10946114768247530\"" },
     { name: "redirectUrl", type: "String", required: true, description: "URL to redirect after payment is made", example: "\"https://google.com\"" },
     { name: "notifyUrl", type: "String", required: true, description: "Webhook URL that RM will call with the payment result", example: "\"https://google.com\"" },
@@ -42,47 +62,6 @@ Refer to which API endpoint you are calling. Below request parameter is just an 
   ]}
 />
 
-<a id="order" />
-
-**Order object `order`:**
-
-<ParamTable
-  title="Order Object"
-  rows={[
-    { name: "title", type: "String", required: true, description: "Order title. Max 32 characters.", example: "\"Sales\"" },
-    { name: "detail", type: "String", required: true, description: "Order detail. Max 600 characters.", example: "\"1 x iPhone X; 2 x SAMSUNG S8\"" },
-    { name: "additionalData", type: "String", required: true, description: "Additional order description.", example: "\"Sales\"" },
-    { name: "amount", type: "Integer", required: true, description: "Amount of order in cents. Minimum is RM 0.10 (amount: 10). Required only when isPrefillAmount = true.", example: "100" },
-    { name: "currencyType", type: "String", required: true, description: "Currency notation. Currently only MYR is supported.", example: "\"MYR\"" },
-    { name: "id", type: "String", description: "Your internal order reference ID.", example: "\"6170506694335521334\"" }
-  ]}
-/>
-
-<a id="customer" />
-
-**Customer object `customer`:**
-
-<ParamTable
-  title="Customer Object"
-  rows={[
-    { name: "userId", type: "String", required: true, description: "Required if tokenization is enabled.", example: "\"13245876\"" },
-    { name: "email", type: "String", description: "Customer email address.", example: "\"\"" },
-    { name: "countryCode", type: "String", description: "Customer country code.", example: "\"\"" },
-    { name: "phoneNumber", type: "String", description: "Customer phone number.", example: "\"\"" }
-  ]}
-/>
-
-<a id="type" />
-
-**Type object `type`:**
-
-<ParamTable
-  title="Type Object"
-  rows={[
-    { name: "type", type: "String", required: true, description: "Use WEB_PAYMENT for browser-based payments.", example: "\"WEB_PAYMENT\"" },
-    { name: "type", type: "String", required: true, description: "Use MOBILE_PAYMENT for mobile app payments.", example: "\"MOBILE_PAYMENT\"" }
-  ]}
-/>
 
 ### Example Request
 <!-- 
@@ -303,20 +282,13 @@ curl --request POST \
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "item", type: "Object", description: "Response payload. See Item object below.", example: "(Refer to explanation below)" },
+    { name: "item", type: "Object", description: "Response payload.",
+      children: [
+        { name: "checkoutId", type: "String", description: "Code to identify the web payment session.", example: "\"1548316308361173347\"" },
+        { name: "url", type: "String", description: "Checkout URL. To change the base URL, replace the domain to your desired URL.", example: "\"https://sb-pg.revenuemonster.my/checkout?checkoutId=1548316308361173347\"" }
+      ]
+    },
     { name: "code", type: "String", description: "SUCCESS if the call succeeded. Otherwise returns an error code object. See Appendix: Error Codes.", example: "\"SUCCESS\"" }
-  ]}
-/>
-
-<a id="item" />
-
-**Item object `item`:**
-
-<ParamTable
-  title="Item Object"
-  rows={[
-    { name: "checkoutId", type: "String", description: "Code to identify the web payment session.", example: "\"1548316308361173347\"" },
-    { name: "url", type: "String", description: "Checkout URL. To change the base URL, replace the domain to your desired URL.", example: "\"https://sb-pg.revenuemonster.my/checkout?checkoutId=1548316308361173347\"" }
   ]}
 />
 

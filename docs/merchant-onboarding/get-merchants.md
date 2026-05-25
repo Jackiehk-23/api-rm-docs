@@ -89,55 +89,41 @@ This is a GET request with no parameters.
 <ParamTable
   title="Response"
   rows={[
-    { name: "items", type: "Array", description: "Array of merchant objects", example: "(See merchant object below)" },
+    { name: "items", type: "Array", description: "Array of merchant objects",
+      children: [
+        { name: "id", type: "String", description: "Unique merchant ID", example: "\"6170506694335521334\"" },
+        { name: "companyName", type: "String", description: "Registered company name", example: "\"REVENUE MONSTER\"" },
+        { name: "brandName", type: "String", description: "Brand name if different from company", example: "\"\"" },
+        { name: "companyType", type: "String", description: "Type of company incorporation", example: "\"SOLE PROPRIETOR\"" },
+        { name: "companyLogoUrl", type: "String", description: "Public URL for company logo", example: "\"https://storage.googleapis.com/rm-sandbox-asset/img/merchant.png\"" },
+        { name: "registrationNumber", type: "String", description: "Company registration number", example: "\"\"" },
+        { name: "businessCategory", type: "String", description: "Business category", example: "\"\"" },
+        { name: "countryCode", type: "String", description: "Country code for contact", example: "\"60\"" },
+        { name: "phoneNumber", type: "String", description: "Contact phone number", example: "\"377334080\"" },
+        { name: "addressLine1", type: "String", description: "Street address line 1", example: "\"\"" },
+        { name: "city", type: "String", description: "City", example: "\"\"" },
+        { name: "state", type: "String", description: "State/Province", example: "\"\"" },
+        { name: "postcode", type: "String", description: "Postal/ZIP code", example: "\"\"" },
+        { name: "country", type: "String", description: "Country", example: "\"\"" },
+        { name: "isActive", type: "Boolean", description: "Whether the merchant account is active", example: "true" },
+        { name: "status", type: "String", description: "Current status (\"REVIEWING\", \"UNVERIFIED\", \"ACTIVE\")", example: "\"REVIEWING\"" },
+        { name: "isPartner", type: "Boolean", description: "Whether this is a partner merchant", example: "true" },
+        { name: "partnerId", type: "String", description: "Partner ID if applicable", example: "\"\"" },
+        { name: "gstNo", type: "String", description: "GST registration number", example: "\"\"" },
+        { name: "subscription", type: "Object", description: "Subscription flags",
+          children: [
+            { name: "terminalOfflineEWallet", type: "Boolean", description: "Offline e-wallet terminal enabled", example: "false" },
+            { name: "terminalOfflineCreditCard", type: "Boolean", description: "Offline credit card terminal enabled", example: "false" },
+            { name: "onlineCreditCard", type: "Boolean", description: "Online credit card enabled", example: "false" }
+          ]
+        },
+        { name: "registrationSource", type: "String", description: "How the merchant was registered", example: "\"OPEN_API\"" },
+        { name: "createdAt", type: "DateTime", description: "Account creation timestamp", example: "\"2021-08-18T03:47:28Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update timestamp", example: "\"2021-08-18T03:47:28Z\"" }
+      ]
+    },
     { name: "code", type: "String", description: "\"SUCCESS\" if the request succeeded. Otherwise returns an error code.", example: "\"SUCCESS\"" },
     { name: "meta", type: "Object", description: "Pagination metadata (empty if no pagination)", example: "{}" }
-  ]}
-/>
-
----
-
-**Merchant object `items`:**
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "id", type: "String", description: "Unique merchant ID", example: "\"6170506694335521334\"" },
-    { name: "companyName", type: "String", description: "Registered company name", example: "\"REVENUE MONSTER\"" },
-    { name: "brandName", type: "String", description: "Brand name if different from company", example: "\"\"" },
-    { name: "companyType", type: "String", description: "Type of company incorporation", example: "\"SOLE PROPRIETOR\"" },
-    { name: "companyLogoUrl", type: "String", description: "Public URL for company logo", example: "\"https://storage.googleapis.com/rm-sandbox-asset/img/merchant.png\"" },
-    { name: "registrationNumber", type: "String", description: "Company registration number", example: "\"\"" },
-    { name: "businessCategory", type: "String", description: "Business category", example: "\"\"" },
-    { name: "countryCode", type: "String", description: "Country code for contact", example: "\"60\"" },
-    { name: "phoneNumber", type: "String", description: "Contact phone number", example: "\"377334080\"" },
-    { name: "addressLine1", type: "String", description: "Street address line 1", example: "\"\"" },
-    { name: "city", type: "String", description: "City", example: "\"\"" },
-    { name: "state", type: "String", description: "State/Province", example: "\"\"" },
-    { name: "postcode", type: "String", description: "Postal/ZIP code", example: "\"\"" },
-    { name: "country", type: "String", description: "Country", example: "\"\"" },
-    { name: "isActive", type: "Boolean", description: "Whether the merchant account is active", example: "true" },
-    { name: "status", type: "String", description: "Current status (\"REVIEWING\", \"UNVERIFIED\", \"ACTIVE\")", example: "\"REVIEWING\"" },
-    { name: "isPartner", type: "Boolean", description: "Whether this is a partner merchant", example: "true" },
-    { name: "partnerId", type: "String", description: "Partner ID if applicable", example: "\"\"" },
-    { name: "gstNo", type: "String", description: "GST registration number", example: "\"\"" },
-    { name: "subscription", type: "Object", description: "Subscription flags. See subscription object below.", example: "(See below)" },
-    { name: "registrationSource", type: "String", description: "How the merchant was registered", example: "\"OPEN_API\"" },
-    { name: "createdAt", type: "DateTime", description: "Account creation timestamp", example: "\"2021-08-18T03:47:28Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update timestamp", example: "\"2021-08-18T03:47:28Z\"" }
-  ]}
-/>
-
----
-
-**Subscription object `items.subscription`:**
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "terminalOfflineEWallet", type: "Boolean", description: "Offline e-wallet terminal enabled", example: "false" },
-    { name: "terminalOfflineCreditCard", type: "Boolean", description: "Offline credit card terminal enabled", example: "false" },
-    { name: "onlineCreditCard", type: "Boolean", description: "Online credit card enabled", example: "false" }
   ]}
 />
 

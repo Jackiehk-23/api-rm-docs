@@ -34,6 +34,14 @@ article h2 {
   font-size: 1.15rem !important;
 }
 
+article h3 {
+  font-size: 1rem !important;
+}
+
+article h4 {
+  font-size: 0.9rem !important;
+}
+
 /* ================================
    PREVENT BODY-LEVEL OVERFLOW
 ================================ */
@@ -642,7 +650,8 @@ details.section-details > summary.section-summary::before {
   display: none !important;
 }
 
-details.section-details > summary.section-summary h2 {
+details.section-details > summary.section-summary h2,
+details.section-details > summary.section-summary h3 {
   margin-top: 0;
   margin-bottom: 0;
   flex: 1;

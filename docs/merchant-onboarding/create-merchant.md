@@ -133,98 +133,82 @@ Check the `code` field in the response. If `"SUCCESS"`, the merchant was created
 <ParamTable
   title="Response"
   rows={[
-    { name: "item", type: "Object", description: "Contains merchant, store, and user objects", example: "(See below)" },
+    { name: "item", type: "Object", description: "Contains merchant, store, and user objects",
+      children: [
+        { name: "merchant", type: "Object", description: "Merchant details",
+          children: [
+            { name: "id", type: "String", description: "Unique merchant ID", example: "\"1629292083526787883\"" },
+            { name: "companyName", type: "String", description: "Registered company name", example: "\"Revenue Monster\"" },
+            { name: "brandName", type: "String", description: "Brand name if different from company", example: "\"\"" },
+            { name: "companyType", type: "String", description: "Type of company incorporation", example: "\"\"" },
+            { name: "companyLogoUrl", type: "String", description: "Public URL for company logo", example: "\"https://storage.googleapis.com/rm-sandbox-asset/img/merchant.png\"" },
+            { name: "registrationNumber", type: "String", description: "Company registration number", example: "\"\"" },
+            { name: "businessCategory", type: "String", description: "Business category", example: "\"\"" },
+            { name: "countryCode", type: "String", description: "Country code for contact", example: "\"60\"" },
+            { name: "phoneNumber", type: "String", description: "Contact phone number", example: "\"\"" },
+            { name: "addressLine1", type: "String", description: "Street address line 1", example: "\"\"" },
+            { name: "city", type: "String", description: "City", example: "\"\"" },
+            { name: "state", type: "String", description: "State/Province", example: "\"\"" },
+            { name: "postcode", type: "String", description: "Postal/ZIP code", example: "\"\"" },
+            { name: "country", type: "String", description: "Country", example: "\"\"" },
+            { name: "isActive", type: "Boolean", description: "Whether the merchant account is active", example: "true" },
+            { name: "status", type: "String", description: "Merchant status (e.g., \"UNVERIFIED\", \"REVIEWING\", \"ACTIVE\")", example: "\"UNVERIFIED\"" },
+            { name: "isPartner", type: "Boolean", description: "Whether this is a partner merchant", example: "true" },
+            { name: "partnerId", type: "String", description: "Partner ID if applicable", example: "\"\"" },
+            { name: "subscription", type: "Object", description: "Subscription flags",
+              children: [
+                { name: "terminalOfflineEWallet", type: "Boolean", description: "Offline e-wallet terminal enabled", example: "false" },
+                { name: "terminalOfflineCreditCard", type: "Boolean", description: "Offline credit card terminal enabled", example: "false" },
+                { name: "onlineCreditCard", type: "Boolean", description: "Online credit card enabled", example: "false" }
+              ]
+            },
+            { name: "createdAt", type: "DateTime", description: "Account creation timestamp", example: "\"2021-08-18T13:08:03.530Z\"" },
+            { name: "updatedAt", type: "DateTime", description: "Last update timestamp", example: "\"2021-08-18T13:08:03.530Z\"" }
+          ]
+        },
+        { name: "store", type: "Object", description: "Store details",
+          children: [
+            { name: "id", type: "String", description: "Unique store ID", example: "\"1629292083696729288\"" },
+            { name: "merchantSettlementId", type: "String", description: "Merchant settlement ID", example: "\"\"" },
+            { name: "name", type: "String", description: "Store name", example: "\"Revenue Monster\"" },
+            { name: "imageUrl", type: "String", description: "Store image URL", example: "\"https://storage.googleapis.com/rm-prod-asset/img/store.png\"" },
+            { name: "addressLine1", type: "String", description: "Street address", example: "\"\"" },
+            { name: "postCode", type: "String", description: "Postal code", example: "\"\"" },
+            { name: "city", type: "String", description: "City", example: "\"\"" },
+            { name: "state", type: "String", description: "State", example: "\"\"" },
+            { name: "country", type: "String", description: "Country", example: "\"\"" },
+            { name: "countryCode", type: "String", description: "Country code", example: "\"\"" },
+            { name: "phoneNumber", type: "String", description: "Store phone number", example: "\"\"" },
+            { name: "geoLocation", type: "Object", description: "Latitude and longitude",
+              children: [
+                { name: "latitude", type: "Number", description: "Latitude", example: "0" },
+                { name: "longitude", type: "Number", description: "Longitude", example: "0" }
+              ]
+            },
+            { name: "status", type: "String", description: "Store status (\"ACTIVE\", \"INACTIVE\")", example: "\"ACTIVE\"" },
+            { name: "createdAt", type: "DateTime", description: "Creation timestamp", example: "\"2021-08-18T13:08:03.535Z\"" },
+            { name: "updatedAt", type: "DateTime", description: "Last update timestamp", example: "\"2021-08-18T13:08:03.535Z\"" }
+          ]
+        },
+        { name: "user", type: "Object", description: "User details",
+          children: [
+            { name: "id", type: "String", description: "Unique user ID", example: "\"1629292083650514742\"" },
+            { name: "firstName", type: "String", description: "User's first name", example: "\"EDWIN\"" },
+            { name: "lastName", type: "String", description: "User's last name", example: "\"TESTING\"" },
+            { name: "countryCode", type: "String", description: "Country code", example: "\"60\"" },
+            { name: "phoneNumber", type: "String", description: "Phone number", example: "\"164699177\"" },
+            { name: "email", type: "String", description: "Email address", example: "\"rmtesting@gmail.com\"" },
+            { name: "avatarUrl", type: "String", description: "Avatar image URL", example: "\"https://storage.googleapis.com/rm-sandbox-asset/img/avatar.png\"" },
+            { name: "status", type: "String", description: "User status (\"ACTIVE\", \"INACTIVE\")", example: "\"ACTIVE\"" },
+            { name: "isActive", type: "Boolean", description: "Whether user is active", example: "true" },
+            { name: "currentStoreId", type: "String", description: "Current store ID", example: "\"\"" },
+            { name: "createdAt", type: "DateTime", description: "Creation timestamp", example: "\"2021-08-18T13:08:03.537Z\"" },
+            { name: "updatedAt", type: "DateTime", description: "Last update timestamp", example: "\"2021-08-18T13:08:03.537Z\"" }
+          ]
+        }
+      ]
+    },
     { name: "code", type: "String", description: "\"SUCCESS\" if the merchant was created. Otherwise returns an error code.", example: "\"SUCCESS\"" }
-  ]}
-/>
-
----
-
-**Merchant object `item.merchant`:**
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "id", type: "String", description: "Unique merchant ID", example: "\"1629292083526787883\"" },
-    { name: "companyName", type: "String", description: "Registered company name", example: "\"Revenue Monster\"" },
-    { name: "brandName", type: "String", description: "Brand name if different from company", example: "\"\"" },
-    { name: "companyType", type: "String", description: "Type of company incorporation", example: "\"\"" },
-    { name: "companyLogoUrl", type: "String", description: "Public URL for company logo", example: "\"https://storage.googleapis.com/rm-sandbox-asset/img/merchant.png\"" },
-    { name: "registrationNumber", type: "String", description: "Company registration number", example: "\"\"" },
-    { name: "businessCategory", type: "String", description: "Business category", example: "\"\"" },
-    { name: "countryCode", type: "String", description: "Country code for contact", example: "\"60\"" },
-    { name: "phoneNumber", type: "String", description: "Contact phone number", example: "\"\"" },
-    { name: "addressLine1", type: "String", description: "Street address line 1", example: "\"\"" },
-    { name: "city", type: "String", description: "City", example: "\"\"" },
-    { name: "state", type: "String", description: "State/Province", example: "\"\"" },
-    { name: "postcode", type: "String", description: "Postal/ZIP code", example: "\"\"" },
-    { name: "country", type: "String", description: "Country", example: "\"\"" },
-    { name: "isActive", type: "Boolean", description: "Whether the merchant account is active", example: "true" },
-    { name: "status", type: "String", description: "Merchant status (e.g., \"UNVERIFIED\", \"REVIEWING\", \"ACTIVE\")", example: "\"UNVERIFIED\"" },
-    { name: "isPartner", type: "Boolean", description: "Whether this is a partner merchant", example: "true" },
-    { name: "partnerId", type: "String", description: "Partner ID if applicable", example: "\"\"" },
-    { name: "createdAt", type: "DateTime", description: "Account creation timestamp", example: "\"2021-08-18T13:08:03.530Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update timestamp", example: "\"2021-08-18T13:08:03.530Z\"" }
-  ]}
-/>
-
----
-
-**Subscription object `item.merchant.subscription`:**
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "terminalOfflineEWallet", type: "Boolean", description: "Offline e-wallet terminal enabled", example: "false" },
-    { name: "terminalOfflineCreditCard", type: "Boolean", description: "Offline credit card terminal enabled", example: "false" },
-    { name: "onlineCreditCard", type: "Boolean", description: "Online credit card enabled", example: "false" }
-  ]}
-/>
-
----
-
-**Store object `item.store`:**
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "id", type: "String", description: "Unique store ID", example: "\"1629292083696729288\"" },
-    { name: "merchantSettlementId", type: "String", description: "Merchant settlement ID", example: "\"\"" },
-    { name: "name", type: "String", description: "Store name", example: "\"Revenue Monster\"" },
-    { name: "imageUrl", type: "String", description: "Store image URL", example: "\"https://storage.googleapis.com/rm-prod-asset/img/store.png\"" },
-    { name: "addressLine1", type: "String", description: "Street address", example: "\"\"" },
-    { name: "postCode", type: "String", description: "Postal code", example: "\"\"" },
-    { name: "city", type: "String", description: "City", example: "\"\"" },
-    { name: "state", type: "String", description: "State", example: "\"\"" },
-    { name: "country", type: "String", description: "Country", example: "\"\"" },
-    { name: "countryCode", type: "String", description: "Country code", example: "\"\"" },
-    { name: "phoneNumber", type: "String", description: "Store phone number", example: "\"\"" },
-    { name: "geoLocation", type: "Object", description: "Latitude and longitude object", example: "{\"latitude\": 0, \"longitude\": 0}" },
-    { name: "status", type: "String", description: "Store status (\"ACTIVE\", \"INACTIVE\")", example: "\"ACTIVE\"" },
-    { name: "createdAt", type: "DateTime", description: "Creation timestamp", example: "\"2021-08-18T13:08:03.535Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update timestamp", example: "\"2021-08-18T13:08:03.535Z\"" }
-  ]}
-/>
-
----
-
-**User object `item.user`:**
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "id", type: "String", description: "Unique user ID", example: "\"1629292083650514742\"" },
-    { name: "firstName", type: "String", description: "User's first name", example: "\"EDWIN\"" },
-    { name: "lastName", type: "String", description: "User's last name", example: "\"TESTING\"" },
-    { name: "countryCode", type: "String", description: "Country code", example: "\"60\"" },
-    { name: "phoneNumber", type: "String", description: "Phone number", example: "\"164699177\"" },
-    { name: "email", type: "String", description: "Email address", example: "\"rmtesting@gmail.com\"" },
-    { name: "avatarUrl", type: "String", description: "Avatar image URL", example: "\"https://storage.googleapis.com/rm-sandbox-asset/img/avatar.png\"" },
-    { name: "status", type: "String", description: "User status (\"ACTIVE\", \"INACTIVE\")", example: "\"ACTIVE\"" },
-    { name: "isActive", type: "Boolean", description: "Whether user is active", example: "true" },
-    { name: "currentStoreId", type: "String", description: "Current store ID", example: "\"\"" },
-    { name: "createdAt", type: "DateTime", description: "Creation timestamp", example: "\"2021-08-18T13:08:03.537Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update timestamp", example: "\"2021-08-18T13:08:03.537Z\"" }
   ]}
 />
 

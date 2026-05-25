@@ -109,35 +109,40 @@ This is a GET request with no request body. Pass the `merchantId` as a path para
 <ParamTable
   title="Response"
   rows={[
-    { name: "items", type: "Array", description: "List of application clients associated with the merchant.", example: "(See below)" },
+    { name: "items", type: "Array", description: "List of application clients associated with the merchant.",
+      children: [
+        { name: "clientId", type: "String", description: "Unique client identifier for the application.", example: "\"1647502414730379278\"" },
+        { name: "clientSecret", type: "String", description: "Client secret. Keep this confidential.", example: "\"dtbDsFgbLDzGhMleKjTFZXGxrDKFnMqe\"" },
+        { name: "client", type: "Object", description: "Application client keys",
+          children: [
+            { name: "publicKey", type: "String", description: "Application's public key.", example: "(PEM format)" }
+          ]
+        },
+        { name: "server", type: "Object", description: "RM server keys",
+          children: [
+            { name: "publicKey", type: "String", description: "RM's server public key.", example: "(PEM format)" },
+            { name: "privateKey", type: "String", description: "RM's server private key (for reference only).", example: "(PEM format)" }
+          ]
+        },
+        { name: "name", type: "String", description: "Application name.", example: "\"required name\"" },
+        { name: "homePageUrl", type: "String", description: "Homepage URL.", example: "\"https://google.com\"" },
+        { name: "logoUrl", type: "String", description: "Logo URL.", example: "\"https://storage.googleapis.com/rm-sandbox-asset/img/default-application-logo.png\"" },
+        { name: "privacyPolicyUrl", type: "String", description: "Privacy policy URL.", example: "\"https://google.com\"" },
+        { name: "merchantId", type: "String", description: "Merchant ID this application belongs to.", example: "\"1647501978894816174\"" },
+        { name: "userId", type: "String", description: "User ID who created this application.", example: "\"1647501978916382207\"" },
+        { name: "oAuthClientProducts", type: "Array", description: "OAuth client products.", example: "[]" },
+        { name: "isActive", type: "Boolean", description: "Whether the application is active.", example: "false" },
+        { name: "redirectUri", type: "Array", description: "Allowed redirect URIs.", example: "[\"https://google.com\"]" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time of the application.", example: "\"2022-03-17T07:33:34Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time of the application.", example: "\"2022-03-17T07:36:10Z\"" }
+      ]
+    },
     { name: "code", type: "String", description: "\"SUCCESS\" if the call succeeded. Otherwise returns an error code object. See Appendix 1: Error Codes.", example: "\"SUCCESS\"" },
-    { name: "meta", type: "Object", description: "Pagination metadata.", example: "{\"count\": 1}" }
-  ]}
-/>
-
----
-
-**Application object `items`:**
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "clientId", type: "String", description: "Unique client identifier for the application.", example: "\"1647502414730379278\"" },
-    { name: "clientSecret", type: "String", description: "Client secret. Keep this confidential.", example: "\"dtbDsFgbLDzGhMleKjTFZXGxrDKFnMqe\"" },
-    { name: "client.publicKey", type: "String", description: "Application's public key.", example: "(PEM format)" },
-    { name: "server.publicKey", type: "String", description: "RM's server public key.", example: "(PEM format)" },
-    { name: "server.privateKey", type: "String", description: "RM's server private key (for reference only).", example: "(PEM format)" },
-    { name: "name", type: "String", description: "Application name.", example: "\"required name\"" },
-    { name: "homePageUrl", type: "String", description: "Homepage URL.", example: "\"https://google.com\"" },
-    { name: "logoUrl", type: "String", description: "Logo URL.", example: "\"https://storage.googleapis.com/rm-sandbox-asset/img/default-application-logo.png\"" },
-    { name: "privacyPolicyUrl", type: "String", description: "Privacy policy URL.", example: "\"https://google.com\"" },
-    { name: "merchantId", type: "String", description: "Merchant ID this application belongs to.", example: "\"1647501978894816174\"" },
-    { name: "userId", type: "String", description: "User ID who created this application.", example: "\"1647501978916382207\"" },
-    { name: "oAuthClientProducts", type: "Array", description: "OAuth client products.", example: "[]" },
-    { name: "isActive", type: "Boolean", description: "Whether the application is active.", example: "false" },
-    { name: "redirectUri", type: "Array", description: "Allowed redirect URIs.", example: "[\"https://google.com\"]" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time of the application.", example: "\"2022-03-17T07:33:34Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time of the application.", example: "\"2022-03-17T07:36:10Z\"" }
+    { name: "meta", type: "Object", description: "Pagination metadata.",
+      children: [
+        { name: "count", type: "Integer", description: "Total count of application clients.", example: "1" }
+      ]
+    }
   ]}
 />
 

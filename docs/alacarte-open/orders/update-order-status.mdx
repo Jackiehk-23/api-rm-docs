@@ -200,18 +200,13 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
     { name: "service", type: "String", description: "alacarte service", example: "\"alacarte\"" },
     { name: "version", type: "String", description: "Currently only support 'v1\"", example: "\"v1\"" },
     { name: "function", type: "String", description: "Function that provide by alacarte", example: "\"update.order.status\"" },
-    { name: "request", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-<a id="request" />
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "storeId", type: "String", description: "ID of the Store that Create from RM", example: "\"2808912573238362402\"" },
-    { name: "orderId", type: "String", description: "Order Id", example: "\"25f6984d6585d7cc1ae35a39c\"" },
-    { name: "status", type: "String", description: "Order Status", example: "\"PROGRESSING\"" }
+    { name: "request", type: "Object", description: "Request body",
+      children: [
+        { name: "storeId", type: "String", description: "ID of the Store that Create from RM", example: "\"2808912573238362402\"" },
+        { name: "orderId", type: "String", description: "Order Id", example: "\"25f6984d6585d7cc1ae35a39c\"" },
+        { name: "status", type: "String", description: "Order Status", example: "\"PROGRESSING\"" }
+      ]
+    }
   ]}
 />
 
@@ -248,265 +243,141 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
   title="Details"
   rows={[
     { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2020-09-22T04:44:57.950398414Z\"" },
-    { name: "customer", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" },
-    { name: "delivery", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" },
+    { name: "customer", type: "Object", description: "Customer info",
+      children: [
+        { name: "countryCode", type: "String", description: "Country Code", example: "\"60\"" },
+        { name: "email", type: "String", description: "Customer Email", example: "\"bassem@revenuemosnter.my\"" },
+        { name: "id", type: "String", description: "Customer ID", example: "\"5f63082ae9c755d6ba3122ac\"" },
+        { name: "name", type: "String", description: "Customer Name", example: "\"Bassem AlSabbagh\"" },
+        { name: "phoneNumber", type: "String", description: "Customer contact number", example: "\"1123621544\"" }
+      ]
+    },
+    { name: "delivery", type: "Object", description: "Delivery info",
+      children: [
+        { name: "address", type: "Object", description: "Delivery address",
+          children: [
+            { name: "addressLine1", type: "String", description: "AddressLine1", example: "\"\"" },
+            { name: "addressLine2", type: "String", description: "AddressLine2", example: "\"\"" },
+            { name: "city", type: "String", description: "City", example: "\"\"" },
+            { name: "country", type: "String", description: "Country", example: "\"\"" },
+            { name: "latitude", type: "Float", description: "Address latitude (In Meter)", example: "0" },
+            { name: "longitude", type: "Float", description: "Address longitude (In Meter)", example: "0" },
+            { name: "name", type: "String", description: "Customer Name", example: "\"\"" },
+            { name: "postCode", type: "String", description: "Post code", example: "\"\"" },
+            { name: "remark", type: "String", description: "Customer Remark", example: "\"\"" },
+            { name: "state", type: "String", description: "Address State", example: "\"\"" },
+            { name: "unit", type: "String", description: "Address Unit", example: "\"\"" }
+          ]
+        },
+        { name: "courier", type: "Object", description: "Courier info (null if none)" },
+        { name: "distanceInMeter", type: "Integer", description: "Delivery Distance (In Meter)", example: "17446" },
+        { name: "id", type: "String", description: "Delivery ID", example: "\"5f815e2c3c6920f1233a540f\"" },
+        { name: "method", type: "String", description: "Delivery method", example: "\"OWN\"" },
+        { name: "vendorId", type: "String", description: "Vendor ID", example: "\"5f815e2c3c6920f1233a540f\"" }
+      ]
+    },
     { name: "deliveryAt", type: "String", description: "When and what time the order deliver", example: "\"2020-10-01T08:35:22.525Z\"" },
-    { name: "driveThru", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" },
-    { name: "items", type: "Array", description: "Refer to explanation below", example: "(Refer to explanation below)" },
+    { name: "driveThru", type: "Object", description: "Drive thru info (null if not drive thru)" },
+    { name: "items", type: "Array", description: "Order items",
+      children: [
+        { name: "description", type: "String", description: "Item description", example: "\"got Nasi gt lemak\"" },
+        { name: "imageUrl", type: "Array", description: "Item Image", example: "[]" },
+        { name: "itemId", type: "String", description: "Item ID", example: "\"5f69a41f212de28db36031d6\"" },
+        { name: "name", type: "String", description: "Item Name", example: "\"Nasi lemak & Lemak\"" },
+        { name: "preferences", type: "Array", description: "Item preferences (empty array when none)" },
+        { name: "price", type: "Object", description: "Item price",
+          children: [
+            { name: "amount", type: "Integer", description: "Amount in cent", example: "500" },
+            { name: "currencyType", type: "String", description: "Currency type", example: "\"MYR\"" }
+          ]
+        },
+        { name: "quantity", type: "Integer", description: "Item Quantity", example: "1" },
+        { name: "remark", type: "String", description: "Customer Remark", example: "\"\"" },
+        { name: "sides", type: "Array", description: "Item sides",
+          children: [
+            { name: "id", type: "String", description: "Side ID", example: "\"\"" },
+            { name: "name", type: "String", description: "Side Name", example: "\"test\"" },
+            { name: "sideItems", type: "Array", description: "Side items",
+              children: [
+                { name: "id", type: "String", description: "Side Item ID", example: "\"5f7b4195021ba83f52a02551\"" },
+                { name: "name", type: "String", description: "Side Item Name", example: "\"Hainan Chicken Rice\"" },
+                { name: "price", type: "Object", description: "Side item price",
+                  children: [
+                    { name: "amount", type: "Integer", description: "Amount in cent", example: "500" },
+                    { name: "currencyType", type: "String", description: "Currency type", example: "\"MYR\"" }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
     { name: "orderId", type: "String", description: "Order ID", example: "\"5f7596e066ef1c1a4f9807f4\"" },
-    { name: "payment", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" },
+    { name: "payment", type: "Object", description: "Payment info",
+      children: [
+        { name: "deliveryFee", type: "Object", description: "Delivery fee",
+          children: [
+            { name: "amount", type: "Integer", description: "Amount in cent", example: "100" },
+            { name: "currencyType", type: "String", description: "Currency type", example: "\"MYR\"" }
+          ]
+        },
+        { name: "rounding", type: "Object", description: "Rounding amount",
+          children: [
+            { name: "amount", type: "Integer", description: "Amount in cent", example: "0" },
+            { name: "currencyType", type: "String", description: "Currency type", example: "\"MYR\"" }
+          ]
+        },
+        { name: "serviceFee", type: "Object", description: "Service fee",
+          children: [
+            { name: "amount", type: "Integer", description: "Amount in cent", example: "90" },
+            { name: "currencyType", type: "String", description: "Currency type", example: "\"MYR\"" },
+            { name: "percentage", type: "Integer", description: "Percentage (divide by 100)", example: "600" }
+          ]
+        },
+        { name: "serviceTax", type: "Object", description: "Service tax",
+          children: [
+            { name: "amount", type: "Integer", description: "Amount in cent", example: "105" },
+            { name: "currencyType", type: "String", description: "Currency type", example: "\"MYR\"" },
+            { name: "percentage", type: "Integer", description: "Percentage (divide by 100)", example: "700" }
+          ]
+        },
+        { name: "status", type: "String", description: "Payment Status (PAID, NOTPAID, PENDING, REFUNDED)", example: "\"PAID\"" },
+        { name: "subTotal", type: "Object", description: "Sub total",
+          children: [
+            { name: "amount", type: "Integer", description: "Amount in cent", example: "1500" },
+            { name: "currencyType", type: "String", description: "Currency type", example: "\"MYR\"" }
+          ]
+        },
+        { name: "totalAfterRounding", type: "Object", description: "Total after rounding",
+          children: [
+            { name: "amount", type: "Integer", description: "Amount in cent", example: "1795" },
+            { name: "currencyType", type: "String", description: "Currency type", example: "\"MYR\"" }
+          ]
+        },
+        { name: "totalBeforeRounding", type: "Object", description: "Total before rounding",
+          children: [
+            { name: "amount", type: "Integer", description: "Amount in cent", example: "1795" },
+            { name: "currencyType", type: "String", description: "Currency type", example: "\"MYR\"" }
+          ]
+        }
+      ]
+    },
     { name: "quantity", type: "Integer", description: "Quantity of the item", example: "1" },
     { name: "queueNo", type: "Integer", description: "Queue number of the item", example: "0" },
-    { name: "state", type: "String", description: "State of the item", example: "\"ACCEPTED\"" },
+    { name: "state", type: "String", description: "State of the item (ACCEPTED, REJECTED, CANCELED, REFUNDED)", example: "\"ACCEPTED\"" },
     { name: "status", type: "String", description: "Status of the item", example: "\"EMPTY\"" },
     { name: "storeId", type: "String", description: "ID of the Store that Create from RM", example: "\"10946114768247530\"" },
-    { name: "table", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" },
-    { name: "type", type: "String", description: "Type of the item", example: "\"DELIVERY\"" },
+    { name: "table", type: "Object", description: "Table info",
+      children: [
+        { name: "id", type: "String", description: "Table ID", example: "\"5e86af7ef9e6794801df3302\"" },
+        { name: "isActive", type: "Boolean", description: "Table is active", example: "true" },
+        { name: "isDefault", type: "Boolean", description: "Is default table", example: "true" },
+        { name: "name", type: "String", description: "Table Name", example: "\"Default Table\"" }
+      ]
+    },
+    { name: "type", type: "String", description: "Type (DINEIN, DELIVERY, PICKUP, DRIVE_THRU)", example: "\"DELIVERY\"" },
     { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-10-01T08:44:16.863Z\"" }
-  ]}
-/>
-
-
-<a id="customer" />
-
-### Inside Customer
-
-
-
-
-<ParamTable
-  rows={[
-    { name: "countryCode", type: "String", description: "Country Code", example: "\"60\"" },
-    { name: "email", type: "String", description: "Customer Email", example: "\"bassem@revenuemosnter.my\"" },
-    { name: "name", type: "String", description: "Customer Name", example: "\"Bassem AlSabbagh\"" },
-    { name: "phoneNumber", type: "String", description: "Customer contact number", example: "\"1123621544\"" },
-    { name: "id", type: "String", description: "Customer ID", example: "\"5f63082ae9c755d6ba3122ac\"" }
-  ]}
-/>
-
-<a id="delivery" />
-
-### Inside Delivery
-
-
-
-
-<ParamTable
-  rows={[
-    { name: "address", type: "String", description: "Refer to explanation below", example: "(Refer to explanation below)" },
-    { name: "courier", type: "String", description: "Refer to explanation below", example: "(Refer to explanation below)" },
-    { name: "distanceInMeter", type: "Integer", description: "Delivery Distance (In Meter)", example: "17446" },
-    { name: "id", type: "String", description: "Customer contact number", example: "\"5f815e2c3c6920f1233a540f\"" },
-    { name: "method", type: "String", description: "Customer ID", example: "\"OWN\"" },
-    { name: "vendorId", type: "String", description: "Customer ID", example: "\"5f815e2c3c6920f1233a540f\"" }
-  ]}
-/>
-
-<a id="address" />
-
-### Inside Address
-
-
-
-
-<ParamTable
-  rows={[
-    { name: "addressLine1", type: "String", description: "AddressLine1", example: "\"\"" },
-    { name: "addressLine2", type: "String", description: "AddressLine2", example: "\"\"" },
-    { name: "city", type: "String", description: "City", example: "\"\"" },
-    { name: "country", type: "String", description: "Country", example: "\"\"" },
-    { name: "latitude", type: "Float", description: "Address latitude (In Meter)", example: "0" },
-    { name: "longitude", type: "Float", description: "Address longitude (In Meter)", example: "0" },
-    { name: "name", type: "String", description: "Customer Name", example: "\"\"" },
-    { name: "postCode", type: "String", description: "Customer Remark", example: "\"\"" },
-    { name: "remark", type: "String", description: "Customer Remark", example: "\"\"" },
-    { name: "state", type: "String", description: "Address State", example: "\"\"" },
-    { name: "unit", type: "String", description: "Address Unit", example: "\"\"" }
-  ]}
-/>
-
-<a id="courier" />
-
-### Inside Courier
-
-:::note
-
-- If Courier don't have `name` and `phone` will display as **null**
-
-:::
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "id", type: "String", description: "Courier ID", example: "\"\"" },
-    { name: "latitude", type: "Float", description: "Address latitude (In Meter)", example: "0" },
-    { name: "longitude", type: "Float", description: "Address longitude (In Meter)", example: "0" },
-    { name: "name", type: "String", description: "Courier Name", example: "\"Testing123\"" },
-    { name: "phone", type: "String", description: "Courier Contact Number", example: "\"163698122\"" },
-    { name: "photoURL", type: "String", description: "Courier Image", example: "\"\"" },
-    { name: "surname", type: "String", description: "Courier Surname", example: "\"\"" }
-  ]}
-/>
-
-
-<a id="drivethru" />
-
-### Inside Drive Thru
-
-:::note
-
-- If not Drive Thru will display **null**
-
-:::
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "vehicleDescription", type: "String", description: "Vehicle description", example: "\"\"" },
-    { name: "vehicleNo", type: "String", description: "Vehicle Number", example: "\"TLA3202\"" }
-  ]}
-/>
-
-<a id="items" />
-
-### Inside Items
-
-
-
-
-<ParamTable
-  rows={[
-    { name: "description", type: "String", description: "Item description", example: "\"got Nasi gt lemak\"" },
-    { name: "imageUrl", type: "Array", description: "Item Image", example: "[]" },
-    { name: "itemId", type: "String", description: "Item ID", example: "\"5f69a41f212de28db36031d6\"" },
-    { name: "name", type: "String", description: "Item Name", example: "\"Nasi lemak & Lemak\"" },
-    { name: "preferences", type: "Array", description: "Refer to the Preferences parameter", example: "(Refer to the Preferences parameter)" },
-    { name: "price", type: "Object", description: "Refer to the Price parameter", example: "( Refer to the Price parameter)" },
-    { name: "quantity", type: "Integer", description: "Item Quantity", example: "1" },
-    { name: "remark", type: "String", description: "Customer Remark", example: "\"\"" },
-    { name: "sides", type: "Array", description: "Refer to the Sides parameter", example: "( Refer to the Sides parameter)" }
-  ]}
-/>
-
-
-
-### Inside Preferences
-
-:::note
-
-- Will display **Empty Array** when don't have preferences
-
-:::
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "name", type: "String", description: "Preferences name", example: "\"Sweetness\"" },
-    { name: "minChoice", type: "Integer", description: "Set minimum choice", example: "1" },
-    { name: "maxChoice", type: "Integer", description: "Set maximum choice", example: "3" },
-    { name: "labels", type: "Array", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-<a id="labels" />
-
-### Inside Labels
-
-<ParamTable
-  rows={[
-    { name: "name", type: "String", description: "Label name", example: "\"Basic\"" }
-  ]}
-/>
-
-
-### Inside Sides
-
-:::note
-
-- Will display **Empty Array** when don't have sides
-
-:::
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "id", type: "String", description: "Side ID", example: "\"\"" },
-    { name: "name", type: "String", description: "Side Name", example: "\"test\"" },
-    { name: "sideItems", type: "Array", description: "Refer to the SideItems parameter", example: "Refer to the SideItems parameter" }
-  ]}
-/>
-
-
-### Inside SideItems
-
-
-
-
-<ParamTable
-  rows={[
-    { name: "id", type: "String", description: "Side ID", example: "\"5f7b4195021ba83f52a02551\"" },
-    { name: "name", type: "String", description: "Side Name", example: "\"Hainan Chicken Rice\"" },
-    { name: "price", type: "Object", description: "Refer to the Price parameter", example: "Refer to the Price parameter" }
-  ]}
-/>
-
-<a id="payment" />
-
-### Inside Payment
-
-:::note
-
-Current type in <b>Payment</b> will be :-
-
-"PAID" , "NOTPAID" , "PENDING" , "REFUNDED"
-
-:::
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "deliveryFee", type: "Object", description: "Refer to the Price parameter", example: "( Refer to the Price parameter)" },
-    { name: "rounding", type: "Object", description: "Refer to the Price parameter", example: "( Refer to the Price parameter)" },
-    { name: "serviceFee", type: "Object", description: "Refer to the Price parameter", example: "( Refer to the Price parameter)" },
-    { name: "serviceTax", type: "Object", description: "Refer to the Price parameter", example: "( Refer to the Price parameter)" },
-    { name: "status", type: "String", description: "Payment Status", example: "\"NOTPAID\"" },
-    { name: "subTotal", type: "Object", description: "Refer to the Price parameter", example: "( Refer to the Price parameter)" },
-    { name: "totalAfterRounding", type: "Object", description: "Refer to the Price parameter", example: "( Refer to the Price parameter)" },
-    { name: "totalBeforeRounding", type: "Object", description: "Refer to the Price parameter", example: "( Refer to the Price parameter)" }
-  ]}
-/>
-
-
-### Inside Price
-
-:::note
-
-Only `serviceFee` and `serviceTax` have <b>percentage</b>
-
-:::
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "amount", type: "Integer", description: "Amount in cent (min RM 0.10 10 = RM 0.10)", example: "100" },
-    { name: "currencyType", type: "String", description: "Current only support Ringgit Malaysia", example: "\"MYR\"" },
-    { name: "percentage", type: "Integer", description: "precentage will be divide 100 eg: 1300/100", example: "1300" }
-  ]}
-/>
-
-<a id="table" />
-
-### Inside Table
-
-
-
-
-<ParamTable
-  rows={[
-    { name: "id", type: "String", description: "Table ID", example: "\"5e86af7ef9e6794801df3302\"" },
-    { name: "isAvailable", type: "Boolean", description: "Vehicle Number", example: "true" },
-    { name: "isDefault", type: "Boolean", description: "Vehicle Number", example: "true" },
-    { name: "name", type: "String", description: "Table Name", example: "\"Default Table\"" }
   ]}
 />
 

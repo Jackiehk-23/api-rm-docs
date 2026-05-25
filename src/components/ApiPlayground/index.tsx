@@ -181,9 +181,9 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
 
         {/* Headers card */}
         <div className={styles.editorCard}>
-          <div className={styles.editorCardHeader}>
+          <div className={styles.editorCardHeader} onClick={() => setOpenHeaders(!openHeaders)}>
             <span className={styles.editorCardTitle}>Headers</span>
-            <div className={styles.editorCardActions}>
+            <div className={styles.editorCardActions} onClick={(e) => e.stopPropagation()}>
               <button
                 type="button"
                 className={`${styles.editorCopyBtn} ${copiedHeaders ? styles.editorCopied : ""}`}
@@ -192,14 +192,7 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
               >
                 {copiedHeaders ? "✓" : "Copy"}
               </button>
-              <button
-                type="button"
-                className={styles.editorChevronBtn}
-                onClick={() => setOpenHeaders(!openHeaders)}
-                aria-label={openHeaders ? "Collapse headers" : "Expand headers"}
-              >
-                <span className={`${styles.editorChevron} ${!openHeaders ? styles.editorChevronCollapsed : ""}`}>▾</span>
-              </button>
+              <span className={`${styles.editorChevron} ${!openHeaders ? styles.editorChevronCollapsed : ""}`}>▾</span>
             </div>
           </div>
           <pre
@@ -218,9 +211,9 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
         {/* Body card */}
         {method !== "GET" && (
           <div className={styles.editorCard}>
-            <div className={styles.editorCardHeader}>
+            <div className={styles.editorCardHeader} onClick={() => setOpenBody(!openBody)}>
               <span className={styles.editorCardTitle}>Body</span>
-              <div className={styles.editorCardActions}>
+              <div className={styles.editorCardActions} onClick={(e) => e.stopPropagation()}>
                 <button
                   type="button"
                   className={`${styles.editorCopyBtn} ${copiedBody ? styles.editorCopied : ""}`}
@@ -229,14 +222,7 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
                 >
                   {copiedBody ? "✓" : "Copy"}
                 </button>
-                <button
-                  type="button"
-                  className={styles.editorChevronBtn}
-                  onClick={() => setOpenBody(!openBody)}
-                  aria-label={openBody ? "Collapse body" : "Expand body"}
-                >
-                  <span className={`${styles.editorChevron} ${!openBody ? styles.editorChevronCollapsed : ""}`}>▾</span>
-                </button>
+                <span className={`${styles.editorChevron} ${!openBody ? styles.editorChevronCollapsed : ""}`}>▾</span>
               </div>
             </div>
             <pre

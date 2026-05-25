@@ -100,16 +100,11 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
     { name: "service", type: "String", description: "alacarte service", example: "\"alacarte\"" },
     { name: "version", type: "String", description: "Currently only support 'v1\"", example: "\"v1\"" },
     { name: "function", type: "String", description: "Function that provide by alacarte", example: "\"get.category\"" },
-    { name: "request", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-<a id="request" />
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "storeId", type: "String", description: "ID of the Store that Create from RM", example: "\"1556079400120532579\"" }
+    { name: "request", type: "Object", description: "Request body",
+      children: [
+        { name: "storeId", type: "String", description: "ID of the Store that Create from RM", example: "\"1556079400120532579\"" }
+      ]
+    }
   ]}
 />
 
@@ -119,25 +114,20 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "items", type: "Array", description: "(Refer to explanation below)", example: "(Refer to explanation below)" },
+    { name: "items", type: "Array", description: "List of categories",
+      children: [
+        { name: "categoryId", type: "String", description: "Category ID", example: "\"5f68485ccb3285b9d3955696\"" },
+        { name: "storeId", type: "String", description: "ID of the Store that Create from RM", example: "\"1556079400120532579\"" },
+        { name: "itemIds", type: "Array", description: "Category Items", example: "[\"5f68485ccb3285b9d3955699\"]" },
+        { name: "name", type: "String", description: "Item Name", example: "\"Drinks\"" },
+        { name: "status", type: "String", description: "Status of Category \"ACTIVE\" and \"INACTIVE\"", example: "\"ACTIVE\"" },
+        { name: "position", type: "Integer", description: "Current position among Category", example: "0" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time", example: "\"2020-09-21T06:29:48.839Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-09-21T06:29:48.839Z\"" }
+      ]
+    },
     { name: "cursor", type: "String", description: "Optional, if pagination exists.", example: "\"0\"" },
     { name: "count", type: "Integer", description: "Current page record", example: "2" }
-  ]}
-/>
-
-<a id="items" />
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "categoryId", type: "String", description: "Category ID", example: "\"5f68485ccb3285b9d3955696\"" },
-    { name: "storeId", type: "String", description: "ID of the Store that Create from RM", example: "\"1556079400120532579\"" },
-    { name: "itemIds", type: "Array", description: "Category Items", example: "[\"5f68485ccb3285b9d3955699\"]" },
-    { name: "name", type: "String", description: "Item Name", example: "\"Drinks\"" },
-    { name: "status", type: "String", description: "Status of Category \"ACTIVE\" and \"INACTIVE\"", example: "\"ACTIVE\"" },
-    { name: "position", type: "Integer", description: "Current position among Category", example: "0" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time", example: "\"2020-09-21T06:29:48.839Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-09-21T06:29:48.839Z\"" }
   ]}
 />
 

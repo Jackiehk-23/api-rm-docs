@@ -99,7 +99,37 @@ Get Member Authorized URL
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "profile", type: "Object", description: "Member Profile", example: "Show as Below" },
+    { name: "profile", type: "Object", description: "Member Profile",
+      children: [
+        { name: "id", type: "String", description: "Member ID", example: "\"\"" },
+        { name: "key", type: "String", description: "Member key", example: "\"EhIKBk1lbWJlchDOuOKz24XWkg4\"" },
+        { name: "name", type: "String", description: "Member name", example: "\"yussuf\"" },
+        { name: "email", type: "String", description: "Member email", example: "\"yussuf888@gmail.com\"" },
+        { name: "nric", type: "String", description: "Member NRIC", example: "\"\"" },
+        { name: "birthDate", type: "String", description: "Member birth date", example: "\"0001-01-01\"" },
+        { name: "gender", type: "String", description: "Member gender", example: "\"\"" },
+        { name: "state", type: "String", description: "Member state", example: "\"\"" },
+        { name: "address", type: "Object", description: "Member address",
+          children: [
+            { name: "addressLine1", type: "String", description: "Address line 1", example: "\"\"" },
+            { name: "addressLine2", type: "String", description: "Address line 2", example: "\"\"" },
+            { name: "postcode", type: "String", description: "Postcode", example: "\"\"" },
+            { name: "city", type: "String", description: "City", example: "\"\"" },
+            { name: "state", type: "String", description: "State", example: "\"\"" },
+            { name: "country", type: "String", description: "Country", example: "\"\"" }
+          ]
+        },
+        { name: "memberTier", type: "Object", description: "Member tier (null if none)" },
+        { name: "totalLoyaltyPoint", type: "Integer", description: "Total loyalty points", example: "111" },
+        { name: "hasPinCode", type: "Boolean", description: "Whether member has pin code", example: "false" },
+        { name: "loyaltyPointBalance", type: "Integer", description: "Loyalty point balance", example: "0" },
+        { name: "spendingPoint", type: "Integer", description: "Spending points", example: "0" },
+        { name: "creditBalance", type: "Integer", description: "Credit balance", example: "10160" },
+        { name: "status", type: "String", description: "Member status", example: "\"ACTIVE\"" },
+        { name: "createdAt", type: "DateTime", description: "Member created date time", example: "\"2018-10-19T03:39:47Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Member last updated date time", example: "\"2020-11-30T04:28:15Z\"" }
+      ]
+    },
     { name: "url", type: "String", description: "Loyalty App Redirect URL", example: "Show as Below" }
   ]}
 />

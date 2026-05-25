@@ -294,17 +294,11 @@ Prerequisite : Acquire requestID from mykad recognition response
     { name: "service", type: "String", description: "EKYC service", example: "\"ekyc\"" },
     { name: "version", type: "String", description: "Currently only support 'v1\"", example: "\"v1\"" },
     { name: "function", type: "String", description: "Selected function", example: "\"get-mykad-result\"" },
-    { name: "request", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-
-<a id="request" />
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "id", type: "String", description: "Request ID from mykad recognition response", example: "\"62201d48a694817dede84b35\"" }
+    { name: "request", type: "Object", description: "Refer to explanation below",
+      children: [
+        { name: "id", type: "String", description: "Request ID from mykad recognition response", example: "\"62201d48a694817dede84b35\"" }
+      ]
+    }
   ]}
 />
 

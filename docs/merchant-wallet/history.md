@@ -38,29 +38,22 @@ Check merchant wallet topup history
 
 <ParamTable
   rows={[
-    { name: "items", type: "Object", description: "History object", example: "(Refer to explanation below)" },
+    { name: "items", type: "Array", description: "Wallet history records",
+      children: [
+        { name: "id", type: "String", description: "Wallet History ID", example: "\"1598969381529317751\"" },
+        { name: "referenceId", type: "String", description: "Wallet reference ID usually is your Merchant ID", example: "\"4118165203679668885\"" },
+        { name: "walletId", type: "String", description: "Wallet ID", example: "\"1585119930335618836\"" },
+        { name: "type", type: "String", description: "History type (TOPUP, DEDUCT)", example: "\"TOPUP\"" },
+        { name: "referenceType", type: "String", description: "History reference type (DELIVERY, BILLING, TOPUP_MANUAL, TOPUP_ONLINE, TOPUP_BANKIN)", example: "\"TOPUP_ONLINE\"" },
+        { name: "reference", type: "String", description: "Reference about the reference type usually it's usage information", example: "\"Online Transaction Topup -1598969316445167528\"" },
+        { name: "credit", type: "Integer", description: "How much credit added or deducted", example: "10" },
+        { name: "currentCredit", type: "Integer", description: "Credit balance after added or deducted", example: "1952" },
+        { name: "sequenceId", type: "Integer", description: "A sequential number", example: "26" },
+        { name: "transactionAt", type: "DateTime", description: "When history transaction", example: "\"2020-09-01T14:09:41Z\"" }
+      ]
+    },
     { name: "cursor", type: "String", description: "Cursor for next page" },
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
-  ]}
-/>
-<br />
-
-<a id="items" />
-
-<strong>History object <code>item</code>:</strong>
-
-<ParamTable
-  rows={[
-    { name: "id", type: "String", description: "Wallet History ID", example: "1598969381529317751" },
-    { name: "referenceId", type: "String", description: "Wallet reference ID usually is your Merchant ID", example: "4118165203679668885" },
-    { name: "walletId", type: "String", description: "Wallet ID", example: "1585119930335618836" },
-    { name: "type", type: "String", description: "History type", example: "\"TOPUP\", \"DEDUCT\"" },
-    { name: "referenceType", type: "String", description: "History reference type", example: "\"DELIVERY\", \"BILLING\", \"TOPUP_MANUAL\", \"TOPUP_ONLINE\", \"TOPUP_BANKIN\"" },
-    { name: "reference", type: "String", description: "Reference about the reference type usually it's usage information", example: "Online Transaction Topup -1598969316445167528" },
-    { name: "credit", type: "Integer", description: "How much credit added or deducted", example: "10" },
-    { name: "currentCredit", type: "Integer", description: "Credit balance after added or deducted", example: "1952" },
-    { name: "sequenceId", type: "Integer", description: "A sequential number", example: "26" },
-    { name: "transactionAt", type: "DateTime", description: "When history transaction", example: "2020-09-01T14:09:41Z" }
   ]}
 />
 <CodeBlock language="json" filename="Example Response">

@@ -82,7 +82,33 @@ This charges the customer's card — it is not a manual order creation. The amou
 <ParamTable
   title="Details"
   rows={[
-    { name: "item", type: "Object", description: "Transaction response object" },
+    { name: "item", type: "Object", description: "Transaction response object",
+      children: [
+        { name: "transactionId", type: "String", description: "Revenue Monster's unique transaction ID" },
+        { name: "referenceId", type: "String", description: "Reference ID from the payment provider" },
+        { name: "order", type: "Object", description: "Order details",
+          children: [
+            { name: "id", type: "String", description: "Order ID" },
+            { name: "title", type: "String", description: "Order title" },
+            { name: "currencyType", type: "String", description: "Currency type" },
+            { name: "amount", type: "Integer", description: "Order amount in cents" },
+            { name: "detail", type: "String", description: "Order detail" },
+            { name: "additionalData", type: "String", description: "Additional data" }
+          ]
+        },
+        { name: "store", type: "Object", description: "Store details" },
+        { name: "currencyType", type: "String", description: "Currency type (MYR)" },
+        { name: "balanceAmount", type: "Integer", description: "Remaining balance amount for initiating refund" },
+        { name: "finalAmount", type: "Integer", description: "Amount after all deductions" },
+        { name: "platform", type: "String", description: "Transaction platform" },
+        { name: "type", type: "String", description: "Transaction type" },
+        { name: "method", type: "String", description: "Payment method" },
+        { name: "region", type: "String", description: "Payment region" },
+        { name: "status", type: "String", description: "Transaction status (SUCCESS, FAILED, IN_PROCESS, etc.)" },
+        { name: "transactionAt", type: "String", description: "Transaction date time (only when SUCCESS)" },
+        { name: "createdAt", type: "String", description: "Created date time" },
+        { name: "updatedAt", type: "String", description: "Last updated date time" }
+      ] },
     { name: "code", type: "String", description: "\"SUCCESS\" if the payment succeeded, otherwise an error code." },
     { name: "error.code", type: "String", description: "Error code if the request failed." },
     { name: "error.message", type: "String", description: "Error message if the request failed." },

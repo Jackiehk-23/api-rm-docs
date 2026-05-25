@@ -216,7 +216,7 @@
   cursor: pointer;
   font-size: 0.76rem;
   font-weight: 500;
-  color: var(--ifm-color-primary);
+  color: var(--ifm-color-emphasis-700);
   transition: background 0.15s ease, border-color 0.15s ease;
   text-align: left;
 }

@@ -147,16 +147,11 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
     { name: "service", type: "String", description: "alacarte service", example: "\"alacarte\"" },
     { name: "version", type: "String", description: "Currently only support 'v1\"", example: "\"v1\"" },
     { name: "function", type: "String", description: "Function that provide by alacarte", example: "\"get.category.items\"" },
-    { name: "request", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-<a id="request" />
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "categoryId", type: "String", description: "ID of the Category", example: "\"5eabf31ee0e9cd7b01a3a35e\"" }
+    { name: "request", type: "Object", description: "Request body",
+      children: [
+        { name: "categoryId", type: "String", description: "ID of the Category", example: "\"5eabf31ee0e9cd7b01a3a35e\"" }
+      ]
+    }
   ]}
 />
 
@@ -168,114 +163,65 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
   rows={[
     { name: "cursor", type: "String", description: "Optional, if pagination exists.", example: "\"\"" },
     { name: "count", type: "Integer", description: "Current page record", example: "2" },
-    { name: "items", type: "Object", description: "(Refer to explanation below)", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-<a id="items" />
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "categoryId", type: "String", description: "Category ID", example: "\"\"" },
-    { name: "categoryName", type: "String", description: "Name of Category", example: "\"\"" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time", example: "\"2020-09-22T04:44:57.950398414Z\"" },
-    { name: "description", type: "String", description: "Description of the item", example: "\"Describe\"" },
-    { name: "imageUrl", type: "Array", description: "Item image", example: "[]" },
-    { name: "isAvailable", type: "Boolean", description: "Item available", example: "true" },
-    { name: "itemId", type: "String", description: "Item ID", example: "\"5eaeee9db07a77cef7caceb6\"" },
-    { name: "name", type: "String", description: "Item name", example: "\"Test123\"" },
-    { name: "position", type: "Integer", description: "Current position among item", example: "2" },
-    { name: "preferences", type: "Array", description: "Refer to explanation below", example: "(Refer to explanation below)" },
-    { name: "price", type: "Object", description: "Refer to the Price parameter", example: "( Refer to the Price parameter)" },
-    { name: "quantity", type: "Integer", description: "Item quantity", example: "350" },
-    { name: "schedules", type: "Array", description: "Schedules startAt and endAt", example: "[\"2020-09-22T02:00:00.000Z\", \"2020-09-22T14:00:00.000Z\"]" },
-    { name: "sides", type: "Array", description: "Refer to explanation below", example: "(Refer to explanation below)" },
-    { name: "sku", type: "String", description: "Item SKU", example: "\"fkj31i\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-09-22T04:44:57.950398414Z\"" }
-  ]}
-/>
-
-
-<a id="sides" />
-
-### Inside Sides
-
-
-
-
-<ParamTable
-  rows={[
-    { name: "id", type: "String", description: "Side Category ID", example: "\"5f698149585d7cc1ae35a395\"" },
-    { name: "name", type: "String", description: "Side Category name", example: "\"Side Category 1\"" },
-    { name: "isAvailable", type: "Boolean", description: "Side Category available", example: "true" },
-    { name: "minChoice", type: "Integer", description: "Set minimum choice", example: "1" },
-    { name: "maxChoice", type: "Integer", description: "Set maximum choice", example: "3" },
-    { name: "sideItems", type: "Array", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-<a id="sideitems" />
-
-### Inside Side Items
-
-
-
-
-<ParamTable
-  rows={[
-    { name: "id", type: "String", description: "Side Item ID", example: "\"5f698149585d7cc1ae35a392\"" },
-    { name: "isAvailable", type: "Boolean", description: "Side Item is available", example: "true" },
-    { name: "name", type: "String", description: "Side Item name", example: "\"Coke\"" },
-    { name: "price", type: "Object", description: "Refer to the Price parameter", example: "( Refer to the Price parameter)" },
-    { name: "referenceItemId", type: "String", description: "Optional, Item reference ID", example: "\"5eaa7b72e0e9cd7b01a3a2b2\"" }
-  ]}
-/>
-
-
-
-### Inside Price
-
-
-
-
-<ParamTable
-  rows={[
-    { name: "amount", type: "Integer", description: "Amount in cent (min RM 0.10 10 = RM 0.10)", example: "100" },
-    { name: "currencyType", type: "String", description: "Current only support Ringgit Malaysia", example: "\"MYR\"" }
-  ]}
-/>
-
-
-
-<a id="preferences" />
-
-### Inside Preferences
-
-
-
-
-<ParamTable
-  rows={[
-    { name: "id", type: "String", description: "Preferences ID", example: "\"5f698149585d7cc1ae35a38d\"" },
-    { name: "name", type: "String", description: "Preferences name", example: "\"Sweetness\"" },
-    { name: "minChoice", type: "Integer", description: "Set minimum choice", example: "1" },
-    { name: "maxChoice", type: "Integer", description: "Set maximum choice", example: "3" },
-    { name: "labels", type: "Array", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-<a id="labels" />
-
-### Inside Labels
-
-
-
-
-<ParamTable
-  rows={[
-    { name: "id", type: "String", description: "Label ID", example: "\"5f698149585d7cc1ae35a38e\"" },
-    { name: "name", type: "String", description: "Label name", example: "\"Basic\"" }
+    { name: "items", type: "Array", description: "List of items",
+      children: [
+        { name: "categoryId", type: "String", description: "Category ID", example: "\"\"" },
+        { name: "categoryName", type: "String", description: "Name of Category", example: "\"\"" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time", example: "\"2020-09-22T04:44:57.950398414Z\"" },
+        { name: "description", type: "String", description: "Description of the item", example: "\"Describe\"" },
+        { name: "imageUrl", type: "Array", description: "Item image", example: "[]" },
+        { name: "isAvailable", type: "Boolean", description: "Item available", example: "true" },
+        { name: "itemId", type: "String", description: "Item ID", example: "\"5eaeee9db07a77cef7caceb6\"" },
+        { name: "name", type: "String", description: "Item name", example: "\"Test123\"" },
+        { name: "position", type: "Integer", description: "Current position among item", example: "2" },
+        { name: "preferences", type: "Array", description: "Item preferences",
+          children: [
+            { name: "id", type: "String", description: "Preferences ID", example: "\"5f698149585d7cc1ae35a38d\"" },
+            { name: "name", type: "String", description: "Preferences name", example: "\"Sweetness\"" },
+            { name: "minChoice", type: "Integer", description: "Set minimum choice", example: "1" },
+            { name: "maxChoice", type: "Integer", description: "Set maximum choice", example: "3" },
+            { name: "labels", type: "Array", description: "Preference labels",
+              children: [
+                { name: "id", type: "String", description: "Label ID", example: "\"5f698149585d7cc1ae35a38e\"" },
+                { name: "name", type: "String", description: "Label name", example: "\"Basic\"" }
+              ]
+            }
+          ]
+        },
+        { name: "price", type: "Object", description: "Item price",
+          children: [
+            { name: "amount", type: "Integer", description: "Amount in cent (min RM 0.10 10 = RM 0.10)", example: "100" },
+            { name: "currencyType", type: "String", description: "Current only support Ringgit Malaysia", example: "\"MYR\"" }
+          ]
+        },
+        { name: "quantity", type: "Integer", description: "Item quantity", example: "350" },
+        { name: "schedules", type: "Array", description: "Schedules startAt and endAt", example: "[\"2020-09-22T02:00:00.000Z\", \"2020-09-22T14:00:00.000Z\"]" },
+        { name: "sides", type: "Array", description: "Item sides",
+          children: [
+            { name: "id", type: "String", description: "Side Category ID", example: "\"5f698149585d7cc1ae35a395\"" },
+            { name: "name", type: "String", description: "Side Category name", example: "\"Side Category 1\"" },
+            { name: "isAvailable", type: "Boolean", description: "Side Category available", example: "true" },
+            { name: "minChoice", type: "Integer", description: "Set minimum choice", example: "1" },
+            { name: "maxChoice", type: "Integer", description: "Set maximum choice", example: "3" },
+            { name: "sideItems", type: "Array", description: "Side items",
+              children: [
+                { name: "id", type: "String", description: "Side Item ID", example: "\"5f698149585d7cc1ae35a392\"" },
+                { name: "isAvailable", type: "Boolean", description: "Side Item is available", example: "true" },
+                { name: "name", type: "String", description: "Side Item name", example: "\"Coke\"" },
+                { name: "price", type: "Object", description: "Side item price",
+                  children: [
+                    { name: "amount", type: "Integer", description: "Amount in cent (min RM 0.10 10 = RM 0.10)", example: "100" },
+                    { name: "currencyType", type: "String", description: "Current only support Ringgit Malaysia", example: "\"MYR\"" }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        { name: "sku", type: "String", description: "Item SKU", example: "\"fkj31i\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-09-22T04:44:57.950398414Z\"" }
+      ]
+    }
   ]}
 />
 

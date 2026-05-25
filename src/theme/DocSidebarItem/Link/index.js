@@ -80,29 +80,43 @@ function useActiveHeadingId(tocItems) {
   return activeId;
 }
 
+function tocLabel(htmlValue) {
+  const text = htmlValue.replace(/<[^>]+>/g, '');
+  const match = text.match(/^(Step\s+\d+)/i);
+  return match ? match[1] : htmlValue;
+}
+
 function SidebarTOC({ toc }) {
-  const items = useMemo(() => toc.filter(h => h.level === 2 || h.level === 3), [toc]);
+  const items = useMemo(() => toc.filter(h => {
+    const text = h.value.replace(/<[^>]+>/g, '');
+    return /^step\s+\d+/i.test(text.trim());
+  }), [toc]);
   const activeId = useActiveHeadingId(items);
 
   if (!items.length) return null;
 
   return (
     <ul className={styles.tocList}>
-      {items.map(item => (
-        <li
-          key={item.id}
-          className={clsx(styles.tocItem, item.level === 3 && styles.tocItemH3)}
-        >
-          <a
-            href={`#${item.id}`}
-            className={clsx(
-              styles.tocLink,
-              item.id === activeId && styles.tocLinkActive,
-            )}
-            dangerouslySetInnerHTML={{ __html: item.value }}
-          />
-        </li>
-      ))}
+      {items.map(item => {
+        const label = tocLabel(item.value);
+        const isShortened = label !== item.value;
+        return (
+          <li
+            key={item.id}
+            className={clsx(styles.tocItem, item.level === 3 && styles.tocItemH3)}
+          >
+            <a
+              href={`#${item.id}`}
+              className={clsx(
+                styles.tocLink,
+                item.id === activeId && styles.tocLinkActive,
+              )}
+              title={isShortened ? item.value.replace(/<[^>]+>/g, '') : undefined}
+              dangerouslySetInnerHTML={{ __html: label }}
+            />
+          </li>
+        );
+      })}
     </ul>
   );
 }

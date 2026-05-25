@@ -165,99 +165,78 @@ Check the `code` field. If `"SUCCESS"`, the merchant has been submitted. The `st
 <ParamTable
   title="Response"
   rows={[
-    { name: "item", type: "Object", description: "Contains the settlement/merchant details.", example: "(See below)" },
+    { name: "item", type: "Object", description: "Contains the settlement/merchant details.",
+      children: [
+        { name: "id", type: "String", description: "Settlement ID", example: "\"1629258558902992793\"" },
+        { name: "merchantId", type: "String", description: "Merchant ID", example: "\"1629258448138509563\"" },
+        { name: "isDefault", type: "Boolean", description: "Whether this is the default settlement account", example: "true" },
+        { name: "companyName", type: "String", description: "Company name of merchant", example: "\"REVENUE MONSTER\"" },
+        { name: "companyType", type: "String", description: "Type of company incorporation", example: "\"SOLE PROPRIETOR\"" },
+        { name: "registrationNumber", type: "String", description: "Registration number of merchant", example: "\"12344\"" },
+        { name: "businessCategory", type: "String", description: "Business category of merchant", example: "\"SOFTWARE AND IT\"" },
+        { name: "businessScope", type: "String", description: "Business scope of merchant", example: "\"SOFTWARE AND IT\"" },
+        { name: "sourceOfFunds", type: "String", description: "Source of funds of merchant", example: "\"\"" },
+        { name: "customerOrigin", type: "String", description: "Customer origin of merchant", example: "\"\"" },
+        { name: "establishedAt", type: "DateTime", description: "Established date time of merchant", example: "\"2018-03-26T04:50:57Z\"" },
+        { name: "countryCode", type: "String", description: "Country code of merchant contact number", example: "\"60\"" },
+        { name: "phoneNumber", type: "String", description: "Phone number of merchant", example: "\"377334080\"" },
+        { name: "addressLine1", type: "String", description: "Address 1 of merchant", example: "\"20, JALAN JASA 38, TAMAN MUTIARA RINI\"" },
+        { name: "addressLine2", type: "String", description: "Address 2 of merchant", example: "\"\"" },
+        { name: "postcode", type: "String", description: "Postcode of merchant", example: "\"81300\"" },
+        { name: "city", type: "String", description: "City of merchant", example: "\"Selangor\"" },
+        { name: "state", type: "String", description: "State of merchant", example: "\"Selangor\"" },
+        { name: "country", type: "String", description: "Country of merchant", example: "\"Malaysia\"" },
+        { name: "isSameBusinessAddress", type: "Boolean", example: "false" },
+        { name: "invoiceAddress", type: "Object", example: "null" },
+        { name: "inspectList", type: "Object", example: "null" },
+        { name: "status", type: "String", description: "Current status of settlement. Changes to \"REVIEWING\" after submission.", example: "\"REVIEWING\"" },
+        { name: "document", type: "Object", description: "Uploaded document URLs",
+          children: [
+            { name: "ctosFileUrl", type: "String", example: "\"\"" },
+            { name: "ownerICFileUrl", type: "String", example: "\"\"" },
+            { name: "directorICFileUrl", type: "String", example: "\"\"" },
+            { name: "shareHolderICFileUrl", type: "String", example: "\"\"" },
+            { name: "businessRegistrationFileUrl", type: "String", example: "\"\"" },
+            { name: "bankStatementFileUrl", type: "String", example: "\"\"" },
+            { name: "moaFileUrl", type: "String", example: "\"\"" },
+            { name: "form24FileUrl", type: "String", example: "\"\"" },
+            { name: "form49FileUrl", type: "String", example: "\"\"" },
+            { name: "section14FileUrl", type: "String", example: "\"\"" },
+            { name: "form44FileUrl", type: "String", example: "\"\"" },
+            { name: "businessSitePhotoFileUrl", type: "String", example: "\"\"" },
+            { name: "essmDocumentFileUrl", type: "String", example: "\"\"" },
+            { name: "letterOfConsentFileUrl", type: "String", example: "\"\"" }
+          ]
+        },
+        { name: "documentFile", type: "Object", description: "Uploaded document file URLs",
+          children: [
+            { name: "CTOSFileURL", type: "String", example: "null" },
+            { name: "OwnerICFileURL", type: "String", example: "null" },
+            { name: "DirectorICFileURL", type: "String", example: "null" },
+            { name: "ShareHolderICFileURL", type: "String", example: "null" },
+            { name: "BusinessRegistrationFileURL", type: "String", example: "null" },
+            { name: "BankStatementFileURL", type: "String", example: "null" },
+            { name: "MOAFileURL", type: "String", example: "null" },
+            { name: "Form24FileURL", type: "String", example: "null" },
+            { name: "Form49FileURL", type: "String", example: "null" },
+            { name: "Section14FileURL", type: "String", example: "null" },
+            { name: "Form44FileURL", type: "String", example: "null" },
+            { name: "BusinessSitePhotoFileURL", type: "String", example: "null" }
+          ]
+        },
+        { name: "bankAccountNo", type: "String", example: "\"\"" },
+        { name: "bankAccountType", type: "String", example: "\"\"" },
+        { name: "bankAccountHolderName", type: "String", example: "\"\"" },
+        { name: "bankName", type: "String", example: "\"\"" },
+        { name: "bankCode", type: "String", example: "\"\"" },
+        { name: "averageTicketSize", type: "Integer", example: "0" },
+        { name: "averageTurnoverPerMonth", type: "Integer", example: "0" },
+        { name: "paymentSubscription", type: "String", example: "\"\"" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time of settlement", example: "\"2021-08-18T14:33:49Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time of settlement", example: "\"2021-08-18T14:33:49Z\"" }
+      ]
+    },
     { name: "code", type: "String", description: "\"SUCCESS\" if the call succeeded. Otherwise returns an error code object. See Appendix 1: Error Codes.", example: "\"SUCCESS\"" }
-  ]}
-/>
-
----
-
-**Settlement object `item`:**
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "id", type: "String", description: "Settlement ID", example: "\"1629258558902992793\"" },
-    { name: "merchantId", type: "String", description: "Merchant ID", example: "\"1629258448138509563\"" },
-    { name: "isDefault", type: "Boolean", description: "Whether this is the default settlement account", example: "true" },
-    { name: "companyName", type: "String", description: "Company name of merchant", example: "\"REVENUE MONSTER\"" },
-    { name: "companyType", type: "String", description: "Type of company incorporation", example: "\"SOLE PROPRIETOR\"" },
-    { name: "registrationNumber", type: "String", description: "Registration number of merchant", example: "\"12344\"" },
-    { name: "businessCategory", type: "String", description: "Business category of merchant", example: "\"SOFTWARE AND IT\"" },
-    { name: "businessScope", type: "String", description: "Business scope of merchant", example: "\"SOFTWARE AND IT\"" },
-    { name: "sourceOfFunds", type: "String", description: "Source of funds of merchant", example: "\"\"" },
-    { name: "customerOrigin", type: "String", description: "Customer origin of merchant", example: "\"\"" },
-    { name: "establishedAt", type: "DateTime", description: "Established date time of merchant", example: "\"2018-03-26T04:50:57Z\"" },
-    { name: "countryCode", type: "String", description: "Country code of merchant contact number", example: "\"60\"" },
-    { name: "phoneNumber", type: "String", description: "Phone number of merchant", example: "\"377334080\"" },
-    { name: "addressLine1", type: "String", description: "Address 1 of merchant", example: "\"20, JALAN JASA 38, TAMAN MUTIARA RINI\"" },
-    { name: "addressLine2", type: "String", description: "Address 2 of merchant", example: "\"\"" },
-    { name: "postcode", type: "String", description: "Postcode of merchant", example: "\"81300\"" },
-    { name: "city", type: "String", description: "City of merchant", example: "\"Selangor\"" },
-    { name: "state", type: "String", description: "State of merchant", example: "\"Selangor\"" },
-    { name: "country", type: "String", description: "Country of merchant", example: "\"Malaysia\"" },
-    { name: "isSameBusinessAddress", type: "Boolean", example: "false" },
-    { name: "invoiceAddress", type: "Object", example: "null" },
-    { name: "inspectList", type: "Object", example: "null" },
-    { name: "status", type: "String", description: "Current status of settlement. Changes to \"REVIEWING\" after submission.", example: "\"REVIEWING\"" },
-    { name: "document", type: "Object", description: "Uploaded document URLs. See document object below.", example: "(See below)" },
-    { name: "documentFile", type: "Object", description: "Uploaded document files. See documentFile object below.", example: "(See below)" },
-    { name: "bankAccountNo", type: "String", example: "\"\"" },
-    { name: "bankAccountType", type: "String", example: "\"\"" },
-    { name: "bankAccountHolderName", type: "String", example: "\"\"" },
-    { name: "bankName", type: "String", example: "\"\"" },
-    { name: "bankCode", type: "String", example: "\"\"" },
-    { name: "averageTicketSize", type: "Integer", example: "0" },
-    { name: "averageTurnoverPerMonth", type: "Integer", example: "0" },
-    { name: "paymentSubscription", type: "String", example: "\"\"" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time of settlement", example: "\"2021-08-18T14:33:49Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time of settlement", example: "\"2021-08-18T14:33:49Z\"" }
-  ]}
-/>
-
----
-
-**document object:**
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "ctosFileUrl", type: "String", example: "\"\"" },
-    { name: "ownerICFileUrl", type: "String", example: "\"\"" },
-    { name: "directorICFileUrl", type: "String", example: "\"\"" },
-    { name: "shareHolderICFileUrl", type: "String", example: "\"\"" },
-    { name: "businessRegistrationFileUrl", type: "String", example: "\"\"" },
-    { name: "bankStatementFileUrl", type: "String", example: "\"\"" },
-    { name: "moaFileUrl", type: "String", example: "\"\"" },
-    { name: "form24FileUrl", type: "String", example: "\"\"" },
-    { name: "form49FileUrl", type: "String", example: "\"\"" },
-    { name: "section14FileUrl", type: "String", example: "\"\"" },
-    { name: "form44FileUrl", type: "String", example: "\"\"" },
-    { name: "businessSitePhotoFileUrl", type: "String", example: "\"\"" },
-    { name: "essmDocumentFileUrl", type: "String", example: "\"\"" },
-    { name: "letterOfConsentFileUrl", type: "String", example: "\"\"" }
-  ]}
-/>
-
----
-
-**documentFile object:**
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "CTOSFileURL", type: "String", example: "null" },
-    { name: "OwnerICFileURL", type: "String", example: "null" },
-    { name: "DirectorICFileURL", type: "String", example: "null" },
-    { name: "ShareHolderICFileURL", type: "String", example: "null" },
-    { name: "BusinessRegistrationFileURL", type: "String", example: "null" },
-    { name: "BankStatementFileURL", type: "String", example: "null" },
-    { name: "MOAFileURL", type: "String", example: "null" },
-    { name: "Form24FileURL", type: "String", example: "null" },
-    { name: "Form49FileURL", type: "String", example: "null" },
-    { name: "Section14FileURL", type: "String", example: "null" },
-    { name: "Form44FileURL", type: "String", example: "null" },
-    { name: "BusinessSitePhotoFileURL", type: "String", example: "null" }
   ]}
 />
 

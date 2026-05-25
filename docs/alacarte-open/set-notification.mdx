@@ -93,18 +93,12 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
     { name: "service", type: "String", description: "alacarte service", example: "\"alacarte\"" },
     { name: "version", type: "String", description: "Currently only support 'v1\"", example: "\"v1\"" },
     { name: "function", type: "String", description: "Function that provide by alacarte", example: "\"set.notification.webhook\"" },
-    { name: "request", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-
-<a id="request" />
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "notificationUrls", type: "Array", required: true, description: "Maximum webhook url is 3", example: "[\"https://webhook.site/2688336e-7b61-4cd2-b2bb-40592a3e353a\"]" },
-    { name: "storeIds", type: "Array", description: "Merchant can set multi storeIds", example: "[\"5eabf31ee0e9cd7b01a3a35e\"]" }
+    { name: "request", type: "Object", description: "Refer to explanation below",
+      children: [
+        { name: "notificationUrls", type: "Array", required: true, description: "Maximum webhook url is 3", example: "[\"https://webhook.site/2688336e-7b61-4cd2-b2bb-40592a3e353a\"]" },
+        { name: "storeIds", type: "Array", description: "Merchant can set multi storeIds", example: "[\"5eabf31ee0e9cd7b01a3a35e\"]" }
+      ]
+    }
   ]}
 />
 

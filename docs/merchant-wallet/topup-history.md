@@ -32,29 +32,20 @@ Check merchant wallet topup history
 
 <ParamTable
   rows={[
-    { name: "items", type: "Object", description: "Transaction History object", example: "(Refer to explanation below)" },
+    { name: "items", type: "Array", description: "Transaction history records",
+      children: [
+        { name: "id", type: "String", description: "Transaction History ID", example: "\"1598969381529317751\"" },
+        { name: "walletId", type: "String", description: "Wallet ID", example: "\"1585119930335618836\"" },
+        { name: "referenceId", type: "String", description: "Reference ID usually it's merchant id", example: "\"4118165203679668885\"" },
+        { name: "adminId", type: "String", description: "Admin ID", example: "\"1610358903738245784\"" },
+        { name: "detail", type: "String", description: "Transaction Detail", example: "\"online payment gateway topup\"" },
+        { name: "method", type: "String", description: "Payment Method (ONLINE, MANUAL, BANK_IN)", example: "\"ONLINE\"" },
+        { name: "status", type: "String", description: "Transaction Status (IN_PROCESS, SUCCESS)", example: "\"IN_PROCESS\"" },
+        { name: "credit", type: "Integer", description: "Credit amount", example: "10" },
+        { name: "createdAt", type: "DateTime", description: "Transaction time", example: "\"2021-01-11T09:55:03Z\"" }
+      ]
+    },
     { name: "cursor", type: "String", description: "Cursor for next page" }
-  ]}
-/>
-
-<br />
-
-<a id="items" />
-
-<strong>Transaction History object <code>item</code>:</strong>
-
-
-<ParamTable
-  rows={[
-    { name: "id", type: "String", description: "Transaction History ID", example: "1598969381529317751" },
-    { name: "walletId", type: "String", description: "Wallet ID", example: "1585119930335618836" },
-    { name: "referenceId", type: "String", description: "Reference ID usually it's merchant id", example: "4118165203679668885" },
-    { name: "adminId", type: "String", description: "Admin ID", example: "1610358903738245784" },
-    { name: "detail", type: "String", description: "Transaction Detail", example: "online payment gateway topup" },
-    { name: "method", type: "String", description: "Payment Method", example: "\"ONLINE\", \"MANUAL\", \"BANKIN\"" },
-    { name: "status", type: "String", description: "Transaction Status", example: "\"IN_PROCESS\", \"SUCCESS\"" },
-    { name: "credit", type: "String", description: "Credit", example: "10" },
-    { name: "createdAt", type: "DateTime", description: "Transaction time", example: "online payment gateway topup" }
   ]}
 />
 <CodeBlock language="json" filename="Example Response">

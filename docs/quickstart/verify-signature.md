@@ -24,17 +24,13 @@ When RM calls your `notifyUrl`, the request body will be a JSON object. The foll
 
 <ParamTable
   rows={[
-    { name: "item", type: "Object", description: "Response payload", example: "(See below)" },
+    { name: "item", type: "Object", description: "Response payload",
+      children: [
+        { name: "checkoutId", type: "String", description: "Identifier for the checkout session", example: "\"1617985392758071583\"" },
+        { name: "url", type: "String", description: "Checkout URL", example: "\"https://sb-pg.revenuemonster.my/v2/checkout?checkoutId=1617985392758071583\"" }
+      ]
+    },
     { name: "code", type: "String", description: "\"SUCCESS\" if the payment succeeded. Otherwise an error code.", example: "\"SUCCESS\"" }
-  ]}
-/>
-
-**item object:**
-
-<ParamTable
-  rows={[
-    { name: "checkoutId", type: "String", description: "Identifier for the checkout session", example: "\"1617985392758071583\"" },
-    { name: "url", type: "String", description: "Checkout URL", example: "\"https://sb-pg.revenuemonster.my/v2/checkout?checkoutId=1617985392758071583\"" }
   ]}
 />
 

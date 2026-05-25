@@ -92,19 +92,14 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
     { name: "service", type: "String", description: "alacarte service", example: "\"alacarte\"" },
     { name: "version", type: "String", description: "Currently only support 'v1\"", example: "\"v1\"" },
     { name: "function", type: "String", description: "Function that provide by alacarte", example: "\"update.category\"" },
-    { name: "request", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-<a id="request" />
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "categoryId", type: "String", description: "ID of the Category", example: "\"5f68485ccb3285b9d3955696\"" },
-    { name: "name", type: "String", description: "Category name", example: "\"Drinks\"" },
-    { name: "status", type: "String", description: "Status of Category \"ACTIVE\" and \"INACTIVE\"", example: "\"ACTIVE\"" },
-    { name: "positionChange", type: "Integer", description: "Move UP or DOWN the position using -1 or 1", example: "1" }
+    { name: "request", type: "Object", description: "Request body",
+      children: [
+        { name: "categoryId", type: "String", description: "ID of the Category", example: "\"5f68485ccb3285b9d3955696\"" },
+        { name: "name", type: "String", description: "Category name", example: "\"Drinks\"" },
+        { name: "status", type: "String", description: "Status of Category \"ACTIVE\" and \"INACTIVE\"", example: "\"ACTIVE\"" },
+        { name: "positionChange", type: "Integer", description: "Move UP or DOWN the position using -1 or 1", example: "1" }
+      ]
+    }
   ]}
 />
 
@@ -114,23 +109,18 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
 <ParamTable
   title="Response Parameters"
   rows={[
-    { name: "item", type: "Object", description: "(Refer to explanation below)", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-<a id="item" />
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "categoryId", type: "String", description: "Category ID", example: "\"5f68485ccb3285b9d3955696\"" },
-    { name: "storeId", type: "String", description: "ID of the Store that Create from RM", example: "\"10946114768247530\"" },
-    { name: "itemIds", type: "Array", description: "Category Items", example: "null" },
-    { name: "name", type: "String", description: "Item Name", example: "\"Drinks\"" },
-    { name: "status", type: "String", description: "Status of Item", example: "\"ACTIVE\"" },
-    { name: "position", type: "Integer", description: "Current position among Category", example: "1" },
-    { name: "createdAt", type: "DateTime", description: "Creation date time", example: "\"2020-09-22T04:25:23.684330293Z\"" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-09-22T04:25:23.684330293Z\"" }
+    { name: "item", type: "Object", description: "Updated category",
+      children: [
+        { name: "categoryId", type: "String", description: "Category ID", example: "\"5f68485ccb3285b9d3955696\"" },
+        { name: "storeId", type: "String", description: "ID of the Store that Create from RM", example: "\"10946114768247530\"" },
+        { name: "itemIds", type: "Array", description: "Category Items", example: "null" },
+        { name: "name", type: "String", description: "Item Name", example: "\"Drinks\"" },
+        { name: "status", type: "String", description: "Status of Item", example: "\"ACTIVE\"" },
+        { name: "position", type: "Integer", description: "Current position among Category", example: "1" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time", example: "\"2020-09-22T04:25:23.684330293Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-09-22T04:25:23.684330293Z\"" }
+      ]
+    }
   ]}
 />
 

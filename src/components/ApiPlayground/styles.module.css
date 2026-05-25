@@ -323,6 +323,12 @@
   background: var(--ifm-color-emphasis-100);
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
   user-select: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.editorCardHeader:hover {
+  background: var(--ifm-color-emphasis-200);
 }
 
 .editorCardTitle {
@@ -367,29 +373,10 @@
   background: rgba(34, 197, 94, 0.1) !important;
 }
 
-/* Chevron button — explicit button so iOS ghost clicks can't accidentally toggle */
-.editorChevronBtn {
-  background: transparent;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 6px;
-  padding: 2px 8px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-  transition: border-color 0.15s ease, background 0.15s ease;
-}
-
-.editorChevronBtn:hover {
-  border-color: var(--ifm-color-primary);
-  background: var(--ifm-color-emphasis-200);
-}
-
 .editorChevron {
   font-size: 14px;
   opacity: 0.6;
+  margin-left: 4px;
   display: inline-block;
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }

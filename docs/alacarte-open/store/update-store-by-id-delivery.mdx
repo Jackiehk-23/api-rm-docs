@@ -140,34 +140,20 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
     { name: "service", type: "String", description: "alacarte service", example: "\"alacarte\"" },
     { name: "version", type: "String", description: "Currently only support 'v1\"", example: "\"v1\"" },
     { name: "function", type: "String", description: "Function that provide by alacarte", example: "\"update.store.delivery\"" },
-    { name: "request", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-<a id="request" />
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "storeId", type: "String", description: "ID of the Store that Create from RM", example: "\"2808912573238362402\"" },
-    { name: "method", type: "String", description: "Current delivery service for merchant to select \"OWN\" , \"MRSPEEDY\" , \"GRABEXPRESS\"", example: "\"OWN\"" },
-    { name: "cost", type: "Array", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-<a id="cost" />
-
-### Inside Cost
-
-
-
-
-<ParamTable
-  rows={[
-    { name: "type", type: "String", description: "we have \"DYNAMIC\" , \"FIXED\"", example: "\"FIXED\"" },
-    { name: "startDistanceInMeter", type: "Integer", description: "Set a Start Distance (In Meter)", example: "0" },
-    { name: "endDistanceInMeter", type: "Integer", description: "Set a End Distance (In Meter)", example: "5000" },
-    { name: "amount", type: "Integer", description: "Set Distance amount", example: "0" }
+    { name: "request", type: "Object", description: "Request body",
+      children: [
+        { name: "storeId", type: "String", description: "ID of the Store that Create from RM", example: "\"2808912573238362402\"" },
+        { name: "method", type: "String", description: "Current delivery service for merchant to select \"OWN\" , \"MRSPEEDY\" , \"GRABEXPRESS\"", example: "\"OWN\"" },
+        { name: "cost", type: "Array", description: "Delivery cost tiers",
+          children: [
+            { name: "type", type: "String", description: "we have \"DYNAMIC\" , \"FIXED\"", example: "\"FIXED\"" },
+            { name: "startDistanceInMeter", type: "Integer", description: "Set a Start Distance (In Meter)", example: "0" },
+            { name: "endDistanceInMeter", type: "Integer", description: "Set a End Distance (In Meter)", example: "5000" },
+            { name: "amount", type: "Integer", description: "Set Distance amount", example: "0" }
+          ]
+        }
+      ]
+    }
   ]}
 />
 
@@ -180,38 +166,20 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
   rows={[
     { name: "closedUntil", type: "DateTime", description: "Set when your store will close", example: "\"2020-09-22T05:00:06.741Z\"" },
     { name: "supportedTypes", type: "Array", description: "We have 4 type for user to choose", example: "[\"DELIVERY\", \"DINEIN\", \"DRIVE_THRU\", \"PICKUP\"]" },
-    { name: "delivery", type: "Object", description: "Refer to explanation below", example: "(Refer to explanation below)" },
+    { name: "delivery", type: "Object", description: "Delivery settings",
+      children: [
+        { name: "method", type: "String", description: "Current delivery service for merchant to select \"OWN\" , \"MRSPEEDY\" , \"GRABEXPRESS\"", example: "\"OWN\"" },
+        { name: "cost", type: "Array", description: "Delivery cost tiers",
+          children: [
+            { name: "type", type: "String", description: "we have \"DYNAMIC\" , \"FIXED\"", example: "\"FIXED\"" },
+            { name: "startDistanceInMeter", type: "Integer", description: "Set a Start Distance (In Meter)", example: "0" },
+            { name: "endDistanceInMeter", type: "Integer", description: "Set a End Distance (In Meter)", example: "5000" },
+            { name: "amount", type: "Integer", description: "Set Distance amount", example: "0" }
+          ]
+        }
+      ]
+    },
     { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-09-22T04:44:57.950398414Z\"" }
-  ]}
-/>
-
-<a id="delivery" />
-
-### Inside Delivery
-
-
-
-
-<ParamTable
-  rows={[
-    { name: "method", type: "String", description: "Current delivery service for merchant to select \"OWN\" , \"MRSPEEDY\" , \"GRABEXPRESS\"", example: "\"OWN\"" },
-    { name: "cost", type: "Array", description: "Refer to explanation below", example: "(Refer to explanation below)" }
-  ]}
-/>
-
-
-
-### Inside Cost
-
-
-
-
-<ParamTable
-  rows={[
-    { name: "type", type: "String", description: "we have \"DYNAMIC\" , \"FIXED\"", example: "\"FIXED\"" },
-    { name: "startDistanceInMeter", type: "Integer", description: "Set a Start Distance (In Meter)", example: "0" },
-    { name: "endDistanceInMeter", type: "Integer", description: "Set a End Distance (In Meter)", example: "5000" },
-    { name: "amount", type: "Integer", description: "Set Distance amount", example: "0" }
   ]}
 />
 

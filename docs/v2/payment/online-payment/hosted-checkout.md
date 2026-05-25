@@ -94,7 +94,9 @@ Creates a unified payment checkout page for both web and mobile. The customer is
     { name: "notifyUrl", type: "String", required: true, description: "Server URL to receive payment status callbacks." },
     { name: "layoutVersion", type: "String", required: true, description: "Always use \"v4\"." },
     { name: "type", type: "String", required: true, description: "Checkout session type." },
-    { name: "method", type: "Array", description: "Payment methods to enable." },
+    { name: "method", type: "Array", description: "Payment methods to enable.", children: [
+        { name: "[item]", type: "String", description: "Payment method identifier (e.g., \"WECHATPAY\", \"ALIPAY\", \"FPX\")" }
+      ] },
     { name: "order.id", type: "String", required: true, description: "Order ID" },
     { name: "order.title", type: "String", required: true, description: "Order title" },
     { name: "order.currencyType", type: "String", required: true, description: "Order currency type (currently supported MYR only)" },

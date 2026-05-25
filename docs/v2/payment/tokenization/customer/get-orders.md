@@ -55,27 +55,22 @@ Only available after the customer has successfully bound their card.
 <ParamTable
   title="Details"
   rows={[
-    { name: "items", type: "Array", description: "List of recurring order records" },
+    { name: "items", type: "Array", description: "List of recurring order records",
+      children: [
+        { name: "id", type: "String", description: "Recurring order ID" },
+        { name: "merchantId", type: "String", description: "Merchant ID" },
+        { name: "storeId", type: "String", description: "Store ID" },
+        { name: "recurringCustomerId", type: "String", description: "Customer ID" },
+        { name: "transactionId", type: "String", description: "Transaction ID" },
+        { name: "createdAt", type: "String", description: "Order created date time" },
+        { name: "updatedAt", type: "String", description: "Order last updated date time" },
+        { name: "amount", type: "Integer", description: "Order payment amount" },
+        { name: "currency", type: "String", description: "Order currency" }
+      ]
+    },
     { name: "code", type: "String", description: "\"SUCCESS\" if the request succeeded, otherwise an error code." },
     { name: "error.code", type: "String", description: "Error code if the request failed." },
     { name: "error.message", type: "String", description: "Error message if the request failed." },
     { name: "error.debug", type: "String", description: "Debug message (sandbox only)." }
-  ]}
-/>
-
-**Order record `items[*]`:**
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "id", type: "String", description: "Recurring order ID" },
-    { name: "merchantId", type: "String", description: "Merchant ID" },
-    { name: "storeId", type: "String", description: "Store ID" },
-    { name: "recurringCustomerId", type: "String", description: "Customer ID" },
-    { name: "transactionId", type: "String", description: "Transaction ID" },
-    { name: "createdAt", type: "String", description: "Order created date time" },
-    { name: "updatedAt", type: "String", description: "Order last updated date time" },
-    { name: "amount", type: "Integer", description: "Order payment amount" },
-    { name: "currency", type: "String", description: "Order currency" }
   ]}
 />

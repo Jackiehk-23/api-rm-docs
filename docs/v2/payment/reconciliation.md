@@ -94,36 +94,31 @@ Each item in `items` represents a settled transaction. Use `meta.cursor` for pag
 <ParamTable
   title="Details"
   rows={[
-    { name: "items", type: "Array", description: "List of reconciled transaction records" },
+    { name: "items", type: "Array", description: "List of reconciled transaction records",
+      children: [
+        { name: "transactionAt", type: "String", description: "Transaction date time" },
+        { name: "merchantId", type: "String", description: "Merchant ID" },
+        { name: "merchantName", type: "String", description: "Merchant name" },
+        { name: "storeId", type: "String", description: "Store ID" },
+        { name: "storeName", type: "String", description: "Store name" },
+        { name: "region", type: "String", description: "Transaction region" },
+        { name: "method", type: "String", description: "Payment method" },
+        { name: "transactionType", type: "String", description: "Transaction type (PAYMENT or REFUND)" },
+        { name: "type", type: "String", description: "Transaction type" },
+        { name: "transactionId", type: "String", description: "Transaction ID" },
+        { name: "orderId", type: "String", description: "Order ID" },
+        { name: "currencyType", type: "String", description: "Currency type" },
+        { name: "grossAmount", type: "String", description: "Gross transaction amount" },
+        { name: "mdr", type: "String", description: "MDR (merchant discount rate) amount" },
+        { name: "serviceFee", type: "String", description: "Service fee amount" },
+        { name: "settlementAmount", type: "String", description: "Net settlement amount" }
+      ]
+    },
     { name: "meta.cursor", type: "String", description: "Pagination cursor for next page" },
     { name: "code", type: "String", description: "\"SUCCESS\" if the request succeeded, otherwise an error code." },
     { name: "error.code", type: "String", description: "Error code if the request failed." },
     { name: "error.message", type: "String", description: "Error message if the request failed." },
     { name: "error.debug", type: "String", description: "Debug message (sandbox only)." }
-  ]}
-/>
-
-**Transaction record `items[\*]`:**
-
-<ParamTable
-  title="Details"
-  rows={[
-    { name: "transactionAt", type: "String", description: "Transaction date time" },
-    { name: "merchantId", type: "String", description: "Merchant ID" },
-    { name: "merchantName", type: "String", description: "Merchant name" },
-    { name: "storeId", type: "String", description: "Store ID" },
-    { name: "storeName", type: "String", description: "Store name" },
-    { name: "region", type: "String", description: "Transaction region" },
-    { name: "method", type: "String", description: "Payment method" },
-    { name: "transactionType", type: "String", description: "Transaction type (PAYMENT or REFUND)" },
-    { name: "type", type: "String", description: "Transaction type" },
-    { name: "transactionId", type: "String", description: "Transaction ID" },
-    { name: "orderId", type: "String", description: "Order ID" },
-    { name: "currencyType", type: "String", description: "Currency type" },
-    { name: "grossAmount", type: "String", description: "Gross transaction amount" },
-    { name: "mdr", type: "String", description: "MDR (merchant discount rate) amount" },
-    { name: "serviceFee", type: "String", description: "Service fee amount" },
-    { name: "settlementAmount", type: "String", description: "Net settlement amount" }
   ]}
 />
 
