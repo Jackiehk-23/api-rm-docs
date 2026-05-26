@@ -490,6 +490,16 @@ html[data-theme="light"] .menu__list .menu__list {
    API PAGE LAYOUT OVERRIDES
 ================================ */
 
+/* Docusaurus wraps DocItem in .container which has `margin: 0 auto` and
+   `max-width: var(--ifm-container-width-xl)` (1320px) at min-width 1440px.
+   That centered cap creates ~150px blank space on each side of the layout
+   on wide monitors. Target it via docMainContainer ancestor since .container
+   sits OUTSIDE our swizzled .api-page-layout div, not inside it. */
+[class*="docMainContainer"] .container {
+  max-width: none !important;
+  margin: 0 !important;
+}
+
 .api-page-layout .container {
   max-width: 100% !important;
   margin: 0 !important;
@@ -675,6 +685,38 @@ details.section-details > summary.section-summary h3 {
 /* Closed state: rotate arrow to point right */
 details.section-details:not([open]) .section-toggle {
   transform: rotate(-90deg);
+}
+
+/* ================================
+   NESTED COLLAPSIBLE SECTIONS (h3 under h2)
+   Indent + left border accent to show parent-child relationship
+================================ */
+
+details.section-details details.section-details {
+  margin-left: 1.25rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--ifm-color-emphasis-200);
+  margin-bottom: 1rem;
+}
+
+[data-theme="dark"] details.section-details details.section-details {
+  border-left-color: rgba(102, 102, 235, 0.25);
+}
+
+/* Lighter divider on nested summary to differentiate from parent */
+details.section-details details.section-details > summary.section-summary {
+  border-bottom: 1px dashed var(--ifm-color-emphasis-200);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+[data-theme="dark"] details.section-details details.section-details > summary.section-summary {
+  border-bottom-color: rgba(102, 102, 235, 0.2);
+}
+
+/* Smaller toggle icon on nested sections */
+details.section-details details.section-details .section-toggle {
+  font-size: 15px;
 }
 
 /* ================================
