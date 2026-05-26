@@ -16,7 +16,9 @@ Signature algorithm is used to sign your payment API request with a private key 
 
 ---
 
-## Step 1 — Prepare a Request Parameter
+## How It Works
+
+### Step 1 — Prepare a Request Parameter
 
 **Method:** <HttpMethodBadge method="POST" />
 
@@ -24,9 +26,9 @@ Signature algorithm is used to sign your payment API request with a private key 
 Refer to which API endpoint you are calling. Below request parameter is just an **EXAMPLE**.
 :::
 
-### Example of Web/Mobile Payment
+#### Example of Web/Mobile Payment
 
-#### Request Body Parameters
+##### Request Body Parameters
 
 <ParamTable
   title="Request Body Parameters"
@@ -63,7 +65,7 @@ Refer to which API endpoint you are calling. Below request parameter is just an 
 />
 
 
-### Example Request
+#### Example Request
 <!-- 
 ```json
 {
@@ -126,7 +128,7 @@ Before signing, you must:
 
 ---
 
-## Step 2 — Base64-encode the Data
+### Step 2 — Base64-encode the Data
 
 Take the compact, sorted JSON string and Base64-encode it.
 
@@ -147,7 +149,7 @@ IsCiAgICAibGF5b3V0VmVyc2lvbiI6InYzIgp9`}
 </CodeBlock>
 
 
-## Step 3 — Construct the Signing String
+### Step 3 — Construct the Signing String
 
 :::important
 - If the body is empty, the `data` parameter can be skipped.
@@ -183,7 +185,7 @@ data=ewogICAgIm9yZGVyIjog...&method=post&nonceStr=VYNknZohxwicZMaWbNdBKUrnrxDtaR
 
 ---
 
-## Step 4 — Sign with Your Private Key
+### Step 4 — Sign with Your Private Key
 
 Sign the plain text string from Step 3 using `sha256` with your RSA private key.
 
@@ -201,7 +203,7 @@ Sign this content using `sha256` with your **private key** and make sure the **p
 
 ---
 
-## Step 5 — Add Headers to Your Request
+### Step 5 — Add Headers to Your Request
 
 Place the signature in the `X-Signature` header, prefixed with the sign type:
 
@@ -213,7 +215,7 @@ Place the signature in the `X-Signature` header, prefixed with the sign type:
 | `Authorization` | `Bearer <access_token>` |
 | `Content-Type` | `application/json` |
 
-### Example cURL Request
+#### Example cURL Request
 
 <!-- ```bash
 curl --request POST \
