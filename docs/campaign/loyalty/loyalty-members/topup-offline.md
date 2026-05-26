@@ -97,7 +97,6 @@ examples:
 
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -105,10 +104,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/member/:memberId/topup-offline"
   prod="/v3/loyalty/member/:memberId/topup-offline"
 />
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Specify loyalty member id to topup using quickpay
@@ -131,15 +126,9 @@ Specify loyalty member id to topup using quickpay
   ]}
 />
 
-
-
-
-<br />
-
 <a id="order" />
 
 ### Response Parameters
-
 
 <ParamTable
   title="Response Parameters"
@@ -187,12 +176,7 @@ Specify loyalty member id to topup using quickpay
   ]}
 />
 
-
-<br />
-
 <a id="item" />
-
-<br />
 
 <a id="store" />
 

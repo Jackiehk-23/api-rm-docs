@@ -68,7 +68,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
 
 ### Step 1 : Register as merchant
 
@@ -101,28 +100,12 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
 
 ### Response Parameters
 
-:::note
-
-- Current type in <b>Status</b> will be :-
-  - "SUCCESS" <br/>
-  - "FACE_ENGINE_CONNECTION_ERROR" <br/>
-  - "INCOMPLETE" <br/>
-  - "FACE_ENGINE_TIMEOUT" <br/>
-
-- Current type in <b>Action</b> will be :-
-  - "NONE_REQUIRED"<br/>
-  - "ATTENTION_REQUIRED"<br/>
-  - "INCONCLUSIVE"<br/>
-  - "RESOLVED"<br/>
-
-:::
-
 <ParamTable
   title="Details"
   rows={[
     { name: "id", type: "String", description: "Table ID", example: "\"60f79b737b03abf23ad65206\"" },
-    { name: "action", type: "String", description: "Action Required", example: "NONE_REQUIRED" },
-    { name: "status", type: "String", description: "Verfication Status", example: "SUCCESS" },
+    { name: "action", type: "String", description: "Action required. One of: `NONE_REQUIRED`, `ATTENTION_REQUIRED`, `INCONCLUSIVE`, `RESOLVED`", example: "NONE_REQUIRED" },
+    { name: "status", type: "String", description: "Verification status. One of: `SUCCESS`, `FACE_ENGINE_CONNECTION_ERROR`, `INCOMPLETE`, `FACE_ENGINE_TIMEOUT`", example: "SUCCESS" },
     { name: "isSamePerson", type: "Boolean", description: "Visualization for result image", example: "true" },
     { name: "similarity", type: "Integer", description: "Percentage of similarity of two faces", example: "99" },
     { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2021-07-21T15:07:43.266243\"" }

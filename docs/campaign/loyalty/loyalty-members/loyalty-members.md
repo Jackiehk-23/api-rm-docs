@@ -102,7 +102,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -110,11 +109,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/members"
   prod="/v3/loyalty/members"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Get All Loyalty Members

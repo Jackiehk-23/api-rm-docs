@@ -84,8 +84,6 @@ examples:
     }
 ---
 
-
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -94,12 +92,8 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/voucher-batch/{batchKey}/vouchers"
 />
 
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-**Method :** <HttpMethodBadge method="GET" /><br/>
-Url : `https://sb-open.revenuemonster.my/v3/voucher-batch/EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQi5rUhcrdx78V/vouchers`<br/><br/>
+**Method :** <HttpMethodBadge method="GET" />
+Url : `https://sb-open.revenuemonster.my/v3/voucher-batch/EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQi5rUhcrdx78V/vouchers`
 Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher-batch/EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQi5rUhcrdx78V/vouchers`
 
 :::note
@@ -151,9 +145,6 @@ To get Multiple voucher batches by Key .
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-
-
-<br/>
 
 <a id="items" />
 

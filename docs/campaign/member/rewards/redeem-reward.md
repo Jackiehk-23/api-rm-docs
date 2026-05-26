@@ -35,7 +35,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -43,11 +42,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/me/reward/{reward-id}/redeem?countryCode=60&phoneNumber=187824152"
   prod="/v3/loyalty/me/reward/{reward-id}/redeem?countryCode=60&phoneNumber=187824152"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 
@@ -67,5 +61,3 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
   ]}
 />
 
-
-<br />

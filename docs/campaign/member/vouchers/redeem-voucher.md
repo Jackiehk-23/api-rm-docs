@@ -4,11 +4,8 @@ title: Redeem Voucher
 sidebar_label: Redeem Voucher
 ---
 
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-**Method :** <HttpMethodBadge method="POST" /><br/>
-URL : `https://open.revenuemonster.my/v3/loyalty/me/voucher/{voucher-code}/redeem?countryCode=60&phoneNumber=187824152`<br/>
+**Method :** <HttpMethodBadge method="POST" />
+URL : `https://open.revenuemonster.my/v3/loyalty/me/voucher/{voucher-code}/redeem?countryCode=60&phoneNumber=187824152`
 Sandbox URL : `https://sb-open.revenuemonster.my/v3/loyalty/me/voucher/{voucher-code}/redeem?countryCode=60&phoneNumber=187824152`
 
 :::note
@@ -86,26 +83,16 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/loyalty/me/voucher/{voucher-
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-<br />
 
 <a id="item" />
 
-<br />
-
 <a id="payload" />
 
-<br />
 <a id="contactinfo" />
-
-<br />
 
 <a id="expiry" />
 
-<br />
-
 <a id="address" />
-
-<br />
 
 <CodeBlock language="json" filename="Example Response">
 {`{
@@ -143,5 +130,4 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/loyalty/me/voucher/{voucher-
   "code": "SUCCESS"
 }`}
 </CodeBlock>
-
 

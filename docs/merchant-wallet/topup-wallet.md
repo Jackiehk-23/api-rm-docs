@@ -4,11 +4,8 @@ title: Topup Wallet
 sidebar_label: Topup Wallet
 ---
 
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-**Method :** <HttpMethodBadge method="POST" /><br/>
-URL : `https://open.revenuemonster.my/v3/wallet/topup`<br/>
+**Method :** <HttpMethodBadge method="POST" />
+URL : `https://open.revenuemonster.my/v3/wallet/topup`
 Sandbox URL : `https://sb-open.revenuemonster.my/v3/wallet/topup`
 
 :::note
@@ -32,7 +29,6 @@ Topup merchant wallet
 --header "X-Timestamp: 1528450585" \\`}
 </CodeBlock>
 
-
 ### Response Parameters
 
 <ParamTable
@@ -48,5 +44,4 @@ Topup merchant wallet
   "code": "SUCCESS"
 }`}
 </CodeBlock>
-
 

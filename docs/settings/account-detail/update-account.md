@@ -234,7 +234,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -242,11 +241,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/accounts/{id}"
   prod="/v3/accounts/{id}"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Upadte Account Info
@@ -353,9 +347,5 @@ Upadte Account Info
   ]}
 />
 
-
-<br />
-
 <a id="item" />
 
-<br/>

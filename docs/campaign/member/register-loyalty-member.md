@@ -97,7 +97,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -105,11 +104,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/member"
   prod="/v3/loyalty/member"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Using Query String to **Get User Profile** by input the **country code** and **phone number**  
@@ -131,11 +125,6 @@ Using Query String to **Get User Profile** by input the **country code** and **p
     { name: "address", type: "Object", required: true, description: "Refer to explanation below", example: "(Refer to explanation below)" }
   ]}
 />
-
-
-<br />
-
-
 
 ### Response Parameters
 
@@ -174,12 +163,7 @@ Using Query String to **Get User Profile** by input the **country code** and **p
   ]}
 />
 
-
-<br />
-
 <a id="item" />
-
-<br />
 
 <a id="address" />
 

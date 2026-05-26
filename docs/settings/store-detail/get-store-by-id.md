@@ -46,7 +46,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -54,11 +53,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/store/{storeId}"
   prod="/v3/store/{storeId}"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Use `Store ID` to check a particular store details.
@@ -102,7 +96,5 @@ Use `Store ID` to check a particular store details.
   ]}
 />
 
-
-<br/>
 <a id="item" />
 

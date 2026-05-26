@@ -38,7 +38,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -46,11 +45,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/spending-reward/cancel"
   prod="/v3/loyalty/spending-reward/cancel"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Cancel the Spending Loyalty Point by ID
@@ -64,7 +58,6 @@ Cancel the Spending Loyalty Point by ID
     { name: "id", type: "String", required: true, description: "Get the id from spending loyalty point api", example: "\"dee13d3470f2dd43466c252cfc67f967\" ( from Respond QR code )" }
   ]}
 />
-
 
 ### Response Parameters
 

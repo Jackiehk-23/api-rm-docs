@@ -106,8 +106,6 @@ examples:
     }
 ---
 
-
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -116,12 +114,8 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/voucher-batches"
 />
 
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-**Method :** <HttpMethodBadge method="GET" /><br/>
-Url : `https://open.revenuemonster.my/v3/voucher-batches`<br/>
+**Method :** <HttpMethodBadge method="GET" />
+Url : `https://open.revenuemonster.my/v3/voucher-batches`
 Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher-batches`
 
 :::note
@@ -165,9 +159,6 @@ No request parameter is required for this endpoint.
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-
-
-<br/>
 
 <a id="items" />
 

@@ -50,8 +50,6 @@ examples:
     }
 ---
 
-
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -59,11 +57,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/member/{{member_id}}"
   prod="/v3/loyalty/member/{{member_id}}"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Get loyalty member by `Member ID`
@@ -80,5 +73,4 @@ Get loyalty member by `Member ID`
 :::
 
 ### Response Parameters
-
 

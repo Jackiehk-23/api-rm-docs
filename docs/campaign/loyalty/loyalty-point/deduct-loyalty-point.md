@@ -33,7 +33,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -41,11 +40,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/reward"
   prod="/v3/loyalty/reward"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 To deduct loyalty point(s) to customers using phone number or member ID.
@@ -60,7 +54,6 @@ To deduct loyalty point(s) to customers using phone number or member ID.
     { name: "memberId", type: "String", description: "Member ID if type \"ID\" being provided.", example: "\"2777058682717858418\"" }
   ]}
 />
-
 
 <CodeBlock language="json" filename="Example Request Phone Number">
 {`curl --location --request DELETE "https://sb-open.revenuemonster.my/v3/loyalty/reward" \\
@@ -83,6 +76,5 @@ To deduct loyalty point(s) to customers using phone number or member ID.
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-
 
 <hr/>

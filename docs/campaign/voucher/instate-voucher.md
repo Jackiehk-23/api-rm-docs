@@ -72,8 +72,6 @@ examples:
 
 ---
 
-
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -82,11 +80,8 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/voucher/{code}/reinstate"
 />
 
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-**Method :** <HttpMethodBadge method="PATCH" /><br/>
-Url :`https://open.revenuemonster.my/v3/voucher/8JwpM3BC/reinstate`<br/>
+**Method :** <HttpMethodBadge method="PATCH" />
+Url :`https://open.revenuemonster.my/v3/voucher/8JwpM3BC/reinstate`
 Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher/8JwpM3BC/reinstate`
 
 :::note
@@ -112,7 +107,6 @@ To reinstate voucher(s) of customer.
     { name: "reason", type: "String", description: "Reinstate reason", example: "\"wrong void\"" }
   ]}
 />
-
 
 ### Response Parameters
 
@@ -152,9 +146,6 @@ To reinstate voucher(s) of customer.
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-
-
-<br/>
 
 <a id="item" />
 

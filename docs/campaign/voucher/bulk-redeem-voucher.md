@@ -135,8 +135,6 @@ examples:
 
 ---
 
-
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -145,12 +143,8 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/vouchers/redeem"
 />
 
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-**Method :** <HttpMethodBadge method="POST" /><br/>
-Url :`https://open.revenuemonster.my/v3/vouchers/redeem`<br/>
+**Method :** <HttpMethodBadge method="POST" />
+Url :`https://open.revenuemonster.my/v3/vouchers/redeem`
 Sandbox Url : `https://sb-open.revenuemonster.my/v3/vouchers/redeem`
 
 :::note
@@ -173,7 +167,6 @@ Redeem voucher(s) by Bulk
     { name: "codes", type: "Array", description: "Voucher Code", example: "[\"8JwpM3BC\",\"7AbaVWXS\"]" }
   ]}
 />
-
 
 ### Response Parameters
 
@@ -213,9 +206,6 @@ Redeem voucher(s) by Bulk
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-
-
-<br/>
 
 <a id="item" />
 

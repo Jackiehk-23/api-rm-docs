@@ -4,31 +4,13 @@ title: Wallet Logo
 sidebar_label: Wallet logo
 ---
 
+Payment method and eWallet logos for all supported providers.
 
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-:::note
-Get all eWallet logo
-:::
-
-<Flex justifyContent="center">
-  <Button
-    width="100%"
-    sx={{
-      ":hover": {
-        backgroundColor: "blue",
-      },
-      backgroundColor: "#528ef7",
-      borderRadius: 15,
-      cursor:"pointer",
-    }}
-    onClick={() => {
-      window.location.href =
-        "https://drive.google.com/drive/folders/1jHRMT6GlWuvgvE5xL_vid8xkWtMb9twG?usp=sharing";
-    }}
-  >
-    Download Wallet Logo
-  </Button>
-</Flex>
-
-
+<a
+  href="https://drive.google.com/drive/folders/1jHRMT6GlWuvgvE5xL_vid8xkWtMb9twG?usp=sharing"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{display:'inline-block',padding:'10px 20px',backgroundColor:'var(--ifm-color-primary)',color:'#fff',borderRadius:'6px',textDecoration:'none',fontWeight:600,marginTop:'8px'}}
+>
+  Download Wallet Logos
+</a>

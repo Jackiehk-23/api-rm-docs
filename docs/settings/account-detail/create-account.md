@@ -97,7 +97,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -105,11 +104,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/account"
   prod="/v3/account"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Create Account
@@ -216,9 +210,5 @@ Create Account
   ]}
 />
 
-
-<br />
-
 <a id="item" />
 
-<br/>

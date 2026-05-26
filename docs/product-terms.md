@@ -4,7 +4,6 @@ title: Product Terms
 sidebar_label: Product Terms
 ---
 
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
 
 <ParamTable
   rows={[

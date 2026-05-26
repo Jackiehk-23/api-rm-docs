@@ -62,7 +62,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -70,11 +69,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/me/rewards?countryCode=60&phoneNumber=187824152"
   prod="/v3/loyalty/me/rewards?countryCode=60&phoneNumber=187824152"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::noteya,,
 
@@ -98,9 +92,6 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
     { name: "meta", type: "Object", description: "Inside meta have count key example \"count\": 2", example: "2" }
   ]}
 />
-
-
-<br />
 
 <a id="items" />
 
@@ -138,11 +129,7 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
   ]}
 />
 
-
-<br />
 <a id="payload" />
 
-<br />
 <a id="contactinfo" />
 
-<br />

@@ -305,34 +305,14 @@ Prerequisite : Acquire requestID from mykad recognition response
 
 ### Response Parameters
 
-:::note
-
-- Current type in <b>Status</b> will be :-
-
-  - "SUCCESS" <br/>
-  - "MYKAD_NOT_FOUND" <br/>
-  - "MYKAD_SINGLE_NOT_FOUND" <br/>
-  - "MYKAD_FACE_NOT_FOUND" <br/>
-  - "INCOMPLETE" <br/>
-  - "OCR_ENGINE_ERROR" <br/>
-  - "OCR_ENGINE_CONNECTION" <br/>
-
-- Current type in <b>Action</b> will be :-
-  - "NONE_REQUIRED"<br/>
-  - "ATTENTION_REQUIRED"<br/>
-  - "INCONCLUSIVE"<br/>
-  - "RESOLVED"<br/>
-
-:::
-
 <ParamTable
   title="Details"
   rows={[
     { name: "id", type: "String", description: "Table ID", example: "\"60f79b737b03abf23ad65206\"" },
-    { name: "action", type: "String", description: "Action Required", example: "NONE_REQUIRED" },
+    { name: "action", type: "String", description: "Action required. One of: `NONE_REQUIRED`, `ATTENTION_REQUIRED`, `INCONCLUSIVE`, `RESOLVED`", example: "NONE_REQUIRED" },
     { name: "clientId", type: "String", description: "Client ID", example: "\"\"" },
     { name: "merchantId", type: "String", description: "Merchant ID", example: "\"\"" },
-    { name: "status", type: "String", description: "Recognition Status", example: "SUCCESS" },
+    { name: "status", type: "String", description: "Recognition status. One of: `SUCCESS`, `MYKAD_NOT_FOUND`, `MYKAD_SINGLE_NOT_FOUND`, `MYKAD_FACE_NOT_FOUND`, `INCOMPLETE`, `OCR_ENGINE_ERROR`, `OCR_ENGINE_CONNECTION`", example: "SUCCESS" },
     { name: "duration", type: "Float", description: "Recognition Duration", example: "3.3465" },
     { name: "objects", type: "Object", description: "Detected Landmark", example: "(Refer to explanation below)", anchor: "inside-objects-parameter" },
     { name: "results", type: "Array", description: "Mykad Recognition Results", example: "(Refer to explanation below)", anchor: "inside-results-parameter" },

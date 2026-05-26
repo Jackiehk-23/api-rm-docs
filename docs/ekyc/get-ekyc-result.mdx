@@ -120,31 +120,10 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 />
 
 
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 :::note
-Prerequisite : Acquire requestID from mykad recognition response
+Prerequisite: Acquire `requestID` from mykad recognition response.
 
-- RM eKYC Sequence Diagram
-
-<Flex justifyContent="center">
-  <Button
-    width="100%"
-    sx={{
-      ":hover": {
-        backgroundColor: "blue",
-      },
-      backgroundColor: "#528ef7",
-      borderRadius: 15,
-    }}
-    onClick={() => {
-      window.location.href =
-        "https://drive.google.com/drive/folders/1cNrEk5i2s_WnI9i8_WxQlwBw5ivqxY-g?usp=sharing";
-    }}
-  >
-    Click Here
-  </Button>
-</Flex>
+RM eKYC Sequence Diagram: [Click Here](https://drive.google.com/drive/folders/1cNrEk5i2s_WnI9i8_WxQlwBw5ivqxY-g?usp=sharing)
 :::
 
 ### Request Parameters
@@ -166,36 +145,16 @@ Prerequisite : Acquire requestID from mykad recognition response
 
 ### Response Parameters
 
-:::note
-
-- Current type in <b>Status</b> will be :-
-
-  - "SUCCESS" <br/>
-  - "MYKAD_NOT_FOUND" <br/>
-  - "MYKAD_SINGLE_NOT_FOUND" <br/>
-  - "MYKAD_FACE_NOT_FOUND" <br/>
-  - "INCOMPLETE" <br/>
-  - "OCR_ENGINE_ERROR" <br/>
-  - "OCR_ENGINE_CONNECTION" <br/>
-
-- Current type in <b>Action</b> will be :-
-  - "NONE_REQUIRED"<br/>
-  - "ATTENTION_REQUIRED"<br/>
-  - "INCONCLUSIVE"<br/>
-  - "RESOLVED"<br/>
-
-:::
-
 <ParamTable
   title="Details"
   rows={[
     { name: "id", type: "String", description: "EKYC ID", example: "\"62201d48a694817dede84b35\"" },
-    { name: "verdict", type: "String", description: "Action Required", example: "NONE_REQUIRED" },
-    { name: "status", type: "String", description: "EKYC result status", example: "SUCCESS" },
-    { name: "faceAction", type: "String", description: "Action Required for Face Compare", example: "NONE_REQUIRED" },
+    { name: "verdict", type: "String", description: "Action required. One of: `NONE_REQUIRED`, `ATTENTION_REQUIRED`, `INCONCLUSIVE`, `RESOLVED`", example: "NONE_REQUIRED" },
+    { name: "status", type: "String", description: "EKYC result status. One of: `SUCCESS`, `MYKAD_NOT_FOUND`, `MYKAD_SINGLE_NOT_FOUND`, `MYKAD_FACE_NOT_FOUND`, `INCOMPLETE`, `OCR_ENGINE_ERROR`, `OCR_ENGINE_CONNECTION`", example: "SUCCESS" },
+    { name: "faceAction", type: "String", description: "Action required for face compare. One of: `NONE_REQUIRED`, `ATTENTION_REQUIRED`, `INCONCLUSIVE`, `RESOLVED`", example: "NONE_REQUIRED" },
     { name: "faceCompareRequestId", type: "String", description: "Face Compare Request ID", example: "62201d51239b18052126e288" },
     { name: "faceResult", type: "Object", description: "Refer to the Face Result", example: "(Refer to explanation below)", anchor: "inside-face-result-parameter" },
-    { name: "mykadAction", type: "String", description: "Action Required for Mykad Recognition", example: "NONE_REQUIRED" },
+    { name: "mykadAction", type: "String", description: "Action required for MyKad recognition. One of: `NONE_REQUIRED`, `ATTENTION_REQUIRED`, `INCONCLUSIVE`, `RESOLVED`", example: "NONE_REQUIRED" },
     { name: "mykadRequestId", type: "String", description: "Detected Landmark", example: "62201d48a694817dede84b35" },
     { name: "reasons", type: "Array", description: "Meesage from EKYC engine", example: "[]" },
     { name: "results", type: "Array", description: "Refer to the EKYC Result", example: "(Refer to explanation below)", anchor: "inside-results-parameter" },

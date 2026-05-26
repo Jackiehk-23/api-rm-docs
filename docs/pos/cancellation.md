@@ -4,11 +4,8 @@ title: POS Payment Cancellation
 sidebar_label: POS Payment Cancellation
 ---
 
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-**Method :** <HttpMethodBadge method="POST" /><br/>
-URL : `https://open.revenuemonster.my/v3/event/terminal`<br/>
+**Method :** <HttpMethodBadge method="POST" />
+URL : `https://open.revenuemonster.my/v3/event/terminal`
 Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
 
 ### Request Parameters
@@ -40,12 +37,10 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
     { name: "error", type: "String", description: "(Refer Appendix: Error Codes)", example: "{}" }
   ]}
 />
-<br/>
 
 <CodeBlock language="json" filename="Example Response">
 {`{
   "code": "SUCCESS"
 }`}
 </CodeBlock>
-
 

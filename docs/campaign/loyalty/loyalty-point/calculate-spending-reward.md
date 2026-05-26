@@ -43,7 +43,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -51,11 +50,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/spending-reward/calculate"
   prod="/v3/loyalty/spending-reward/calculate"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Use amount sales to Calculate Spending Reward points
@@ -71,7 +65,6 @@ Use amount sales to Calculate Spending Reward points
   ]}
 />
 
-
 ### Response Parameters
 
 <ParamTable
@@ -84,9 +77,6 @@ Use amount sales to Calculate Spending Reward points
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-
-
-<br/>
 
 <a id="item" />
 

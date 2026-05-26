@@ -6,7 +6,6 @@ api:
   url:
     sandbox: https://sb-open.revenuemonster.my/v3/loyalty/me/voucher/{voucherCode}
 
-
   path:
     voucherCode: "rms@xR43u4bRhUU"
 
@@ -70,7 +69,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -78,10 +76,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/me/voucher/{voucherCode}"
   prod="/v3/loyalty/me/voucher/{voucherCode}"
 />
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 
@@ -150,24 +144,13 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
   ]}
 />
 
-
-<br />
-
 <a id="item" />
-
-<br />
 
 <a id="payload" />
 
-<br />
 <a id="contactinfo" />
-
-<br />
 
 <a id="expiry" />
 
-<br />
-
 <a id="address" />
 
-<br />

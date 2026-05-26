@@ -76,7 +76,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -84,11 +83,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/store/{store_id}"
   prod="/v3/store/{store_id}"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 To update a specific store under the merchant. Specify `store_id` in your query.
@@ -121,7 +115,6 @@ To update a specific store under the merchant. Specify `store_id` in your query.
   ]}
 />
 
-
 ### Response Parameters
 
 <ParamTable
@@ -150,7 +143,5 @@ To update a specific store under the merchant. Specify `store_id` in your query.
   ]}
 />
 
-
-<br/>
 <a id="item" />
 

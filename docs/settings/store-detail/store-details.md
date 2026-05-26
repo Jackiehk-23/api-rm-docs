@@ -89,7 +89,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -99,10 +98,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 />
 
 Get Store By ID
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 
@@ -151,10 +146,7 @@ No request parameter is required for this endpoint.
   ]}
 />
 
-
-<br/>
 <a id="items" />
 
-<br/>
 <a id="meta" />
 

@@ -4,11 +4,8 @@ title: Topup History
 sidebar_label: Topup History
 ---
 
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-**Method :** <HttpMethodBadge method="GET" /><br/>
-URL : `https://open.revenuemonster.my/v3/wallet/transaction`<br/>
+**Method :** <HttpMethodBadge method="GET" />
+URL : `https://open.revenuemonster.my/v3/wallet/transaction`
 Sandbox URL : `https://sb-open.revenuemonster.my/v3/wallet/transaction`
 
 :::note
@@ -26,7 +23,6 @@ Check merchant wallet topup history
 --header "X-Timestamp: 1528450585" \\
 `}
 </CodeBlock>
-
 
 ### Response Parameters
 
@@ -275,5 +271,4 @@ Check merchant wallet topup history
   ]
 }`}
 </CodeBlock>
-
 

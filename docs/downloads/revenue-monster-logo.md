@@ -4,32 +4,13 @@ title: Revenue Monster Logo
 sidebar_label: Revenue Monster logo
 ---
 
+Official Revenue Monster wordmark and icon assets.
 
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-:::note
-Get Revenue Monster logo
-
-:::
-
-<Flex justifyContent="center">
-  <Button
-    width="100%"
-    sx={{
-      ":hover": {
-        backgroundColor: "blue",
-      },
-      backgroundColor: "#528ef7",
-      borderRadius: 15,
-      cursor:"pointer",
-    }}
-    onClick={() => {
-      window.location.href =
-        "https://drive.google.com/file/d/1AFS5P_qgNsWHDKBMaok51tbcVDfKIU41/view?usp=sharing";
-    }}
-  >
-    Download Revenue Monster Logo
-  </Button>
-</Flex>
-
-
+<a
+  href="https://drive.google.com/file/d/1AFS5P_qgNsWHDKBMaok51tbcVDfKIU41/view?usp=sharing"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{display:'inline-block',padding:'10px 20px',backgroundColor:'var(--ifm-color-primary)',color:'#fff',borderRadius:'6px',textDecoration:'none',fontWeight:600,marginTop:'8px'}}
+>
+  Download Revenue Monster Logo
+</a>

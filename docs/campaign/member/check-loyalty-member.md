@@ -44,7 +44,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -54,10 +53,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 />
 
 `
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Check user is it a member by input the **country code** and **phone number**  
@@ -79,5 +74,3 @@ Check user is it a member by input the **country code** and **phone number**
   ]}
 />
 
-
-<br />

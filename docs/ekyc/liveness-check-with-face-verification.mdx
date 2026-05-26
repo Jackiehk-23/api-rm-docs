@@ -84,8 +84,8 @@ Acquire the Liveness Web SDK from Revenue Monster.
 Embedding the SDK into your web project is simple. Only a few parameters are required, they
 are as follows
 
-a. apiKey – API Key generated from step 2<br/>
-b. requestId – Can be obtained from the MyKad Recognition response payload<br/>
+- `apiKey` – API Key generated from step 2
+- `requestId` – Can be obtained from the MyKad Recognition response payload
 c. autoInit – Optional boolean value. Specifying it to false allows you to have a
 customization splash screen. Default to true.
 
@@ -106,30 +106,13 @@ A simple HTML example below should be sufficient to get the liveness app started
 
 ### Response Parameters
 
-:::note
-
-- Current type in <b>Status</b> will be :-
-
-  - "SUCCESS" <br/>
-  - "FACE_ENGINE_CONNECTION_ERROR" <br/>
-  - "INCOMPLETE" <br/>
-  - "FACE_ENGINE_TIMEOUT" <br/>
-
-- Current type in <b>Action</b> will be :-
-  - "NONE_REQUIRED"<br/>
-  - "ATTENTION_REQUIRED"<br/>
-  - "INCONCLUSIVE"<br/>
-  - "RESOLVED"<br/>
-
-:::
-
 <ParamTable
   title="Details"
   rows={[
     { name: "id", type: "String", description: "Table ID", example: "\"60f79b737b03abf23ad65206\"" },
     { name: "ekycId", type: "String", description: "EKYC ID", example: "\"62201e0b239b18052126e28b\"" },
-    { name: "action", type: "String", description: "Action Required", example: "NONE_REQUIRED" },
-    { name: "status", type: "String", description: "Verfication Status", example: "SUCCESS" },
+    { name: "action", type: "String", description: "Action required. One of: `NONE_REQUIRED`, `ATTENTION_REQUIRED`, `INCONCLUSIVE`, `RESOLVED`", example: "NONE_REQUIRED" },
+    { name: "status", type: "String", description: "Verification status. One of: `SUCCESS`, `FACE_ENGINE_CONNECTION_ERROR`, `INCOMPLETE`, `FACE_ENGINE_TIMEOUT`", example: "SUCCESS" },
     { name: "isSamePerson", type: "Boolean", description: "Visualization for result image", example: "true" },
     { name: "similarity", type: "Integer", description: "Percentage of similarity of two faces", example: "99" },
     { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2021-07-21T15:07:43.266243\"" }

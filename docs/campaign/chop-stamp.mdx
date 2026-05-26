@@ -47,7 +47,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -55,10 +54,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/chop-stamp/card/scan"
   prod="/v3/loyalty/chop-stamp/card/scan"
 />
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Give a stamp to customer
@@ -72,7 +67,6 @@ Give a stamp to customer
     { name: "code", type: "String", description: "QR code Url link", example: "EhQKCE1lcmNoYW50EJXVzd3wraqTORIgChRMb3lhbHR5Q2hvcFN0YW1wQ2FyZBCm1qHe2eDX_BU:d439a47d-3cd3-48bc-aae7-1effda5c7e1b" }
   ]}
 />
-
 
 <img src={require('/img/campaign/chop-stamp.png').default} alt="images" />
 
@@ -95,9 +89,6 @@ Give a stamp to customer
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-
-
-<br/>
 
 <a id="item" />
 

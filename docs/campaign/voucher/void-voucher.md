@@ -65,8 +65,6 @@ examples:
     }
 ---
 
-
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -75,12 +73,8 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/voucher/{code}/void"
 />
 
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-**Method :** <HttpMethodBadge method="POST" /><br/>
-Url :`https://open.revenuemonster.my/v3/voucher/NAklEfbVdV/void`<br/>
+**Method :** <HttpMethodBadge method="POST" />
+Url :`https://open.revenuemonster.my/v3/voucher/NAklEfbVdV/void`
 Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher/NAklEfbVdV/void`
 
 :::note
@@ -109,7 +103,6 @@ To void voucher(s) of customer.
     { name: "storeId", type: "String", description: "ID of the Store that Create from RM", example: "\"1556079400120532579\"" }
   ]}
 />
-
 
 ### Response Parameters
 
@@ -149,9 +142,6 @@ To void voucher(s) of customer.
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-
-
-<br/>
 
 <a id="item" />
 

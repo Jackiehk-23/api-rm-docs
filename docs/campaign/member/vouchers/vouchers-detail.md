@@ -102,7 +102,6 @@ examples:
 
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -110,11 +109,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/me/vouchers"
   prod="/v3/loyalty/me/vouchers"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 
@@ -138,9 +132,6 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
     { name: "meta", type: "Object", description: "Inside meta have count key example \"count\": 2", example: "2" }
   ]}
 />
-
-
-<br />
 
 <a id="items" />
 
@@ -198,18 +189,11 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
   ]}
 />
 
-
-<br />
-
 <a id="payload" />
 
-<br />
 <a id="contactinfo" />
 
-<br/>
 <a id="expiry" />
 
-<br />
 <a id="address" />
 
-<br />

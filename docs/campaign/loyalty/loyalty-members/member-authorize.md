@@ -65,7 +65,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -73,11 +72,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/member/authorize"
   prod="/v3/loyalty/member/authorize"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Get Member Authorized URL
@@ -92,7 +86,6 @@ Get Member Authorized URL
     { name: "phoneNumber", type: "String", description: "Member phone number", example: "\"187824153\"" }
   ]}
 />
-
 
 ### Response Parameters
 
@@ -134,5 +127,3 @@ Get Member Authorized URL
   ]}
 />
 
-
-<br />

@@ -58,8 +58,6 @@ examples:
     }
 ---
 
-
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -68,12 +66,8 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/voucher/{voucher_code}"
 />
 
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-**Method :** <HttpMethodBadge method="POST" /><br/>
-Url :`https://open.revenuemonster.my/v3/voucher/NAklEfbVdV`<br/>
+**Method :** <HttpMethodBadge method="POST" />
+Url :`https://open.revenuemonster.my/v3/voucher/NAklEfbVdV`
 Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher/NAklEfbVdV`
 
 :::note
@@ -130,9 +124,6 @@ To get single voucher by code
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-
-
-<br/>
 
 <a id="item" />
 

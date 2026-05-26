@@ -4,11 +4,8 @@ title: Card Payment Refund
 sidebar_label: Card Payment Refund
 ---
 
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-**Method :** <HttpMethodBadge method="POST" /><br/>
-URL : `https://open.revenuemonster.my/v3/event/terminal`<br/>
+**Method :** <HttpMethodBadge method="POST" />
+URL : `https://open.revenuemonster.my/v3/event/terminal`
 Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
 
 ### Request Parameters
@@ -47,8 +44,6 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
     }
 }`}
 </CodeBlock>
-
-<br/>
 
 ### Response Parameters
 
@@ -89,7 +84,6 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
   ]}
 />
 
-<br/>
 <a id="card" />
 
 <CodeBlock language="json" filename="Example Response">
@@ -126,5 +120,4 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
   }
 }`}
 </CodeBlock>
-
 

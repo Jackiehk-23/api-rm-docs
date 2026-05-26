@@ -31,8 +31,6 @@ examples:
     There is no example response provided.
 ---
 
-
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -40,12 +38,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/spending-reward"
   prod="/v3/loyalty/spending-reward"
 />
-
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 To give loyalty point(s) based on amount to customers using phone number or member ID.
@@ -70,7 +62,6 @@ To give loyalty point(s) based on amount to customers using phone number or memb
     { name: "phoneNumber", type: "String", description: "Phone number if type \"PHONENUMBER\" being provided.", example: "\"172826990\"" }
   ]}
 />
-
 
 <CodeBlock language="json" filename="Example Request Phone Number">
 {`curl --location --request POST "{{open_base_path}}/v3/loyalty/reward" \\
@@ -126,7 +117,6 @@ To give loyalty point(s) based on amount to customers using phone number or memb
   ]}
 />
 
-
 <CodeBlock language="json" filename="Example Response (PhoneNumber & Member ID)">
 {`{
   "code": "SUCCESS"
@@ -142,5 +132,4 @@ To give loyalty point(s) based on amount to customers using phone number or memb
   "code": "SUCCESS"
 }`}
 </CodeBlock>
-
 

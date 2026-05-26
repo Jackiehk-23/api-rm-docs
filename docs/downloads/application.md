@@ -4,49 +4,23 @@ title: Revenue Monster Application
 sidebar_label: Application
 ---
 
+## Install
 
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-:::note
-Application Install
-:::
-
-<Flex justifyContent="center">
-  <Button
-    width="100%"
-    sx={{
-      ":hover": {
-        backgroundColor: "blue",
-      },
-      backgroundColor: "#528ef7",
-      borderRadius: 15,
-      cursor:"pointer",
-    }}
-    onClick={() => {
-      window.open("https://install.appcenter.ms/orgs/revenue-monster/apps/revenue-monster-merchant-android/distribution_groups/public", "_blank");
-    }}
+<div style={{display:'flex',gap:'12px',flexWrap:'wrap',marginTop:'12px'}}>
+  <a
+    href="https://install.appcenter.ms/orgs/revenue-monster/apps/revenue-monster-merchant-android/distribution_groups/public"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{display:'inline-block',padding:'10px 20px',backgroundColor:'var(--ifm-color-primary)',color:'#fff',borderRadius:'6px',textDecoration:'none',fontWeight:600}}
   >
-    <b>Production Application</b>
-  </Button>
-</Flex>
-<br/>
-<Flex justifyContent="center">
-  <Button
-    width="100%"
-    sx={{
-      ":hover": {
-        backgroundColor: "blue",
-      },
-      backgroundColor: "#528ef7",
-      borderRadius: 15,
-      cursor:"pointer",
-    }}
-    onClick={() => {
-      window.open("https://install.appcenter.ms/orgs/revenue-monster/apps/revenue-monster-merchant-android/distribution_groups/staging", "_blank");
-    }}
+    Production Application
+  </a>
+  <a
+    href="https://install.appcenter.ms/orgs/revenue-monster/apps/revenue-monster-merchant-android/distribution_groups/staging"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{display:'inline-block',padding:'10px 20px',backgroundColor:'var(--ifm-color-primary)',color:'#fff',borderRadius:'6px',textDecoration:'none',fontWeight:600}}
   >
-    <b>Sandbox Application</b>
-  </Button>
-</Flex>
-
+    Sandbox Application
+  </a>
+</div>

@@ -4,11 +4,8 @@ title: Check Balance
 sidebar_label: Check Balance
 ---
 
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-**Method :** <HttpMethodBadge method="GET" /><br/>
-URL : `https://open.revenuemonster.my/v3/wallet/credit`<br/>
+**Method :** <HttpMethodBadge method="GET" />
+URL : `https://open.revenuemonster.my/v3/wallet/credit`
 Sandbox URL : `https://sb-open.revenuemonster.my/v3/wallet/credit`
 
 :::note
@@ -27,7 +24,6 @@ Check merchant wallet balance
 `}
 </CodeBlock>
 
-
 ### Response Parameters
 
 <ParamTable
@@ -41,7 +37,6 @@ Check merchant wallet balance
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-<br />
 
 <a id="item" />
 
@@ -55,5 +50,4 @@ Check merchant wallet balance
   "code": "SUCCESS"
 }`}
 </CodeBlock>
-
 

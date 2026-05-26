@@ -4,11 +4,8 @@ title: POS Terminal Integration
 sidebar_label: POS Terminal Integration
 ---
 
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-**Method :** <HttpMethodBadge method="POST" /><br/>
-URL : `https://open.revenuemonster.my/v3/payment/terminal/quickpay`<br/>
+**Method :** <HttpMethodBadge method="POST" />
+URL : `https://open.revenuemonster.my/v3/payment/terminal/quickpay`
 Sandbox URL : `https://sb-open.revenuemonster.my/v3/payment/terminal/quickpay`
 
 :::note
@@ -117,7 +114,6 @@ Integrate RM Terminal with POS System or Kiosk machine (using local callback). T
   ]}
 />
 
-<br/>
 <a id="card" />
 
 <CodeBlock language="json" filename="Example Response">
@@ -173,5 +169,4 @@ Integrate RM Terminal with POS System or Kiosk machine (using local callback). T
   "updatedAt": "2021-02-17T18:39:37Z"
 }`}
 </CodeBlock>
-
 

@@ -120,7 +120,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -128,11 +127,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/accounts"
   prod="/v3/accounts"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Get Accounts Info
@@ -240,9 +234,5 @@ Get Accounts Info
   ]}
 />
 
-
-<br />
-
 <a id="item" />
 
-<br/>

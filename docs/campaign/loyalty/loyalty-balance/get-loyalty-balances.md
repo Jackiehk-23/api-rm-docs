@@ -114,7 +114,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -122,11 +121,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/balances"
   prod="/v3/loyalty/balances"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Get loyalty balances
@@ -144,9 +138,6 @@ Get loyalty balances
     { name: "meta", type: "Object", description: "Inside meta have countand cursor", example: "{ \"count\": 2 , \"cursor\":\"\"}" }
   ]}
 />
-
-
-<br />
 
 <a id="items" />
 

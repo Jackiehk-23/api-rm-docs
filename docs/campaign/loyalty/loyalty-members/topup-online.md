@@ -42,7 +42,6 @@ examples:
 
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -50,11 +49,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/member/:memberId/topup-online"
   prod="/v3/loyalty/member/:memberId/topup-online"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Specify loyalty member id to get topup url for member.
@@ -74,9 +68,6 @@ Specify loyalty member id to get topup url for member.
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-
-
-<br />
 
 <a id="item" />
 

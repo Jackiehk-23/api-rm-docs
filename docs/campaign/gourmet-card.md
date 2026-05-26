@@ -66,7 +66,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -74,11 +73,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/membership/verify"
   prod="/v3/membership/verify"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 (**For Alipay Merchant** )
@@ -94,7 +88,6 @@ Collect information using member card ID
     { name: "storeId", type: "String", description: "Store ID", example: "\"4949529109748431621\"" }
   ]}
 />
-
 
 ### Response Parameters
 
@@ -134,12 +127,7 @@ Collect information using member card ID
   ]}
 />
 
-
-<br/>
-
 <a id="item" />
-
-<br/>
 
 <a id="card" />
 

@@ -8,7 +8,6 @@ api:
   url:
     sandbox: https://sb-open.revenuemonster.my/v3/loyalty/me
 
-
   headers:
     Authorization: Bearer {{access_token}}
     X-Signature: sha256 {{signature}}
@@ -67,7 +66,6 @@ examples:
     }
 ---
 
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -75,12 +73,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/me"
   prod="/v3/loyalty/me"
 />
-
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Using Query String to **Get User Profile** by input the **country code** and **phone number**  
@@ -125,12 +117,7 @@ Using Query String to **Get User Profile** by input the **country code** and **p
   ]}
 />
 
-
-<br />
-
 <a id="item" />
-
-<br />
 
 <a id="address" />
 

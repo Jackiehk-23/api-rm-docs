@@ -179,99 +179,36 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/service"
 />
 
+Get orders by `storeId`.
 
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
-:::note
-
-- Get orders by `storeId`.
-
-:::
-
-### Request Parameters
-
-:::note
-
-- Current type in <b>paymentStatus</b> will be :-
-
-  - "PROGRESSING" , "FINDING_COURIER" , "SHIPPING" , "COMPLETED" , "REJECTED"
-
-- Current type in <b>deliveryStatus</b> will be :-
-
-  - "EMPTY"<br/>
-  - "WAITING_FOR_PAYMENT"<br/>
-  - "WAIT_FOR_CONFIRMATION"<br/>
-  - "CANCELLED"<br/>
-  - "PROGRESSING"<br/>
-  - "WAITING_FOR_COURIER"<br/>
-  - "FINDING_COURIER"<br/>
-  - "SHIPPING"<br/>
-  - "COMPLETED"<br/>
-  - "DELAYED"<br/>
-  - "REJECTED"<br/>
-
-- Current type in <b>type</b> will be :-
-
-  - "DINEIN" , "DELIVERY" , "PICKUP", "DRIVE_THRU"
-
-:::
+## Request Parameters
 
 <ParamTable
   title="Details"
   rows={[
     { name: "service", type: "String", description: "alacarte service", example: "\"alacarte\"" },
-    { name: "version", type: "String", description: "Currently only support 'v1\"", example: "\"v1\"" },
-    { name: "function", type: "String", description: "Function that provide by alacarte", example: "\"get.store.orders\"" },
+    { name: "version", type: "String", description: "Currently only support v1", example: "\"v1\"" },
+    { name: "function", type: "String", description: "Function provided by alacarte", example: "\"get.store.orders\"" },
     { name: "request", type: "Object", description: "Request body",
       children: [
-        { name: "storeId", type: "String", required: true, description: "ID of the Store that Create from RM", example: "\"2808912573238362402\"" },
+        { name: "storeId", type: "String", required: true, description: "Store ID", example: "\"2808912573238362402\"" },
         { name: "orderId", type: "String", description: "Filter by part of Order ID", example: "\"610a61722c0efd453116420c\"" },
         { name: "shortOrderId", type: "String", description: "Filter by part of short order ID", example: "\"jm9espv4\"" },
-        { name: "cursor", type: "String", description: "Filter by cursor", example: "\"\"" },
-        { name: "paymentStatus", type: "Array", description: "Filter by Payment Status", example: "[\"COMPLETED\"]" },
-        { name: "startOrderAt", type: "DateTime", description: "Filter by Start Order At", example: "\"2020-09-22T02:00:00.000Z\"" },
-        { name: "endOrderAt", type: "DateTime", description: "Filter by End Order At", example: "\"2020-09-22T02:00:00.000Z\"" },
-        { name: "startDeliveryAt", type: "DateTime", description: "Filter by Start Delivery At", example: "\"2020-09-22T02:00:00.000Z\"" },
-        { name: "endDeliveryAt", type: "DateTime", description: "Filter by End Delivery At", example: "\"2020-09-22T02:00:00.000Z\"" },
-        { name: "type", type: "Array", description: "Filter by Type", example: "[\"DINEIN\",\"DELIVERY\"]" },
-        { name: "deliveryStatus", type: "Array", description: "Filter by Delivery Status", example: "[\"WAIT_FOR_CONFIRMATION\",\"FINDING_COURIER\"]" },
-        { name: "sort", type: "Array", description: "Filter by Sort \"deliveryAt\" or \"orderAt\" (\"-\" mean descending \"+\" mean ascending)", example: "[\"-deliveryAt\"]" }
+        { name: "cursor", type: "String", description: "Pagination cursor", example: "\"\"" },
+        { name: "paymentStatus", type: "Array", description: "Filter by payment status. Values: PROGRESSING, FINDING_COURIER, SHIPPING, COMPLETED, REJECTED", example: "[\"COMPLETED\"]" },
+        { name: "startOrderAt", type: "DateTime", description: "Filter from order start date", example: "\"2020-09-22T02:00:00.000Z\"" },
+        { name: "endOrderAt", type: "DateTime", description: "Filter to order end date", example: "\"2020-09-22T02:00:00.000Z\"" },
+        { name: "startDeliveryAt", type: "DateTime", description: "Filter from delivery start date", example: "\"2020-09-22T02:00:00.000Z\"" },
+        { name: "endDeliveryAt", type: "DateTime", description: "Filter to delivery end date", example: "\"2020-09-22T02:00:00.000Z\"" },
+        { name: "type", type: "Array", description: "Filter by order type. Values: DINEIN, DELIVERY, PICKUP, DRIVE_THRU", example: "[\"DINEIN\",\"DELIVERY\"]" },
+        { name: "deliveryStatus", type: "Array", description: "Filter by delivery status. Values: EMPTY, WAITING_FOR_PAYMENT, WAIT_FOR_CONFIRMATION, CANCELLED, PROGRESSING, WAITING_FOR_COURIER, FINDING_COURIER, SHIPPING, COMPLETED, DELAYED, REJECTED", example: "[\"WAIT_FOR_CONFIRMATION\",\"FINDING_COURIER\"]" },
+        { name: "sort", type: "Array", description: "Sort field. Use - prefix for descending, + for ascending. e.g. -deliveryAt, +orderAt", example: "[\"-deliveryAt\"]" }
       ]
     }
   ]}
 />
 
-
-Optional
-
-### Response Parameters
-
-:::note
-
-- Current type in <b>Status</b> will be :-
-
-  - "EMPTY"<br/>
-  - "WAITING_FOR_PAYMENT"<br/>
-  - "WAIT_FOR_CONFIRMATION"<br/>
-  - "CANCELLED"<br/>
-  - "PROGRESSING"<br/>
-  - "WAITING_FOR_COURIER"<br/>
-  - "FINDING_COURIER"<br/>
-  - "SHIPPING"<br/>
-  - "COMPLETED"<br/>
-  - "DELAYED"<br/>
-  - "REJECTED"<br/>
-
-- Current type in <b>State</b> will be :-
-
-  - "ACCEPTED" , "REJECTED" , "CANCELED" , "REFUNDED"
-
-- Current type in <b>Type</b> will be :-
-
-  - "DINEIN" , "DELIVERY" , "PICKUP", "DRIVE_THRU"
-
-:::
+## Response Parameters
 
 <ParamTable
   title="Details"
@@ -391,8 +328,8 @@ Optional
         },
         { name: "quantity", type: "Integer", description: "Quantity of the item", example: "1" },
         { name: "queueNo", type: "Integer", description: "Queue number of the item", example: "0" },
-        { name: "state", type: "String", description: "State of the item (ACCEPTED, REJECTED, CANCELED, REFUNDED)", example: "\"ACCEPTED\"" },
-        { name: "status", type: "String", description: "Status of the item", example: "\"EMPTY\"" },
+        { name: "state", type: "String", description: "Order state. Values: ACCEPTED, REJECTED, CANCELED, REFUNDED", example: "\"ACCEPTED\"" },
+        { name: "status", type: "String", description: "Delivery status. Values: EMPTY, WAITING_FOR_PAYMENT, WAIT_FOR_CONFIRMATION, CANCELLED, PROGRESSING, WAITING_FOR_COURIER, FINDING_COURIER, SHIPPING, COMPLETED, DELAYED, REJECTED", example: "\"EMPTY\"" },
         { name: "storeId", type: "String", description: "ID of the Store that Create from RM", example: "\"10946114768247530\"" },
         { name: "table", type: "Object", description: "Table info",
           children: [
@@ -402,7 +339,7 @@ Optional
             { name: "name", type: "String", description: "Table Name", example: "\"Table A1\"" }
           ]
         },
-        { name: "type", type: "String", description: "Type (DINEIN, DELIVERY, PICKUP, DRIVE_THRU)", example: "\"\"" },
+        { name: "type", type: "String", description: "Order type. Values: DINEIN, DELIVERY, PICKUP, DRIVE_THRU", example: "\"\"" },
         { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-10-01T08:44:16.863Z\"" }
       ]
     }

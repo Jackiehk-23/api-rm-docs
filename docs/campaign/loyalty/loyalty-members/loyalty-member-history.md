@@ -76,8 +76,6 @@ examples:
 
 ---
 
-
-
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
@@ -85,11 +83,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   sandbox="/v3/loyalty/member/{{member_id}}/history"
   prod="/v3/loyalty/member/{{member_id}}/history"
 />
-
-
-
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
-
 
 :::note
 Get Loyalty Member Point History By `Member ID`
@@ -106,5 +99,4 @@ Get Loyalty Member Point History By `Member ID`
 :::
 
 ### Response Parameters
-
 

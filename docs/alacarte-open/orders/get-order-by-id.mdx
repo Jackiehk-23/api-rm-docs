@@ -140,7 +140,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
-import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
 
 :::note
 
@@ -168,31 +167,6 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
 
 ### Response Parameters
 
-:::note
-
-- Current type in <b>Status</b> will be :-
-
-  - "EMPTY"<br/>
-  - "WAITING_FOR_PAYMENT"<br/>
-  - "WAIT_FOR_CONFIRMATION"<br/>
-  - "CANCELLED"<br/>
-  - "PROGRESSING"<br/>
-  - "WAITING_FOR_COURIER"<br/>
-  - "FINDING_COURIER"<br/>
-  - "SHIPPING"<br/>
-  - "COMPLETED"<br/>
-  - "DELAYED"<br/>
-  - "REJECTED"<br/>
-
-- Current type in <b>State</b> will be :-
-
-  - "ACCEPTED" , "REJECTED" , "CANCELED" , "REFUNDED"
-
-- Current type in <b>Type</b> will be :-
-
-  - "DINEIN" , "DELIVERY" , "PICKUP", "DRIVE_THRU"
-
-:::
 
 <ParamTable
   title="Details"
@@ -281,7 +255,7 @@ import { Box, Heading, Text, Card, Image, Button, Flex } from "rebass";
     { name: "quantity", type: "Integer", description: "Quantity of the item", example: "1" },
     { name: "queueNo", type: "Integer", description: "Queue number of the item", example: "0" },
     { name: "state", type: "String", description: "State of the item (ACCEPTED, REJECTED, CANCELED, REFUNDED)", example: "\"ACCEPTED\"" },
-    { name: "status", type: "String", description: "Status of the item", example: "\"EMPTY\"" },
+    { name: "status", type: "String", description: "Order status. One of: `EMPTY`, `WAITING_FOR_PAYMENT`, `WAIT_FOR_CONFIRMATION`, `CANCELLED`, `PROGRESSING`, `WAITING_FOR_COURIER`, `FINDING_COURIER`, `SHIPPING`, `COMPLETED`, `DELAYED`, `REJECTED`", example: "\"EMPTY\"" },
     { name: "storeId", type: "String", description: "ID of the Store that Create from RM", example: "\"10946114768247530\"" },
     { name: "table", type: "Object", description: "Table info",
       children: [
