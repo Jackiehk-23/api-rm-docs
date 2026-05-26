@@ -80,43 +80,28 @@ function useActiveHeadingId(tocItems) {
   return activeId;
 }
 
-function tocLabel(htmlValue) {
-  const text = htmlValue.replace(/<[^>]+>/g, '');
-  const match = text.match(/^(Step\s+\d+)/i);
-  return match ? match[1] : htmlValue;
-}
-
 function SidebarTOC({ toc }) {
-  const items = useMemo(() => toc.filter(h => {
-    const text = h.value.replace(/<[^>]+>/g, '');
-    return /^step\s+\d+/i.test(text.trim());
-  }), [toc]);
-  const activeId = useActiveHeadingId(items);
+  const activeId = useActiveHeadingId(toc);
 
-  if (!items.length) return null;
+  if (!toc.length) return null;
 
   return (
     <ul className={styles.tocList}>
-      {items.map(item => {
-        const label = tocLabel(item.value);
-        const isShortened = label !== item.value;
-        return (
-          <li
-            key={item.id}
-            className={clsx(styles.tocItem, item.level === 3 && styles.tocItemH3)}
-          >
-            <a
-              href={`#${item.id}`}
-              className={clsx(
-                styles.tocLink,
-                item.id === activeId && styles.tocLinkActive,
-              )}
-              title={isShortened ? item.value.replace(/<[^>]+>/g, '') : undefined}
-              dangerouslySetInnerHTML={{ __html: label }}
-            />
-          </li>
-        );
-      })}
+      {toc.map(item => (
+        <li
+          key={item.id}
+          className={clsx(styles.tocItem, item.level === 3 && styles.tocItemH3)}
+        >
+          <a
+            href={`#${item.id}`}
+            className={clsx(
+              styles.tocLink,
+              item.id === activeId && styles.tocLinkActive,
+            )}
+            dangerouslySetInnerHTML={{ __html: item.value }}
+          />
+        </li>
+      ))}
     </ul>
   );
 }
@@ -134,7 +119,7 @@ export default function DocSidebarItemLink({
   const isInternalLink = isInternalUrl(href);
   const toc = useTOCStore();
   const filteredToc = useMemo(
-    () => toc.filter(h => h.level === 2 || h.level === 3),
+    () => toc.filter(h => h.level === 2),
     [toc],
   );
 
@@ -167,7 +152,7 @@ export default function DocSidebarItemLink({
         {!isInternalLink && <IconExternalLink />}
       </Link>
 
-      {isActive && filteredToc.length > 0 && <SidebarTOC toc={toc} />}
+      {isActive && filteredToc.length > 0 && <SidebarTOC toc={filteredToc} />}
     </li>
   );
 }
