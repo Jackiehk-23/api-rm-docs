@@ -84,22 +84,39 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/store/{store_id}"
 />
 
-:::note
-To update a specific store under the merchant. Specify `store_id` in your query.
-:::
+## What is this?
 
-### Request Parameters
+Update details of an existing store under a merchant account.
 
-:::note
+## When to Use
 
-- The URL is consists of `[base_URL]`/v3/store/`[store_id]`
+Use this endpoint when:
+- Store info changes (name, address, contact)
+- Geo-location needs adjusting
+- Settlement account linkage is updated
 
-- Pass in `Store ID` in your query
+## How to Use
 
-:::
+### Step 1: Get the Store ID
+
+Retrieve `storeId` from [Get All Stores](./store-details) or [Get Store By ID](./get-store-by-id).
+
+### Step 2: Build the Body
+
+Include only the fields you want to change.
+
+### Step 3: Send the PATCH Request
+
+Pass `storeId` as a path parameter — `/v3/store/{storeId}`.
+
+---
+
+## Request Parameters
+
+Pass `storeId` as a path parameter.
 
 <ParamTable
-  title="Details"
+  title="Request Body"
   rows={[
     { name: "merchantSettlementId", type: "String", description: "Linkage with payment settlement account" },
     { name: "name", type: "String", required: true, description: "Store Name", example: "\"REVENUE MONSTER\"" },
@@ -115,12 +132,14 @@ To update a specific store under the merchant. Specify `store_id` in your query.
   ]}
 />
 
-### Response Parameters
+---
+
+## Response Parameters
 
 <ParamTable
-  title="Response Parameters"
+  title="Response"
   rows={[
-    { name: "item", type: "Array", description: "Array of store object",
+    { name: "item", type: "Object", description: "Updated store details.",
       children: [
         { name: "id", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
         { name: "merchantSettlementId", type: "String", description: "Linkage with payment settlement account" },
@@ -143,5 +162,4 @@ To update a specific store under the merchant. Specify `store_id` in your query.
   ]}
 />
 
-<a id="item" />
-
+<!-- SPDX-License-Identifier: Apache-2.0 -->

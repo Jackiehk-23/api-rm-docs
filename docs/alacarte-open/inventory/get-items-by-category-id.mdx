@@ -132,11 +132,27 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
-:::note
+## What is this?
 
-- Using `categoryId` to get items
+Retrieve all menu items in a specific category by its `categoryId`.
 
-:::
+## When to Use
+
+Use this endpoint when:
+- Listing items grouped by category
+- Building a category-driven menu UI
+
+## How to Use
+
+### Step 1: Get the Category ID
+
+Use the `categoryId` from [Get Categories By Store ID](./get-categories-by-store-id).
+
+### Step 2: Send the Query
+
+POST `function: "get.category.items"` with the `categoryId`.
+
+---
 
 ### Request Parameters
 
@@ -224,4 +240,4 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   ]}
 />
 
-
+<!-- SPDX-License-Identifier: Apache-2.0 -->

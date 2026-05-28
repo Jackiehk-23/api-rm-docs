@@ -8,9 +8,25 @@ sidebar_label: Topup Wallet
 URL : `https://open.revenuemonster.my/v3/wallet/topup`
 Sandbox URL : `https://sb-open.revenuemonster.my/v3/wallet/topup`
 
-:::note
-Topup merchant wallet
-:::
+## What is this?
+
+Top up the merchant's RM wallet — returns a payment URL where the merchant completes the top-up via the standard payment gateway.
+
+## When to Use
+
+Use this endpoint when:
+- The merchant needs to fund their wallet for SMS, delivery, or other paid usage
+- Building a "top up wallet" flow in your merchant portal
+
+## How to Use
+
+**Method:** <HttpMethodBadge method="POST" />
+URL: `https://open.revenuemonster.my/v3/wallet/topup`
+Sandbox URL: `https://sb-open.revenuemonster.my/v3/wallet/topup`
+
+POST with `amount` and a `redirect` URL. Redirect the merchant to the returned `item` URL to complete payment.
+
+---
 
 ### Request Parameters
 
@@ -45,3 +61,5 @@ Topup merchant wallet
 }`}
 </CodeBlock>
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

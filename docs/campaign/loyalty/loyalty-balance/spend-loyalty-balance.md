@@ -99,9 +99,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/balances"
 />
 
-:::note
-Get loyalty balance
-:::
+## What is this?
+
+Spend a member's loyalty credit balance at checkout. The customer's loyalty QR code is scanned to capture the `authCode`.
+
+## When to Use
+
+Use this endpoint when:
+- Member pays partially or fully with loyalty credit
+- Settling a Quick Pay transaction with the `LOYALTY_CREDIT` method
+
+## How to Use
+
+POST `authCode`, `storeId`, and `order` details. Returns the loyalty-credit transaction record.
+
+---
 
 ### Request Parameters
 
@@ -175,3 +187,5 @@ Get loyalty balance
   ]}
 />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -78,11 +78,32 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
-:::note
+## What is this?
 
-- Using WebHook URL to send a notification to your server
+Register webhook URLs that à la carte will call when events (orders, status changes, inventory updates) occur. Limit: 3 webhook URLs per merchant.
 
-:::
+## When to Use
+
+Use this endpoint when:
+- Setting up real-time notifications for à la carte events
+- Sharing event payloads across multiple receivers (max 3)
+- Scoping notifications to specific stores via `storeIds`
+
+## How to Use
+
+### Step 1: Set Up Webhook Receivers
+
+Build HTTP endpoints (max 3) that accept JSON POST callbacks.
+
+### Step 2: Send the Configuration
+
+POST with `function: "set.notification.webhook"` and the list of `notificationUrls`. Optionally scope to specific `storeIds`.
+
+### Step 3: Verify Acceptance
+
+The response echoes the saved configuration including the `notificationUrls` list.
+
+---
 
 ### Request Parameters
 
@@ -116,3 +137,4 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   ]}
 />
 
+<!-- SPDX-License-Identifier: Apache-2.0 -->

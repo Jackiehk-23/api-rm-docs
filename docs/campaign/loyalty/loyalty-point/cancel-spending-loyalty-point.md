@@ -46,9 +46,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/spending-reward/cancel"
 />
 
-:::note
-Cancel the Spending Loyalty Point by ID
-:::
+## What is this?
+
+Cancel a previously issued spending-loyalty-point reward by its `id`.
+
+## When to Use
+
+Use this endpoint when:
+- A spending reward was issued in error
+- Reversing rewards on a refunded transaction
+
+## How to Use
+
+POST to `/v3/loyalty/spending-reward/cancel` with the `id` from the spending-loyalty-point response.
+
+---
 
 ### Request Parameters
 
@@ -68,3 +80,5 @@ Cancel the Spending Loyalty Point by ID
   ]}
 />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

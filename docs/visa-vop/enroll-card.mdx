@@ -61,40 +61,63 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/vop/enroll-card"
 />
 
-:::note
+## What is this?
 
-- Enroll card to Visa's VOP with RM.
+Link an additional Visa card PAN to an already-enrolled user. Each user can have multiple cards linked to their offer account.
 
-:::
+## When to Use
 
-### Request Parameters
+Use this endpoint when:
+- A user wants to add a second or subsequent card to the program
+- Linking a replacement card after losing one
+
+## How to Use
+
+### Step 1: Get the User ID
+
+Use the RM-issued `userId` returned by [Enroll User](./enroll-user).
+
+### Step 2: Send the Card Details
+
+POST the user ID, card PAN, and card name to `/v3/vop/enroll-card`.
+
+### Step 3: Store the Card ID
+
+The response returns the new `card.id`. Use it for [Unenroll Card](./unenroll-card).
+
+---
+
+## Request Parameters
 
 <ParamTable
-  title="Request Parameters"
+  title="Request Body"
   rows={[
-    { name: "userId", type: "String", required: true, description: "User ID provided by us during enrollment", example: "\"1699331101742889953\"" },
-    { name: "cardPan", type: "String", required: true, description: "Card number of the user", example: "\"4364484100392451\"" },
-    { name: "name", type: "String", required: true, description: "Name of the card", example: "\"Ambank Visa Infinite\"" }
+    { name: "userId", type: "String", required: true, description: "RM-issued user ID returned by [Enroll User](./enroll-user).", example: "\"1699331101742889953\"" },
+    { name: "cardPan", type: "String", required: true, description: "Visa card PAN (full card number).", example: "\"4364484100392451\"" },
+    { name: "name", type: "String", required: true, description: "Display name of the card.", example: "\"Ambank Visa Infinite\"" }
   ]}
 />
 
-### Response Parameters
+---
+
+## Response Parameters
 
 <ParamTable
-  title="Response Parameters"
+  title="Response"
   rows={[
-    { name: "item", type: "Object", description: "Response item",
+    { name: "item", type: "Object", description: "Created card record.",
       children: [
-      { name: "id", type: "String", description: "RM VOP Card ID", example: "\"1699331146943520156\"" },
-      { name: "userId", type: "String", description: "RM VOP User ID", example: "\"1699331101742889953\"" },
-      { name: "name", type: "String", description: "Name of the card", example: "\"Ambank Visa Infinite\"" },
-      { name: "panLastFour", type: "String", description: "Last four number of the card", example: "\"2451\"" },
-      { name: "type", type: "String", description: "Type of card", example: "\"CREDIT\"" },
-      { name: "createdAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:46Z\"" },
-      { name: "updatedAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:46Z\"" },
+        { name: "id", type: "String", description: "RM-issued card ID.", example: "\"1699331146943520156\"" },
+        { name: "userId", type: "String", description: "RM-issued user ID.", example: "\"1699331101742889953\"" },
+        { name: "name", type: "String", description: "Card display name.", example: "\"Ambank Visa Infinite\"" },
+        { name: "panLastFour", type: "String", description: "Last four digits of the card PAN.", example: "\"2451\"" },
+        { name: "type", type: "String", description: "Card type (`\"CREDIT\"`, `\"DEBIT\"`).", example: "\"CREDIT\"" },
+        { name: "createdAt", type: "DateTime", description: "Enrollment timestamp.", example: "\"2023-11-07T04:25:46Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update timestamp.", example: "\"2023-11-07T04:25:46Z\"" }
       ]
     },
-    { name: "code", type: "String", description: "Status of the enrollment", example: "\"SUCCESS\"" }
+    { name: "code", type: "String", description: "`\"SUCCESS\"` if enrollment succeeded. Otherwise returns an error code. See [Error Codes](../error-codes).", example: "\"SUCCESS\"" }
   ]}
 />
 
+<!-- SPDX-License-Identifier: Apache-2.0 -->

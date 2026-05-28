@@ -46,11 +46,35 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/online"
 />
 
-Returns a QR code image for the selected payment method. Display this QR code on screen for the customer to scan.
+## What is this?
+
+Returns a QR code image for the selected payment method. Display this QR code on screen for the customer to scan with their mobile banking or wallet app.
+
+## When to Use
+
+Use this mode when:
+- Integrating Maybank QR, CIMB QR, or other bank-specific QR payments
+- Displaying QR on a desktop checkout for mobile scanning
 
 :::note
-Poll [Query Payment Checkout](../query-checkout.md) every 3–5 seconds to track payment status.
+Poll [Query Payment Checkout](../query-checkout.md) every 3-5 seconds to track payment status.
 :::
+
+## How to Use
+
+### Step 1: Create a Checkout
+
+Call [Hosted Payment Checkout](../hosted-checkout) to obtain `checkoutId`.
+
+### Step 2: Request the QR Code
+
+POST with `type: "QRCODE"` and the desired bank `method`.
+
+### Step 3: Display and Poll
+
+Render the returned `base64Image` and poll [Query Payment Checkout](../query-checkout.md) for status.
+
+---
 
 ## Request Parameters
 
@@ -89,3 +113,5 @@ Poll [Query Payment Checkout](../query-checkout.md) every 3–5 seconds to track
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

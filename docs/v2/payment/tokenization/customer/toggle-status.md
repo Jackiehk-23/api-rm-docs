@@ -35,11 +35,36 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/recurring-payment/{customer_id}/toggle"
 />
 
-Activates or deactivates a customer's token. Toggling to inactive stops all future recurring charges for that customer.
+## What is this?
+
+Activates or deactivates a customer's token. Toggling to inactive stops all future recurring charges and prevents new tokenized charges.
+
+## When to Use
+
+Use this endpoint when:
+- Customer requests to pause or cancel their subscription
+- Suspending a customer due to chargeback or compliance reasons
+- Re-activating a previously paused customer
 
 :::note
 Only available after the customer has successfully bound their card.
 :::
+
+## How to Use
+
+### Step 1: Identify the Customer
+
+Use the `customer_id` returned by [Create Tokenized Customer](../tokenized/create-customer.md) or [Create Recurring Customer](../recurring/create-customer.md).
+
+### Step 2: Send the Toggle Request
+
+POST `/v3/recurring-payment/{customer_id}/toggle`. The endpoint inverts the current `isActive` state.
+
+### Step 3: Verify the New State
+
+The response `item.isActive` reflects the new status.
+
+---
 
 ## Request Parameters
 
@@ -94,3 +119,5 @@ Only available after the customer has successfully bound their card.
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

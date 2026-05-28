@@ -84,9 +84,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 Url :`https://open.revenuemonster.my/v3/voucher/8JwpM3BC/reinstate`
 Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher/8JwpM3BC/reinstate`
 
-:::note
-To reinstate voucher(s) of customer.
-:::
+## What is this?
+
+Reinstate a previously voided voucher — restores the voucher to a usable state.
+
+## When to Use
+
+Use this endpoint when:
+- A voucher was voided in error and must be restored
+- Reversing a void decision
+
+## How to Use
+
+PATCH `/v3/voucher/{code}/reinstate` with no request body. Get `code` from the [Issue Voucher](./issue-voucher) response.
+
+---
 
 :::note
 
@@ -149,3 +161,5 @@ To reinstate voucher(s) of customer.
 
 <a id="item" />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

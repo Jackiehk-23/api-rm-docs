@@ -177,21 +177,28 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
+## What is this?
+
+Update the delivery status of an existing order — move it through `PROGRESSING`, `FINDING_COURIER`, `SHIPPING`, `COMPLETED`, or `REJECTED`.
+
+## When to Use
+
+Use this endpoint when:
+- Restaurant accepts and starts preparing an order (`PROGRESSING`)
+- Courier dispatch and shipping events
+- Marking the order completed or rejected
+
+## How to Use
+
+POST `function: "update.order.status"` with `storeId`, `orderId`, and the new `status`.
+
 :::note
-
-- Update order status by using `storeId` , `orderId` , `status`.
-
+Valid `status` values: `PROGRESSING`, `FINDING_COURIER`, `SHIPPING`, `COMPLETED`, `REJECTED`.
 :::
+
+---
 
 ### Request Parameters
-
-:::note
-
-**Status** will be :-
-
-"PROGRESSING" , "FINDING_COURIER" , "SHIPPING" , "COMPLETED" , "REJECTED"
-
-:::
 
 <ParamTable
   title="Details"
@@ -356,3 +363,5 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 />
 
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -105,13 +105,39 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/account"
 />
 
-:::note
-Create Account
-:::
+## What is this?
 
-### Request Parameters
+Create a new empty account under a merchant. The account is created in `UNVERIFIED` status and must later be filled in and submitted for review.
 
-### Response Parameters
+## When to Use
+
+Use this endpoint when:
+- A merchant needs an additional settlement account
+- You want to set up the account record before collecting full details
+
+## How to Use
+
+### Step 1: Authenticate
+
+Obtain a valid `accessToken` for the merchant.
+
+### Step 2: Send the POST Request
+
+The body is empty — `{}`. Signed headers are required.
+
+### Step 3: Store the Account ID
+
+The response includes the new account `id`. Use it to [Update Account](./update-account) with details and later [Submit Account](./submit-account-review).
+
+---
+
+## Request Parameters
+
+No request body. Authenticated headers only.
+
+---
+
+## Response Parameters
 
 <ParamTable
   title="Response Parameters"
@@ -210,5 +236,4 @@ Create Account
   ]}
 />
 
-<a id="item" />
-
+<!-- SPDX-License-Identifier: Apache-2.0 -->

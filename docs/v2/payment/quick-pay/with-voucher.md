@@ -64,9 +64,35 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/quickpay"
 />
 
+## What is this?
+
+Quick Pay with a Revenue Monster voucher applied. The voucher's discount is deducted from the order total before processing the e-wallet payment.
+
+## When to Use
+
+Use this endpoint when:
+- The customer has an RM voucher to redeem against the purchase
+- Combining wallet payment with merchant promotions
+
 :::tip
 Vouchers can be generated as QR codes for scanning. Scan the voucher QR code first, then scan the wallet QR code.
 :::
+
+## How to Use
+
+### Step 1: Get the Voucher Code
+
+Capture the voucher `code` from a QR scan or customer-supplied code.
+
+### Step 2: Scan the Wallet QR
+
+Capture the customer's wallet `authCode`.
+
+### Step 3: Send the Payment
+
+POST the authCode, order, and `voucher.code` to `/v3/payment/quickpay`.
+
+---
 
 ## Request Parameters
 
@@ -136,3 +162,5 @@ Vouchers can be generated as QR codes for scanning. Scan the voucher QR code fir
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

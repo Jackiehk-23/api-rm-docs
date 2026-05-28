@@ -122,9 +122,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/balances"
 />
 
-:::note
-Get loyalty balances
-:::
+## What is this?
+
+Retrieve the list of loyalty balance (credit) transactions across all members.
+
+## When to Use
+
+Use this endpoint when:
+- Auditing loyalty credit movements
+- Building a loyalty-balance transaction report
+
+## How to Use
+
+GET `/v3/loyalty/balances` with signed authentication headers.
+
+---
 
 ### Request Parameters
 
@@ -183,3 +195,5 @@ Get loyalty balances
   ]}
 />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

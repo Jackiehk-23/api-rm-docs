@@ -43,12 +43,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/me/reward/{reward-id}/redeem?countryCode=60&phoneNumber=187824152"
 />
 
-:::note
+## What is this?
 
-- **Redeem Reward** by input `{reward-id}`
-- Using Query String to input the **country code** and **phone number**
+Redeem a reward on behalf of a loyalty member. Deducts the required points and marks the reward as redeemed.
 
-:::
+## When to Use
+
+Use this endpoint when:
+- A member chooses to redeem a reward
+- Triggering reward redemption from your member UI
+
+## How to Use
+
+POST `/v3/loyalty/me/reward/{reward-id}/redeem` with `countryCode` and `phoneNumber` as query parameters.
+
+---
 
 ### Request Parameters
 
@@ -61,3 +70,5 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   ]}
 />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

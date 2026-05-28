@@ -171,8 +171,28 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/service"
 />
 
+## What is this?
 
+Update an existing menu item — change name, description, image, price, quantity, sides, preferences, schedules, or SKU.
 
+## When to Use
+
+Use this endpoint when:
+- Editing an item's details (name, price, photos)
+- Modifying side categories or preference labels
+- Adjusting availability schedules
+
+## How to Use
+
+### Step 1: Get the Item ID
+
+Use the `itemId` returned by [Create Item](./create-item) or [Get Items by Category ID](./get-items-by-category-id).
+
+### Step 2: Send the Update Payload
+
+POST with `function: "update.item"` and the request payload including the changed fields.
+
+---
 
 ### Request Parameters
 
@@ -306,4 +326,4 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   ]}
 />
 
-
+<!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -51,9 +51,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/spending-reward/calculate"
 />
 
-:::note
-Use amount sales to Calculate Spending Reward points
-:::
+## What is this?
+
+Calculate the number of spending-reward points a given sale amount would yield, based on the merchant's loyalty rules.
+
+## When to Use
+
+Use this endpoint when:
+- Showing customers the points they would earn before payment
+- Previewing rewards in a checkout flow
+
+## How to Use
+
+POST to `/v3/loyalty/spending-reward/calculate` with `currencyType` and `amount`. Read the points value from the response.
+
+---
 
 ### Request Parameters
 
@@ -81,3 +93,5 @@ Use amount sales to Calculate Spending Reward points
 <a id="item" />
 
 Currency notation (currently only support MYR)
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

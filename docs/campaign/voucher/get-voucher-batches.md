@@ -118,15 +118,25 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 Url : `https://open.revenuemonster.my/v3/voucher-batches`
 Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher-batches`
 
-:::note
-To get multiple voucher batches.
-:::
+## What is this?
+
+List all voucher batches created by the merchant.
+
+## When to Use
+
+Use this endpoint when:
+- Browsing batches to find a specific `batchkey`
+- Building a batch-listing UI in your dashboard
+
+## How to Use
+
+GET `/v3/voucher-batches`. No request body required.
+
+---
 
 ### Request Parameters
 
-:::note
-No request parameter is required for this endpoint.
-:::
+No request body. Authenticated headers only.
 
 ### Response Parameters
 
@@ -162,3 +172,5 @@ No request parameter is required for this endpoint.
 
 <a id="items" />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

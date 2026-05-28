@@ -48,11 +48,35 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/online"
 />
 
+## What is this?
+
+Returns base64-encoded data to pass to the WeChat Pay Mini Program payment API for in-app payment within the WeChat app.
+
+## When to Use
+
+Use this mode when:
+- Integrating payment inside a WeChat Mini Program
+- Targeting Chinese customers paying via WeChat Pay
+
 :::note
 Before starting integration, contact [support@revenuemonster.my](mailto:support@revenuemonster.my) to bind your Mini Program App ID (小程序 App ID) to your account.
 :::
 
-Returns base64-encoded data to pass to the WeChat Pay Mini Program payment API.
+## How to Use
+
+### Step 1: Create a Checkout
+
+Call [Hosted Payment Checkout](../hosted-checkout) to obtain `checkoutId`.
+
+### Step 2: Request the Mini Program Data
+
+POST with `type: "MINI_PROGRAM"`, `method: "WECHATPAY_CN"`, and the user's WeChat Open ID.
+
+### Step 3: Invoke WeChat `requestPayment`
+
+Decode and parse the base64 `data`, then call `wx.requestPayment` in your mini program.
+
+---
 
 ## Request Parameters
 
@@ -104,3 +128,5 @@ wx.requestPayment({
   complete: function (res) { console.log("complete", res); }
 });`}
 </CodeBlock>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

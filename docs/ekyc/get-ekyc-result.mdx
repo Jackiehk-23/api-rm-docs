@@ -120,11 +120,38 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 />
 
 
+## What is this?
+
+Retrieve the consolidated eKYC verification result — combining MyKad recognition, face comparison, and verdict — using the `requestID` from [MyKad Recognition](./mykad-recognition).
+
+## When to Use
+
+Use this endpoint when:
+- You need the final eKYC verdict for a previously initiated session
+- Polling for results when no webhook (`notify_url`) was supplied
+- Auditing past eKYC outcomes
+
 :::note
-Prerequisite: Acquire `requestID` from mykad recognition response.
+**Prerequisite:** Acquire `requestID` from the [MyKad Recognition](./mykad-recognition) response.
 
 RM eKYC Sequence Diagram: [Click Here](https://drive.google.com/drive/folders/1cNrEk5i2s_WnI9i8_WxQlwBw5ivqxY-g?usp=sharing)
 :::
+
+## How to Use
+
+### Step 1: Get the Request ID
+
+Capture `requestID` from your prior [MyKad Recognition](./mykad-recognition) call.
+
+### Step 2: Send the Query
+
+POST with `function: "get-ekyc-result"` and the `id` field set to your `requestID`.
+
+### Step 3: Read the Verdict
+
+The response includes the overall `verdict`, plus nested `faceResult` and `results` objects.
+
+---
 
 ### Request Parameters
 
@@ -276,3 +303,5 @@ RM eKYC Sequence Diagram: [Click Here](https://drive.google.com/drive/folders/1c
 
 
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

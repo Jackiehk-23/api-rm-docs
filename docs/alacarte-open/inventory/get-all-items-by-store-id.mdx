@@ -210,11 +210,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
-:::note
+## What is this?
 
-- Using `storeId` to get all items
+List all menu items across all categories in a store.
 
-:::
+## When to Use
+
+Use this endpoint when:
+- Rendering the full menu for a store
+- Performing inventory audits across categories
+
+## How to Use
+
+POST `function: "get.store.items"` with the `storeId`.
+
+---
 
 ### Request Parameters
 
@@ -304,3 +314,5 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 />
 
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

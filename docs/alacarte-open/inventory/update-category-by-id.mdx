@@ -77,11 +77,22 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
-:::note
+## What is this?
 
-- Update the category **name** , **status** and **positionChange**
+Update a category's name, status, or position in the menu order.
 
-:::
+## When to Use
+
+Use this endpoint when:
+- Renaming a category (e.g., "Drinks" → "Beverages")
+- Activating / deactivating a category
+- Re-ordering categories on the menu
+
+## How to Use
+
+POST `function: "update.category"` with `categoryId` and the changed fields. Use `positionChange` `1` to move down, `-1` to move up.
+
+---
 
 ### Request Parameters
 
@@ -123,3 +134,5 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   ]}
 />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -38,30 +38,50 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
-:::note
-To delete specific store under the merchant. Specify `store_id` in your query.
-:::
+## What is this?
+
+Permanently delete a store under a merchant account.
 
 :::warning
-Deleted stores cannot be revoked!
+Deletion is irreversible. Once a store is deleted, it cannot be restored.
 :::
 
-### Request Parameters:
+## When to Use
 
-:::note
+Use this endpoint when:
+- A store has permanently closed
+- Removing a duplicate or test store
+- Decommissioning an outlet
 
-- The URL is consists of `[base_URL]`/v3/store/`[store_id]`
+## How to Use
 
-- Pass in `Store ID` in your query
+### Step 1: Get the Store ID
 
-:::
+Retrieve `storeId` from [Get All Stores](./store-details).
 
-### Response Parameters
+### Step 2: Send the DELETE Request
+
+Pass `storeId` as a path parameter — `/v3/store/{storeId}`. No body required.
+
+### Step 3: Verify the Response
+
+A `"SUCCESS"` code confirms deletion.
+
+---
+
+## Request Parameters
+
+Pass `storeId` as a path parameter. No body.
+
+---
+
+## Response Parameters
 
 <ParamTable
-  title="Response Parameters"
+  title="Response"
   rows={[
-    { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
+    { name: "code", type: "String", description: "`\"SUCCESS\"` if the deletion succeeded. Otherwise returns an error code. See [Error Codes](../../error-codes).", example: "\"SUCCESS\"" }
   ]}
 />
 
+<!-- SPDX-License-Identifier: Apache-2.0 -->

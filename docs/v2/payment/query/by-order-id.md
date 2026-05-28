@@ -44,6 +44,29 @@ Store the **Order ID** from every payment request — you will need it to look u
 **3 requests per 5 seconds** per access token. Exceeding this returns a `429 Too Many Requests` response. Add a short delay between retries.
 :::
 
+## When to Use
+
+Use this endpoint when:
+- You only know the merchant-side Order ID, not the RM Transaction ID
+- Looking up a payment by your own internal order reference
+- Reconciling against your e-commerce / POS system
+
+## How to Use
+
+### Step 1: Get the Order ID
+
+Use the `order.id` you supplied when initiating the payment.
+
+### Step 2: Send the GET Request
+
+Pass `orderId` as a path parameter — `/v3/payment/transaction/{orderId}`.
+
+### Step 3: Read the Response
+
+The `item` object contains the full transaction record.
+
+---
+
 ## Request Parameters
 
 <ParamTable
@@ -97,3 +120,5 @@ Store the **Order ID** from every payment request — you will need it to look u
 />
 
 See [Transaction Object](./transaction-object.md) for the full field breakdown of the `item` response.
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

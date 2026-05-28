@@ -3,7 +3,19 @@ title: "DeepLink — Card Payment"
 sidebar_label: "Card Payment"
 ---
 
-Sends a Card Payment intent (`transactionType: 2`) to the RM Merchant App to accept card payments.
+## What is this?
+
+Sends a Card Payment intent (`transactionType: 2`) to the RM Merchant App to accept card payments via DeepLink.
+
+## When to Use
+
+Use this DeepLink when:
+- Your Android app needs to delegate card payment to the RM Merchant App
+- Accepting in-store card payments from a custom terminal app
+
+## How to Use
+
+Send an `Intent("REVENUE_MONSTER_PAYMENT")` with `transactionType: 2` and the order details. The RM Merchant App handles the payment and returns the result.
 
 <CodeBlock language="kotlin" filename="CardPayment.kt">
 {`val i = Intent("REVENUE_MONSTER_PAYMENT").apply {
@@ -40,3 +52,5 @@ For terminal MF919, receipt printing cannot be controlled programmatically.
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

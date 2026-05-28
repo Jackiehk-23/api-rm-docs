@@ -35,11 +35,35 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/recurring-payment/{customer_id}/orders"
 />
 
+## What is this?
+
 Returns the list of payment orders made for a recurring or tokenized customer.
+
+## When to Use
+
+Use this endpoint when:
+- Showing a customer's billing history
+- Reconciling charges against your records
 
 :::note
 Only available after the customer has successfully bound their card.
 :::
+
+## How to Use
+
+### Step 1: Identify the Customer
+
+Use the `customer_id` returned by [Create Tokenized Customer](../tokenized/create-customer.md) or [Create Recurring Customer](../recurring/create-customer.md).
+
+### Step 2: Send the GET Request
+
+GET `/v3/recurring-payment/{customer_id}/orders`.
+
+### Step 3: Iterate `items`
+
+Each entry represents one charge against the customer's stored token.
+
+---
 
 ## Request Parameters
 
@@ -78,3 +102,5 @@ Only available after the customer has successfully bound their card.
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

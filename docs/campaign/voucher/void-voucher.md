@@ -77,9 +77,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 Url :`https://open.revenuemonster.my/v3/voucher/NAklEfbVdV/void`
 Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher/NAklEfbVdV/void`
 
-:::note
-To void voucher(s) of customer.
-:::
+## What is this?
+
+Void a customer's voucher by `code`. Sets the voucher status to `VOID` so it can no longer be used.
+
+## When to Use
+
+Use this endpoint when:
+- A voucher needs to be cancelled before redemption
+- Reversing a voucher issued by mistake
+
+## How to Use
+
+POST to `/v3/voucher/{code}/void` with no request body.
+
+---
 
 ### Request Parameters
 
@@ -145,3 +157,5 @@ To void voucher(s) of customer.
 
 <a id="item" />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

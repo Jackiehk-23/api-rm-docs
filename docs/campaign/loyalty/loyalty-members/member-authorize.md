@@ -73,9 +73,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/member/authorize"
 />
 
-:::note
-Get Member Authorized URL
-:::
+## What is this?
+
+Get a member-authorization URL — a short-lived URL the member visits to authorize the merchant to act on their behalf.
+
+## When to Use
+
+Use this endpoint when:
+- Driving an OAuth-style member consent flow
+- Needing time-bound delegated access
+
+## How to Use
+
+POST to `/v3/loyalty/member/authorize` with the required parameters. Use the returned URL for the member's consent step.
+
+---
 
 ### Request Parameters
 
@@ -127,3 +139,5 @@ Get Member Authorized URL
   ]}
 />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

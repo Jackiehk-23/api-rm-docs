@@ -70,16 +70,36 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/vop/enroll-user"
 />
 
-:::note
+## What is this?
 
-- Enroll user to Visa's VOP with RM.
+Enroll a user into Visa's Offers Platform (VOP) via RM. The first card supplied with the user is automatically registered alongside the user record.
 
-:::
+## When to Use
 
-### Request Parameters
+Use this endpoint when:
+- Registering a new user for card-linked offers
+- Onboarding a cardholder into a cashback or rewards program
+
+## How to Use
+
+### Step 1: Collect User and Card Details
+
+Generate a unique `userId` (15-char random string), then collect the user's card PAN, card name, and the webhook `notifyUrl` for transaction events.
+
+### Step 2: Send the Enrollment Request
+
+POST the payload to `/v3/vop/enroll-user` with signed authentication headers.
+
+### Step 3: Store the IDs
+
+The response returns the RM-issued `user.id` and `card.id`. Use these for [Enroll Card](./enroll-card), [Unenroll Card](./unenroll-card), or [Unenroll User](./unenroll-user).
+
+---
+
+## Request Parameters
 
 <ParamTable
-  title="Request Parameters"
+  title="Request Body"
   rows={[
     { name: "userId", type: "String", required: true, description: "Provide a random generated 15 length string", example: "\"KCac44i8NmtnUBo\"" },
     { name: "cardPan", type: "String", required: true, description: "Card number of the user", example: "\"4364484100392449\"" },
@@ -88,12 +108,14 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   ]}
 />
 
-### Response Parameters
+---
+
+## Response Parameters
 
 <ParamTable
-  title="Response Parameters"
+  title="Response"
   rows={[
-    { name: "item", type: "Object", description: "Response item",
+    { name: "item", type: "Object", description: "Enrollment record.",
       children: [
       { name: "card", type: "Object", description: "Card details",
         children: [
@@ -115,7 +137,8 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
       },
       ]
     },
-    { name: "code", type: "String", description: "Status of the enrollment", example: "\"SUCCESS\"" }
+    { name: "code", type: "String", description: "`\"SUCCESS\"` if enrollment succeeded. Otherwise returns an error code. See [Error Codes](../error-codes).", example: "\"SUCCESS\"" }
   ]}
 />
 
+<!-- SPDX-License-Identifier: Apache-2.0 -->

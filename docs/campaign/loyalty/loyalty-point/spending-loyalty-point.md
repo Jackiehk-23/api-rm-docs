@@ -39,15 +39,25 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/spending-reward"
 />
 
-:::note
-To give loyalty point(s) based on amount to customers using phone number or member ID.
-:::
+## What is this?
+
+Award spending-loyalty points to a member based on a sales `amount`. Uses the merchant's loyalty point rules to compute the reward.
+
+## When to Use
+
+Use this endpoint when:
+- Awarding points proportional to spend after a non-auto-give payment
+- Implementing manual loyalty-point awarding for non-WeChat wallets
 
 :::caution
-
-**Only WeChat Pay + WeChat OA loyalty** program can support auto-give points during payment. All other wallets **DO NOT** support auto-give points. You should use the merchant app/terminal app or this endpoint to give points manually for each payment.
-
+**Only WeChat Pay + WeChat OA loyalty** program supports auto-give points during payment. All other wallets **DO NOT** support auto-give points. Use the merchant app / terminal app or this endpoint to award points manually for each payment.
 :::
+
+## How to Use
+
+POST to `/v3/loyalty/spending-reward` with `currencyType`, `amount`, and the member identifier.
+
+---
 
 ### Request Parameters
 
@@ -133,3 +143,5 @@ To give loyalty point(s) based on amount to customers using phone number or memb
 }`}
 </CodeBlock>
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -85,11 +85,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
-:::note
+## What is this?
 
-- Using `storeId` to get categories
+List all menu categories for a specific store.
 
-:::
+## When to Use
+
+Use this endpoint when:
+- Rendering a menu by category
+- Looking up `categoryId` before fetching items
+
+## How to Use
+
+POST `function: "get.categories"` with the `storeId`.
+
+---
 
 ### Request Parameters
 
@@ -130,3 +140,5 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   ]}
 />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

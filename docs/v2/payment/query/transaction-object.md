@@ -3,6 +3,18 @@ title: "Transaction Object"
 sidebar_label: "Transaction Object"
 ---
 
+## What is this?
+
+Reference for the **transaction object** returned in `item` (or each entry in `items[]`) by all transaction query and payment endpoints. Use this page as the canonical field map when parsing responses.
+
+## When to Use
+
+Refer to this page when:
+- Parsing the response of any payment or query endpoint
+- You need to know which fields apply to a specific payment method (card, FPX, BNPL, loyalty)
+
+## Fields
+
 The transaction object is returned in the `item` (or `items[]`) field of query responses.
 
 <ParamTable
@@ -190,3 +202,4 @@ If you are using QR code mode for payment, you will receive the spending loyalty
   ]}
 />
 
+<!-- SPDX-License-Identifier: Apache-2.0 -->

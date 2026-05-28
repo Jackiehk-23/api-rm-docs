@@ -58,11 +58,35 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/terminal/quickpay"
 />
 
-Sends a card refund event to the RM Terminal. The terminal will process the refund for the specified transaction.
+## What is this?
+
+Sends a card refund event to the RM Terminal. The terminal processes the refund for the specified transaction.
+
+## When to Use
+
+Use this endpoint when:
+- Refunding a card transaction at the same RM Terminal
+- Customer requests an in-store card refund
 
 :::note
 For e-wallet refunds, use [Cancel Transaction — Refund](../cancel-transaction/refund-transaction.mdx) via the server API instead.
 :::
+
+## How to Use
+
+### Step 1: Get the Transaction ID
+
+Capture the `transactionId` from the original card payment.
+
+### Step 2: Send the Refund Event
+
+POST with `type: "REFUND"` and the transaction ID, refund PIN, and email.
+
+### Step 3: Confirm Delivery
+
+A `"SUCCESS"` code means the refund event was dispatched to the terminal.
+
+---
 
 ## Request Parameters
 
@@ -125,3 +149,5 @@ For e-wallet refunds, use [Cancel Transaction — Refund](../cancel-transaction/
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

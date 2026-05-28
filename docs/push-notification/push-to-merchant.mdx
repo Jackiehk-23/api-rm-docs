@@ -45,9 +45,23 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/push-notification/merchant"
 />
 
-Send a push notification to a merchant's registered device.
-
 import ParamTable from "@site/src/components/ParamTable";
+
+## What is this?
+
+Send a push notification to a merchant's registered device. Useful for alerting merchants about orders, payments, or system events.
+
+## When to Use
+
+Use this endpoint when:
+- Notifying a merchant of a new order or payment
+- Sending operational alerts to the merchant's mobile device
+
+## How to Use
+
+POST with `title` and `body` of the notification. RM delivers it to the merchant's registered device(s).
+
+---
 
 ### Request Parameters
 
@@ -67,3 +81,5 @@ import ParamTable from "@site/src/components/ParamTable";
     { name: "code", type: "String", description: "Returns SUCCESS when notification is sent successfully", example: "\"SUCCESS\"" },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

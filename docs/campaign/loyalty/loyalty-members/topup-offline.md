@@ -105,9 +105,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/member/:memberId/topup-offline"
 />
 
-:::note
-Specify loyalty member id to topup using quickpay
-:::
+## What is this?
+
+Top up a loyalty member's credit balance offline using a Quick Pay scan.
+
+## When to Use
+
+Use this endpoint when:
+- Member tops up their loyalty balance at a physical store
+- Driving the top-up flow from the merchant terminal app
+
+## How to Use
+
+POST `/v3/loyalty/member/{memberId}/topup-offline` with the scanned `authCode` and `amount`.
+
+---
 
 ### Request Parameters
 
@@ -180,3 +192,5 @@ Specify loyalty member id to topup using quickpay
 
 <a id="store" />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

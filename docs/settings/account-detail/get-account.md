@@ -125,13 +125,39 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/account/{id}"
 />
 
-:::note
-Get Account Info
-:::
+## What is this?
 
-### Request Parameters
+Retrieve detailed information for a single account by its `id`, including company, bank, documents, and verification status.
 
-### Response Parameters
+## When to Use
+
+Use this endpoint when:
+- You need full details of one specific account
+- Verifying an account's status or documents
+
+## How to Use
+
+### Step 1: Get the Account ID
+
+Retrieve the account `id` from [Get Accounts](./get-accounts).
+
+### Step 2: Send the GET Request
+
+Pass `id` as a path parameter in the URL.
+
+### Step 3: Read the Response
+
+The `item` object contains the full account record.
+
+---
+
+## Request Parameters
+
+Pass the account `id` as a path parameter.
+
+---
+
+## Response Parameters
 
 <ParamTable
   title="Response Parameters"
@@ -230,5 +256,4 @@ Get Account Info
   ]}
 />
 
-<a id="item" />
-
+<!-- SPDX-License-Identifier: Apache-2.0 -->

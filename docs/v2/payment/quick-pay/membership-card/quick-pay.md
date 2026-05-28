@@ -66,7 +66,31 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/quickpay"
 />
 
-After [verifying the membership card](./verify.md), use this endpoint to process the payment with the membership card discount applied.
+## What is this?
+
+Quick Pay that applies an Alipay Gourmet Card (Membership Card) discount before settling the e-wallet payment.
+
+## When to Use
+
+Use this endpoint when:
+- The customer presents a valid Alipay Gourmet Card
+- You've already verified the card via [Verify Membership Card](./verify.md)
+
+## How to Use
+
+### Step 1: Verify the Card
+
+Call [Verify Membership Card](./verify.md) first to confirm the card is valid.
+
+### Step 2: Scan the Wallet QR
+
+Capture the customer's wallet `authCode`.
+
+### Step 3: Send the Payment
+
+POST the authCode, order, and `extraInfo` with `type: "MEMBERSHIP"` and the verified membership card ID.
+
+---
 
 ## Request Parameters
 
@@ -137,3 +161,5 @@ After [verifying the membership card](./verify.md), use this endpoint to process
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

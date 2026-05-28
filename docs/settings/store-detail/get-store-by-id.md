@@ -54,21 +54,39 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/store/{storeId}"
 />
 
-:::note
-Use `Store ID` to check a particular store details.
-:::
+## What is this?
 
-### Request Parameters:
+Fetch the full record for a single store by its `storeId`.
 
-:::note
+## When to Use
 
-- The URL is consists of `[base_URL]`/v3/store/`[store_id]`
+Use this endpoint when you:
+- Display one store's details
+- Verify a store's status, address, or contact info
 
-- Pass in `Store ID` in your query
+## How to Use
 
-:::
+### Step 1: Get the Store ID
 
-### Response Parameters
+Retrieve `storeId` from [Get All Stores](./store-details).
+
+### Step 2: Send the GET Request
+
+Pass `storeId` as a path parameter — `/v3/store/{storeId}`.
+
+### Step 3: Read the Response
+
+The `item` object contains the full store record.
+
+---
+
+## Request Parameters
+
+Pass `storeId` as a path parameter.
+
+---
+
+## Response Parameters
 
 <ParamTable
   title="Response Parameters"
@@ -96,5 +114,4 @@ Use `Store ID` to check a particular store details.
   ]}
 />
 
-<a id="item" />
-
+<!-- SPDX-License-Identifier: Apache-2.0 -->

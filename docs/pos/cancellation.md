@@ -4,9 +4,35 @@ title: POS Payment Cancellation
 sidebar_label: POS Payment Cancellation
 ---
 
-**Method :** <HttpMethodBadge method="POST" />
-URL : `https://open.revenuemonster.my/v3/event/terminal`
-Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
+## What is this?
+
+Cancel any ongoing payment event on the RM Terminal from a POS system. Use when a payment must be aborted before it completes.
+
+## When to Use
+
+Use this endpoint when:
+- Customer abandons an in-flight payment
+- Voiding an unresponsive terminal event before retry
+
+## How to Use
+
+**Method:** <HttpMethodBadge method="POST" />
+URL: `https://open.revenuemonster.my/v3/event/terminal`
+Sandbox URL: `https://sb-open.revenuemonster.my/v3/event/terminal`
+
+### Step 1: Identify the Terminal
+
+Use the `terminalId` of the RM Terminal with the in-flight payment.
+
+### Step 2: Send the Cancel Event
+
+POST with `type: "CANCEL"`. No body details needed beyond `terminalId` and `type`.
+
+### Step 3: Verify Cancellation
+
+A `"SUCCESS"` code confirms the cancel event was sent.
+
+---
 
 ### Request Parameters
 
@@ -44,3 +70,4 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
 }`}
 </CodeBlock>
 
+<!-- SPDX-License-Identifier: Apache-2.0 -->

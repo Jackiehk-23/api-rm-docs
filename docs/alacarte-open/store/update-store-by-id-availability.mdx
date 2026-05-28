@@ -88,8 +88,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/service"
 />
 
+## What is this?
 
+Set a store's availability — including a `closedUntil` timestamp to temporarily mark the store closed.
 
+## When to Use
+
+Use this endpoint when:
+- Closing the store for a holiday, break, or maintenance window
+- Reopening the store ahead of schedule
+
+## How to Use
+
+POST `function: "updates.store.availability"` with `storeId` and `closedUntil` (ISO 8601).
+
+---
 
 ### Request Parameters
 
@@ -134,3 +147,5 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 />
 
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

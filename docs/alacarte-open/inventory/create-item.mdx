@@ -259,8 +259,32 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/service"
 />
 
+## What is this?
 
+Create a new menu item in an à la carte store — name, price, sides, preferences, schedules, and category assignment.
 
+## When to Use
+
+Use this endpoint when:
+- Adding a new menu item to a store
+- Defining sides (e.g., drink with combo) and customer preferences (e.g., sweetness levels)
+- Scheduling item availability windows
+
+## How to Use
+
+### Step 1: Identify the Store
+
+Use the `storeId` for the à la carte store.
+
+### Step 2: Build the Item
+
+Set `name`, `price`, `quantity`, and optional `sides`, `preferences`, `schedules`, and `categoryIds`.
+
+### Step 3: Send the Request
+
+POST with `function: "create.item"` and the request payload.
+
+---
 
 ### Request Parameters
 
@@ -390,4 +414,4 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   ]}
 />
 
-
+<!-- SPDX-License-Identifier: Apache-2.0 -->

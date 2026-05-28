@@ -55,9 +55,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/chop-stamp/card/scan"
 />
 
-:::note
-Give a stamp to customer
-:::
+## What is this?
+
+Issue a chop stamp to a customer's loyalty card. Each scan adds one stamp toward their reward.
+
+## When to Use
+
+Use this endpoint when:
+- A customer presents their chop-stamp QR code at checkout
+- Manually awarding stamps from the merchant terminal
+
+## How to Use
+
+POST the scanned QR `code` to the endpoint. The response confirms the new stamp count and whether the card is complete.
+
+---
 
 ### Request Parameters
 
@@ -92,3 +104,5 @@ Give a stamp to customer
 
 <a id="item" />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

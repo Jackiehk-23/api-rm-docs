@@ -14,3 +14,5 @@ Official Revenue Monster wordmark and icon assets.
 >
   Download Revenue Monster Logo
 </a>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

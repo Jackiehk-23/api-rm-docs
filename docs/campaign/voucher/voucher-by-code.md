@@ -70,9 +70,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 Url :`https://open.revenuemonster.my/v3/voucher/NAklEfbVdV`
 Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher/NAklEfbVdV`
 
-:::note
-To get single voucher by code
-:::
+## What is this?
+
+Retrieve a single voucher's details by its `code`.
+
+## When to Use
+
+Use this endpoint when:
+- Looking up a specific voucher for inspection or status check
+- Verifying a voucher before redemption
+
+## How to Use
+
+POST to `/v3/voucher/{code}` with no request body.
+
+---
 
 ### Request Parameters
 
@@ -127,3 +139,5 @@ To get single voucher by code
 
 <a id="item" />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

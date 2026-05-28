@@ -36,6 +36,29 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 Fetch a paginated list of all transactions for your store.
 
+## When to Use
+
+Use this endpoint when:
+- Displaying transaction history in your dashboard
+- Building a reporting or analytics view
+- Auditing recent payment activity
+
+## How to Use
+
+### Step 1: Authenticate
+
+Obtain a valid `accessToken`. No signature required for this endpoint.
+
+### Step 2: Send the GET Request
+
+Include `limit` as a query parameter to paginate.
+
+### Step 3: Iterate `items`
+
+The response `items` array contains transaction objects.
+
+---
+
 ## Request Parameters
 
 <ParamTable
@@ -89,3 +112,5 @@ Fetch a paginated list of all transactions for your store.
 />
 
 See [Transaction Object](./transaction-object.md) for the full field breakdown of each item in `items`.
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -77,12 +77,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/me/voucher/{voucherCode}"
 />
 
-:::note
+## What is this?
 
-- Get **Voucher detail** by input `{voucher-code}`
-- Using Query String to input the **country code** and **phone number**
+Retrieve voucher details for a specific member by `voucherCode`.
 
-:::
+## When to Use
+
+Use this endpoint when:
+- Showing a member's specific voucher details
+- Verifying voucher status before redemption
+
+## How to Use
+
+GET `/v3/loyalty/me/voucher/{voucherCode}` with `countryCode` and `phoneNumber` as query parameters.
+
+---
 
 ### Request Parameters
 
@@ -154,3 +163,5 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <a id="address" />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -4,27 +4,55 @@ title: Transaction Webhook
 sidebar_label: Transaction Webhook
 ---
 
-:::note
+## What is this?
 
-- Send transaction webhook to merchant.
+RM sends a POST webhook to your registered `notifyUrl` whenever an enrolled Visa card transacts at a participating merchant. Use it to track qualifying transactions in real time.
 
+## When to Use
+
+Implement a handler for this webhook when:
+- You want real-time notifications of card-linked offer events
+- Awarding cashback or rewards based on qualifying transactions
+- Reconciling user activity into your own ledger
+
+:::important
+The webhook is delivered to the `notifyUrl` you supplied during [Enroll User](./enroll-user). Your endpoint must respond with HTTP 200 OK to acknowledge receipt.
 :::
 
-### Request Parameters
+## How to Use
+
+### Step 1: Expose a Public POST Handler
+
+Build an HTTP endpoint that accepts JSON `POST` requests over HTTPS.
+
+### Step 2: Register the URL
+
+Pass the URL as `notifyUrl` when calling [Enroll User](./enroll-user).
+
+### Step 3: Verify and Acknowledge
+
+Validate the payload signature (if applicable), persist the transaction, and respond `200 OK` quickly to avoid retries.
+
+---
+
+## Request Parameters
 
 <ParamTable
+  title="Webhook Body"
   rows={[
-    { name: "userId", type: "String", required: true, description: "User ID", example: "\"1693590750219574539\"" },
-    { name: "cardId", type: "String", required: true, description: "User Card ID", example: "\"1693590754940319811\"" },
-    { name: "transactionId", type: "String", required: true, description: "Transaction ID", example: "\"1693591501957443719\"" },
-    { name: "transactionAt", type: "String", required: true, description: "Transaction Time (ISO 8601)", example: "\"2023-08-30T09:39:15\"" },
-    { name: "amount", type: "Integer", required: true, description: "Transaction Amount", example: "1128" },
-    { name: "currency", type: "String", required: true, description: "Transaction Amount", example: "\"840\"" },
-    { name: "merchantCategoryCode", type: "String", required: true, description: "Merchant Category Code", example: "\"0000\"" }
+    { name: "userId", type: "String", required: true, description: "RM-issued user ID.", example: "\"1693590750219574539\"" },
+    { name: "cardId", type: "String", required: true, description: "RM-issued card ID.", example: "\"1693590754940319811\"" },
+    { name: "transactionId", type: "String", required: true, description: "Unique transaction ID.", example: "\"1693591501957443719\"" },
+    { name: "transactionAt", type: "DateTime", required: true, description: "Transaction timestamp (ISO 8601).", example: "\"2023-08-30T09:39:15\"" },
+    { name: "amount", type: "Integer", required: true, description: "Transaction amount in cents.", example: "1128" },
+    { name: "currency", type: "String", required: true, description: "Numeric ISO 4217 currency code.", example: "\"840\"" },
+    { name: "merchantCategoryCode", type: "String", required: true, description: "Merchant Category Code (MCC).", example: "\"0000\"" }
   ]}
 />
 
-<CodeBlock language="json" filename="Example Request">
+### Example Payload
+
+<CodeBlock language="json" filename="Example Webhook Body">
 {`{
   "userId": "1693590750219574539",
   "cardId": "1693590754940319811",
@@ -35,3 +63,5 @@ sidebar_label: Transaction Webhook
   "merchantCategoryCode": "0000"
 }`}
 </CodeBlock>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

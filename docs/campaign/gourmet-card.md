@@ -74,10 +74,25 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/membership/verify"
 />
 
+## What is this?
+
+Verify and retrieve full details of an Alipay Gourmet Card (美食卡) using its `memberCardId`. Returns the card's discount details, expiry, and metadata.
+
+## When to Use
+
+Use this endpoint when:
+- Verifying an Alipay Gourmet Card before applying the discount
+- Looking up card details for a verified Alipay member
+
 :::note
-(**For Alipay Merchant** )
-Collect information using member card ID
+**For Alipay merchants only.**
 :::
+
+## How to Use
+
+POST `memberCardId` and `storeId` to `/v3/membership/verify`. Use the returned details to apply the discount in your payment flow.
+
+---
 
 ### Request Parameters
 
@@ -131,3 +146,5 @@ Collect information using member card ID
 
 <a id="card" />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

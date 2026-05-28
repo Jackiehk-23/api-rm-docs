@@ -96,9 +96,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 Url : `https://sb-open.revenuemonster.my/v3/voucher-batch/EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQi5rUhcrdx78V/vouchers`
 Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher-batch/EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQi5rUhcrdx78V/vouchers`
 
-:::note
-To get Multiple voucher batches by Key .
-:::
+## What is this?
+
+Retrieve all vouchers belonging to a specific voucher batch by its `batchkey`.
+
+## When to Use
+
+Use this endpoint when:
+- Listing every voucher in a given batch
+- Auditing voucher issuance under a batch
+
+## How to Use
+
+GET `/v3/voucher-batch/{batchkey}/vouchers`. Find `batchkey` via the merchant portal or [Get Voucher Batches](./get-voucher-batches).
+
+---
 
 ### Request Parameters
 
@@ -148,3 +160,5 @@ To get Multiple voucher batches by Key .
 
 <a id="items" />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

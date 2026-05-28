@@ -242,13 +242,111 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/accounts/{id}"
 />
 
-:::note
-Upadte Account Info
-:::
+## What is this?
 
-### Request Parameters
+Update the details of an existing account. Use this to modify company info, addresses, banking details, documents, and inspect list entries for a registered account.
 
-### Response Parameters
+## When to Use
+
+Use this endpoint when:
+- An account's company details or registration info changes
+- You need to upload or replace document URLs (CTOS, bank statement, etc.)
+- Banking details or business addresses require updating
+- Directors / shareholders on the `inspectList` need to be amended
+
+## How to Use
+
+### Step 1: Get the Account ID
+
+Locate the account `id` you want to update. Retrieve it from the [Get Accounts](./get-accounts) endpoint.
+
+### Step 2: Prepare the Updated Fields
+
+Include only the fields you want to update. Leave unchanged fields out of the body, or pass their current values.
+
+### Step 3: Send the PUT Request
+
+Pass the account `id` as a path parameter. Include the updated fields in the JSON body.
+
+### Step 4: Review the Response
+
+A `"SUCCESS"` code with the updated account object confirms the change.
+
+---
+
+## Request Parameters
+
+Pass the account `id` as a path parameter in the URL.
+
+<ParamTable
+  title="Request Body"
+  rows={[
+    { name: "brandName", type: "String", description: "Brand name of the company.", example: "\"Revenue Monster\"" },
+    { name: "websiteUrl", type: "String", description: "Company website URL.", example: "\"https://revenuemonster.my\"" },
+    { name: "registrationNumber", type: "String", description: "Company registration number.", example: "\"XAS1233123\"" },
+    { name: "establishedAt", type: "DateTime", description: "Date the company was established (ISO 8601).", example: "\"2006-01-02T15:04:05Z\"" },
+    { name: "addressLine1", type: "String", description: "Primary address line.", example: "\"1, Jalan Pertanian 25\"" },
+    { name: "addressLine2", type: "String", description: "Secondary address line.", example: "\"Taman Universiti\"" },
+    { name: "postCode", type: "String", description: "Postal code.", example: "\"81302\"" },
+    { name: "city", type: "String", description: "City.", example: "\"SKUDAI\"" },
+    { name: "state", type: "String", description: "State or province.", example: "\"JOHOR\"" },
+    { name: "country", type: "String", description: "Country.", example: "\"MALAYSIA\"" },
+    { name: "countryCode", type: "String", description: "Country dialing code.", example: "\"60\"" },
+    { name: "phoneNumber", type: "String", description: "Contact phone number.", example: "\"167724152\"" },
+    { name: "companyName", type: "String", description: "Registered company name.", example: "\"Revenue Monster\"" },
+    { name: "companyType", type: "String", description: "Type of company incorporation.", example: "\"PRIVATE LIMITED COMPANY (SDN BHD)\"" },
+    { name: "businessCategory", type: "String", description: "Business category.", example: "\"COMPUTER AND ELECTRONICS\"" },
+    { name: "averageTicketSize", type: "Integer", description: "Average transaction ticket size.", example: "1000000" },
+    { name: "averageTurnoverPerMonth", type: "Integer", description: "Average monthly turnover.", example: "1000000" },
+    { name: "businessScope", type: "String", description: "Description of business scope.", example: "\"some business scope\"" },
+    { name: "invoiceAddress", type: "Object", description: "Invoice / billing address.",
+      children: [
+        { name: "addressLine1", type: "String", description: "Address line 1.", example: "\"1, Jalan Pertanian 25\"" },
+        { name: "addressLine2", type: "String", description: "Address line 2.", example: "\"Taman Universiti\"" },
+        { name: "postCode", type: "String", description: "Postal code.", example: "\"81302\"" },
+        { name: "city", type: "String", description: "City.", example: "\"SKUDAI\"" },
+        { name: "state", type: "String", description: "State.", example: "\"JOHOR\"" },
+        { name: "country", type: "String", description: "Country.", example: "\"MALAYSIA\"" }
+      ]
+    },
+    { name: "document", type: "Object", description: "Document file URLs.",
+      children: [
+        { name: "ctosFileUrl", type: "String", description: "CTOS report file URL.", example: "\"https://somefilenedpoint.com\"" },
+        { name: "ownerICFileUrl", type: "String", description: "Owner IC file URL.", example: "\"https://somefilenedpoint.com\"" },
+        { name: "directorICFileUrl", type: "String", description: "Director IC file URL.", example: "\"https://somefilenedpoint.com\"" },
+        { name: "shareHolderICFileUrl", type: "String", description: "Shareholder IC file URL.", example: "\"https://somefilenedpoint.com\"" },
+        { name: "businessRegistrationFileUrl", type: "String", description: "Business registration file URL.", example: "\"https://somefilenedpoint.com\"" },
+        { name: "bankStatementFileUrl", type: "String", description: "Bank statement file URL.", example: "\"https://somefilenedpoint.com\"" },
+        { name: "moaFileUrl", type: "String", description: "MOA file URL.", example: "\"https://somefilenedpoint.com\"" },
+        { name: "form24FileUrl", type: "String", description: "Form 24 file URL.", example: "\"https://somefilenedpoint.com\"" },
+        { name: "form49FileUrl", type: "String", description: "Form 49 file URL.", example: "\"https://somefilenedpoint.com\"" },
+        { name: "section14FileUrl", type: "String", description: "Section 14 file URL.", example: "\"https://somefilenedpoint.com\"" },
+        { name: "form44FileUrl", type: "String", description: "Form 44 file URL.", example: "\"https://somefilenedpoint.com\"" },
+        { name: "businessSitePhotoFileUrl", type: "String", description: "Business site photo URL.", example: "\"https://somefilenedpoint.com\"" }
+      ]
+    },
+    { name: "inspectList", type: "Array", description: "List of inspected directors / shareholders.",
+      children: [
+        { name: "fullName", type: "String", description: "Full name.", example: "\"NG SZE CHEN\"" },
+        { name: "gender", type: "String", description: "Gender.", example: "\"MALE\"" },
+        { name: "birthday", type: "DateTime", description: "Date of birth (ISO 8601).", example: "\"2000-07-14T15:59:59Z\"" },
+        { name: "nationality", type: "String", description: "Nationality.", example: "\"MALAYSIAN\"" },
+        { name: "idType", type: "String", description: "Identification type.", example: "\"IC\"" },
+        { name: "idNo", type: "String", description: "Identification number.", example: "\"2131290134\"" }
+      ]
+    },
+    { name: "bankAccountType", type: "String", description: "Bank account type (`\"CORPORATE\"`, `\"INDIVIDUAL\"`).", example: "\"CORPORATE\"" },
+    { name: "bankAccountHolderName", type: "String", description: "Bank account holder name.", example: "\"Revenue Monster\"" },
+    { name: "bankAccountNo", type: "String", description: "Bank account number.", example: "\"32312323\"" },
+    { name: "bankCode", type: "String", description: "Bank code. See [Bank Code](../../bank-code).", example: "\"HLBB\"" },
+    { name: "latitude", type: "Number", description: "Latitude of business address.", example: "0.0" },
+    { name: "longitude", type: "Number", description: "Longitude of business address.", example: "0.0" }
+  ]}
+/>
+
+---
+
+## Response Parameters
 
 <ParamTable
   title="Response Parameters"
@@ -347,5 +445,4 @@ Upadte Account Info
   ]}
 />
 
-<a id="item" />
-
+<!-- SPDX-License-Identifier: Apache-2.0 -->

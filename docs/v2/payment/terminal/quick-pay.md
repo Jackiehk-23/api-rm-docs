@@ -60,11 +60,35 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/terminal/quickpay"
 />
 
+## What is this?
+
+Sends an e-wallet Quick Pay event to the RM Terminal. The terminal opens its camera to scan the customer's QR code and complete the payment.
+
+## When to Use
+
+Use this endpoint when:
+- Accepting in-store e-wallet payments through an RM Terminal
+- Driving an RM Terminal remotely from your POS or backend
+
 :::tip
-If your hardware device has its own scanner to scan payment QR codes, use [Standard Quick Pay](../quick-pay/standard.md) instead for better experience and performance.
+If your hardware device has its own scanner, use [Standard Quick Pay](../quick-pay/standard.md) instead for better experience and performance.
 :::
 
-Sends an e-wallet Quick Pay event to the RM Terminal. The terminal will open its camera to scan the customer's QR code.
+## How to Use
+
+### Step 1: Authenticate
+
+Obtain a valid `accessToken`.
+
+### Step 2: Send the Event
+
+POST the payload to `/v3/payment/terminal/quickpay` with `type: "E-WALLET"` and the terminal/order details.
+
+### Step 3: Confirm Delivery
+
+A `"SUCCESS"` code means the event was dispatched to the terminal. The terminal then drives the payment flow with the customer.
+
+---
 
 ## Request Parameters
 
@@ -130,3 +154,5 @@ Sends an e-wallet Quick Pay event to the RM Terminal. The terminal will open its
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

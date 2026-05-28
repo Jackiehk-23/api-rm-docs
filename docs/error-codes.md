@@ -411,3 +411,5 @@ Complete list of error codes returned by the Revenue Monster API. Use this refer
 | NO_TRANSACTION_DETAIL                       | No transaction details returned                                                                                                      |
 | CANCELLATION_ERROR                          | No payment is ongoing                                                                                                                |
 | CANCELLATION_UNSUPPORTED                    | Cancellation is not supported yet for card payment on terminal                                                                       |
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

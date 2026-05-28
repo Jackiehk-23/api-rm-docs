@@ -58,7 +58,31 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/terminal/quickpay"
 />
 
-Sends a card payment event to the RM Terminal. The terminal will prompt the customer to tap, insert, or swipe their card.
+## What is this?
+
+Sends a card payment event to the RM Terminal. The terminal prompts the customer to tap, insert, or swipe their card.
+
+## When to Use
+
+Use this endpoint when:
+- Accepting in-store credit / debit card payments via RM Terminal
+- Driving the terminal remotely from your POS or backend
+
+## How to Use
+
+### Step 1: Authenticate
+
+Obtain a valid `accessToken`.
+
+### Step 2: Send the Event
+
+POST the payload with `type: "CARD"` and the terminal / order details.
+
+### Step 3: Confirm Delivery
+
+A `"SUCCESS"` code means the event was dispatched. The terminal then drives the card payment flow.
+
+---
 
 ## Request Parameters
 
@@ -123,3 +147,5 @@ Sends a card payment event to the RM Terminal. The terminal will prompt the cust
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

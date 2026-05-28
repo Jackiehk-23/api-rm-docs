@@ -33,3 +33,5 @@ Use these codes when integrating with FPX-based payment methods.
 | SCB0216:B2C      | Standard Chartered Bank     |
 | UOB0226:B2C      | United Oversea Bank         |
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

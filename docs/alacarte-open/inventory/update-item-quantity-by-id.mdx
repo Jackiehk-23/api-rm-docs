@@ -107,11 +107,27 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
-:::note
+## What is this?
 
-- Using `itemId` and `quantity` to update item quantity
+Quick endpoint to update only the quantity of an item without touching other fields.
 
-:::
+## When to Use
+
+Use this endpoint when:
+- Stock count changes (inventory adjustment)
+- Out-of-stock toggles via quantity = 0
+
+## How to Use
+
+### Step 1: Get the Item ID
+
+Use the `itemId` returned by [Create Item](./create-item).
+
+### Step 2: Send the Quantity Update
+
+POST `function: "update.item.quantity"` with the new `quantity`.
+
+---
 
 ### Request Parameters
 
@@ -193,4 +209,4 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   ]}
 />
 
-
+<!-- SPDX-License-Identifier: Apache-2.0 -->

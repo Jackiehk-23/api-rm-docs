@@ -40,9 +40,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/reward"
 />
 
-:::note
-To give loyalty point(s) to customers using phone number or member ID.
-:::
+## What is this?
+
+Manually award loyalty points to a customer identified by phone number, member ID, or QR code.
+
+## When to Use
+
+Use this endpoint when:
+- Rewarding customers outside of an auto-give payment flow
+- Issuing bonus points for promotions or campaigns
+
+## How to Use
+
+POST to `/v3/loyalty/reward` with `point`, `type` (`"ID"`, `"PHONENUMBER"`, or `"QRCODE"`), and the corresponding identifier.
+
+---
 
 ### Request Parameters
 
@@ -135,3 +147,5 @@ For **Loyalty and Social Media** features, you will need to input a **webhook UR
 
 =<img src={require('/img/developer-application/7.png').default} />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

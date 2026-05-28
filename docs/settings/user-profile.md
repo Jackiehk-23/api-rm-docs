@@ -47,39 +47,62 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/user"
 />
 
-:::note
-To query for ALL users under this merchant.
-:::
+## What is this?
 
-### Request Parameters:
+Fetch the profile of the currently authenticated user. Returns identity details such as name, contact info, status, and associated store IDs.
 
-:::note
-No request parameter is required for this endpoint.
-:::
+## When to Use
 
-### Response Parameters
+Use this endpoint when you:
+- Display the logged-in user's profile in your UI
+- Need the user's contact details for support or notifications
+- Want to verify the authenticated user's active status or store assignments
+
+## How to Use
+
+### Step 1: Authenticate
+
+Obtain a valid `accessToken` via the [Client Credentials](../quickstart/accesstoken/client-credentials) or [Authorization Code](../quickstart/accesstoken/authorization-code) flow.
+
+### Step 2: Send the GET Request
+
+No request body or query parameters required. Signed headers (signature, nonce, timestamp) are sufficient.
+
+### Step 3: Read the Response
+
+The `item` object contains the user's profile fields. A `"SUCCESS"` code confirms the call worked.
+
+---
+
+## Request Parameters
+
+No request body. Authenticated headers only.
+
+---
+
+## Response Parameters
 
 <ParamTable
-  title="Response Parameters"
+  title="Response"
   rows={[
-    { name: "item", type: "Array", description: "Array of user object",
+    { name: "item", type: "Object", description: "Authenticated user profile.",
       children: [
-        { name: "id", type: "String", description: "User ID", example: "“8190656045166232716”" },
-        { name: "firstName", type: "String", description: "First name of user", example: "“MOHAMED”" },
-        { name: "lastName", type: "String", description: "Last name of user", example: "“YUSSUF”" },
-        { name: "countryCode", type: "String", description: "Country code of user contact number", example: "\"60\"" },
-        { name: "phoneNumber", type: "String", description: "Phone number of user", example: "\"377334080\"" },
-        { name: "email", type: "String", description: "Email address of user", example: "\"yussuf@revenuemonster.my\"" },
-        { name: "avatarUrl", type: "String", description: "Public URL to show user’s avatar", example: "\"https://storage.googleapis.com/rm-prod-asset/img/avatar.png\"" },
-        { name: "status", type: "String", description: "Current status of user", example: "“ACTIVE”" },
-        { name: "storeId", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
-        { name: "isActive", type: "Boolean", description: "User active or deactivated status", example: "true" },
-        { name: "createdAt", type: "DateTime", description: "Creation date time of user", example: "\"2018-02-12T08:53:13Z\"" },
-        { name: "updatedAt", type: "DateTime", description: "Last update date time of user", example: "\"2018-02-12T08:53:13Z\"" }
-      ]},
-    { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
+        { name: "id", type: "String", description: "Unique user ID.", example: "\"8190656045166232716\"" },
+        { name: "firstName", type: "String", description: "User's first name.", example: "\"MOHAMED\"" },
+        { name: "lastName", type: "String", description: "User's last name.", example: "\"YUSSUF\"" },
+        { name: "countryCode", type: "String", description: "Country code for contact number.", example: "\"60\"" },
+        { name: "phoneNumber", type: "String", description: "User's phone number.", example: "\"377334080\"" },
+        { name: "email", type: "String", description: "User's email address.", example: "\"yussuf@revenuemonster.my\"" },
+        { name: "avatarUrl", type: "String", description: "Public URL of the user's avatar image.", example: "\"https://storage.googleapis.com/rm-prod-asset/img/avatar.png\"" },
+        { name: "status", type: "String", description: "Account status (`\"ACTIVE\"`, `\"INACTIVE\"`).", example: "\"ACTIVE\"" },
+        { name: "storeId", type: "Array", description: "List of store IDs the user belongs to.", example: "[\"6170506694335521334\"]" },
+        { name: "isActive", type: "Boolean", description: "Whether the user account is active.", example: "true" },
+        { name: "createdAt", type: "DateTime", description: "Account creation timestamp.", example: "\"2018-02-12T08:53:13Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update timestamp.", example: "\"2018-02-12T08:53:13Z\"" }
+      ]
+    },
+    { name: "code", type: "String", description: "`\"SUCCESS\"` if the call succeeded. Otherwise returns an error code. See [Error Codes](../error-codes).", example: "\"SUCCESS\"" }
   ]}
 />
 
-<a id="item" />
-
+<!-- SPDX-License-Identifier: Apache-2.0 -->

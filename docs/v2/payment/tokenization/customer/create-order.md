@@ -52,11 +52,35 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/recurring-payment/{customer_id}/charge"
 />
 
-Charges a customer's bound card immediately. Used for tokenized payment customers where you manage your own charging schedule.
+## What is this?
+
+Charges a customer's bound card immediately. Use this for tokenized payment customers where you manage your own charging schedule.
+
+## When to Use
+
+Use this endpoint when:
+- You need to charge an existing tokenized customer right now
+- Running ad-hoc billing for a saved-card customer
 
 :::caution
 This charges the customer's card — it is not a manual order creation. The amount is applied directly to the stored token.
 :::
+
+## How to Use
+
+### Step 1: Identify the Customer
+
+Use the `customer_id` returned by [Create Tokenized Customer](../tokenized/create-customer.md) or [Create Recurring Customer](../recurring/create-customer.md).
+
+### Step 2: Send the Charge
+
+POST `currency`, `amount`, and optional `title` / `description` to `/v3/recurring-payment/{customer_id}/charge`.
+
+### Step 3: Inspect the Transaction
+
+The response `item` contains the full transaction record. Code `"SUCCESS"` means the card was charged.
+
+---
 
 ## Request Parameters
 
@@ -119,3 +143,5 @@ This charges the customer's card — it is not a manual order creation. The amou
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -48,7 +48,35 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/online"
 />
 
-Returns an FPX payment redirect URL. Use the FPX bank list endpoint to get available bank codes.
+## What is this?
+
+Returns an FPX (online banking) redirect URL. Customer chooses their bank from the FPX bank list and is redirected to complete payment.
+
+## When to Use
+
+Use this mode when:
+- Accepting Malaysian online banking payments
+- The customer prefers paying via their bank's online portal
+
+## How to Use
+
+### Step 1: Get the FPX Bank List
+
+GET `/v3/payment/fpx-bank` (see code table below) and let the customer pick their bank.
+
+### Step 2: Create a Checkout
+
+Call [Hosted Payment Checkout](../hosted-checkout) to obtain `checkoutId`.
+
+### Step 3: Request the FPX Redirect URL
+
+POST with `type: "URL"`, `method: "FPX_MY"`, and `fpx.bankCode`.
+
+### Step 4: Redirect the Customer
+
+Send the customer to the returned `url` to complete payment at their bank.
+
+---
 
 ## Get FPX Bank List
 
@@ -115,3 +143,5 @@ Returns an FPX payment redirect URL. Use the FPX bank list endpoint to get avail
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

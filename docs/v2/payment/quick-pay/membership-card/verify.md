@@ -43,11 +43,35 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/quickpay"
 />
 
+## What is this?
+
+Verify an Alipay Gourmet Card before applying its discount in a payment. Returns whether the card is valid for use at the given store.
+
+## When to Use
+
+Use this endpoint before [Quick Pay with Membership Card](./quick-pay.md):
+- To confirm the card is valid and active at the store
+- To prevent failed payments due to invalid memberships
+
 :::info
 Currently available membership card: Alipay Gourmet Card (马来西亚美食优惠卡).
-
-Call this endpoint first to verify the membership card before processing payment.
 :::
+
+## How to Use
+
+### Step 1: Capture the Card ID
+
+Scan or input the customer's Alipay Gourmet Card ID.
+
+### Step 2: Send the Verification Request
+
+POST `memberCardId` and `storeId` to the endpoint.
+
+### Step 3: Proceed if Valid
+
+If the response is `"SUCCESS"`, proceed to [Quick Pay with Membership Card](./quick-pay.md).
+
+---
 
 ## Request Parameters
 
@@ -74,3 +98,5 @@ Call this endpoint first to verify the membership card before processing payment
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

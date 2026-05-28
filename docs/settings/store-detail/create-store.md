@@ -84,14 +84,37 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/store"
 />
 
-:::note
-To create a store under one merchant.
-:::
+## What is this?
 
-### Request Parameters:
+Register a new store under a merchant account. The new store becomes available for transactions tied to that merchant.
+
+## When to Use
+
+Use this endpoint when:
+- A merchant opens a new physical or online location
+- You need to programmatically provision stores
+- Onboarding a new outlet to existing merchants
+
+## How to Use
+
+### Step 1: Prepare Store Details
+
+Collect required fields: name, full address, country code, phone, and optional geo-location.
+
+### Step 2: Send the POST Request
+
+POST the store payload to `/v3/store` with signed authentication headers.
+
+### Step 3: Store the ID
+
+The response includes the new store `id`. Use it for transactions and subsequent updates.
+
+---
+
+## Request Parameters
 
 <ParamTable
-  title="Request Parameters"
+  title="Request Body"
   rows={[
     { name: "merchantSettlementId", type: "String", description: "Linkage with payment settlement account" },
     { name: "name", type: "String", required: true, description: "Store Name", example: "\"REVENUE MONSTER\"" },
@@ -107,12 +130,14 @@ To create a store under one merchant.
   ]}
 />
 
-### Response Parameters
+---
+
+## Response Parameters
 
 <ParamTable
-  title="Response Parameters"
+  title="Response"
   rows={[
-    { name: "item", type: "Array", description: "Array of store object",
+    { name: "item", type: "Object", description: "Created store details.",
       children: [
         { name: "id", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
         { name: "merchantSettlementId", type: "String", description: "Merchant Settlement ID", example: "\"6170506694335521334\"" },
@@ -135,5 +160,4 @@ To create a store under one merchant.
   ]}
 />
 
-<a id="item" />
-
+<!-- SPDX-License-Identifier: Apache-2.0 -->

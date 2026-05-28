@@ -8,9 +8,25 @@ sidebar_label: Check Balance
 URL : `https://open.revenuemonster.my/v3/wallet/credit`
 Sandbox URL : `https://sb-open.revenuemonster.my/v3/wallet/credit`
 
-:::note
-Check merchant wallet balance 
-:::
+## What is this?
+
+Retrieve the current credit balance in the merchant's RM wallet.
+
+## When to Use
+
+Use this endpoint when:
+- Displaying wallet balance in the merchant dashboard
+- Gating actions (SMS, delivery requests) based on available credit
+
+## How to Use
+
+**Method:** <HttpMethodBadge method="GET" />
+URL: `https://open.revenuemonster.my/v3/wallet/credit`
+Sandbox URL: `https://sb-open.revenuemonster.my/v3/wallet/credit`
+
+GET with signed authentication headers. Read the response `item.credit` value.
+
+---
 
 ### Request Parameters
 
@@ -51,3 +67,5 @@ Check merchant wallet balance
 }`}
 </CodeBlock>
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

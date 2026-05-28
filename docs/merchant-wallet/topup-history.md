@@ -8,9 +8,25 @@ sidebar_label: Topup History
 URL : `https://open.revenuemonster.my/v3/wallet/transaction`
 Sandbox URL : `https://sb-open.revenuemonster.my/v3/wallet/transaction`
 
-:::note
-Check merchant wallet topup history
-:::
+## What is this?
+
+Retrieve the merchant wallet top-up history — successful and in-process top-up transactions.
+
+## When to Use
+
+Use this endpoint when:
+- Displaying merchant wallet activity in a dashboard
+- Auditing top-ups against your bank statements
+
+## How to Use
+
+**Method:** <HttpMethodBadge method="GET" />
+URL: `https://open.revenuemonster.my/v3/wallet/transaction`
+Sandbox URL: `https://sb-open.revenuemonster.my/v3/wallet/transaction`
+
+GET the endpoint with signed authentication headers. Iterate `items` for each top-up record. Use `cursor` for pagination.
+
+---
 
 ### Request Parameters
 
@@ -272,3 +288,5 @@ Check merchant wallet topup history
 }`}
 </CodeBlock>
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -3,7 +3,19 @@ title: "DeepLink — Card Settlement"
 sidebar_label: "Card Settlement"
 ---
 
-Sends a Card Settlement intent (`transactionType: 5`) to the RM Merchant App to settle card transactions.
+## What is this?
+
+Sends a Card Settlement intent (`transactionType: 5`) to the RM Merchant App to settle card transactions via DeepLink.
+
+## When to Use
+
+Use this DeepLink when:
+- End-of-day settlement for card transactions on the terminal
+- Closing the daily card batch from your custom app
+
+## How to Use
+
+Send an `Intent("REVENUE_MONSTER_PAYMENT")` with `transactionType: 5`. No order details required — settlement applies to all card transactions in the open batch.
 
 <CodeBlock language="kotlin" filename="CardSettlement.kt">
 {`val i = Intent("REVENUE_MONSTER_PAYMENT").apply {
@@ -50,3 +62,5 @@ startActivity(i)`}
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

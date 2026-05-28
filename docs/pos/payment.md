@@ -4,13 +4,39 @@ title: POS Terminal Integration
 sidebar_label: POS Terminal Integration
 ---
 
-**Method :** <HttpMethodBadge method="POST" />
-URL : `https://open.revenuemonster.my/v3/payment/terminal/quickpay`
-Sandbox URL : `https://sb-open.revenuemonster.my/v3/payment/terminal/quickpay`
+## What is this?
+
+Integrate RM Terminal with a POS system or Kiosk machine using local callback. Drives the terminal to initiate an e-wallet or card payment from your POS app.
+
+## When to Use
+
+Use this endpoint when:
+- Connecting a POS system / Kiosk to an RM Terminal over local network
+- Driving terminal payments from your own checkout app
 
 :::note
-Integrate RM Terminal with POS System or Kiosk machine (using local callback). This endpoint only supports payment initiation. For other methods (refund/reverse/settlement), please follow back refund , reverse , settlement API standard steps accordingly.
+This endpoint only supports payment initiation. For refund / reverse / settlement, follow the standard refund, reverse, and settlement API steps.
 :::
+
+## How to Use
+
+**Method:** <HttpMethodBadge method="POST" />
+URL: `https://open.revenuemonster.my/v3/payment/terminal/quickpay`
+Sandbox URL: `https://sb-open.revenuemonster.my/v3/payment/terminal/quickpay`
+
+### Step 1: Configure Terminal
+
+Identify the `terminalId` of your RM Terminal.
+
+### Step 2: Send the Payment Request
+
+POST with `type` (`"E-WALLET"` or `"CARD"`), `receiptType`, order details, and `cameraType` (for e-wallet).
+
+### Step 3: Handle the Response
+
+The response contains `transactionId` and `status`. Use the transaction ID for subsequent refund or query operations.
+
+---
 
 ### Request Parameters
 
@@ -170,3 +196,4 @@ Integrate RM Terminal with POS System or Kiosk machine (using local callback). T
 }`}
 </CodeBlock>
 
+<!-- SPDX-License-Identifier: Apache-2.0 -->

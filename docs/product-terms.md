@@ -12,3 +12,6 @@ sidebar_label: Product Terms
     { name: "referenceId", type: "String", description: "Reference ID is generated from respective wallet server." }
   ]}
 />
+
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

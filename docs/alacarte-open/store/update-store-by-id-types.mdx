@@ -96,11 +96,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
-:::note
+## What is this?
 
-- Using `storeId` and `supportedTypes` to update the support types.
+Update which order types a store supports — `DINEIN`, `DELIVERY`, `PICKUP`, `DRIVE_THRU`.
 
-:::
+## When to Use
+
+Use this endpoint when:
+- Enabling or disabling specific order types
+- Adjusting store offerings based on operational hours
+
+## How to Use
+
+POST `function: "updates.store.types"` with `storeId` and the new `supportedTypes` array.
+
+---
 
 ### Request Parameters
 
@@ -145,3 +155,5 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 />
 
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

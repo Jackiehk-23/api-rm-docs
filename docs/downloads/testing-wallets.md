@@ -26,3 +26,5 @@ sidebar_label: Testing Wallets
 | GOBIZ | Credit Card | No |
 | ZAPP | Yes | No |
 | MCASH | Yes | No |
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

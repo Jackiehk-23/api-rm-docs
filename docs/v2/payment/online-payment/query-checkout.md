@@ -22,13 +22,39 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/online?checkoutId={checkoutId}"
 />
 
+## What is this?
+
+Query the status of a previously created payment checkout session using its `checkoutId`. Returns checkout-level status, amount, and the linked `transactionId`.
+
+## When to Use
+
+Use this endpoint when:
+- Polling for payment status during a direct checkout flow
+- Confirming a checkout session is complete before redirecting the customer
+
 :::caution
-Payment checkout is not the same as payment transaction info. Checkout only returns status, amount, and redirectUrl. For full transaction details, use [Query By Transaction ID](../query/by-transaction-id.md) with the `transactionId` from the checkout response.
+Payment checkout is **not** the same as payment transaction info. Checkout only returns status, amount, and redirectUrl. For full transaction details, use [Query By Transaction ID](../query/by-transaction-id.md) with the `transactionId` from the checkout response.
 :::
 
 :::note
 Direct Payment Checkout requires polling this endpoint to keep payment status updated. Suggested polling interval is 3–5 seconds.
 :::
+
+## How to Use
+
+### Step 1: Get the Checkout ID
+
+Capture `checkoutId` from the [Hosted Payment Checkout](./hosted-checkout) response.
+
+### Step 2: Send the Query
+
+GET `/v3/payment/online?checkoutId=<id>`.
+
+### Step 3: Poll Until Complete
+
+Repeat every 3-5 seconds until `status` reaches a terminal state.
+
+---
 
 ## Request Parameters
 
@@ -79,3 +105,5 @@ Direct Payment Checkout requires polling this endpoint to keep payment status up
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

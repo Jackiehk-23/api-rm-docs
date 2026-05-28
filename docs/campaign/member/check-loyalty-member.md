@@ -52,13 +52,25 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/member/check"
 />
 
-`
+## What is this?
 
-:::note
-Check user is it a member by input the **country code** and **phone number**  
-:::
+Check whether a phone number is already registered as a loyalty member.
+
+## When to Use
+
+Use this endpoint when:
+- Determining whether to register a new member or fetch an existing one
+- Verifying membership before applying member-only discounts
+
+## How to Use
+
+POST `countryCode` and `phoneNumber`. The response `item.exist` is `true` if a member exists.
+
+---
 
 ### Request Parameters
+
+POST `countryCode` and `phoneNumber` in the body.
 
 ### Response Parameters
 
@@ -74,3 +86,5 @@ Check user is it a member by input the **country code** and **phone number**
   ]}
 />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

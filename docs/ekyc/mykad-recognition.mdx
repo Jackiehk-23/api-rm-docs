@@ -58,49 +58,68 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/service"
 />
 
+## What is this?
 
+Extract structured data from a Malaysian MyKad (IC) image — name, IC number, address, gender, and face photo — using OCR and image recognition.
 
+## When to Use
+
+Use this endpoint when you:
+- Onboard a user and want to auto-fill personal details from their IC
+- Need to verify IC authenticity (tamper detection, landmark matching)
+- Initiate an eKYC flow that requires the `requestID` for [Liveness + Face Verification](./liveness-check-with-face-verification)
 
 ## How to Use
 
-### Step 1 : Register as merchant
+### Step 1: Register as a Merchant
 
-### Step 2 : Get <a href="https://revenuemonster.onrender.com/docs/quickstart/signature-algorithm">Signature Algorithm</a>
+Sign up at the [RM Merchant Portal](https://merchant.revenuemonster.my/).
 
-### Step 3 : <a href="https://revenuemonster.onrender.com/docs/quickstart/verify-signature">Verify Signature</a>
+### Step 2: Get the Signature Algorithm
 
-### Step 4 : Configure Recognize Mykad API
+Follow the [Signature Algorithm](../quickstart/signature-algorithm) guide to sign requests.
+
+### Step 3: Verify Your Signature
+
+Confirm signing using [Verify Signature](../quickstart/verify-signature).
+
+### Step 4: Send the MyKad Image
+
+POST a Base64-encoded MyKad image. Optionally include a `notify_url` to receive the result via webhook callback.
+
+---
 
 ## Request Parameters
 
 <ParamTable
-  title="Request Parameters"
+  title="Request Body"
   rows={[
-    { name: "service", type: "String", description: "EKYC service", example: "\"ekyc\"" },
-    { name: "version", type: "String", description: "Currently only support 'v1\"", example: "\"v1\"" },
-    { name: "function", type: "String", description: "Selected function", example: "\"id-mykad\"" },
-    { name: "request", type: "Object", description: "Refer to explanation below",
+    { name: "service", type: "String", required: true, description: "Service name. Set to `\"ekyc\"`.", example: "\"ekyc\"" },
+    { name: "version", type: "String", required: true, description: "API version. Currently only `\"v1\"`.", example: "\"v1\"" },
+    { name: "function", type: "String", required: true, description: "Function name. Set to `\"id-mykad\"`.", example: "\"id-mykad\"" },
+    { name: "request", type: "Object", required: true, description: "Recognition payload.",
       children: [
-        { name: "notify_url", type: "String", description: "URL to receive ekyc result", example: "\"\"" },
-        { name: "query_image_content", type: "String", description: "Mykad image (Base64 image string)", example: "\"\"" }
+        { name: "notify_url", type: "String", description: "Webhook URL to receive the eKYC result asynchronously.", example: "\"https://client-api/rm-ekyc-callback\"" },
+        { name: "query_image_content", type: "String", required: true, description: "MyKad image as Base64-encoded string.", example: "\"<base64_image>\"" }
       ]
     }
   ]}
 />
 
-### How to use notify URL
-Clients can retrieve ekyc result by passing in a `notify_url` as a webhook callback. For instance, client provides a `POST` API handler that has an address of `https://client-api/rm-ekyc-callback`, pass this address as the `notify_url` when sending the OpenAPI request. Our webhook will subsequently return the result to this API address.
+:::tip Using `notify_url`
+Provide a `POST` handler at a public URL (e.g., `https://client-api/rm-ekyc-callback`) and pass it as `notify_url`. RM will deliver the recognition result to that URL when processing completes.
+:::
 
-
+---
 
 ## Response Parameters
 
-:::
-
 <ParamTable
-  title="Details"
+  title="Response"
   rows={[
-    { name: "requestID", type: "String", description: "Request ID", example: "\"62201d48a694817dede84b35\"" }
+    { name: "requestID", type: "String", description: "Unique request ID. Use this with [Get MyKad Result](./get-mykad-result) and [Liveness + Face Verification](./liveness-check-with-face-verification).", example: "\"62201d48a694817dede84b35\"" }
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 

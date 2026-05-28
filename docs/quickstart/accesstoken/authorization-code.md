@@ -103,6 +103,8 @@ After the merchant approves, RM redirects them to your `redirectUri` with a `cod
 {`https://example.com/oauth/callback?code=<AUTHORIZATION_CODE>&state=abc123`}
 </CodeBlock>
 
+<img src={require('/img/developer-application/auth-respond.png').default} />
+
 ---
 
 ### Step 3: Exchange the Code for an Access Token

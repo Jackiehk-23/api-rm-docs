@@ -105,9 +105,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/member"
 />
 
-:::note
-Using Query String to **Get User Profile** by input the **country code** and **phone number**  
-:::
+## What is this?
+
+Register a new loyalty member under the merchant. Returns the new member's profile record.
+
+## When to Use
+
+Use this endpoint when:
+- Onboarding a new customer to your loyalty program
+- Registering a member during checkout flow
+
+## How to Use
+
+POST member details (name, country code, phone, email, NRIC, etc.) to create the record. The response includes the new member's `key`.
+
+---
 
 ### Request Parameters
 
@@ -167,3 +179,5 @@ Using Query String to **Get User Profile** by input the **country code** and **p
 
 <a id="address" />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

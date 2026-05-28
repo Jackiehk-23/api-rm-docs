@@ -58,9 +58,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/member/{{member_id}}"
 />
 
-:::note
-Get loyalty member by `Member ID`
-:::
+## What is this?
+
+Retrieve a loyalty member's full record by `memberId`.
+
+## When to Use
+
+Use this endpoint when:
+- Looking up a member's details for a profile page
+- Verifying a member exists before operating on their account
+
+## How to Use
+
+GET `/v3/loyalty/member/{memberId}`. No request body required.
+
+---
 
 ### Request Parameters
 
@@ -74,3 +86,5 @@ Get loyalty member by `Member ID`
 
 ### Response Parameters
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

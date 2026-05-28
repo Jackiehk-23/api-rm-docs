@@ -84,9 +84,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/member/{{member_id}}/history"
 />
 
-:::note
-Get Loyalty Member Point History By `Member ID`
-:::
+## What is this?
+
+Retrieve a loyalty member's point history — earnings, redemptions, and adjustments.
+
+## When to Use
+
+Use this endpoint when:
+- Displaying a member's point activity in their profile
+- Auditing point transactions for a specific member
+
+## How to Use
+
+GET `/v3/loyalty/member/{memberId}/history`.
+
+---
 
 ### Request Parameters
 
@@ -100,3 +112,5 @@ Get Loyalty Member Point History By `Member ID`
 
 ### Response Parameters
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

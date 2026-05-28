@@ -179,7 +179,22 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/service"
 />
 
-Get orders by `storeId`.
+## What is this?
+
+List all orders for a store with filters for payment status, type, delivery status, and date ranges.
+
+## When to Use
+
+Use this endpoint when:
+- Building an orders dashboard
+- Filtering orders by status, type, or date
+- Running reports across delivery / dine-in / pickup / drive-thru
+
+## How to Use
+
+POST `function: "get.store.orders"` with the `storeId` and optional filter fields. Supports pagination via `cursor`.
+
+---
 
 ## Request Parameters
 
@@ -347,3 +362,5 @@ Get orders by `storeId`.
 />
 
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

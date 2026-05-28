@@ -282,9 +282,36 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
+## What is this?
+
+Retrieve the full MyKad recognition result — including OCR data, face boxes, tamper-check, and confidence scores — using the `requestID` returned by [MyKad Recognition](./mykad-recognition).
+
+## When to Use
+
+Use this endpoint when:
+- You did not pass a `notify_url` when calling MyKad Recognition
+- You need to poll for the result on demand
+- Auditing or re-fetching past recognition results
+
 :::note
-Prerequisite : Acquire requestID from mykad recognition response
+**Prerequisite:** Acquire `requestID` from the [MyKad Recognition](./mykad-recognition) response.
 :::
+
+## How to Use
+
+### Step 1: Get the Request ID
+
+Capture `requestID` from your prior [MyKad Recognition](./mykad-recognition) call.
+
+### Step 2: Send the Query
+
+POST with `function: "get-mykad-result"` and the `id` field set to your `requestID`.
+
+### Step 3: Parse the Result
+
+The response contains nested objects for OCR data, address, faces, glare, tamper-check, and scores.
+
+---
 
 ### Request Parameters
 
@@ -613,4 +640,4 @@ Prerequisite : Acquire requestID from mykad recognition response
   ]}
 />
 
-
+<!-- SPDX-License-Identifier: Apache-2.0 -->

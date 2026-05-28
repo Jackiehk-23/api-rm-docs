@@ -63,10 +63,20 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
+## What is this?
+
+Detect a live person from a selfie and match their face against the MyKad photo in a single call. Combines anti-spoofing liveness detection with face verification.
+
+## When to Use
+
+Use this endpoint when:
+- Onboarding a user who has already submitted their MyKad
+- You need to confirm a real person (not a photo) matches the IC holder
+- KYC flows that require both liveness and face matching in one step
+
 :::note
-Prerequisite : Acquire requestID from mykad recognition response
+**Prerequisite:** Acquire `requestID` from the [MyKad Recognition](./mykad-recognition) response. Obtain the Liveness JS Web SDK from Revenue Monster.
 :::
-Description: Please obtain the Liveness JS web sdk and sample code from Revenue Monster
 
 ## How to Use
 
@@ -95,29 +105,34 @@ A simple HTML example below should be sufficient to get the liveness app started
 <img src={require('/img/ekyc/liveness-sdk-code.jpg').default} />
 
 
+---
+
 ## Request Parameters
 
 <ParamTable
-  title="Request Parameters"
+  title="Request Body"
   rows={[
-    { name: "mykad_request_id", type: "String", description: "Request ID from mykad recognition response", example: "\"62201d48a694817dede84b35\"" },
-    { name: "query_image_content", type: "String", description: "Face image (Base64 image string)", example: "\"\"" }
+    { name: "mykad_request_id", type: "String", required: true, description: "Request ID returned by the [MyKad Recognition](./mykad-recognition) call.", example: "\"62201d48a694817dede84b35\"" },
+    { name: "query_image_content", type: "String", required: true, description: "Live face image as Base64-encoded string.", example: "\"<base64_image>\"" }
   ]}
 />
 
+---
 
 ## Response Parameters
 
 <ParamTable
-  title="Details"
+  title="Response"
   rows={[
-    { name: "id", type: "String", description: "Table ID", example: "\"60f79b737b03abf23ad65206\"" },
-    { name: "ekycId", type: "String", description: "EKYC ID", example: "\"62201e0b239b18052126e28b\"" },
-    { name: "action", type: "String", description: "Action required. One of: `NONE_REQUIRED`, `ATTENTION_REQUIRED`, `INCONCLUSIVE`, `RESOLVED`", example: "NONE_REQUIRED" },
-    { name: "status", type: "String", description: "Verification status. One of: `SUCCESS`, `FACE_ENGINE_CONNECTION_ERROR`, `INCOMPLETE`, `FACE_ENGINE_TIMEOUT`", example: "SUCCESS" },
-    { name: "isSamePerson", type: "Boolean", description: "Visualization for result image", example: "true" },
-    { name: "similarity", type: "Integer", description: "Percentage of similarity of two faces", example: "99" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2021-07-21T15:07:43.266243\"" }
+    { name: "id", type: "String", description: "Internal record ID.", example: "\"60f79b737b03abf23ad65206\"" },
+    { name: "ekycId", type: "String", description: "eKYC session ID.", example: "\"62201e0b239b18052126e28b\"" },
+    { name: "action", type: "String", description: "Action required — `NONE_REQUIRED`, `ATTENTION_REQUIRED`, `INCONCLUSIVE`, `RESOLVED`.", example: "\"NONE_REQUIRED\"" },
+    { name: "status", type: "String", description: "Verification status — `SUCCESS`, `FACE_ENGINE_CONNECTION_ERROR`, `INCOMPLETE`, `FACE_ENGINE_TIMEOUT`.", example: "\"SUCCESS\"" },
+    { name: "isSamePerson", type: "Boolean", description: "`true` if the live face matches the MyKad photo.", example: "true" },
+    { name: "similarity", type: "Integer", description: "Similarity confidence score (0-100).", example: "99" },
+    { name: "updatedAt", type: "DateTime", description: "Last update timestamp.", example: "\"2021-07-21T15:07:43.266243\"" }
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 

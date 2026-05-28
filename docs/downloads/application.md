@@ -24,3 +24,5 @@ sidebar_label: Application
     Sandbox Application
   </a>
 </div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

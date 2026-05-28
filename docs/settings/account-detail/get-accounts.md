@@ -128,13 +128,40 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/accounts"
 />
 
-:::note
-Get Accounts Info
-:::
+## What is this?
 
-### Request Parameters
+Retrieve a list of all accounts associated with the authenticated merchant.
 
-### Response Parameters
+## When to Use
+
+Use this endpoint when:
+- You need to display all settlement accounts in your dashboard
+- Auditing accounts registered to a merchant
+- Looking up an account `id` before calling [Get Account By ID](./get-account)
+
+## How to Use
+
+### Step 1: Authenticate
+
+Obtain a valid `accessToken` for the merchant.
+
+### Step 2: Send the GET Request
+
+No request body or query parameters required.
+
+### Step 3: Iterate the Items
+
+The response `items` array contains each account's full record. The `meta` object may include pagination details.
+
+---
+
+## Request Parameters
+
+No request body. Authenticated headers only.
+
+---
+
+## Response Parameters
 
 <ParamTable
   title="Response Parameters"
@@ -234,5 +261,4 @@ Get Accounts Info
   ]}
 />
 
-<a id="item" />
-
+<!-- SPDX-License-Identifier: Apache-2.0 -->

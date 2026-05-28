@@ -66,51 +66,69 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/service"
 />
 
+## What is this?
 
+Compare two face images and receive a similarity confidence score. Useful for identity verification flows that match a live selfie against a reference photo.
 
+## When to Use
+
+Use this endpoint when you:
+- Match a selfie against a stored profile picture
+- Verify a user's identity against a previously captured face
+- Detect potential impersonation in onboarding flows
 
 ## How to Use
 
-### Step 1 : Register as merchant
+### Step 1: Register as a Merchant
 
+Sign up at the [RM Merchant Portal](https://merchant.revenuemonster.my/).
 
-### Step 2 : Get <a href="https://revenuemonster.onrender.com/docs/quickstart/signature-algorithm">Signature Algorithm</a>
+### Step 2: Get the Signature Algorithm
 
+Follow the [Signature Algorithm](../quickstart/signature-algorithm) guide to sign requests.
 
-### Step 3 : <a href="https://revenuemonster.onrender.com/docs/quickstart/verify-signature">Verify Signature</a>
+### Step 3: Verify Your Signature
 
+Confirm signing works using [Verify Signature](../quickstart/verify-signature).
 
-### Step 4 : Configure Face Verification API
+### Step 4: Send the Request
+
+POST two Base64-encoded face images to `/v3/service` with `function: "face-compare"`.
+
+---
 
 ## Request Parameters
 
 <ParamTable
-  title="Request Parameters"
+  title="Request Body"
   rows={[
-    { name: "service", type: "String", description: "EKYC service", example: "\"ekyc\"" },
-    { name: "version", type: "String", description: "Currently only support 'v1\"", example: "\"v1\"" },
-    { name: "function", type: "String", description: "Selected function", example: "\"face-compare\"" },
-    { name: "request", type: "Object", description: "Refer to explanation below",
+    { name: "service", type: "String", required: true, description: "Service name. Set to `\"ekyc\"`.", example: "\"ekyc\"" },
+    { name: "version", type: "String", required: true, description: "API version. Currently only `\"v1\"`.", example: "\"v1\"" },
+    { name: "function", type: "String", required: true, description: "Function name. Set to `\"face-compare\"`.", example: "\"face-compare\"" },
+    { name: "request", type: "Object", required: true, description: "Comparison payload.",
       children: [
-        { name: "query_image_content_1", type: "String", description: "First face image (Base64 image string)", example: "\"\"" },
-        { name: "query_image_content_2", type: "String", description: "Second face image (Base64 image string)", example: "\"\"" }
+        { name: "query_image_content_1", type: "String", required: true, description: "First face image as Base64-encoded string.", example: "\"<base64_image>\"" },
+        { name: "query_image_content_2", type: "String", required: true, description: "Second face image as Base64-encoded string.", example: "\"<base64_image>\"" }
       ]
     }
   ]}
 />
 
+---
 
 ## Response Parameters
 
 <ParamTable
-  title="Details"
+  title="Response"
   rows={[
-    { name: "id", type: "String", description: "Table ID", example: "\"60f79b737b03abf23ad65206\"" },
-    { name: "action", type: "String", description: "Action required. One of: `NONE_REQUIRED`, `ATTENTION_REQUIRED`, `INCONCLUSIVE`, `RESOLVED`", example: "NONE_REQUIRED" },
-    { name: "status", type: "String", description: "Verification status. One of: `SUCCESS`, `FACE_ENGINE_CONNECTION_ERROR`, `INCOMPLETE`, `FACE_ENGINE_TIMEOUT`", example: "SUCCESS" },
-    { name: "isSamePerson", type: "Boolean", description: "Visualization for result image", example: "true" },
-    { name: "similarity", type: "Integer", description: "Percentage of similarity of two faces", example: "99" },
-    { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2021-07-21T15:07:43.266243\"" }
+    { name: "id", type: "String", description: "Internal record ID.", example: "\"60f79b737b03abf23ad65206\"" },
+    { name: "action", type: "String", description: "Action required — `NONE_REQUIRED`, `ATTENTION_REQUIRED`, `INCONCLUSIVE`, `RESOLVED`.", example: "\"NONE_REQUIRED\"" },
+    { name: "status", type: "String", description: "Verification status — `SUCCESS`, `FACE_ENGINE_CONNECTION_ERROR`, `INCOMPLETE`, `FACE_ENGINE_TIMEOUT`.", example: "\"SUCCESS\"" },
+    { name: "isSamePerson", type: "Boolean", description: "`true` if both faces likely belong to the same person.", example: "true" },
+    { name: "similarity", type: "Integer", description: "Similarity confidence score (0-100).", example: "99" },
+    { name: "updatedAt", type: "DateTime", description: "Last update timestamp.", example: "\"2021-07-21T15:07:43.266243\"" }
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 

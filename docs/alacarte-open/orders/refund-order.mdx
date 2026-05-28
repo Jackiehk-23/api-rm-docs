@@ -184,11 +184,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
-:::note
+## What is this?
 
-- Using `orderId` to refund the order.
+Refund a paid à la carte order back to the customer. The order's payment status moves to `REFUNDED`.
 
-:::
+## When to Use
+
+Use this endpoint when:
+- Customer requests a refund for a paid order
+- Reversing an order due to fulfillment issues
+
+## How to Use
+
+POST `function: "refund.store.order"` with `storeId` and `orderId`.
+
+---
 
 ### Request Parameters
 
@@ -346,3 +356,5 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 />
 
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

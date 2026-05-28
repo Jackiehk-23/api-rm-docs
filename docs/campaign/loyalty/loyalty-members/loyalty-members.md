@@ -110,14 +110,26 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/members"
 />
 
-:::note
-Get All Loyalty Members
-:::
+## What is this?
+
+List all loyalty members under the merchant.
+
+## When to Use
+
+Use this endpoint when:
+- Displaying a member directory in your dashboard
+- Exporting members for reporting
+
+## How to Use
+
+GET `/v3/loyalty/members` with signed authentication headers.
+
+---
 
 ### Request Parameters
 
-:::note
-No request parameter is required for this endpoint.
-:::
+No request body. Authenticated headers only.
 
 ### Response Parameters
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

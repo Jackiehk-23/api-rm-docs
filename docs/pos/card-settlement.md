@@ -4,9 +4,35 @@ title: Card Payment Settlement
 sidebar_label: Card Payment Settlement
 ---
 
-**Method :** <HttpMethodBadge method="POST" />
-URL : `https://open.revenuemonster.my/v3/event/terminal`
-Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
+## What is this?
+
+Trigger card settlement on the RM Terminal from a POS system. Settles all pending card transactions in the open batch.
+
+## When to Use
+
+Use this endpoint when:
+- End-of-day batch settlement from your POS app
+- Closing the daily card batch on the connected terminal
+
+## How to Use
+
+**Method:** <HttpMethodBadge method="POST" />
+URL: `https://open.revenuemonster.my/v3/event/terminal`
+Sandbox URL: `https://sb-open.revenuemonster.my/v3/event/terminal`
+
+### Step 1: Identify the Terminal
+
+Use the `terminalId` of the RM Terminal performing the settlement.
+
+### Step 2: Send the Settlement Event
+
+POST with `type: "SETTLEMENT"` and the desired `receiptType`.
+
+### Step 3: Read the Settlement Summary
+
+The response `summary` contains batch number, transaction count, and total sales. `transactions` lists each settled record.
+
+---
 
 ### Request Parameters
 
@@ -93,3 +119,4 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
 }`}
 </CodeBlock>
 
+<!-- SPDX-License-Identifier: Apache-2.0 -->

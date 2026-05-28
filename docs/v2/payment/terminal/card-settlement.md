@@ -46,7 +46,31 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/terminal/quickpay"
 />
 
-Sends a card settlement event to the RM Terminal. The terminal will settle all pending card transactions in its batch.
+## What is this?
+
+Sends a card settlement event to the RM Terminal. The terminal settles all pending card transactions in its batch.
+
+## When to Use
+
+Use this endpoint when:
+- End-of-day card batch settlement
+- Closing the daily card transaction batch on the terminal
+
+## How to Use
+
+### Step 1: Authenticate
+
+Obtain a valid `accessToken`.
+
+### Step 2: Send the Event
+
+POST with `type: "SETTLEMENT"` and the terminal ID.
+
+### Step 3: Verify the Summary
+
+The response `summary` object contains the batch number, transaction count, and total sales amount.
+
+---
 
 ## Request Parameters
 
@@ -96,3 +120,5 @@ Sends a card settlement event to the RM Terminal. The terminal will settle all p
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

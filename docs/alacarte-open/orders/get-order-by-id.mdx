@@ -141,11 +141,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
-:::note
+## What is this?
 
-- Using `storeId` and `orderId` to get Order.
+Retrieve full details of a specific order by its `orderId`.
 
-:::
+## When to Use
+
+Use this endpoint when:
+- Displaying a single order's details on an order page
+- Auditing or troubleshooting a specific transaction
+
+## How to Use
+
+POST `function: "get.store.order"` with `storeId` and `orderId`.
+
+---
 
 ### Request Parameters
 
@@ -271,3 +281,5 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 />
 
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

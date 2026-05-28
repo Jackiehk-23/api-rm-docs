@@ -41,9 +41,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 Url : `https://open.revenuemonster.my/v3/voucher-batch/EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQkvnGweaB2uQg/issue`
 Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher-batch/EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQkvnGweaB2uQg/issue`
 
-:::note
-To issue vouchers for customer.
-:::
+## What is this?
+
+Issue one or more vouchers from a voucher batch to customer(s). Each issued voucher gets a unique `code`.
+
+## When to Use
+
+Use this endpoint when:
+- Distributing vouchers from a campaign batch to customers
+- Manually issuing a voucher reward
+
+## How to Use
+
+POST `/v3/voucher-batch/{batchkey}/issue` with the issuance details. The response includes the issued voucher `code`(s).
+
+---
 
 ### Request Parameters
 
@@ -75,3 +87,5 @@ To issue vouchers for customer.
 
 <a id="item" />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

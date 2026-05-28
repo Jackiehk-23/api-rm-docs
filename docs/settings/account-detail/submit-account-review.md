@@ -242,13 +242,43 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/account/{id}/review"
 />
 
-:::note
-Submit Account For Review
+## What is this?
+
+Submit a filled-in account for RM verification review. Once submitted, the account status moves from `UNVERIFIED` to `REVIEWING`.
+
+## When to Use
+
+Use this endpoint when:
+- All required account details and documents have been uploaded
+- The merchant is ready for RM to start the KYC / verification process
+
+:::warning
+Make sure all required documents (IC, business registration, bank statement, etc.) are uploaded before submitting. Missing documents will delay review.
 :::
 
-### Request Parameters
+## How to Use
 
-### Response Parameters
+### Step 1: Fill Account Details
+
+Update the account using [Update Account](./update-account) so all required fields and document URLs are populated.
+
+### Step 2: Send the POST Request
+
+Pass the account `id` as a path parameter. Include the full account details in the body.
+
+### Step 3: Monitor Status
+
+The response returns the account with `status: "UNVERIFIED"` until RM completes review.
+
+---
+
+## Request Parameters
+
+Pass the account `id` as a path parameter. The body uses the same fields as [Update Account](./update-account).
+
+---
+
+## Response Parameters
 
 <ParamTable
   title="Response Parameters"
@@ -347,5 +377,4 @@ Submit Account For Review
   ]}
 />
 
-<a id="item" />
-
+<!-- SPDX-License-Identifier: Apache-2.0 -->

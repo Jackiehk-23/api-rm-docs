@@ -61,26 +61,55 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
-:::note
-To query for merchant product subscription details.
-:::
+## What is this?
 
-### Request Parameters:
+Retrieve the merchant's active product subscriptions — Payment, Loyalty & Voucher, Market Place, or Social Media.
 
-:::note
-No request parameter is required for this endpoint.
-:::
+## When to Use
 
-### Response Parameters
+Use this endpoint when:
+- You need to know which RM products the merchant has subscribed to
+- Checking subscription expiry or termination dates
+- Gating UI features based on the merchant's plan
+
+## How to Use
+
+### Step 1: Authenticate
+
+Obtain a valid `accessToken` for the merchant.
+
+### Step 2: Send the GET Request
+
+No request body or query parameters required.
+
+### Step 3: Iterate `item`
+
+The response `item` array contains one entry per active subscription.
+
+---
+
+## Request Parameters
+
+No request body. Authenticated headers only.
+
+---
+
+## Response Parameters
 
 <ParamTable
-  title="Response Parameters"
+  title="Response"
   rows={[
-    { name: "id", type: "Integer", description: "ID is to differentiate which subscription:  1000 : Loyalty & Voucher  1001 : Payment  1002 : Market Place  1003 : Social Media", example: "1001" },
-    { name: "gracePeriod", type: "Integer", description: "merchant will terminate after 3 months", example: "90" },
-    { name: "expiryAt", type: "DateTime", description: "Expiry date time of merchant", example: "\"2018-04-28T06:36:08Z\"" },
-    { name: "terminateAt", type: "DateTime", description: "Terminate date time of merchant", example: "\"2018-07-27T23:59:59Z\"" },
-    { name: "status", type: "String", description: "\"ACTIVE\" , \"REVIEWING\" , \"SUSPEND\" , \"PENDING\" , \"SUSPEND\"", example: "\"ACTIVE\"" }
+    { name: "item", type: "Array", description: "List of active subscriptions.",
+      children: [
+        { name: "id", type: "Integer", description: "Subscription ID. `1000` = Loyalty & Voucher, `1001` = Payment, `1002` = Market Place, `1003` = Social Media.", example: "1001" },
+        { name: "gracePeriod", type: "Integer", description: "Grace period in days before termination.", example: "90" },
+        { name: "expiryAt", type: "DateTime", description: "Subscription expiry timestamp.", example: "\"2018-04-28T06:36:08Z\"" },
+        { name: "terminateAt", type: "DateTime", description: "Termination timestamp after grace period ends.", example: "\"2018-07-27T23:59:59Z\"" },
+        { name: "status", type: "String", description: "Status — `\"ACTIVE\"`, `\"REVIEWING\"`, `\"SUSPEND\"`, `\"PENDING\"`.", example: "\"ACTIVE\"" }
+      ]
+    },
+    { name: "code", type: "String", description: "`\"SUCCESS\"` if the call succeeded. Otherwise returns an error code. See [Error Codes](../../error-codes).", example: "\"SUCCESS\"" }
   ]}
 />
 
+<!-- SPDX-License-Identifier: Apache-2.0 -->

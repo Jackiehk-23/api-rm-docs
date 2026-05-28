@@ -79,11 +79,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
-:::note
+## What is this?
 
-- Using `storeId` `name` and `status` to create a category
+Create a new menu category in an à la carte store.
 
-:::
+## When to Use
+
+Use this endpoint when:
+- Adding a new menu category (e.g., "Drinks", "Desserts")
+- Setting up a fresh store's menu structure
+
+## How to Use
+
+POST `function: "create.category"` with `storeId`, `name`, and `status`.
+
+---
 
 ### Request Parameters
 
@@ -126,3 +136,5 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   ]}
 />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

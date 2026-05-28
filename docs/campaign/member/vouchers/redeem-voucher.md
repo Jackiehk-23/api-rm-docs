@@ -8,12 +8,25 @@ sidebar_label: Redeem Voucher
 URL : `https://open.revenuemonster.my/v3/loyalty/me/voucher/{voucher-code}/redeem?countryCode=60&phoneNumber=187824152`
 Sandbox URL : `https://sb-open.revenuemonster.my/v3/loyalty/me/voucher/{voucher-code}/redeem?countryCode=60&phoneNumber=187824152`
 
-:::note
+## What is this?
 
-- **Redeem Voucher** by input `{voucher-code}`
-- Using Query String to input the **country code** and **phone number**
+Redeem a voucher on behalf of a loyalty member by `voucher-code`. Marks the voucher as redeemed and applies any associated benefits.
 
-:::
+## When to Use
+
+Use this endpoint when:
+- A member presents a voucher for redemption at checkout
+- Triggering redemption from a member-facing UI
+
+## How to Use
+
+**Method:** <HttpMethodBadge method="POST" />
+URL: `https://open.revenuemonster.my/v3/loyalty/me/voucher/{voucher-code}/redeem?countryCode=60&phoneNumber=187824152`
+Sandbox URL: `https://sb-open.revenuemonster.my/v3/loyalty/me/voucher/{voucher-code}/redeem?countryCode=60&phoneNumber=187824152`
+
+POST with `voucher-code` in the path and `countryCode` + `phoneNumber` as query parameters.
+
+---
 
 ### Request Parameters
 
@@ -131,3 +144,5 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/loyalty/me/voucher/{voucher-
 }`}
 </CodeBlock>
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

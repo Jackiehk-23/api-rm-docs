@@ -44,7 +44,31 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/terminal/quickpay"
 />
 
+## What is this?
+
 Cancels any ongoing event on the RM Terminal (e.g., an active Quick Pay or Card Payment that has not yet completed).
+
+## When to Use
+
+Use this endpoint when:
+- Customer abandons a payment mid-flow
+- You need to abort an unresponsive terminal event before retry
+
+## How to Use
+
+### Step 1: Authenticate
+
+Obtain a valid `accessToken`.
+
+### Step 2: Send the Event
+
+POST with `type: "CANCEL"` and the terminal ID.
+
+### Step 3: Verify Cancellation
+
+A `"SUCCESS"` code confirms the cancel event was sent.
+
+---
 
 ## Request Parameters
 
@@ -71,3 +95,5 @@ Cancels any ongoing event on the RM Terminal (e.g., an active Quick Pay or Card 
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

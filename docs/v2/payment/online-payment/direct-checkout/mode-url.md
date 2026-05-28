@@ -46,11 +46,35 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/online"
 />
 
+## What is this?
+
 Returns a redirect URL for the selected payment method. Redirect the customer to this URL to complete payment.
 
+## When to Use
+
+Use this mode when:
+- Integrating Alipay+, Boost, or other URL-redirect payment methods
+- Driving payment from your own checkout UI
+
 :::note
-Poll [Query Payment Checkout](../query-checkout.md) every 3–5 seconds to track payment status.
+Poll [Query Payment Checkout](../query-checkout.md) every 3-5 seconds to track payment status.
 :::
+
+## How to Use
+
+### Step 1: Create a Checkout
+
+Call [Hosted Payment Checkout](../hosted-checkout) to obtain `checkoutId`.
+
+### Step 2: Request the Redirect URL
+
+POST with `type: "URL"` and the desired `method`.
+
+### Step 3: Redirect the Customer
+
+Send the customer to the returned `url`. Poll [Query Payment Checkout](../query-checkout.md) for status updates.
+
+---
 
 ## Request Parameters
 
@@ -84,3 +108,5 @@ Poll [Query Payment Checkout](../query-checkout.md) every 3–5 seconds to track
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -147,9 +147,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 Url :`https://open.revenuemonster.my/v3/vouchers/redeem`
 Sandbox Url : `https://sb-open.revenuemonster.my/v3/vouchers/redeem`
 
-:::note
-Redeem voucher(s) by Bulk
-:::
+## What is this?
+
+Redeem multiple vouchers in a single bulk call. Marks each provided voucher code as redeemed.
+
+## When to Use
+
+Use this endpoint when:
+- Redeeming several vouchers at once at checkout
+- Bulk-processing voucher redemptions from a backend job
+
+## How to Use
+
+POST to `/v3/vouchers/redeem` with an array of voucher codes.
+
+---
 
 :::note
 
@@ -209,3 +221,5 @@ Redeem voucher(s) by Bulk
 
 <a id="item" />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

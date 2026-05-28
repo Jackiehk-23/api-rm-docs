@@ -50,28 +50,51 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/vop/unenroll-card"
 />
 
-:::note
+## What is this?
 
-- Unenroll card to Visa's VOP with RM.
+Unlink a single Visa card from a user's enrollment without removing the user.
 
-:::
+## When to Use
 
-### Request Parameters
+Use this endpoint when:
+- A user replaces a card and wants to remove the old one
+- Removing a specific card while keeping the user enrolled
+
+## How to Use
+
+### Step 1: Get the IDs
+
+Use the RM-issued `userId` and `cardId` from [Enroll User](./enroll-user) or [Enroll Card](./enroll-card).
+
+### Step 2: Send the DELETE Request
+
+DELETE `/v3/vop/unenroll-card` with `userId` and `cardId` in the body.
+
+### Step 3: Verify the Response
+
+A `"SUCCESS"` code confirms the card was unlinked.
+
+---
+
+## Request Parameters
 
 <ParamTable
-  title="Request Parameters"
+  title="Request Body"
   rows={[
-    { name: "userId", type: "String", required: true, description: "User ID provided by us during user enrollment", example: "\"1699331101742889953\"" },
-    { name: "cardId", type: "String", required: true, description: "Card ID provided by us during card or user enrollment", example: "\"1699331146943520156\"" }
+    { name: "userId", type: "String", required: true, description: "RM-issued user ID returned by [Enroll User](./enroll-user).", example: "\"1699331101742889953\"" },
+    { name: "cardId", type: "String", required: true, description: "RM-issued card ID returned by [Enroll Card](./enroll-card).", example: "\"1699331146943520156\"" }
   ]}
 />
 
-### Response Parameters
+---
+
+## Response Parameters
 
 <ParamTable
-  title="Response Parameters"
+  title="Response"
   rows={[
-    { name: "code", type: "String", description: "Status of the enrollment", example: "\"SUCCESS\"" }
+    { name: "code", type: "String", description: "`\"SUCCESS\"` if the card was unlinked. Otherwise returns an error code. See [Error Codes](../error-codes).", example: "\"SUCCESS\"" }
   ]}
 />
 
+<!-- SPDX-License-Identifier: Apache-2.0 -->

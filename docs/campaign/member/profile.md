@@ -74,11 +74,25 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/me"
 />
 
-:::note
-Using Query String to **Get User Profile** by input the **country code** and **phone number**  
-:::
+## What is this?
+
+Retrieve a loyalty member's full profile — name, contact, tier, loyalty point balance, and credit balance — by their phone number.
+
+## When to Use
+
+Use this endpoint when:
+- Displaying a member's profile and point balance
+- Looking up a member before applying loyalty discounts
+
+## How to Use
+
+GET with `countryCode` and `phoneNumber` as query parameters.
+
+---
 
 ### Request Parameters
+
+Pass `countryCode` and `phoneNumber` as query parameters.
 
 ### Response Parameters
 
@@ -121,3 +135,5 @@ Using Query String to **Get User Profile** by input the **country code** and **p
 
 <a id="address" />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

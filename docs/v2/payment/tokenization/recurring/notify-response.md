@@ -3,11 +3,33 @@ title: "Recurring — Notify Response"
 sidebar_label: "Notify Response"
 ---
 
-Your `notifyUrl` receives this callback each time a recurring payment is successfully charged.
+## What is this?
+
+Your `notifyUrl` receives this callback each time a recurring payment is successfully charged. Use it to record charges in your own ledger.
+
+## When to Use
+
+Implement a handler for this notify when:
+- You created a recurring customer via [Create Recurring Customer](./create-customer.md)
+- You need real-time success notifications for each scheduled charge
 
 :::info
 Notify is only called on success — failed payments do not trigger a notify. Use [Query By Transaction ID](../../query/by-transaction-id.md) for full transaction details.
 :::
+
+## How to Use
+
+### Step 1: Expose a Public GET Handler
+
+Build an HTTP endpoint at the URL you registered as `notifyUrl`.
+
+### Step 2: Validate and Persist
+
+Parse the `data` payload, persist the order to your ledger, and respond `200 OK` quickly.
+
+---
+
+## Notify Response
 
 **Method:** <HttpMethodBadge method="GET" />
 
@@ -34,3 +56,5 @@ Notify is only called on success — failed payments do not trigger a notify. Us
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

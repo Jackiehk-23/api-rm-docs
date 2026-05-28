@@ -89,11 +89,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
-:::note
+## What is this?
 
-- Using `storeId` to get your store detail.
+Retrieve full details of an à la carte store — supported types, delivery options, availability, closed-until window.
 
-:::
+## When to Use
+
+Use this endpoint when:
+- Reading the current store configuration
+- Verifying supported order types or delivery costs
+
+## How to Use
+
+POST `function: "get.store"` with `storeId`.
+
+---
 
 ### Request Parameters
 
@@ -137,3 +147,5 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 />
 
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

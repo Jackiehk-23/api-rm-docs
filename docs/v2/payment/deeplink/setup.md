@@ -71,3 +71,5 @@ The result is returned as a JSON string in the `result` extra of the intent.
     }
 }`}
 </CodeBlock>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

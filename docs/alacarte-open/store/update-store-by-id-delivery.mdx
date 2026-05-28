@@ -128,8 +128,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/service"
 />
 
+## What is this?
 
+Configure a store's delivery method (`OWN`, `LALAMOVE`, etc.) and distance-based delivery cost tiers.
 
+## When to Use
+
+Use this endpoint when:
+- Setting up or changing the delivery courier
+- Adjusting delivery price tiers based on distance
+
+## How to Use
+
+POST `function: "updates.store.delivery"` with `storeId`, `method`, and the `cost` tiers.
+
+---
 
 ### Request Parameters
 
@@ -183,3 +196,5 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 />
 
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

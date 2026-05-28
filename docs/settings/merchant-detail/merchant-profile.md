@@ -72,17 +72,40 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 
 
-:::note
-To query for merchant details.
-:::
+## What is this?
 
-### Request Parameters:
+Retrieve the authenticated merchant's full profile — company details, address, status, and partner flags.
 
-:::note
-No request parameter is required for this endpoint.
-:::
+## When to Use
 
-### Response Parameters
+Use this endpoint when you:
+- Display merchant info in a dashboard
+- Need to verify the merchant's verification or active status
+- Check `isPartner` / `isMasterMerchant` flags
+
+## How to Use
+
+### Step 1: Authenticate
+
+Obtain a valid `accessToken` for the merchant.
+
+### Step 2: Send the GET Request
+
+No request body or query parameters required.
+
+### Step 3: Read the Response
+
+The `item` object contains the merchant profile.
+
+---
+
+## Request Parameters
+
+No request body. Authenticated headers only.
+
+---
+
+## Response Parameters
 
 <ParamTable
   title="Response Parameters"
@@ -123,7 +146,8 @@ No request parameter is required for this endpoint.
         { name: "createdAt", type: "DateTime", description: "Creation date time of merchant", example: "\"2018-02-12T08:53:13Z\"" },
         { name: "updatedAt", type: "DateTime", description: "Last update date time of merchant", example: "\"2018-02-12T08:53:13Z\"" }
       ]},
-    { name: "code", type: "String", description: "Status returned from Revenue Monster server, whether successfully called our endpoint or not.", example: "\"SUCCESS\"" }
+    { name: "code", type: "String", description: "`\"SUCCESS\"` if the call succeeded. Otherwise returns an error code. See [Error Codes](../../error-codes).", example: "\"SUCCESS\"" }
   ]}
 />
 
+<!-- SPDX-License-Identifier: Apache-2.0 -->

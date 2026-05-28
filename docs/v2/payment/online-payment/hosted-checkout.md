@@ -70,12 +70,19 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 Creates a unified payment checkout page for both web and mobile. The customer is redirected to the RM-hosted checkout page to complete payment.
 
+## When to Use
+
+Use this endpoint when:
+- Building a web or mobile checkout that supports multiple payment methods
+- You want RM to host the payment UI (no need to build your own)
+- Integrating tokenization or saved cards
+
 :::note
 - This creates a unified payment checkout page for both web and mobile.
 - The **data object** must be sorted alphabetically, including nested objects.
 :::
 
-## How it Works
+## How to Use
 
 1. Send order details → receive `checkoutId` and checkout `url`
 2. Redirect customer to the `url`
@@ -139,3 +146,5 @@ Creates a unified payment checkout page for both web and mobile. The customer is
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

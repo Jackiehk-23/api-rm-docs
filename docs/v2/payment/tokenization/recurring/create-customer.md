@@ -72,7 +72,31 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/recurring-payment"
 />
 
-Creates a recurring payment customer. The customer will be redirected to bind their card, after which charges happen automatically on your defined schedule.
+## What is this?
+
+Creates a recurring payment customer. The customer binds their card on the RM-hosted page, after which RM automatically charges them on your defined schedule (weekly or monthly).
+
+## When to Use
+
+Use this endpoint when:
+- Building a subscription with automated recurring billing
+- You want RM to handle the schedule (no need to call charge yourself)
+
+## How to Use
+
+### Step 1: Define the Schedule
+
+Choose `recurringInterval` (`WEEKLY` / `MONTHLY`), `recurringTarget` (day), and `recurringRepetition` (total charges).
+
+### Step 2: Create the Customer
+
+POST customer + product + schedule. RM returns a `paymentUrl` for card binding.
+
+### Step 3: Send the Customer to Bind
+
+Redirect to `paymentUrl`. After binding, RM auto-charges on the configured schedule.
+
+---
 
 ## Request Parameters
 
@@ -155,3 +179,5 @@ Creates a recurring payment customer. The customer will be redirected to bind th
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

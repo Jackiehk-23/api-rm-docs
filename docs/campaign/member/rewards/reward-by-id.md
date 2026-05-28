@@ -69,12 +69,21 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/me/reward/{reward-id}?countryCode=60&phoneNumber=187824152"
 />
 
-:::note
+## What is this?
 
-- Get **Redeem detail** by input `{reward-id}`
-- Using Query String to input the **country code** and **phone number**
+Retrieve full details of a single reward by `reward-id` for a specific loyalty member.
 
-:::
+## When to Use
+
+Use this endpoint when:
+- Showing a single reward's details (image, point cost, expiry)
+- Confirming the reward before a member redeems it
+
+## How to Use
+
+GET `/v3/loyalty/me/reward/{reward-id}` with `countryCode` and `phoneNumber` query parameters.
+
+---
 
 ### Request Parameters
 
@@ -122,3 +131,5 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <a id="contactinfo" />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

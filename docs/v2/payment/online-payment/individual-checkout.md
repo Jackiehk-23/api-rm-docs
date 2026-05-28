@@ -3,11 +3,33 @@ title: "Individual Payment Checkout"
 sidebar_label: "Individual Payment Checkout"
 ---
 
-After creating a hosted checkout session, use the `checkoutId` to build a custom payment experience.
+## What is this?
+
+Use the `checkoutId` returned by [Hosted Payment Checkout](./hosted-checkout) to drive the customer through a custom payment experience. RM still sends a redirect (on completion) and an optional server-side notify (on success).
+
+## When to Use
+
+Use this flow when:
+- Customizing the payment URL or wrapping it inside a deep link or webview
+- You need callbacks to your `redirectUrl` (post-payment) or `notifyUrl` (server confirmation)
+
+## How to Use
+
+### Step 1: Create a Checkout Session
+
+Call [Hosted Payment Checkout](./hosted-checkout) to obtain the `checkoutId`.
+
+### Step 2: Build the Checkout URL
+
+Construct the URL using `checkoutId`:
 
 <CodeBlock language="plaintext" filename="Checkout URL" hideLineNumbers>
 {`https://sb-pg.revenuemonster.my/v4/checkout?checkoutId=1548316308361173347`}
 </CodeBlock>
+
+### Step 3: Handle Redirect and Notify
+
+When the customer completes payment, RM redirects to your `redirectUrl` (GET). On success, RM also POSTs to your `notifyUrl` server-side.
 
 ---
 
@@ -73,3 +95,5 @@ The notify URL informs your server of the transaction status after a successful 
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

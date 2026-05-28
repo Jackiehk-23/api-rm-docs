@@ -14,3 +14,5 @@ Payment method and eWallet logos for all supported providers.
 >
   Download Wallet Logos
 </a>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

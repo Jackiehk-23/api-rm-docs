@@ -35,11 +35,36 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/recurring-payment/{customer_id}"
 />
 
-Returns the customer record for a recurring or tokenized customer.
+## What is this?
+
+Returns the customer record for a recurring or tokenized customer — including their masked card label, active status, and recurring schedule.
+
+## When to Use
+
+Use this endpoint when:
+- Displaying a saved-card user's stored payment method in your UI
+- Verifying a customer's `isActive` status before charging
+- Inspecting a recurring schedule
 
 :::note
 Only available after the customer has successfully bound their card.
 :::
+
+## How to Use
+
+### Step 1: Identify the Customer
+
+Use the `customer_id` returned by [Create Tokenized Customer](../tokenized/create-customer.md) or [Create Recurring Customer](../recurring/create-customer.md).
+
+### Step 2: Send the GET Request
+
+GET `/v3/recurring-payment/{customer_id}`.
+
+### Step 3: Read the Response
+
+The `item` object contains the full customer record.
+
+---
 
 ## Request Parameters
 
@@ -94,3 +119,5 @@ Only available after the customer has successfully bound their card.
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

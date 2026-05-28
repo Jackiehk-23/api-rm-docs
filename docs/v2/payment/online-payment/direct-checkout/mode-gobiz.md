@@ -46,7 +46,31 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/online"
 />
 
-Returns a payment redirect URL for GoBiz, Paydee, or Mastercard payment methods.
+## What is this?
+
+Returns a payment redirect URL for card (Mastercard / Visa) or GoBiz payment methods.
+
+## When to Use
+
+Use this mode when:
+- Integrating credit / debit card payments via the Hosted Checkout
+- Adding GoBiz or Paydee payment options
+
+## How to Use
+
+### Step 1: Create a Checkout
+
+Call [Hosted Payment Checkout](../hosted-checkout) to obtain `checkoutId`.
+
+### Step 2: Request the Redirect URL
+
+POST with `type: "URL"` and the card / GoBiz `method`.
+
+### Step 3: Redirect the Customer
+
+Send the customer to the returned `url` to complete payment.
+
+---
 
 ## Request Parameters
 
@@ -85,3 +109,5 @@ Returns a payment redirect URL for GoBiz, Paydee, or Mastercard payment methods.
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

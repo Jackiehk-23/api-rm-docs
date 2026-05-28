@@ -60,7 +60,32 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/recurring-payment"
 />
 
+## What is this?
+
 Creates a tokenized payment customer. The customer binds their card once on the RM-hosted page, after which you can charge them on demand using the [Create Customer Order](../customer/create-order.md) API.
+
+## When to Use
+
+Use this endpoint when:
+- Offering "save card for later" checkout
+- You manage your own charging schedule (one-off or ad-hoc)
+- Building a subscription with custom billing logic
+
+## How to Use
+
+### Step 1: Create the Customer
+
+POST customer + product info. RM returns a `paymentUrl` for the customer to bind their card.
+
+### Step 2: Send the Customer to Bind a Card
+
+Redirect them to `paymentUrl`. After binding, RM redirects back to your `redirectUrl`.
+
+### Step 3: Charge On Demand
+
+Use the returned `id` (customer ID) with [Create Customer Order](../customer/create-order.md) to charge whenever needed.
+
+---
 
 ## Request Parameters
 
@@ -113,3 +138,5 @@ Creates a tokenized payment customer. The customer binds their card once on the 
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

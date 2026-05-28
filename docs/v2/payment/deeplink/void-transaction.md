@@ -3,7 +3,19 @@ title: "DeepLink — Void Transaction"
 sidebar_label: "Void Transaction"
 ---
 
-Sends a Void Transaction intent (`transactionType: 3`) to the RM Merchant App to void a card transaction.
+## What is this?
+
+Sends a Void Transaction intent (`transactionType: 3`) to the RM Merchant App to void a card transaction via DeepLink.
+
+## When to Use
+
+Use this DeepLink when:
+- Voiding a card transaction before settlement
+- Reversing an erroneous charge same-day
+
+## How to Use
+
+Send an `Intent("REVENUE_MONSTER_PAYMENT")` with `transactionType: 3`, the `transactionId` to void, and authentication (`email`, `pin`).
 
 <CodeBlock language="kotlin" filename="VoidTransaction.kt">
 {`val i = Intent("REVENUE_MONSTER_PAYMENT").apply {
@@ -37,3 +49,5 @@ startActivity(i)`}
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

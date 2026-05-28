@@ -97,23 +97,44 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/stores"
 />
 
-Get Store By ID
+## What is this?
 
-:::note
+Retrieve all stores belonging to the authenticated merchant.
 
-- To query for ALL stores under a merchant.
+## When to Use
 
-- To implement a pagination cursor, you may use query string: ~/?cursor= < cursor >\_
+Use this endpoint when you:
+- List every store the merchant operates
+- Build a store picker in your dashboard
+- Need pagination over merchants with many stores
 
+:::tip
+Append `?cursor=<cursor>` to paginate large result sets.
 :::
 
-### Request Parameters:
+## How to Use
 
-:::note
-No request parameter is required for this endpoint.
-:::
+### Step 1: Authenticate
 
-### Response Parameters
+Obtain a valid `accessToken` for the merchant.
+
+### Step 2: Send the GET Request
+
+No request body required. Add `?cursor=<cursor>` query string for paginated reads.
+
+### Step 3: Iterate `items`
+
+The response `items` array holds each store record. The `meta` object reports counts and the next cursor.
+
+---
+
+## Request Parameters
+
+No request body. Authenticated headers only.
+
+---
+
+## Response Parameters
 
 <ParamTable
   title="Response Parameters"
@@ -146,7 +167,4 @@ No request parameter is required for this endpoint.
   ]}
 />
 
-<a id="items" />
-
-<a id="meta" />
-
+<!-- SPDX-License-Identifier: Apache-2.0 -->

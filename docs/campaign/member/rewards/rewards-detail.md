@@ -70,15 +70,23 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/me/rewards?countryCode=60&phoneNumber=187824152"
 />
 
-:::noteya,,
+## What is this?
 
-- Using Query String to **Get User Reward** by input the **country code** and **phone number**
-- Using Query String to set a limit: ~/?limit=< limit >
-- To implement a pagination cursor, you may use query string: ~/?cursor= < cursor >
-- Example :
-  `https://open.revenuemonster.my/v3/loyalty/me/reward?countryCode=60&phoneNumber=187824152&limit=100&cursor=asdas`
+List a loyalty member's available rewards. Supports limit and cursor-based pagination.
 
-:::
+## When to Use
+
+Use this endpoint when:
+- Displaying a member's reward catalog
+- Building a rewards page in your member-facing UI
+
+## How to Use
+
+GET with `countryCode`, `phoneNumber`, optional `limit`, and optional `cursor` as query parameters.
+
+Example: `https://open.revenuemonster.my/v3/loyalty/me/rewards?countryCode=60&phoneNumber=187824152&limit=100&cursor=asdas`
+
+---
 
 ### Request Parameters
 
@@ -133,3 +141,5 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <a id="contactinfo" />
 
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

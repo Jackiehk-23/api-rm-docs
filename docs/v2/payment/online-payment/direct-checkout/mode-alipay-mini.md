@@ -46,7 +46,31 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/online"
 />
 
-Returns base64-encoded data to pass to the Alipay Mini Program payment API.
+## What is this?
+
+Returns base64-encoded data to pass to the Alipay Mini Program payment API for in-app payment within the Alipay app.
+
+## When to Use
+
+Use this mode when:
+- Integrating payment inside an Alipay Mini Program
+- Targeting Chinese customers paying via Alipay
+
+## How to Use
+
+### Step 1: Create a Checkout
+
+Call [Hosted Payment Checkout](../hosted-checkout) to obtain `checkoutId`.
+
+### Step 2: Request the Mini Program Data
+
+POST with `type: "MINI_PROGRAM"` and `method: "ALIPAY_CN"`.
+
+### Step 3: Invoke Alipay `tradePay`
+
+Decode the base64 `data` and pass it to `my.tradePay` in your mini program.
+
+---
 
 ## Request Parameters
 
@@ -94,3 +118,5 @@ Use base64 decode on the `data` parameter and pass the result to the mini progra
   fail: (res) => { console.log("error", res); }
 });`}
 </CodeBlock>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

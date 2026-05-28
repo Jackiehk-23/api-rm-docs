@@ -4,9 +4,35 @@ title: Card Payment Refund
 sidebar_label: Card Payment Refund
 ---
 
-**Method :** <HttpMethodBadge method="POST" />
-URL : `https://open.revenuemonster.my/v3/event/terminal`
-Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
+## What is this?
+
+Trigger a card refund event on the RM Terminal from a POS system. Refunds a specific card transaction by its `transactionId`.
+
+## When to Use
+
+Use this endpoint when:
+- Refunding a card transaction from your POS app
+- Customer requests an in-store card refund processed via terminal
+
+## How to Use
+
+**Method:** <HttpMethodBadge method="POST" />
+URL: `https://open.revenuemonster.my/v3/event/terminal`
+Sandbox URL: `https://sb-open.revenuemonster.my/v3/event/terminal`
+
+### Step 1: Get the Transaction ID
+
+Capture the `transactionId` of the original card payment to refund.
+
+### Step 2: Send the Refund Event
+
+POST with `type: "REFUND"`, the transaction ID, `email`, and `pin`.
+
+### Step 3: Confirm the Refund
+
+The response confirms refund status — `"FULL_REFUNDED"` indicates success.
+
+---
 
 ### Request Parameters
 
@@ -121,3 +147,4 @@ Sandbox URL : `https://sb-open.revenuemonster.my/v3/event/terminal`
 }`}
 </CodeBlock>
 
+<!-- SPDX-License-Identifier: Apache-2.0 -->

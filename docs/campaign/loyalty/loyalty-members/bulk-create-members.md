@@ -144,10 +144,24 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/members"
 />
 
-:::note
-Create Loyalty Members by Bulk
-:::
+## What is this?
+
+Bulk-create multiple loyalty members in a single request.
+
+## When to Use
+
+Use this endpoint when:
+- Importing customers from a CRM or CSV
+- Onboarding many members at once
+
+## How to Use
+
+POST an array of member objects to `/v3/loyalty/members`.
+
+---
 
 ### Request Parameters
 
 ### Response Parameters
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

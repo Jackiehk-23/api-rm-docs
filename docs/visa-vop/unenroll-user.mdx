@@ -48,27 +48,50 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/vop/unenroll-user"
 />
 
-:::note
+## What is this?
 
-- Unenroll user to Visa's VOP with RM.
+Remove a user and all their linked cards from Visa's Offers Platform.
 
-:::
+## When to Use
 
-### Request Parameters
+Use this endpoint when:
+- A user requests to opt out of the offers program
+- Cleaning up inactive user records
+
+## How to Use
+
+### Step 1: Get the User ID
+
+Use the RM-issued `userId` returned by [Enroll User](./enroll-user).
+
+### Step 2: Send the DELETE Request
+
+DELETE `/v3/vop/unenroll-user` with the `userId` in the body. Signed authentication headers required.
+
+### Step 3: Verify the Response
+
+A `"SUCCESS"` code confirms the user (and all linked cards) were removed.
+
+---
+
+## Request Parameters
 
 <ParamTable
-  title="Request Parameters"
+  title="Request Body"
   rows={[
-    { name: "userId", type: "String", required: true, description: "User ID provided by us during user enrollment", example: "\"1699331101742889953\"" }
+    { name: "userId", type: "String", required: true, description: "RM-issued user ID returned by [Enroll User](./enroll-user).", example: "\"1699331101742889953\"" }
   ]}
 />
 
-### Response Parameters
+---
+
+## Response Parameters
 
 <ParamTable
-  title="Response Parameters"
+  title="Response"
   rows={[
-    { name: "code", type: "String", description: "Status of the enrollment", example: "\"SUCCESS\"" }
+    { name: "code", type: "String", description: "`\"SUCCESS\"` if the user was removed. Otherwise returns an error code. See [Error Codes](../error-codes).", example: "\"SUCCESS\"" }
   ]}
 />
 
+<!-- SPDX-License-Identifier: Apache-2.0 -->

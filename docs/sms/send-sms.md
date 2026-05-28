@@ -52,40 +52,62 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/sms"
 />
 
+## What is this?
 
+Send an SMS verification code (TAC) to a user's mobile phone. Useful for two-factor authentication, account verification, and transaction confirmation flows.
 
+## When to Use
+
+Use this endpoint when you:
+- Need to verify a user's phone number during signup
+- Want to send a one-time password (TAC) for authentication
+- Require SMS-based confirmation for sensitive transactions
 
 :::note
-
-- Send TAC to user
-<!-- - Send TAC or Promotional to user -->
-
+Currently supports the `VERIFY_CODE` type for sending verification codes.
 :::
 
-### Request Parameters
+## How to Use
+
+### Step 1: Get the User's Phone Details
+
+Collect the recipient's `countryCode` and `phoneNumber`. The country code is the international dialing code without the `+` sign (e.g., `"60"` for Malaysia).
+
+### Step 2: Prepare the Message
+
+Construct the SMS content in the `message` field. Keep it concise — typical TAC messages include the verification code and your app name.
+
+### Step 3: Send the Request
+
+POST the payload to the endpoint with authenticated headers (signature, nonce, timestamp).
+
+### Step 4: Check the Response
+
+A `"SUCCESS"` code confirms the SMS was queued for delivery. Errors return a code object — see [Error Codes](../error-codes).
+
+---
+
+## Request Parameters
 
 <ParamTable
-  title="Request Parameters"
+  title="Request Body"
   rows={[
-    { name: "countryCode", type: "String", example: "\"60\"" },
-    { name: "phoneNumber", type: "String", description: "User Number", example: "\"163877652\"" },
-    { name: "message", type: "String", example: "\"test\"" },
-    { name: "type", type: "String", example: "\"VERIFY_CODE\"" }
+    { name: "countryCode", type: "String", required: true, description: "International dialing code without `+` (e.g., `\"60\"` for Malaysia).", example: "\"60\"" },
+    { name: "phoneNumber", type: "String", required: true, description: "Recipient mobile number without country code.", example: "\"163877652\"" },
+    { name: "message", type: "String", required: true, description: "SMS message body to send to the user.", example: "\"test\"" },
+    { name: "type", type: "String", required: true, description: "SMS type. Use `\"VERIFY_CODE\"` for verification codes.", example: "\"VERIFY_CODE\"" }
   ]}
 />
 
+---
 
-<!-- :::note
-
-- VERIFY_CODE ( Send tac code )
-- PROMOTIONAL ( Send promotional message )
-
-::: -->
-
-### Response Parameters
+## Response Parameters
 
 <ParamTable
+  title="Response"
   rows={[
-    { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix : Error Codes)", example: "\"SUCCESS\"" }
+    { name: "code", type: "String", description: "`\"SUCCESS\"` if the SMS was queued. Otherwise returns an error code. See [Error Codes](../error-codes).", example: "\"SUCCESS\"" }
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

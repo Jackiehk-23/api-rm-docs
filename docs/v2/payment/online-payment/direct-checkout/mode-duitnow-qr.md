@@ -46,11 +46,35 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/online"
 />
 
-Returns a DuitNow QR code that supports all DuitNow-compatible payment apps.
+## What is this?
+
+Returns a DuitNow QR code that supports all DuitNow-compatible payment apps in Malaysia.
+
+## When to Use
+
+Use this mode when:
+- You want a single QR accepted by Maybank, CIMB, TouchnGo, GrabPay, Boost, and other DuitNow-supported apps
+- Reducing checkout friction with a universal QR
 
 :::note
-Poll [Query Payment Checkout](../query-checkout.md) every 3–5 seconds to track payment status.
+Poll [Query Payment Checkout](../query-checkout.md) every 3-5 seconds to track payment status.
 :::
+
+## How to Use
+
+### Step 1: Create a Checkout
+
+Call [Hosted Payment Checkout](../hosted-checkout) to obtain `checkoutId`.
+
+### Step 2: Request the DuitNow QR
+
+POST with `type: "DUITNOW_QRCODE"` and an empty `method`.
+
+### Step 3: Display and Poll
+
+Render the returned `base64Image` and poll [Query Payment Checkout](../query-checkout.md) for status.
+
+---
 
 ## Request Parameters
 
@@ -89,3 +113,5 @@ Poll [Query Payment Checkout](../query-checkout.md) every 3–5 seconds to track
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

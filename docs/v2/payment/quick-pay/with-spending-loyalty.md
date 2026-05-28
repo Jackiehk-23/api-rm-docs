@@ -68,11 +68,37 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/payment/quickpay"
 />
 
-:::important
-You will receive extra parameters in the transaction response. You need to print the generated QR code on the receipt so customers can use their loyalty program to retrieve spending loyalty points.
+## What is this?
 
-See [Transaction Object > Spending Loyalty](../query/transaction-object.md#spending-loyalty)
+Quick Pay that links the transaction to a loyalty member, so the customer earns spending loyalty points alongside their payment.
+
+## When to Use
+
+Use this endpoint when:
+- The merchant runs a spending-loyalty program
+- The customer is enrolled as a loyalty member (identified by phone number or member ID)
+
+:::important
+You will receive extra parameters in the transaction response. Print the generated QR code on the receipt so customers can scan it to retrieve their spending loyalty points.
+
+See [Transaction Object > Spending Loyalty](../query/transaction-object.md#spending-loyalty).
 :::
+
+## How to Use
+
+### Step 1: Identify the Loyalty Member
+
+Capture the customer's loyalty `phoneNumber` (or `memberId`) and `countryCode`.
+
+### Step 2: Scan the Wallet QR
+
+Capture the customer's wallet `authCode`.
+
+### Step 3: Send the Payment
+
+POST the authCode, order, and `loyalty` object to `/v3/payment/quickpay`. Print the returned spending-loyalty QR on the receipt.
+
+---
 
 ## Request Parameters
 
@@ -145,3 +171,5 @@ See [Transaction Object > Spending Loyalty](../query/transaction-object.md#spend
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

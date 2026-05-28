@@ -3,7 +3,19 @@ title: "DeepLink — Quick Pay"
 sidebar_label: "Quick Pay"
 ---
 
-Sends a Quick Pay intent (`transactionType: 1`) to the RM Merchant App to accept e-wallet QR payments.
+## What is this?
+
+Sends a Quick Pay intent (`transactionType: 1`) to the RM Merchant App to accept e-wallet QR payments via DeepLink.
+
+## When to Use
+
+Use this DeepLink when:
+- Your Android app needs to delegate QR payment to the RM Merchant App
+- Accepting in-store e-wallet payments from a custom terminal app
+
+## How to Use
+
+Send an `Intent("REVENUE_MONSTER_PAYMENT")` with `transactionType: 1` and the order details. The RM Merchant App handles the payment and returns the result.
 
 <CodeBlock language="kotlin" filename="QuickPay.kt">
 {`val i = Intent("REVENUE_MONSTER_PAYMENT").apply {
@@ -36,3 +48,5 @@ startActivity(i)`}
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

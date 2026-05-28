@@ -149,3 +149,5 @@ Quick Pay is an **offline payment method**. Its subscription rate is based on th
     },
   ]}
 />
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

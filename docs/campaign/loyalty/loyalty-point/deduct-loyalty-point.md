@@ -41,9 +41,22 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/loyalty/reward"
 />
 
-:::note
-To deduct loyalty point(s) to customers using phone number or member ID.
-:::
+## What is this?
+
+Deduct loyalty points from a customer's balance, identified by phone number or member ID.
+
+## When to Use
+
+Use this endpoint when:
+- Reversing a points award
+- Correcting an incorrect prior award
+- Adjusting balances after a refund
+
+## How to Use
+
+POST to `/v3/loyalty/reward` with the `point` amount and `memberId` / phone identifier.
+
+---
 
 ### Request Parameters
 
@@ -78,3 +91,5 @@ To deduct loyalty point(s) to customers using phone number or member ID.
 />
 
 <hr/>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->
