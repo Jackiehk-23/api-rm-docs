@@ -1,0 +1,39 @@
+---
+hide_title: true
+id: overview
+title: Merchant
+sidebar_label: Overview
+---
+
+import { LuBuilding2, LuBadgeCheck } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuBuilding2 size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Merchant</h1>
+</div>
+
+Retrieve merchant profile information and active subscription details.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./merchant-profile" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuBuilding2 size={22} /></div>
+    <span className="ov-card-title">Merchant Profile</span>
+    <span className="ov-card-desc">Retrieve the merchant's profile and business details.</span>
+  </div>
+</a>
+
+<a href="./merchant-subscriptions" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuBadgeCheck size={22} /></div>
+    <span className="ov-card-title">Merchant Subscriptions</span>
+    <span className="ov-card-desc">List all active subscriptions and services for the merchant.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

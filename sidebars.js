@@ -32,60 +32,48 @@ module.exports = {
       },
     ]},
 
-    { type: "category", label: "Merchant Onboarding", items: [
-      "merchant-onboarding/overview",
-      "merchant-onboarding/introduction",
-      {
-        type: "doc",
-        id: "merchant-onboarding/create-merchant",
-        className: "api-post",
-      },
-      {
-        type: "doc",
-        id: "merchant-onboarding/get-merchants",
-        className: "api-get",
-      },
-      {
-        type: "doc",
-        id: "merchant-onboarding/get-merchant",
-        className: "api-get",
-      },
-      {
-        type: "doc",
-        id: "merchant-onboarding/update-merchant",
-        className: "api-patch",
-      },
-      {
-        type: "doc",
-        id: "merchant-onboarding/submit-merchant-for-review",
-        className: "api-post",
-      },
-      {
-        type: "doc",
-        id: "merchant-onboarding/upload-merchant-file",
-        className: "api-post",
-      },
-      {
-        type: "category",
-        label: "Application Clients",
-        items: [
-          {
-            type: "doc",
-            id: "merchant-onboarding/application-clients/get-application-clients",
-            className: "api-get",
-          },
-          {
-            type: "doc",
-            id: "merchant-onboarding/application-clients/create-application-client",
-            className: "api-post",
-          },
-          {
-            type: "doc",
-            id: "merchant-onboarding/application-clients/update-application-client",
-            className: "api-put",
-          },
-        ],
-      },
+    { type: "category", label: "Merchants", items: [
+      "merchants/overview",
+      { type: "category", label: "Partner Merchant", items: [
+        "merchant-onboarding/overview",
+        "merchant-onboarding/introduction",
+        { type: "doc", id: "merchant-onboarding/create-merchant", className: "api-post" },
+        { type: "doc", id: "merchant-onboarding/get-merchants", className: "api-get" },
+        { type: "doc", id: "merchant-onboarding/get-merchant", className: "api-get" },
+        { type: "doc", id: "merchant-onboarding/update-merchant", className: "api-patch" },
+        { type: "doc", id: "merchant-onboarding/submit-merchant-for-review", className: "api-post" },
+        { type: "doc", id: "merchant-onboarding/upload-merchant-file", className: "api-post" },
+        { type: "category", label: "Application Clients", items: [
+          { type: "doc", id: "merchant-onboarding/application-clients/get-application-clients", className: "api-get" },
+          { type: "doc", id: "merchant-onboarding/application-clients/create-application-client", className: "api-post" },
+          { type: "doc", id: "merchant-onboarding/application-clients/update-application-client", className: "api-put" },
+        ]},
+      ]},
+      { type: "category", label: "Account", items: [
+        "settings/account-detail/overview",
+        { type: "doc", id: "settings/account-detail/create-account", className: "api-post" },
+        { type: "doc", id: "settings/account-detail/get-accounts", className: "api-get" },
+        { type: "doc", id: "settings/account-detail/get-account", className: "api-get" },
+        { type: "doc", id: "settings/account-detail/update-account", className: "api-put" },
+        { type: "doc", id: "settings/account-detail/submit-account-review", className: "api-post" },
+      ]},
+      { type: "category", label: "Store", items: [
+        "settings/store-detail/overview",
+        { type: "doc", id: "settings/store-detail/store-details", className: "api-get" },
+        { type: "doc", id: "settings/store-detail/get-store-by-id", className: "api-get" },
+        { type: "doc", id: "settings/store-detail/create-store", className: "api-post" },
+        { type: "doc", id: "settings/store-detail/update-store", className: "api-patch" },
+        { type: "doc", id: "settings/store-detail/delete-store", className: "api-delete" },
+      ]},
+      { type: "category", label: "Merchant", items: [
+        "settings/merchant-detail/overview",
+        { type: "doc", id: "settings/merchant-detail/merchant-profile", className: "api-get" },
+        { type: "doc", id: "settings/merchant-detail/merchant-subscriptions", className: "api-get" },
+      ]},
+      { type: "category", label: "User", items: [
+        "settings/user-overview",
+        { type: "doc", id: "settings/user-profile", className: "api-get" },
+      ]},
     ]},
 
     { type: "category", label: "Payment", items: [
@@ -229,50 +217,60 @@ module.exports = {
       "visa-vop/webhook",
     ]},
 
-    { type: "category", label: "Plugin", items: [
-      "v2/plugin/overview",
-      "v2/plugin/introduction",
-      "v2/plugin/integration",
-    ]},
-
-    { type: "category", label: "à la carte", items: [
-      "alacarte-open/overview",
-      "alacarte-open/introduction",
-      {
-        type: "category",
-        label: "Orders",
-        items: [
-          { type: "doc", id: "alacarte-open/orders/get-orders-by-store-id", className: "api-post" },
-          { type: "doc", id: "alacarte-open/orders/get-order-by-id", className: "api-post" },
-          { type: "doc", id: "alacarte-open/orders/update-order-status", className: "api-post" },
-          { type: "doc", id: "alacarte-open/orders/refund-order", className: "api-post" },
-        ],
-      },
-      {
-        type: "category",
-        label: "Store",
-        items: [
-          { type: "doc", id: "alacarte-open/store/get-store-by-id", className: "api-post" },
-          { type: "doc", id: "alacarte-open/store/update-store-by-id-delivery", className: "api-post" },
-          { type: "doc", id: "alacarte-open/store/update-store-by-id-types", className: "api-post" },
-          { type: "doc", id: "alacarte-open/store/update-store-by-id-availability", className: "api-post" },
-        ],
-      },
-      {
-        type: "category",
-        label: "Inventory",
-        items: [
-          { type: "doc", id: "alacarte-open/inventory/create-category-by-store-id", className: "api-post" },
-          { type: "doc", id: "alacarte-open/inventory/get-categories-by-store-id", className: "api-post" },
-          { type: "doc", id: "alacarte-open/inventory/update-category-by-id", className: "api-post" },
-          { type: "doc", id: "alacarte-open/inventory/create-item", className: "api-post" },
-          { type: "doc", id: "alacarte-open/inventory/get-items-by-category-id", className: "api-post" },
-          { type: "doc", id: "alacarte-open/inventory/get-all-items-by-store-id", className: "api-post" },
-          { type: "doc", id: "alacarte-open/inventory/update-item-by-id", className: "api-post" },
-          { type: "doc", id: "alacarte-open/inventory/update-item-quantity-by-id", className: "api-post" },
-        ],
-      },
-      { type: "doc", id: "alacarte-open/set-notification", className: "api-post" },
+    { type: "category", label: "Services", items: [
+      "services/overview",
+      { type: "category", label: "Plugin", items: [
+        "v2/plugin/overview",
+        "v2/plugin/introduction",
+        "v2/plugin/integration",
+      ]},
+      { type: "category", label: "à la carte", items: [
+        "alacarte-open/overview",
+        "alacarte-open/introduction",
+        {
+          type: "category",
+          label: "Orders",
+          items: [
+            { type: "doc", id: "alacarte-open/orders/get-orders-by-store-id", className: "api-post" },
+            { type: "doc", id: "alacarte-open/orders/get-order-by-id", className: "api-post" },
+            { type: "doc", id: "alacarte-open/orders/update-order-status", className: "api-post" },
+            { type: "doc", id: "alacarte-open/orders/refund-order", className: "api-post" },
+          ],
+        },
+        {
+          type: "category",
+          label: "Store",
+          items: [
+            { type: "doc", id: "alacarte-open/store/get-store-by-id", className: "api-post" },
+            { type: "doc", id: "alacarte-open/store/update-store-by-id-delivery", className: "api-post" },
+            { type: "doc", id: "alacarte-open/store/update-store-by-id-types", className: "api-post" },
+            { type: "doc", id: "alacarte-open/store/update-store-by-id-availability", className: "api-post" },
+          ],
+        },
+        {
+          type: "category",
+          label: "Inventory",
+          items: [
+            { type: "doc", id: "alacarte-open/inventory/create-category-by-store-id", className: "api-post" },
+            { type: "doc", id: "alacarte-open/inventory/get-categories-by-store-id", className: "api-post" },
+            { type: "doc", id: "alacarte-open/inventory/update-category-by-id", className: "api-post" },
+            { type: "doc", id: "alacarte-open/inventory/create-item", className: "api-post" },
+            { type: "doc", id: "alacarte-open/inventory/get-items-by-category-id", className: "api-post" },
+            { type: "doc", id: "alacarte-open/inventory/get-all-items-by-store-id", className: "api-post" },
+            { type: "doc", id: "alacarte-open/inventory/update-item-by-id", className: "api-post" },
+            { type: "doc", id: "alacarte-open/inventory/update-item-quantity-by-id", className: "api-post" },
+          ],
+        },
+        { type: "doc", id: "alacarte-open/set-notification", className: "api-post" },
+      ]},
+      { type: "category", label: "eKYC", items: [
+        "ekyc/overview",
+        { type: "doc", id: "ekyc/mykad-recognition", className: "api-post" },
+        { type: "doc", id: "ekyc/liveness-check-with-face-verification", className: "api-post" },
+        { type: "doc", id: "ekyc/face-verification", className: "api-post" },
+        { type: "doc", id: "ekyc/get-mykad-result", className: "api-post" },
+        { type: "doc", id: "ekyc/get-ekyc-result", className: "api-post" },
+      ]},
     ]},
 
     { type: "category", label: "Loyalty & Voucher", items: [
@@ -366,55 +364,6 @@ module.exports = {
       },
     ]},
 
-    { type: "category", label: "Settings", items: [
-      "settings/overview",
-      {
-        type: "category",
-        label: "Account",
-        items: [
-          { type: "doc", id: "settings/account-detail/create-account", className: "api-post" },
-          { type: "doc", id: "settings/account-detail/get-accounts", className: "api-get" },
-          { type: "doc", id: "settings/account-detail/get-account", className: "api-get" },
-          { type: "doc", id: "settings/account-detail/update-account", className: "api-put" },
-          { type: "doc", id: "settings/account-detail/submit-account-review", className: "api-post" },
-        ],
-      },
-      {
-        type: "category",
-        label: "Store",
-        items: [
-          { type: "doc", id: "settings/store-detail/store-details", className: "api-get" },
-          { type: "doc", id: "settings/store-detail/get-store-by-id", className: "api-get" },
-          { type: "doc", id: "settings/store-detail/create-store", className: "api-post" },
-          { type: "doc", id: "settings/store-detail/update-store", className: "api-patch" },
-          { type: "doc", id: "settings/store-detail/delete-store", className: "api-delete" },
-        ],
-      },
-      {
-        type: "category",
-        label: "Merchant",
-        items: [
-          { type: "doc", id: "settings/merchant-detail/merchant-profile", className: "api-get" },
-          { type: "doc", id: "settings/merchant-detail/merchant-subscriptions", className: "api-get" },
-        ],
-      },
-      {
-        type: "category",
-        label: "User",
-        items: [
-          { type: "doc", id: "settings/user-profile", className: "api-get" },
-        ],
-      },
-    ]},
-
-    { type: "category", label: "eKYC", items: [
-      "ekyc/overview",
-      { type: "doc", id: "ekyc/mykad-recognition", className: "api-post" },
-      { type: "doc", id: "ekyc/liveness-check-with-face-verification", className: "api-post" },
-      { type: "doc", id: "ekyc/face-verification", className: "api-post" },
-      { type: "doc", id: "ekyc/get-mykad-result", className: "api-post" },
-      { type: "doc", id: "ekyc/get-ekyc-result", className: "api-post" },
-    ]},
 
     { type: "category", label: "Short Message Service", items: [
       "sms/overview",

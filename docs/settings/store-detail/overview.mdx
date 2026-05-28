@@ -1,0 +1,63 @@
+---
+hide_title: true
+id: overview
+title: Store
+sidebar_label: Overview
+---
+
+import { LuStore, LuList, LuSearch, LuCirclePlus, LuPencil, LuTrash2 } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuStore size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Store</h1>
+</div>
+
+Programmatically manage your RM stores — create, update, delete, and retrieve store details.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./store-details" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuList size={22} /></div>
+    <span className="ov-card-title">Store Details</span>
+    <span className="ov-card-desc">List all stores under the merchant.</span>
+  </div>
+</a>
+
+<a href="./get-store-by-id" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuSearch size={22} /></div>
+    <span className="ov-card-title">Get Store by ID</span>
+    <span className="ov-card-desc">Retrieve details for a specific store.</span>
+  </div>
+</a>
+
+<a href="./create-store" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuCirclePlus size={22} /></div>
+    <span className="ov-card-title">Create Store</span>
+    <span className="ov-card-desc">Register a new store under the merchant.</span>
+  </div>
+</a>
+
+<a href="./update-store" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuPencil size={22} /></div>
+    <span className="ov-card-title">Update Store</span>
+    <span className="ov-card-desc">Update store details and configuration.</span>
+  </div>
+</a>
+
+<a href="./delete-store" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuTrash2 size={22} /></div>
+    <span className="ov-card-title">Delete Store</span>
+    <span className="ov-card-desc">Permanently remove a store from the merchant account.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -1,0 +1,63 @@
+---
+hide_title: true
+id: overview
+title: Merchants
+sidebar_label: Overview
+---
+
+import { LuBuilding2, LuUsers, LuStore, LuUser, LuShield } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuBuilding2 size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Merchants</h1>
+</div>
+
+APIs for managing partner merchants, accounts, stores, merchant profiles, and users within the Revenue Monster platform.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="../merchant-onboarding/overview" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuUsers size={22} /></div>
+    <span className="ov-card-title">Partner Merchant</span>
+    <span className="ov-card-desc">Create and manage merchant accounts on behalf of your partners.</span>
+  </div>
+</a>
+
+<a href="../settings/account-detail/overview" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuShield size={22} /></div>
+    <span className="ov-card-title">Account</span>
+    <span className="ov-card-desc">Create, retrieve, and update accounts. Submit accounts for RM review.</span>
+  </div>
+</a>
+
+<a href="../settings/store-detail/overview" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuStore size={22} /></div>
+    <span className="ov-card-title">Store</span>
+    <span className="ov-card-desc">Create, update, and delete stores. Fetch store details by merchant or ID.</span>
+  </div>
+</a>
+
+<a href="../settings/merchant-detail/overview" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuBuilding2 size={22} /></div>
+    <span className="ov-card-title">Merchant</span>
+    <span className="ov-card-desc">Retrieve merchant profile and active subscription information.</span>
+  </div>
+</a>
+
+<a href="../settings/user-overview" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuUser size={22} /></div>
+    <span className="ov-card-title">User</span>
+    <span className="ov-card-desc">Fetch the profile of the authenticated user.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

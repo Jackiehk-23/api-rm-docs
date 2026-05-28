@@ -1,0 +1,41 @@
+---
+hide_title: true
+id: overview
+title: Services
+sidebar_label: Overview
+---
+
+import { LuPuzzle, LuUtensilsCrossed, LuScanFace } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuPuzzle size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Services</h1>
+</div>
+
+Extended Revenue Monster services for building richer merchant and customer experiences.
+
+---
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(220px,1fr))',gap:'1rem',marginTop:'1.5rem'}}>
+
+<a href="../v2/plugin/overview" style={{display:'flex',flexDirection:'column',gap:'8px',padding:'1.25rem',border:'1px solid var(--ifm-color-emphasis-300)',borderRadius:'var(--ifm-alert-border-radius)',textDecoration:'none',color:'inherit',transition:'all 0.2s'}}>
+  <LuPuzzle size={28} style={{color:'var(--ifm-color-primary)'}} />
+  <strong>Plugin</strong>
+  <span style={{fontSize:'0.875rem',color:'var(--ifm-color-emphasis-700)'}}>Extend RM payment capabilities into your existing platform via lightweight integration plugins.</span>
+</a>
+
+<a href="../alacarte-open/overview" style={{display:'flex',flexDirection:'column',gap:'8px',padding:'1.25rem',border:'1px solid var(--ifm-color-emphasis-300)',borderRadius:'var(--ifm-alert-border-radius)',textDecoration:'none',color:'inherit',transition:'all 0.2s'}}>
+  <LuUtensilsCrossed size={28} style={{color:'var(--ifm-color-primary)'}} />
+  <strong>à la carte</strong>
+  <span style={{fontSize:'0.875rem',color:'var(--ifm-color-emphasis-700)'}}>Digital ordering solution for F&B and retail — orders, stores, inventory, and notifications via API.</span>
+</a>
+
+<a href="../ekyc/overview" style={{display:'flex',flexDirection:'column',gap:'8px',padding:'1.25rem',border:'1px solid var(--ifm-color-emphasis-300)',borderRadius:'var(--ifm-alert-border-radius)',textDecoration:'none',color:'inherit',transition:'all 0.2s'}}>
+  <LuScanFace size={28} style={{color:'var(--ifm-color-primary)'}} />
+  <strong>eKYC</strong>
+  <span style={{fontSize:'0.875rem',color:'var(--ifm-color-emphasis-700)'}}>Digital identity verification using Malaysian MyKad — scan, verify liveness, and match faces via API.</span>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->
