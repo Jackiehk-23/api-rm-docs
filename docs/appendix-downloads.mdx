@@ -6,6 +6,8 @@ sidebar_label: Downloads
 
 import { LuImage, LuPalette, LuSmartphone, LuWallet } from "react-icons/lu";
 
+import Admonition from '@theme/Admonition';
+
 Official Revenue Monster branding assets, app downloads, and sandbox testing credentials.
 
 ---
@@ -100,11 +102,11 @@ Official Revenue Monster branding assets, app downloads, and sandbox testing cre
 
 ## Testing Wallets
 
-:::note
+<Admonition type="note">
 - Only limited wallets provide testing accounts — most are in beta (unstable).
 - WeChat Pay is the only wallet usable with a real production wallet in **both** production and sandbox environments.
 - Recommend using WeChat Pay in sandbox for one round of testing, then move to production for other wallets.
-:::
+</Admonition>
 
 <div style={{display:"flex",alignItems:"center",gap:"10px",marginBottom:"12px"}}>
   <LuWallet size={18} style={{color:"var(--ifm-color-primary)",flexShrink:0}} />

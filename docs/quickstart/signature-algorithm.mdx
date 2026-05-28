@@ -4,15 +4,18 @@ title: Signature Algorithm
 sidebar_label: Signature Algorithm
 ---
 
+import Admonition from '@theme/Admonition';
 
 
-:::note
+
+
+<Admonition type="note">
 Signature algorithm is used to sign your payment API request with a private key to obtain additional security.
-:::
+</Admonition>
 
-:::important
+<Admonition type="important">
 **Data object** needs to be sorted, the **Nested object** also needs to be sorted.
-:::
+</Admonition>
 
 ---
 
@@ -22,9 +25,9 @@ Signature algorithm is used to sign your payment API request with a private key 
 
 **Method:** <HttpMethodBadge method="POST" />
 
-:::note
+<Admonition type="note">
 Refer to which API endpoint you are calling. Below request parameter is just an **EXAMPLE**.
-:::
+</Admonition>
 
 #### Example of Web/Mobile Payment
 
@@ -112,7 +115,7 @@ Refer to which API endpoint you are calling. Below request parameter is just an 
 }`}
 </CodeBlock>
 
-:::important
+<Admonition type="important">
 Before signing, you must:
 
 1. **Sort all JSON keys alphabetically** — including nested objects
@@ -124,7 +127,7 @@ Before signing, you must:
 | `<` | `\u003c` |
 | `>` | `\u003e` |
 | `&` | `\u0026` |
-:::
+</Admonition>
 
 ---
 
@@ -151,10 +154,10 @@ IsCiAgICAibGF5b3V0VmVyc2lvbiI6InYzIgp9`}
 
 ### Step 3 — Construct the Signing String
 
-:::important
+<Admonition type="important">
 - If the body is empty, the `data` parameter can be skipped.
 - If you are verifying a callback signature, the `requestUrl` can be skipped.
-:::
+</Admonition>
 
 <ParamTable
   title="Signing String Parameters"
@@ -189,9 +192,9 @@ data=ewogICAgIm9yZGVyIjog...&method=post&nonceStr=VYNknZohxwicZMaWbNdBKUrnrxDtaR
 
 Sign the plain text string from Step 3 using `sha256` with your RSA private key.
 
-:::important
+<Admonition type="important">
 Sign this content using `sha256` with your **private key** and make sure the **public key** has been uploaded to the **RM Merchant Portal**.
-:::
+</Admonition>
 
 <!-- :::note Example signature:
 `sha256 IrBg6t73VsH7ieEnQDB4CXHFjMWUkp8Dtddpxqw+4Gvz6Tag7Dx6nrfAt2ofYK8xZN9aBCvAKAfmAOGWIXnsTXfhFBnMA2kadiga7ufUJ81ozyhllbiliRM2ugw1OcqSTLRHWBPhrVwhHBxgDiG9wbuI3FKURrz+CufYYakFoCw=`
@@ -367,9 +370,9 @@ For security purposes, RM has enhanced its authentication flow by adding layers 
 
 If you receive an `INVALID_REQUEST_SIGNATURE` error, the response includes a `debug` object showing exactly what the server computed at each step.
 
-:::note
+<Admonition type="note">
 Compare the `preVerifyContent` steps below with your own output to find where they diverge.
-:::
+</Admonition>
 
 <!-- ```json
 {

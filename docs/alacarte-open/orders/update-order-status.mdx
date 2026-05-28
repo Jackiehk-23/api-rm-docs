@@ -168,6 +168,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/service"
@@ -192,9 +194,9 @@ Use this endpoint when:
 
 POST `function: "update.order.status"` with `storeId`, `orderId`, and the new `status`.
 
-:::note
+<Admonition type="note">
 Valid `status` values: `PROGRESSING`, `FINDING_COURIER`, `SHIPPING`, `COMPLETED`, `REJECTED`.
-:::
+</Admonition>
 
 ---
 

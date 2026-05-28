@@ -42,6 +42,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/payment/online"
@@ -58,9 +60,9 @@ Use this mode when:
 - Integrating payment inside a WeChat Mini Program
 - Targeting Chinese customers paying via WeChat Pay
 
-:::note
+<Admonition type="note">
 Before starting integration, contact [support@revenuemonster.my](mailto:support@revenuemonster.my) to bind your Mini Program App ID (小程序 App ID) to your account.
-:::
+</Admonition>
 
 ## How to Use
 
@@ -114,9 +116,9 @@ Decode and parse the base64 `data`, then call `wx.requestPayment` in your mini p
 
 ## Frontend Integration
 
-:::note
+<Admonition type="note">
 Use base64 decode on the `data` parameter and pass the result to the mini program API.
-:::
+</Admonition>
 
 <CodeBlock language="javascript" filename="WeChat Mini Program">
 {`var base64decoded = base64Decode(dataParameter);

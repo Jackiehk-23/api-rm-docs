@@ -40,6 +40,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/payment/online"
@@ -107,9 +109,9 @@ Decode the base64 `data` and pass it to `my.tradePay` in your mini program.
 
 ## Frontend Integration
 
-:::note
+<Admonition type="note">
 Use base64 decode on the `data` parameter and pass the result to the mini program API.
-:::
+</Admonition>
 
 <CodeBlock language="javascript" filename="Alipay Mini Program">
 {`my.tradePay({

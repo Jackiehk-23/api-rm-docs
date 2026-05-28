@@ -40,6 +40,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/payment/online"
@@ -56,9 +58,9 @@ Use this mode when:
 - You want a single QR accepted by Maybank, CIMB, TouchnGo, GrabPay, Boost, and other DuitNow-supported apps
 - Reducing checkout friction with a universal QR
 
-:::note
+<Admonition type="note">
 Poll [Query Payment Checkout](../query-checkout.md) every 3-5 seconds to track payment status.
-:::
+</Admonition>
 
 ## How to Use
 

@@ -36,6 +36,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/payment/refund"
@@ -46,14 +48,14 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 Refund returns funds to the customer — based on the payment provider's policy and time limits.
 
-:::info
+<Admonition type="info">
 Refund eligibility depends on the payment provider. Each payment method has its own refund period. If the refund period has passed, contact [support@revenuemonster.my](mailto:support@revenuemonster.my?subject=%5BRefund%20Request%5D) with:
 - Transaction ID
 - Reference ID (if applicable)
 - Total Transaction Amount
 - Total Refund Amount
 - Reason for refund
-:::
+</Admonition>
 
 ---
 

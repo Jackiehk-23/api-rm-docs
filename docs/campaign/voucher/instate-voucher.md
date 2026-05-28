@@ -74,6 +74,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="PATCH"
   sandbox="/v3/voucher/{code}/reinstate"
@@ -100,7 +102,7 @@ PATCH `/v3/voucher/{code}/reinstate` with no request body. Get `code` from the [
 
 ---
 
-:::note
+<Admonition type="note">
 
 - The URL is consists of [base_URL]/v3/voucher/[code]/reinstate.
 
@@ -108,7 +110,7 @@ PATCH `/v3/voucher/{code}/reinstate` with no request body. Get `code` from the [
 
 - [code] is the respond `code` generated from [`Issue Voucher`](https://doc.revenuemonster.my/#post-issue-voucher) endpoint.
 
-:::
+</Admonition>
 
 ### Request Parameters
 

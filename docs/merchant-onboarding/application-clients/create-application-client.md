@@ -77,15 +77,17 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/partner/merchant/{merchantId}/application"
   prod="/v3/partner/merchant/{merchantId}/application"
 />
 
-:::note
+<Admonition type="note">
 This endpoint is for merchants with a Partner account. To activate a Partner account, [contact us](https://revenuemonster.my/about-us).
-:::
+</Admonition>
 
 ## What is this?
 

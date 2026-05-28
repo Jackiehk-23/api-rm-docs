@@ -16,6 +16,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="GET"
   sandbox="/v3/payment/online?checkoutId={checkoutId}"
@@ -32,13 +34,13 @@ Use this endpoint when:
 - Polling for payment status during a direct checkout flow
 - Confirming a checkout session is complete before redirecting the customer
 
-:::caution
+<Admonition type="caution">
 Payment checkout is **not** the same as payment transaction info. Checkout only returns status, amount, and redirectUrl. For full transaction details, use [Query By Transaction ID](../query/by-transaction-id.md) with the `transactionId` from the checkout response.
-:::
+</Admonition>
 
-:::note
+<Admonition type="note">
 Direct Payment Checkout requires polling this endpoint to keep payment status updated. Suggested polling interval is 3–5 seconds.
-:::
+</Admonition>
 
 ## How to Use
 

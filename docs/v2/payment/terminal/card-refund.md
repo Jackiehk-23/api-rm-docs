@@ -52,6 +52,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/payment/terminal/quickpay"
@@ -68,9 +70,9 @@ Use this endpoint when:
 - Refunding a card transaction at the same RM Terminal
 - Customer requests an in-store card refund
 
-:::note
+<Admonition type="note">
 For e-wallet refunds, use [Cancel Transaction — Refund](../cancel-transaction/refund-transaction.mdx) via the server API instead.
-:::
+</Admonition>
 
 ## How to Use
 

@@ -4,27 +4,42 @@ title: Low-Code Checkout Button
 sidebar_label: (Official) Low-Code Checkout
 ---
 
-<head>
-    <link rel="stylesheet" href="https://rm-component-sandbox.oss-ap-southeast-3.aliyuncs.com/checkout-button/index.css" />
-    <script type="module" src="https://rm-component-sandbox.oss-ap-southeast-3.aliyuncs.com/checkout-button/index.js"></script>
-</head> 
+import { useEffect } from 'react';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 export const PayButton = ({ variant, size }) => (
-    <rm-pay-button
-        variant={variant} 
-        size={size}
-        clientId="1700119175882466350"
-        orderId={"DEMO-"+Date.now()}
-        storeId="10946114768247530" 
-        customerId="docdemo"  
-        currency="MYR"
-        amount="1390"
-        title="Test Demo"
-        detail="some product demo detail"
-    >
-        Checkout
-    </rm-pay-button>
-)
+  <BrowserOnly>
+    {() => {
+      const Inner = () => {
+        useEffect(() => {
+          const CSS = 'https://rm-component-sandbox.oss-ap-southeast-3.aliyuncs.com/checkout-button/index.css';
+          const JS  = 'https://rm-component-sandbox.oss-ap-southeast-3.aliyuncs.com/checkout-button/index.js';
+          if (!document.querySelector(`link[href="${CSS}"]`)) {
+            document.head.appendChild(Object.assign(document.createElement('link'), { rel: 'stylesheet', href: CSS }));
+          }
+          if (!document.querySelector(`script[src="${JS}"]`)) {
+            document.head.appendChild(Object.assign(document.createElement('script'), { type: 'module', src: JS }));
+          }
+        }, []);
+        return (
+          <rm-pay-button
+            variant={variant}
+            size={size}
+            clientId="1700119175882466350"
+            orderId={"DEMO-" + Date.now()}
+            storeId="10946114768247530"
+            customerId="docdemo"
+            currency="MYR"
+            amount="1390"
+            title="Test Demo"
+            detail="some product demo detail"
+          >Checkout</rm-pay-button>
+        );
+      };
+      return <Inner />;
+    }}
+  </BrowserOnly>
+);
 
 ## What is this?
 
@@ -122,6 +137,7 @@ Alternatively, if you are developing for sandbox environment, please amend the l
     { name: "customerEmail", type: "String", description: "Customer email", example: "\"john@example.com\"" }
   ]}
 />
+
 ## Styling Paramters
 
 <ParamTable
@@ -130,6 +146,7 @@ Alternatively, if you are developing for sandbox environment, please amend the l
     { name: "class", type: "String", description: "Custom class for custom styling" }
   ]}
 />
+
 ## Example (Variants)
 
 | Variant     | Button                                                |

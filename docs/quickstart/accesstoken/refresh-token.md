@@ -39,6 +39,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v1/token"
@@ -47,14 +49,14 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 ## Refresh an Access Token
 
-:::note
+<Admonition type="note">
 Use this endpoint to exchange a refresh token for a new access token. You should do this when:
 
 - The access token has expired (~30 days)
 - The access token has been compromised and needs to be rotated
 
 Avoid re-authenticating with your `clientId` and `clientSecret` on every request — refresh tokens exist to keep those credentials out of frequent network traffic.
-:::
+</Admonition>
 
 A refresh token is returned alongside the access token when you first authenticate via [Client Credentials](./client-credentials) or [Authorization Code](./authorization-code). Store both tokens securely.
 

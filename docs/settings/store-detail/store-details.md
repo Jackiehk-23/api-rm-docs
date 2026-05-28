@@ -91,6 +91,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="GET"
   sandbox="/v3/stores"
@@ -108,9 +110,9 @@ Use this endpoint when you:
 - Build a store picker in your dashboard
 - Need pagination over merchants with many stores
 
-:::tip
-Append `?cursor=<cursor>` to paginate large result sets.
-:::
+<Admonition type="tip">
+Append `?cursor=&lt;cursor&gt;` to paginate large result sets.
+</Admonition>
 
 ## How to Use
 

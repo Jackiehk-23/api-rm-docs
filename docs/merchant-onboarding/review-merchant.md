@@ -103,15 +103,17 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/partner/merchant/{merchantID}"
   prod="/v3/partner/merchant/{merchantID}"
 />
 
-:::note
+<Admonition type="note">
 This endpoint is for merchants with a Partner account. To activate a Partner account, [contact us](https://revenuemonster.my/about-us).
-:::
+</Admonition>
 
 ## What is this?
 
@@ -123,9 +125,9 @@ Use this endpoint when:
 - A merchant has completed all required fields and documents
 - You are ready to submit the merchant for RM's review process
 
-:::tip
+<Admonition type="tip">
 Before submitting, ensure all required information is complete. Incomplete applications may be rejected.
-:::
+</Admonition>
 
 ---
 

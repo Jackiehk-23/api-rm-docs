@@ -4,15 +4,18 @@ title: Verify Signature
 sidebar_label: Verify Signature
 ---
 
-:::note
+import Admonition from '@theme/Admonition';
+
+
+<Admonition type="note">
 When RM sends a callback (webhook) to your `notifyUrl`, the response includes an `X-Signature` header. You should verify this signature using the **RM Server Public Key** to confirm the callback genuinely came from Revenue Monster and was not tampered with.
 
 You can find the RM Server Public Key in **Merchant Portal > Developer > Applications > Server Public Key**.
-:::
+</Admonition>
 
-:::important
+<Admonition type="important">
 All JSON keys — including keys inside nested objects — must be sorted **alphabetically** before encoding.
-:::
+</Admonition>
 
 ---
 
@@ -91,9 +94,9 @@ Build the same signing string format used for requests. The values of `nonceStr`
   ]}
 />
 
-:::note
+<Admonition type="note">
 `requestUrl` is omitted when verifying callback signatures.
-:::
+</Admonition>
 
 **Example verification string:**
 
@@ -107,11 +110,11 @@ Build the same signing string format used for requests. The values of `nonceStr`
 
 Verify the `X-Signature` header from the RM callback against your constructed string using the **RM Server Public Key**.
 
-:::important
+<Admonition type="important">
 Use the **RM Server Public Key** (not your own public key) to verify callbacks. Find it in **Merchant Portal > Developer > Applications > Server Public Key**.
 
 Wrap it in standard PEM format before use:
-:::
+</Admonition>
 
 <CodeBlock language="plaintext" filename="PEM Format" hideLineNumbers>
 {`-----BEGIN PUBLIC KEY-----

@@ -58,6 +58,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/payment/quickpay"
@@ -74,9 +76,9 @@ Use this endpoint when:
 - The customer has an RM voucher to redeem against the purchase
 - Combining wallet payment with merchant promotions
 
-:::tip
+<Admonition type="tip">
 Vouchers can be generated as QR codes for scanning. Scan the voucher QR code first, then scan the wallet QR code.
-:::
+</Admonition>
 
 ## How to Use
 

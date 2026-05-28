@@ -5,6 +5,7 @@ sidebar_label: Introduction
 ---
 
 import { LuZap, LuBuilding2, LuCreditCard, LuGift, LuPackage, LuScanFace, LuMail, LuHeadphones, LuLock } from "react-icons/lu";
+import Admonition from '@theme/Admonition';
 
 export const CopyUrl = ({children}) => {
   const [ok, setOk] = React.useState(false);
@@ -64,9 +65,10 @@ Integrate payments, user management, store operations, and loyalty programs via 
 
 </div>
 
-:::danger Always Test in Sandbox First
-Test your integration in the sandbox environment before going live. Contact [support@revenuemonster.my](mailto:support@revenuemonster.my) to activate your sandbox account.
-:::
+
+<Admonition type="danger" title="Always Test in Sandbox First">
+  Test your integration in the sandbox environment before going live. Contact <a href="mailto:support@revenuemonster.my">support@revenuemonster.my</a> to activate your sandbox account.
+</Admonition>
 
 ---
 
@@ -94,9 +96,9 @@ Test your integration in the sandbox environment before going live. Contact [sup
 
 </div>
 
-:::info SDK vs REST API
+<Admonition type="info" title="SDK vs REST API">
 This documentation covers the **RESTful API**. For language-specific SDKs, see the [SDK section](../quickstart/sdk).
-:::
+</Admonition>
 
 ---
 

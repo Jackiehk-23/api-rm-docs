@@ -41,15 +41,17 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v1/token"
   prod="/v1/token"
 />
 
-:::note
+<Admonition type="note">
 This page is for **plugin and integration developers** building applications that act on behalf of a merchant.
-:::
+</Admonition>
 
 ## Get Access Token (Authorization Code)
 

@@ -37,6 +37,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/payment/quickpay"
@@ -53,9 +55,9 @@ Use this endpoint before [Quick Pay with Membership Card](./quick-pay.md):
 - To confirm the card is valid and active at the store
 - To prevent failed payments due to invalid memberships
 
-:::info
+<Admonition type="info">
 Currently available membership card: Alipay Gourmet Card (马来西亚美食优惠卡).
-:::
+</Admonition>
 
 ## How to Use
 

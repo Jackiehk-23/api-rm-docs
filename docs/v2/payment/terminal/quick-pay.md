@@ -54,6 +54,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/payment/terminal/quickpay"
@@ -70,9 +72,9 @@ Use this endpoint when:
 - Accepting in-store e-wallet payments through an RM Terminal
 - Driving an RM Terminal remotely from your POS or backend
 
-:::tip
+<Admonition type="tip">
 If your hardware device has its own scanner, use [Standard Quick Pay](../quick-pay/standard.md) instead for better experience and performance.
-:::
+</Admonition>
 
 ## How to Use
 

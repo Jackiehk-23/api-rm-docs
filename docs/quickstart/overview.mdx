@@ -7,6 +7,8 @@ sidebar_label: Overview
 
 import { LuZap, LuKeyRound, LuShieldCheck, LuPackage, LuSmartphone, LuLock } from "react-icons/lu";
 
+import Admonition from '@theme/Admonition';
+
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
   <LuZap size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
   <h1 style={{margin:0}}>Quick Start</h1>
@@ -68,10 +70,10 @@ Set up authentication and make your first RM API call. All endpoints require a v
 
 </div>
 
-:::tip Recommended Order
+<Admonition type="tip" title="Recommended Order">
 1. Read [Signature Algorithm](./signature-algorithm) — required for every request.
 2. Get an [Access Token](./accesstoken/client-credentials).
 3. Make your first API call.
-:::
+</Admonition>
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

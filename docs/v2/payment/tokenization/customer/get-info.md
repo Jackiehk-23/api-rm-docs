@@ -29,6 +29,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="GET"
   sandbox="/v3/recurring-payment/{customer_id}"
@@ -46,9 +48,9 @@ Use this endpoint when:
 - Verifying a customer's `isActive` status before charging
 - Inspecting a recurring schedule
 
-:::note
+<Admonition type="note">
 Only available after the customer has successfully bound their card.
-:::
+</Admonition>
 
 ## How to Use
 

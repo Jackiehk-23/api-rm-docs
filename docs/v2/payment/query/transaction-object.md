@@ -3,6 +3,9 @@ title: "Transaction Object"
 sidebar_label: "Transaction Object"
 ---
 
+import Admonition from '@theme/Admonition';
+
+
 ## What is this?
 
 Reference for the **transaction object** returned in `item` (or each entry in `items[]`) by all transaction query and payment endpoints. Use this page as the canonical field map when parsing responses.
@@ -165,9 +168,9 @@ The transaction object is returned in the `item` (or `items[]`) field of query r
 
 ## Spending Loyalty
 
-:::tip
+<Admonition type="tip">
 If you are using QR code mode for payment, you will receive the spending loyalty object in the transaction response. When printing the receipt, include the `qrcode` parameter as the QR code content — customers can scan it to retrieve their loyalty points.
-:::
+</Admonition>
 
 <ParamTable
   title="Details"

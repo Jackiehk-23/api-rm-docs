@@ -52,6 +52,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/service"
@@ -106,9 +108,9 @@ POST a Base64-encoded MyKad image. Optionally include a `notify_url` to receive 
   ]}
 />
 
-:::tip Using `notify_url`
+<Admonition type="tip" title="Using `notify_url`">
 Provide a `POST` handler at a public URL (e.g., `https://client-api/rm-ekyc-callback`) and pass it as `notify_url`. RM will deliver the recognition result to that URL when processing completes.
-:::
+</Admonition>
 
 ---
 

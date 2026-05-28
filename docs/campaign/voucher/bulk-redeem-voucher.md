@@ -137,6 +137,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/vouchers/redeem"
@@ -163,13 +165,13 @@ POST to `/v3/vouchers/redeem` with an array of voucher codes.
 
 ---
 
-:::note
+<Admonition type="note">
 
 - The URL is consists of [base_URL]/v3/vouchers/redeem.
 
 - [base_URL] is the base URL depending on your environment (Sandbox or production)
 
-:::
+</Admonition>
 
 ### Request Parameters
 

@@ -52,6 +52,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="GET"
   sandbox="/v3/loyalty/member/{{member_id}}"
@@ -76,13 +78,13 @@ GET `/v3/loyalty/member/{memberId}`. No request body required.
 
 ### Request Parameters
 
-:::note
+<Admonition type="note">
 
 - The URL is consists of `[base_URL]`/v3/loyalty/member/`[member_id]`
 
 - Pass an empty JSON object Example: `{}`
 
-:::
+</Admonition>
 
 ### Response Parameters
 

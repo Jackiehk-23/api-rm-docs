@@ -3,6 +3,9 @@ title: "DeepLink — Card Payment"
 sidebar_label: "Card Payment"
 ---
 
+import Admonition from '@theme/Admonition';
+
+
 ## What is this?
 
 Sends a Card Payment intent (`transactionType: 2`) to the RM Merchant App to accept card payments via DeepLink.
@@ -30,9 +33,9 @@ Send an `Intent("REVENUE_MONSTER_PAYMENT")` with `transactionType: 2` and the or
 startActivity(i)`}
 </CodeBlock>
 
-:::note
+<Admonition type="note">
 For terminal MF919, receipt printing cannot be controlled programmatically.
-:::
+</Admonition>
 
 ## Response
 

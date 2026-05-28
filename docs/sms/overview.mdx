@@ -7,6 +7,8 @@ sidebar_label: Overview
 
 import { LuMessageSquare } from "react-icons/lu";
 
+import Admonition from '@theme/Admonition';
+
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
   <LuMessageSquare size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
   <h1 style={{margin:0}}>Short Message Service</h1>
@@ -28,8 +30,8 @@ Send SMS messages to any Malaysian mobile number via RM's gateway. Useful for OT
 
 </div>
 
-:::note
+<Admonition type="note">
 This API requires an active RM account with SMS credits. Contact [support@revenuemonster.my](mailto:support@revenuemonster.my) to enable SMS for your account.
-:::
+</Admonition>
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

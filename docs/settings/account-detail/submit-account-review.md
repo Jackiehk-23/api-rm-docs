@@ -236,6 +236,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/account/{id}/review"
@@ -252,9 +254,9 @@ Use this endpoint when:
 - All required account details and documents have been uploaded
 - The merchant is ready for RM to start the KYC / verification process
 
-:::warning
+<Admonition type="warning">
 Make sure all required documents (IC, business registration, bank statement, etc.) are uploaded before submitting. Missing documents will delay review.
-:::
+</Admonition>
 
 ## How to Use
 

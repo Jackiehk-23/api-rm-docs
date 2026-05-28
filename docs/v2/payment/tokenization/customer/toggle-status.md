@@ -29,6 +29,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/recurring-payment/{customer_id}/toggle"
@@ -46,9 +48,9 @@ Use this endpoint when:
 - Suspending a customer due to chargeback or compliance reasons
 - Re-activating a previously paused customer
 
-:::note
+<Admonition type="note">
 Only available after the customer has successfully bound their card.
-:::
+</Admonition>
 
 ## How to Use
 

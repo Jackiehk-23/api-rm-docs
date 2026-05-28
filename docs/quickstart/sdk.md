@@ -4,13 +4,16 @@ title: SDK
 sidebar_label: SDK
 ---
 
+import Admonition from '@theme/Admonition';
+
+
 # SDK
 
 Official language SDKs for the Revenue Monster API. Click any card to visit the repository.
 
-:::note
+<Admonition type="note">
 Not all SDKs fully implement every API function. Pull requests are welcome.
-:::
+</Admonition>
 
 <div className="sdk-grid">
 

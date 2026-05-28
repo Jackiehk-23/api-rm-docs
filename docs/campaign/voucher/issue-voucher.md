@@ -31,6 +31,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/voucher-batch/{batchkey}/issue"
@@ -59,7 +61,7 @@ POST `/v3/voucher-batch/{batchkey}/issue` with the issuance details. The respons
 
 ### Request Parameters
 
-:::note
+<Admonition type="note">
 
 - The URL is consists of [base_URL]/v3/voucher-batch/[batchkey]/issue.
 
@@ -69,7 +71,7 @@ POST `/v3/voucher-batch/{batchkey}/issue` with the issuance details. The respons
 
 - Pass an empty JSON object Example: `{}`
 
-:::
+</Admonition>
 
 ### Response Parameters
 

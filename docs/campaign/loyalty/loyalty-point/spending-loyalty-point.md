@@ -33,6 +33,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/loyalty/spending-reward"
@@ -49,9 +51,9 @@ Use this endpoint when:
 - Awarding points proportional to spend after a non-auto-give payment
 - Implementing manual loyalty-point awarding for non-WeChat wallets
 
-:::caution
+<Admonition type="caution">
 **Only WeChat Pay + WeChat OA loyalty** program supports auto-give points during payment. All other wallets **DO NOT** support auto-give points. Use the merchant app / terminal app or this endpoint to award points manually for each payment.
-:::
+</Admonition>
 
 ## How to Use
 

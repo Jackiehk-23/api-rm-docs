@@ -3,6 +3,9 @@ title: "Recurring — Redirect Response"
 sidebar_label: "Redirect Response"
 ---
 
+import Admonition from '@theme/Admonition';
+
+
 ## What is this?
 
 After the recurring customer completes card binding on the RM-hosted page, RM redirects them back to your `redirectUrl` with the parameters below.
@@ -13,9 +16,9 @@ Implement a handler for this redirect when:
 - You sent a customer through [Create Recurring Customer](./create-customer.md)
 - You need to surface bind success/failure on your UI
 
-:::info
+<Admonition type="info">
 The redirect URL can be any URL type — deep link, browser URL, or server URL.
-:::
+</Admonition>
 
 ## How to Use
 

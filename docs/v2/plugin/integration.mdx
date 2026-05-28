@@ -4,6 +4,9 @@ title: "Integration"
 sidebar_label: "Integration"
 ---
 
+import Admonition from '@theme/Admonition';
+
+
 
 # Plugin
 
@@ -40,9 +43,9 @@ Once you have the first segment of data you can verify the signature using signi
 4. Generate signature
 5. Check signature with first segments
 
-:::note
+<Admonition type="note">
 Example Code in Go
-:::
+</Admonition>
 
 <CodeBlock language="go" filename="Signature Verification">
 {`package main
@@ -96,9 +99,9 @@ From the second segment of the signed request, you can obtain the data by `Base6
 
 Webview will have to handle the `postMessage` from our application and using the signed request from us will need to pass it to your backend to proceed with decoding, verifying and your own business logic. 
 
-:::note
+<Admonition type="note">
 Most of the function are using browser native feature so all the rules still remains by default such as storage limit for session, local storage and cookie. 
-:::
+</Admonition>
 
 ### Initialize Handshake
 

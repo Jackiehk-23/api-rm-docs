@@ -4,11 +4,14 @@ title: Bank Code
 sidebar_label: Bank Code
 ---
 
+import Admonition from '@theme/Admonition';
+
+
 Bank codes supported by Revenue Monster for FPX payments. Codes not listed below are not supported.
 
-:::note
+<Admonition type="note">
 Use these codes when integrating with FPX-based payment methods.
-:::
+</Admonition>
 
 
 | Code             | Name                        |

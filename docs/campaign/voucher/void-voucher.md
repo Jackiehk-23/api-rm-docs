@@ -67,6 +67,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/voucher/{code}/void"
@@ -95,7 +97,7 @@ POST to `/v3/voucher/{code}/void` with no request body.
 
 ### Request Parameters
 
-:::note
+<Admonition type="note">
 
 - The URL is consists of [base_URL]/v3/voucher/[code]/void.
 
@@ -105,7 +107,7 @@ POST to `/v3/voucher/{code}/void` with no request body.
 
 - Pass an empty JSON object if do not have any storeId. Example: `{}`
 
-:::
+</Admonition>
 
 ### Request Parameters
 

@@ -86,6 +86,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="GET"
   sandbox="/v3/voucher-batch/{batchKey}/vouchers"
@@ -114,7 +116,7 @@ GET `/v3/voucher-batch/{batchkey}/vouchers`. Find `batchkey` via the merchant po
 
 ### Request Parameters
 
-:::note
+<Admonition type="note">
 
 - The URL is consists of [base_URL]/v3/voucher-batch/[batchkey]/vouchers.
 
@@ -122,7 +124,7 @@ GET `/v3/voucher-batch/{batchkey}/vouchers`. Find `batchkey` via the merchant po
 
 - Pass an empty JSON object Example: `{}`
 
-:::
+</Admonition>
 
 ### Response Parameters
 

@@ -4,6 +4,9 @@ title: Overview
 sidebar_label: Overview
 ---
 
+import Admonition from '@theme/Admonition';
+
+
 ## What is this?
 
 Reference guide for RM's voucher system. Vouchers let merchants reward customers with free gifts, cashback, or discounts. This page documents voucher statuses, the marketplace flow, and webhook callback behavior.
@@ -15,9 +18,9 @@ Refer to this page when:
 - Implementing a webhook to receive voucher events
 - Sharing vouchers with another merchant via the Voucher Marketplace
 
-:::note
+<Admonition type="note">
 **Voucher** is for users to collect **free gifts**, **cashback**, and **discount** offers.
-:::
+</Admonition>
 
 ## Issue Voucher Using RM Merchant App/Terminal
 
@@ -40,11 +43,11 @@ Refer to this page when:
 
 ### Voucher Marketplace
 
-:::note
+<Admonition type="note">
 
 **Send** voucher to other merchant
 
-:::
+</Admonition>
 
 <img src={require('/img/voucher/marketplace-voucher.png').default} />
 
@@ -62,13 +65,13 @@ Refer to this page when:
 
 ### Sample Response
 
-:::note
+<Admonition type="note">
 
 - Frequency of callback: 5 times, interval of 1 min each
 - Callback will stop when RM server receives HTTP response of **200-OK**
 - **In case of unreachable server callback, please proceed to call [Get Voucher By Code endpoint](/campaign/voucher/voucher-by-code.md).**
 
-:::
+</Admonition>
 
 <CodeBlock language="json" filename="Example Response">
 {`{

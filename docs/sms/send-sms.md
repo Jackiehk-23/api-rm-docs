@@ -46,6 +46,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/sms"
@@ -63,9 +65,9 @@ Use this endpoint when you:
 - Want to send a one-time password (TAC) for authentication
 - Require SMS-based confirmation for sensitive transactions
 
-:::note
+<Admonition type="note">
 Currently supports the `VERIFY_CODE` type for sending verification codes.
-:::
+</Admonition>
 
 ## How to Use
 

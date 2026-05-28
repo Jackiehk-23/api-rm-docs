@@ -4,6 +4,9 @@ title: POS Terminal Integration
 sidebar_label: POS Terminal Integration
 ---
 
+import Admonition from '@theme/Admonition';
+
+
 ## What is this?
 
 Integrate RM Terminal with a POS system or Kiosk machine using local callback. Drives the terminal to initiate an e-wallet or card payment from your POS app.
@@ -14,9 +17,9 @@ Use this endpoint when:
 - Connecting a POS system / Kiosk to an RM Terminal over local network
 - Driving terminal payments from your own checkout app
 
-:::note
+<Admonition type="note">
 This endpoint only supports payment initiation. For refund / reverse / settlement, follow the standard refund, reverse, and settlement API steps.
-:::
+</Admonition>
 
 ## How to Use
 

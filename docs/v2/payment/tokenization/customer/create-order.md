@@ -45,6 +45,7 @@ examples:
 ---
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
+import Admonition from '@theme/Admonition';
 
 <ApiEndpoint
   method="POST"
@@ -62,9 +63,9 @@ Use this endpoint when:
 - You need to charge an existing tokenized customer right now
 - Running ad-hoc billing for a saved-card customer
 
-:::caution
-This charges the customer's card — it is not a manual order creation. The amount is applied directly to the stored token.
-:::
+<Admonition type="danger">
+  This charges the customer's card — it is not a manual order creation. The amount is applied directly to the stored token.
+</Admonition>
 
 ## How to Use
 

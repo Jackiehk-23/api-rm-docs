@@ -28,6 +28,7 @@ examples:
 ---
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
+import Admonition from '@theme/Admonition';
 
 <ApiEndpoint
   method="POST"
@@ -39,9 +40,9 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 Reverse a transaction — used to void a payment before settlement. If a transaction times out, perform a reverse before creating a new transaction to prevent a double charge.
 
-:::info
-**Reverse** cancels a transaction — used mainly to prevent double charges when a timeout occurs. Use within ~15 minutes of a transaction.
-:::
+<Admonition type="danger">
+  <strong>Reverse</strong> cancels a transaction — used mainly to prevent double charges when a timeout occurs. Use within ~15 minutes of a transaction.
+</Admonition>
 
 ---
 

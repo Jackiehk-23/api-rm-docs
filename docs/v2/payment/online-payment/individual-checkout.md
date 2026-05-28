@@ -3,6 +3,9 @@ title: "Individual Payment Checkout"
 sidebar_label: "Individual Payment Checkout"
 ---
 
+import Admonition from '@theme/Admonition';
+
+
 ## What is this?
 
 Use the `checkoutId` returned by [Hosted Payment Checkout](./hosted-checkout) to drive the customer through a custom payment experience. RM still sends a redirect (on completion) and an optional server-side notify (on success).
@@ -35,9 +38,9 @@ When the customer completes payment, RM redirects to your `redirectUrl` (GET). O
 
 ## Redirect Response
 
-:::info
+<Admonition type="info">
 The redirect URL brings the customer back to your page after payment. It can be any URL type (deep link, browser URL, server URL).
-:::
+</Admonition>
 
 **Method:** <HttpMethodBadge method="GET" />
 
@@ -54,9 +57,9 @@ The redirect URL brings the customer back to your page after payment. It can be 
 
 ## Notify Response
 
-:::info
+<Admonition type="info">
 The notify URL informs your server of the transaction status after a successful payment. Notify is only called on success — failure or refund does not trigger a notify. Query the transaction using [Query By Transaction ID](../query/by-transaction-id.md) for full details.
-:::
+</Admonition>
 
 **Method:** <HttpMethodBadge method="POST" />
 

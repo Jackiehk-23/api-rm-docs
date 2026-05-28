@@ -7,6 +7,8 @@ sidebar_label: Overview
 
 import { LuUtensilsCrossed, LuClipboardList, LuStore, LuPackage, LuBell } from "react-icons/lu";
 
+import Admonition from '@theme/Admonition';
+
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
   <LuUtensilsCrossed size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
   <h1 style={{margin:0}}>à la carte</h1>
@@ -54,8 +56,8 @@ RM's digital ordering solution for F&B and retail. Manage orders, stores, and in
 
 </div>
 
-:::note Base URL
+<Admonition type="note" title="Base URL">
 All à la carte API calls use the same RM Open API base URL: `https://open.revenuemonster.my/v3/service`
-:::
+</Admonition>
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

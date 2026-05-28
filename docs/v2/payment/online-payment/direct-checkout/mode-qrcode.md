@@ -40,6 +40,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/payment/online"
@@ -56,9 +58,9 @@ Use this mode when:
 - Integrating Maybank QR, CIMB QR, or other bank-specific QR payments
 - Displaying QR on a desktop checkout for mobile scanning
 
-:::note
+<Admonition type="note">
 Poll [Query Payment Checkout](../query-checkout.md) every 3-5 seconds to track payment status.
-:::
+</Admonition>
 
 ## How to Use
 
@@ -73,6 +75,18 @@ POST with `type: "QRCODE"` and the desired bank `method`.
 ### Step 3: Display and Poll
 
 Render the returned `base64Image` and poll [Query Payment Checkout](../query-checkout.md) for status.
+
+### Decode your Image using Base64
+
+Using **qrCodeImageBase64** URL to generate a QR Code
+
+<img src={require('/img/payment-image/individual-qr-code.png').default} alt="QR Code Example" style={{maxWidth: '350px', display: 'block', borderRadius: '8px'}} />
+
+### What user will receive
+
+Once user scan the QR Code it will display
+
+<img src={require('/img/payment-image/check-out-payment.png').default} alt="What User Will Receive" style={{maxWidth: '400px', display: 'block', borderRadius: '8px'}} />
 
 ---
 

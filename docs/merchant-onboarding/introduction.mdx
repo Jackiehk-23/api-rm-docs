@@ -4,6 +4,9 @@ title: Introduction
 sidebar_label: Introduction
 ---
 
+import Admonition from '@theme/Admonition';
+
+
 # Merchant Onboarding API
 
 ## What is this?
@@ -17,9 +20,9 @@ Use this API when you:
 - Want to automate merchant onboarding into RM's system
 - Need to manage merchant accounts programmatically
 
-:::note
+<Admonition type="note">
 This API is for **Partner Merchant accounts** only. To activate a Partner account, [contact us](https://revenuemonster.my/about-us).
-:::
+</Admonition>
 
 ## How to Use
 
@@ -47,9 +50,9 @@ Track the merchant's application status. See [Get Merchant](./get-merchant.md) f
 
 <img src={require('/img/onboarding/onboarding.png').default} />
 
-:::note
+<Admonition type="note">
 For all Open API endpoints other than the Onboarding API, you must use an **Onboarded Merchant Account** Developer Application. See the configuration guide below.
-:::
+</Admonition>
 
 <img src={require('/img/onboarding/configuration.png').default} />
 

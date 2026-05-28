@@ -55,6 +55,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/service"
@@ -74,9 +76,9 @@ Use this endpoint when:
 - You need to confirm a real person (not a photo) matches the IC holder
 - KYC flows that require both liveness and face matching in one step
 
-:::note
+<Admonition type="note">
 **Prerequisite:** Acquire `requestID` from the [MyKad Recognition](./mykad-recognition) response. Obtain the Liveness JS Web SDK from Revenue Monster.
-:::
+</Admonition>
 
 ## How to Use
 

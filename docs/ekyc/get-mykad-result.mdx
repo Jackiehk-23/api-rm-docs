@@ -274,6 +274,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/service"
@@ -293,9 +295,9 @@ Use this endpoint when:
 - You need to poll for the result on demand
 - Auditing or re-fetching past recognition results
 
-:::note
+<Admonition type="note">
 **Prerequisite:** Acquire `requestID` from the [MyKad Recognition](./mykad-recognition) response.
-:::
+</Admonition>
 
 ## How to Use
 

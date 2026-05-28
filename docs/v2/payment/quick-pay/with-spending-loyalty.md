@@ -62,6 +62,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/payment/quickpay"
@@ -78,11 +80,11 @@ Use this endpoint when:
 - The merchant runs a spending-loyalty program
 - The customer is enrolled as a loyalty member (identified by phone number or member ID)
 
-:::important
+<Admonition type="important">
 You will receive extra parameters in the transaction response. Print the generated QR code on the receipt so customers can scan it to retrieve their spending loyalty points.
 
 See [Transaction Object > Spending Loyalty](../query/transaction-object.md#spending-loyalty).
-:::
+</Admonition>
 
 ## How to Use
 

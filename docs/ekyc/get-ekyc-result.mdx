@@ -113,6 +113,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/service"
@@ -131,11 +133,11 @@ Use this endpoint when:
 - Polling for results when no webhook (`notify_url`) was supplied
 - Auditing past eKYC outcomes
 
-:::note
+<Admonition type="note">
 **Prerequisite:** Acquire `requestID` from the [MyKad Recognition](./mykad-recognition) response.
 
 RM eKYC Sequence Diagram: [Click Here](https://drive.google.com/drive/folders/1cNrEk5i2s_WnI9i8_WxQlwBw5ivqxY-g?usp=sharing)
-:::
+</Admonition>
 
 ## How to Use
 

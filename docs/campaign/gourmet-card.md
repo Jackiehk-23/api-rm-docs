@@ -68,6 +68,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/membership/verify"
@@ -84,9 +86,9 @@ Use this endpoint when:
 - Verifying an Alipay Gourmet Card before applying the discount
 - Looking up card details for a verified Alipay member
 
-:::note
+<Admonition type="note">
 **For Alipay merchants only.**
-:::
+</Admonition>
 
 ## How to Use
 

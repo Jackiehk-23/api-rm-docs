@@ -27,6 +27,7 @@ examples:
 
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
+import Admonition from '@theme/Admonition';
 
 <ApiEndpoint
   method="DELETE"
@@ -42,9 +43,9 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 Permanently delete a store under a merchant account.
 
-:::warning
-Deletion is irreversible. Once a store is deleted, it cannot be restored.
-:::
+<Admonition type="danger">
+  Deletion is irreversible. Once a store is deleted, it cannot be restored.
+</Admonition>
 
 ## When to Use
 

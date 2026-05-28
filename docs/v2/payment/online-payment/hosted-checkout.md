@@ -60,6 +60,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/payment/online"
@@ -77,10 +79,10 @@ Use this endpoint when:
 - You want RM to host the payment UI (no need to build your own)
 - Integrating tokenization or saved cards
 
-:::note
+<Admonition type="note">
 - This creates a unified payment checkout page for both web and mobile.
 - The **data object** must be sorted alphabetically, including nested objects.
-:::
+</Admonition>
 
 ## How to Use
 
@@ -88,6 +90,14 @@ Use this endpoint when:
 2. Redirect customer to the `url`
 3. After payment, customer is redirected to your `redirectUrl` with `status` and `orderId`
 4. Your `notifyUrl` receives a server-to-server callback on success
+
+### Example of Web Payment
+
+<img src={require('/img/gif/web-payment.gif').default} alt="Web Payment Example" style={{width: '100%', borderRadius: '8px'}} />
+
+### Example of Mobile Payment
+
+<img src={require('/img/gif/mobile-web-payment.gif').default} alt="Mobile Payment Example" style={{maxWidth: '400px', display: 'block', borderRadius: '8px'}} />
 
 ---
 

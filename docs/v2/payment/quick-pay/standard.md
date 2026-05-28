@@ -56,6 +56,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/payment/quickpay"
@@ -73,9 +75,9 @@ Use Quick Pay when you want to:
 - Process offline transactions at a physical store or terminal
 - Support multiple e-wallets and payment methods in a single integration
 
-:::tip
+<Admonition type="tip">
 Quick Pay is an **offline payment method**. Its subscription rate is based on the offline subscription plan. Contact [support@revenuemonster.my](mailto:support@revenuemonster.my) to activate this feature.
-:::
+</Admonition>
 
 ## How to Use
 
@@ -83,6 +85,16 @@ Quick Pay is an **offline payment method**. Its subscription rate is based on th
 2. Scan the QR code to get the `authCode`
 3. Send the `authCode` along with order details to this endpoint
 4. Check the `code` in the response — if `"SUCCESS"`, the payment is complete
+
+<iframe
+  width="100%"
+  style={{aspectRatio: '16/9'}}
+  src="https://www.youtube.com/embed/sGmQCTvXORQ?start=30"
+  title="Quick Pay Tutorial"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
 
 ---
 

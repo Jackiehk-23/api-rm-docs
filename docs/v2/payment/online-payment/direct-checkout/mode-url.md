@@ -40,6 +40,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="POST"
   sandbox="/v3/payment/online"
@@ -56,9 +58,9 @@ Use this mode when:
 - Integrating Alipay+, Boost, or other URL-redirect payment methods
 - Driving payment from your own checkout UI
 
-:::note
+<Admonition type="note">
 Poll [Query Payment Checkout](../query-checkout.md) every 3-5 seconds to track payment status.
-:::
+</Admonition>
 
 ## How to Use
 

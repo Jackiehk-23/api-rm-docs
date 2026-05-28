@@ -29,6 +29,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="GET"
   sandbox="/v3/recurring-payment/{customer_id}/orders"
@@ -45,9 +47,9 @@ Use this endpoint when:
 - Showing a customer's billing history
 - Reconciling charges against your records
 
-:::note
+<Admonition type="note">
 Only available after the customer has successfully bound their card.
-:::
+</Admonition>
 
 ## How to Use
 

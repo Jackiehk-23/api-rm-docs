@@ -4,6 +4,9 @@ title: Transaction Webhook
 sidebar_label: Transaction Webhook
 ---
 
+import Admonition from '@theme/Admonition';
+
+
 ## What is this?
 
 RM sends a POST webhook to your registered `notifyUrl` whenever an enrolled Visa card transacts at a participating merchant. Use it to track qualifying transactions in real time.
@@ -15,9 +18,9 @@ Implement a handler for this webhook when:
 - Awarding cashback or rewards based on qualifying transactions
 - Reconciling user activity into your own ledger
 
-:::important
+<Admonition type="important">
 The webhook is delivered to the `notifyUrl` you supplied during [Enroll User](./enroll-user). Your endpoint must respond with HTTP 200 OK to acknowledge receipt.
-:::
+</Admonition>
 
 ## How to Use
 

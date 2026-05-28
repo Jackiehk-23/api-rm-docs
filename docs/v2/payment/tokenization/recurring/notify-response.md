@@ -3,6 +3,9 @@ title: "Recurring — Notify Response"
 sidebar_label: "Notify Response"
 ---
 
+import Admonition from '@theme/Admonition';
+
+
 ## What is this?
 
 Your `notifyUrl` receives this callback each time a recurring payment is successfully charged. Use it to record charges in your own ledger.
@@ -13,9 +16,9 @@ Implement a handler for this notify when:
 - You created a recurring customer via [Create Recurring Customer](./create-customer.md)
 - You need real-time success notifications for each scheduled charge
 
-:::info
+<Admonition type="info">
 Notify is only called on success — failed payments do not trigger a notify. Use [Query By Transaction ID](../../query/by-transaction-id.md) for full transaction details.
-:::
+</Admonition>
 
 ## How to Use
 

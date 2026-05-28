@@ -41,6 +41,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="GET"
   sandbox="/v3/partner/merchants"
@@ -58,9 +60,9 @@ Use this endpoint when you:
 - Want to check merchant status or details
 - Need to display merchant list in your dashboard
 
-:::note
+<Admonition type="note">
 This endpoint is for merchants with a Partner account. To activate a Partner account, [contact us](https://revenuemonster.my/about-us).
-:::
+</Admonition>
 
 ## How to Use
 

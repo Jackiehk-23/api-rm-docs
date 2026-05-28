@@ -26,6 +26,8 @@ examples:
 
 import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
+import Admonition from '@theme/Admonition';
+
 <ApiEndpoint
   method="GET"
   sandbox="/v3/payment/transaction/{orderId}"
@@ -36,13 +38,13 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 Retrieve a transaction by the Order ID you provided when initiating the payment.
 
-:::tip
+<Admonition type="tip">
 Store the **Order ID** from every payment request — you will need it to look up transactions later.
-:::
+</Admonition>
 
-:::caution Rate Limit
+<Admonition type="caution" title="Rate Limit">
 **3 requests per 5 seconds** per access token. Exceeding this returns a `429 Too Many Requests` response. Add a short delay between retries.
-:::
+</Admonition>
 
 ## When to Use
 
