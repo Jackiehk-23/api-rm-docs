@@ -6,7 +6,6 @@ sidebar_label: Mobile SDK
 
 import Admonition from '@theme/Admonition';
 
-
 # Mobile SDK
 
 Official mobile SDKs for in-app payment integration. Click any card to visit the repository.
@@ -26,7 +25,7 @@ Not all SDKs fully implement every API function. Pull requests are welcome.
 <style>{`
 .sdk-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 1rem;
   margin: 1.5rem 0;
 }
