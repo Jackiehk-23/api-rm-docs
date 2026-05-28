@@ -119,7 +119,7 @@ export default function DocSidebarItemLink({
   const isInternalLink = isInternalUrl(href);
   const toc = useTOCStore();
   const filteredToc = useMemo(
-    () => toc.filter(h => h.level === 2),
+    () => toc.filter(h => h.level === 2 && !['what', 'when', 'how'].some(p => h.id.startsWith(p))),
     [toc],
   );
 
