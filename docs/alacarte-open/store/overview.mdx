@@ -1,0 +1,55 @@
+---
+hide_title: true
+id: overview
+title: Store
+sidebar_label: Overview
+---
+
+import { LuStore, LuSearch, LuPencil } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuStore size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Store</h1>
+</div>
+
+Retrieve and update your à la carte store configuration — delivery options, order types, and availability windows.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./get-store-by-id" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuSearch size={22} /></div>
+    <span className="ov-card-title">Get Store by ID</span>
+    <span className="ov-card-desc">Retrieve full configuration details for a store.</span>
+  </div>
+</a>
+
+<a href="./update-store-by-id-delivery" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuPencil size={22} /></div>
+    <span className="ov-card-title">Update Delivery</span>
+    <span className="ov-card-desc">Set delivery zone, fees, and minimum order amount for the store.</span>
+  </div>
+</a>
+
+<a href="./update-store-by-id-types" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuStore size={22} /></div>
+    <span className="ov-card-title">Update Order Types</span>
+    <span className="ov-card-desc">Configure which order types the store accepts — walk-in, pick-up, drive-thru, delivery.</span>
+  </div>
+</a>
+
+<a href="./update-store-by-id-availability" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuPencil size={22} /></div>
+    <span className="ov-card-title">Update Availability</span>
+    <span className="ov-card-desc">Set operating hours and availability windows for the store.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

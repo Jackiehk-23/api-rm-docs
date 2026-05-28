@@ -1,0 +1,47 @@
+---
+hide_title: true
+id: overview
+title: Tokenization
+sidebar_label: Overview
+---
+
+import { LuRepeat2, LuCreditCard, LuUser } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuRepeat2 size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Tokenization</h1>
+</div>
+
+Save payment credentials for future charges. Supports recurring billing, tokenized card payments, and customer management.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./recurring/overview" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuRepeat2 size={22} /></div>
+    <span className="ov-card-title">Recurring</span>
+    <span className="ov-card-desc">Set up recurring billing — create a customer and handle redirect and notify callbacks.</span>
+  </div>
+</a>
+
+<a href="./tokenized/overview" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuCreditCard size={22} /></div>
+    <span className="ov-card-title">Tokenized</span>
+    <span className="ov-card-desc">Tokenize a card for future one-click payments.</span>
+  </div>
+</a>
+
+<a href="./customer/overview" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuUser size={22} /></div>
+    <span className="ov-card-title">Customer</span>
+    <span className="ov-card-desc">Manage tokenized customers — retrieve info, view orders, toggle status, and create charges.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

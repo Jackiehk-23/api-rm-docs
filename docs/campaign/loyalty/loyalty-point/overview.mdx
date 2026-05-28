@@ -1,0 +1,63 @@
+---
+hide_title: true
+id: overview
+title: Loyalty Point
+sidebar_label: Overview
+---
+
+import { LuStar, LuTrash2, LuCircleX, LuRepeat2 } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuStar size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Loyalty Point</h1>
+</div>
+
+Give, deduct, and spend loyalty points. Calculate spending rewards for customers.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./give-loyalty-point" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuStar size={22} /></div>
+    <span className="ov-card-title">Give Loyalty Point</span>
+    <span className="ov-card-desc">Award loyalty points to a member after a qualifying transaction.</span>
+  </div>
+</a>
+
+<a href="./deduct-loyalty-point" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuTrash2 size={22} /></div>
+    <span className="ov-card-title">Deduct Loyalty Point</span>
+    <span className="ov-card-desc">Remove loyalty points from a member's balance.</span>
+  </div>
+</a>
+
+<a href="./spending-loyalty-point" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuRepeat2 size={22} /></div>
+    <span className="ov-card-title">Spending Loyalty Point</span>
+    <span className="ov-card-desc">Redeem loyalty points as payment at checkout.</span>
+  </div>
+</a>
+
+<a href="./cancel-spending-loyalty-point" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuCircleX size={22} /></div>
+    <span className="ov-card-title">Cancel Spending</span>
+    <span className="ov-card-desc">Reverse a loyalty point spending transaction.</span>
+  </div>
+</a>
+
+<a href="./calculate-spending-reward" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuStar size={22} /></div>
+    <span className="ov-card-title">Calculate Spending Reward</span>
+    <span className="ov-card-desc">Preview how many points a customer would earn for a given spend.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

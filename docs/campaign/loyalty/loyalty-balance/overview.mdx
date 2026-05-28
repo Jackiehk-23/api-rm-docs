@@ -1,0 +1,39 @@
+---
+hide_title: true
+id: overview
+title: Loyalty Balance
+sidebar_label: Overview
+---
+
+import { LuList, LuRepeat2 } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuList size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Loyalty Balance</h1>
+</div>
+
+Get loyalty point balances and process balance spending for members.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./get-loyalty-balances" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuList size={22} /></div>
+    <span className="ov-card-title">Get Loyalty Balances</span>
+    <span className="ov-card-desc">Retrieve the current loyalty point balance for a member.</span>
+  </div>
+</a>
+
+<a href="./spend-loyalty-balance" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuRepeat2 size={22} /></div>
+    <span className="ov-card-title">Spend Loyalty Balance</span>
+    <span className="ov-card-desc">Deduct from a member's loyalty balance to offset a payment.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

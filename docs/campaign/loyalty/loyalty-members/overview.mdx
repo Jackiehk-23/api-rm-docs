@@ -1,0 +1,79 @@
+---
+hide_title: true
+id: overview
+title: Loyalty Members
+sidebar_label: Overview
+---
+
+import { LuUsers, LuUser, LuShield, LuCirclePlus, LuList } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuUsers size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Loyalty Members</h1>
+</div>
+
+Manage loyalty member accounts — authorize, list, view history, bulk create, and process online or offline top-ups.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./member-authorize" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuShield size={22} /></div>
+    <span className="ov-card-title">Authorize Member</span>
+    <span className="ov-card-desc">Authenticate a loyalty member before performing point operations.</span>
+  </div>
+</a>
+
+<a href="./loyalty-members" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuUsers size={22} /></div>
+    <span className="ov-card-title">List Members</span>
+    <span className="ov-card-desc">Retrieve all loyalty members under the merchant.</span>
+  </div>
+</a>
+
+<a href="./loyalty-member" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuUser size={22} /></div>
+    <span className="ov-card-title">Get Member</span>
+    <span className="ov-card-desc">Retrieve profile and point balance for a single loyalty member.</span>
+  </div>
+</a>
+
+<a href="./loyalty-member-history" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuList size={22} /></div>
+    <span className="ov-card-title">Member History</span>
+    <span className="ov-card-desc">View a member's full point transaction history.</span>
+  </div>
+</a>
+
+<a href="./bulk-create-members" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuCirclePlus size={22} /></div>
+    <span className="ov-card-title">Bulk Create Members</span>
+    <span className="ov-card-desc">Enroll multiple loyalty members in a single request.</span>
+  </div>
+</a>
+
+<a href="./topup-online" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuCirclePlus size={22} /></div>
+    <span className="ov-card-title">Top-Up Online</span>
+    <span className="ov-card-desc">Add loyalty points to a member's account via online payment.</span>
+  </div>
+</a>
+
+<a href="./topup-offline" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuCirclePlus size={22} /></div>
+    <span className="ov-card-title">Top-Up Offline</span>
+    <span className="ov-card-desc">Add loyalty points to a member's account via cash or offline method.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

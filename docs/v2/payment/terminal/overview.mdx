@@ -1,0 +1,63 @@
+---
+hide_title: true
+id: overview
+title: Terminal
+sidebar_label: Overview
+---
+
+import { LuTerminal, LuQrCode, LuCreditCard, LuRepeat2, LuCircleX } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuTerminal size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Terminal</h1>
+</div>
+
+POS terminal integration — accept QR payments and card transactions, process refunds, trigger settlement, and cancel in-progress events.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./quick-pay" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuQrCode size={22} /></div>
+    <span className="ov-card-title">Quick Pay</span>
+    <span className="ov-card-desc">Initiate a QR scan-to-pay transaction from a POS terminal.</span>
+  </div>
+</a>
+
+<a href="./card-payment" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuCreditCard size={22} /></div>
+    <span className="ov-card-title">Card Payment</span>
+    <span className="ov-card-desc">Process a card payment through the terminal.</span>
+  </div>
+</a>
+
+<a href="./card-refund" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuRepeat2 size={22} /></div>
+    <span className="ov-card-title">Card Refund</span>
+    <span className="ov-card-desc">Refund a card payment via the terminal.</span>
+  </div>
+</a>
+
+<a href="./card-settlement" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuTerminal size={22} /></div>
+    <span className="ov-card-title">Card Settlement</span>
+    <span className="ov-card-desc">Trigger end-of-day settlement for card transactions.</span>
+  </div>
+</a>
+
+<a href="./cancel-event" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuCircleX size={22} /></div>
+    <span className="ov-card-title">Cancel Event</span>
+    <span className="ov-card-desc">Cancel an in-progress terminal event.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

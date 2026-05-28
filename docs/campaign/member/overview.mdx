@@ -1,0 +1,63 @@
+---
+hide_title: true
+id: overview
+title: Member
+sidebar_label: Overview
+---
+
+import { LuUserCheck, LuUser, LuTicket, LuGift } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuUserCheck size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Member</h1>
+</div>
+
+Register loyalty members, check membership status, view profiles, and manage member vouchers and rewards.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./register-loyalty-member" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuUserCheck size={22} /></div>
+    <span className="ov-card-title">Register Member</span>
+    <span className="ov-card-desc">Enroll a new customer into the loyalty program.</span>
+  </div>
+</a>
+
+<a href="./check-loyalty-member" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuUser size={22} /></div>
+    <span className="ov-card-title">Check Member</span>
+    <span className="ov-card-desc">Verify whether a customer is an active loyalty member.</span>
+  </div>
+</a>
+
+<a href="./profile" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuUser size={22} /></div>
+    <span className="ov-card-title">Profile</span>
+    <span className="ov-card-desc">Retrieve the profile and point balance of a loyalty member.</span>
+  </div>
+</a>
+
+<a href="./vouchers/overview" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuTicket size={22} /></div>
+    <span className="ov-card-title">Vouchers</span>
+    <span className="ov-card-desc">View and redeem vouchers assigned to a loyalty member.</span>
+  </div>
+</a>
+
+<a href="./rewards/overview" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuGift size={22} /></div>
+    <span className="ov-card-title">Rewards</span>
+    <span className="ov-card-desc">View and redeem rewards available to a loyalty member.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

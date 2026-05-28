@@ -1,0 +1,55 @@
+---
+hide_title: true
+id: overview
+title: Quick Pay
+sidebar_label: Overview
+---
+
+import { LuQrCode, LuTicket, LuStar, LuBadgeCheck } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuQrCode size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Quick Pay</h1>
+</div>
+
+Scan-to-pay via QR code. Supports standard payments, voucher redemption, loyalty point spending, and membership card flows.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./standard" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuQrCode size={22} /></div>
+    <span className="ov-card-title">Standard</span>
+    <span className="ov-card-desc">Basic QR scan-to-pay payment flow.</span>
+  </div>
+</a>
+
+<a href="./with-voucher" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuTicket size={22} /></div>
+    <span className="ov-card-title">With Voucher</span>
+    <span className="ov-card-desc">Apply a voucher discount at the time of QR payment.</span>
+  </div>
+</a>
+
+<a href="./with-spending-loyalty" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuStar size={22} /></div>
+    <span className="ov-card-title">With Spending Loyalty</span>
+    <span className="ov-card-desc">Redeem loyalty points as payment at checkout.</span>
+  </div>
+</a>
+
+<a href="./membership-card/overview" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuBadgeCheck size={22} /></div>
+    <span className="ov-card-title">Membership Card</span>
+    <span className="ov-card-desc">Verify membership and process payment in a single session.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -1,0 +1,47 @@
+---
+hide_title: true
+id: overview
+title: Access Token
+sidebar_label: Overview
+---
+
+import { LuKeyRound, LuShieldCheck, LuRepeat2 } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuKeyRound size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Access Token</h1>
+</div>
+
+Obtain OAuth 2.0 access tokens for authenticating RM API requests. Choose the flow that matches your integration type.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./client-credentials" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuKeyRound size={22} /></div>
+    <span className="ov-card-title">Client Credentials</span>
+    <span className="ov-card-desc">Server-to-server token grant using client ID and secret.</span>
+  </div>
+</a>
+
+<a href="./authorization-code" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuShieldCheck size={22} /></div>
+    <span className="ov-card-title">Authorization Code</span>
+    <span className="ov-card-desc">User-delegated access via OAuth 2.0 authorization code flow.</span>
+  </div>
+</a>
+
+<a href="./refresh-token" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuRepeat2 size={22} /></div>
+    <span className="ov-card-title">Refresh Token</span>
+    <span className="ov-card-desc">Exchange a refresh token for a new access token without re-authentication.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

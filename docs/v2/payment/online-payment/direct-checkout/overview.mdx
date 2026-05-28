@@ -1,0 +1,79 @@
+---
+hide_title: true
+id: overview
+title: Direct Checkout
+sidebar_label: Overview
+---
+
+import { LuLink, LuQrCode, LuMonitor, LuCreditCard } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuLink size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Direct Checkout</h1>
+</div>
+
+Launch a specific payment mode directly without a generic hosted page. Each endpoint targets one payment channel.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./mode-url" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuLink size={22} /></div>
+    <span className="ov-card-title">URL Mode</span>
+    <span className="ov-card-desc">Generate a payment URL for redirect-based wallet checkout.</span>
+  </div>
+</a>
+
+<a href="./mode-qrcode" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuQrCode size={22} /></div>
+    <span className="ov-card-title">QR Code Mode</span>
+    <span className="ov-card-desc">Generate a QR code image for wallet scan-to-pay.</span>
+  </div>
+</a>
+
+<a href="./mode-duitnow-qr" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuQrCode size={22} /></div>
+    <span className="ov-card-title">DuitNow QR Mode</span>
+    <span className="ov-card-desc">Generate a DuitNow QR code for interoperable bank payments.</span>
+  </div>
+</a>
+
+<a href="./mode-alipay-mini" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuMonitor size={22} /></div>
+    <span className="ov-card-title">Alipay Mini Mode</span>
+    <span className="ov-card-desc">Initiate payment inside the Alipay Mini Program environment.</span>
+  </div>
+</a>
+
+<a href="./mode-wechatpay-mini" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuMonitor size={22} /></div>
+    <span className="ov-card-title">WeChat Pay Mini Mode</span>
+    <span className="ov-card-desc">Initiate payment inside the WeChat Mini Program environment.</span>
+  </div>
+</a>
+
+<a href="./mode-fpx" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuCreditCard size={22} /></div>
+    <span className="ov-card-title">FPX Mode</span>
+    <span className="ov-card-desc">Direct bank transfer payment via FPX.</span>
+  </div>
+</a>
+
+<a href="./mode-gobiz" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuLink size={22} /></div>
+    <span className="ov-card-title">GoBiz Mode</span>
+    <span className="ov-card-desc">Initiate payment through the GoBiz merchant app.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

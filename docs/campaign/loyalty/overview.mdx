@@ -1,0 +1,47 @@
+---
+hide_title: true
+id: overview
+title: Loyalty
+sidebar_label: Overview
+---
+
+import { LuStar, LuUsers, LuList } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuStar size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Loyalty</h1>
+</div>
+
+Manage loyalty point operations, member accounts, and point balances across your loyalty program.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./loyalty-point/overview" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuStar size={22} /></div>
+    <span className="ov-card-title">Loyalty Point</span>
+    <span className="ov-card-desc">Give, deduct, and spend loyalty points. Calculate spending rewards.</span>
+  </div>
+</a>
+
+<a href="./loyalty-members/overview" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuUsers size={22} /></div>
+    <span className="ov-card-title">Loyalty Members</span>
+    <span className="ov-card-desc">Authorize members, view history, bulk create, and process top-ups.</span>
+  </div>
+</a>
+
+<a href="./loyalty-balance/overview" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuList size={22} /></div>
+    <span className="ov-card-title">Loyalty Balance</span>
+    <span className="ov-card-desc">Get loyalty point balances and process balance spending.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

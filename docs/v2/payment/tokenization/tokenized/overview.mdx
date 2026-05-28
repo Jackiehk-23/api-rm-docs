@@ -1,0 +1,39 @@
+---
+hide_title: true
+id: overview
+title: Tokenized
+sidebar_label: Overview
+---
+
+import { LuCreditCard, LuRepeat2 } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuCreditCard size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Tokenized</h1>
+</div>
+
+Tokenize a card for future one-click payments — register the customer token and handle the post-authorization redirect.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./create-customer" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuCreditCard size={22} /></div>
+    <span className="ov-card-title">Create Customer</span>
+    <span className="ov-card-desc">Register a customer and tokenize their card for future charges.</span>
+  </div>
+</a>
+
+<a href="./redirect-response" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuRepeat2 size={22} /></div>
+    <span className="ov-card-title">Redirect Response</span>
+    <span className="ov-card-desc">Handle the redirect callback after the customer authorizes card tokenization.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

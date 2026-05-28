@@ -1,0 +1,39 @@
+---
+hide_title: true
+id: overview
+title: Membership Card
+sidebar_label: Overview
+---
+
+import { LuBadgeCheck, LuQrCode } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuBadgeCheck size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Membership Card</h1>
+</div>
+
+Integrate membership card verification into QR payments — verify membership status and complete the payment in a single session.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./verify" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuBadgeCheck size={22} /></div>
+    <span className="ov-card-title">Verify</span>
+    <span className="ov-card-desc">Verify the membership card before processing payment.</span>
+  </div>
+</a>
+
+<a href="./quick-pay" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuQrCode size={22} /></div>
+    <span className="ov-card-title">Quick Pay</span>
+    <span className="ov-card-desc">Process a QR payment using a verified membership card.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

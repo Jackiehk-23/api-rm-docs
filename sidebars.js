@@ -13,6 +13,7 @@ module.exports = {
         type: "category",
         label: "Access Token",
         items: [
+          "quickstart/accesstoken/overview",
           {
             type: "doc",
             id: "quickstart/accesstoken/client-credentials",
@@ -44,6 +45,7 @@ module.exports = {
         { type: "doc", id: "merchant-onboarding/submit-merchant-for-review", className: "api-post" },
         { type: "doc", id: "merchant-onboarding/upload-merchant-file", className: "api-post" },
         { type: "category", label: "Application Clients", items: [
+          "merchant-onboarding/application-clients/overview",
           { type: "doc", id: "merchant-onboarding/application-clients/get-application-clients", className: "api-get" },
           { type: "doc", id: "merchant-onboarding/application-clients/create-application-client", className: "api-post" },
           { type: "doc", id: "merchant-onboarding/application-clients/update-application-client", className: "api-put" },
@@ -84,6 +86,7 @@ module.exports = {
         collapsible: true,
         collapsed: true,
         items: [
+          "v2/payment/quick-pay/overview",
           { type: "doc", id: "v2/payment/quick-pay/standard", className: "api-post" },
           { type: "doc", id: "v2/payment/quick-pay/with-voucher", className: "api-post" },
           { type: "doc", id: "v2/payment/quick-pay/with-spending-loyalty", className: "api-post" },
@@ -91,6 +94,7 @@ module.exports = {
             type: "category",
             label: "Membership Card",
             items: [
+              "v2/payment/quick-pay/membership-card/overview",
               { type: "doc", id: "v2/payment/quick-pay/membership-card/verify", className: "api-post" },
               { type: "doc", id: "v2/payment/quick-pay/membership-card/quick-pay", className: "api-post" },
             ],
@@ -103,6 +107,7 @@ module.exports = {
         collapsible: true,
         collapsed: true,
         items: [
+          "v2/payment/query/overview",
           { type: "doc", id: "v2/payment/query/by-order-id", className: "api-get" },
           { type: "doc", id: "v2/payment/query/by-transaction-id", className: "api-get" },
           { type: "doc", id: "v2/payment/query/all-transactions", className: "api-get" },
@@ -115,6 +120,7 @@ module.exports = {
         collapsible: true,
         collapsed: true,
         items: [
+          "v2/payment/cancel-transaction/overview",
           { type: "doc", id: "v2/payment/cancel-transaction/reverse-transaction", className: "api-post" },
           { type: "doc", id: "v2/payment/cancel-transaction/refund-transaction", className: "api-post" },
         ],
@@ -125,6 +131,7 @@ module.exports = {
         collapsible: true,
         collapsed: true,
         items: [
+          "v2/payment/terminal/overview",
           { type: "doc", id: "v2/payment/terminal/quick-pay", className: "api-post" },
           { type: "doc", id: "v2/payment/terminal/card-payment", className: "api-post" },
           { type: "doc", id: "v2/payment/terminal/card-refund", className: "api-post" },
@@ -138,6 +145,7 @@ module.exports = {
         collapsible: true,
         collapsed: true,
         items: [
+          "v2/payment/deeplink/overview",
           "v2/payment/deeplink/setup",
           { type: "doc", id: "v2/payment/deeplink/quick-pay", className: "api-post" },
           { type: "doc", id: "v2/payment/deeplink/card-payment", className: "api-post" },
@@ -152,6 +160,7 @@ module.exports = {
         collapsible: true,
         collapsed: true,
         items: [
+          "v2/payment/online-payment/overview",
           { type: "doc", id: "v2/payment/online-payment/hosted-checkout", className: "api-post" },
           "v2/payment/online-payment/individual-checkout",
           { type: "doc", id: "v2/payment/online-payment/query-checkout", className: "api-get" },
@@ -159,6 +168,7 @@ module.exports = {
             type: "category",
             label: "Direct Checkout",
             items: [
+              "v2/payment/online-payment/direct-checkout/overview",
               { type: "doc", id: "v2/payment/online-payment/direct-checkout/mode-url", className: "api-post" },
               { type: "doc", id: "v2/payment/online-payment/direct-checkout/mode-qrcode", className: "api-post" },
               { type: "doc", id: "v2/payment/online-payment/direct-checkout/mode-duitnow-qr", className: "api-post" },
@@ -176,10 +186,12 @@ module.exports = {
         collapsible: true,
         collapsed: true,
         items: [
+          "v2/payment/tokenization/overview",
           {
             type: "category",
             label: "Recurring",
             items: [
+              "v2/payment/tokenization/recurring/overview",
               { type: "doc", id: "v2/payment/tokenization/recurring/create-customer", className: "api-post" },
               "v2/payment/tokenization/recurring/redirect-response",
               "v2/payment/tokenization/recurring/notify-response",
@@ -189,6 +201,7 @@ module.exports = {
             type: "category",
             label: "Tokenized",
             items: [
+              "v2/payment/tokenization/tokenized/overview",
               { type: "doc", id: "v2/payment/tokenization/tokenized/create-customer", className: "api-post" },
               "v2/payment/tokenization/tokenized/redirect-response",
             ],
@@ -197,6 +210,7 @@ module.exports = {
             type: "category",
             label: "Customer",
             items: [
+              "v2/payment/tokenization/customer/overview",
               { type: "doc", id: "v2/payment/tokenization/customer/get-info", className: "api-get" },
               { type: "doc", id: "v2/payment/tokenization/customer/get-orders", className: "api-get" },
               { type: "doc", id: "v2/payment/tokenization/customer/toggle-status", className: "api-post" },
@@ -231,6 +245,7 @@ module.exports = {
           type: "category",
           label: "Orders",
           items: [
+            "alacarte-open/orders/overview",
             { type: "doc", id: "alacarte-open/orders/get-orders-by-store-id", className: "api-post" },
             { type: "doc", id: "alacarte-open/orders/get-order-by-id", className: "api-post" },
             { type: "doc", id: "alacarte-open/orders/update-order-status", className: "api-post" },
@@ -241,6 +256,7 @@ module.exports = {
           type: "category",
           label: "Store",
           items: [
+            "alacarte-open/store/overview",
             { type: "doc", id: "alacarte-open/store/get-store-by-id", className: "api-post" },
             { type: "doc", id: "alacarte-open/store/update-store-by-id-delivery", className: "api-post" },
             { type: "doc", id: "alacarte-open/store/update-store-by-id-types", className: "api-post" },
@@ -251,6 +267,7 @@ module.exports = {
           type: "category",
           label: "Inventory",
           items: [
+            "alacarte-open/inventory/overview",
             { type: "doc", id: "alacarte-open/inventory/create-category-by-store-id", className: "api-post" },
             { type: "doc", id: "alacarte-open/inventory/get-categories-by-store-id", className: "api-post" },
             { type: "doc", id: "alacarte-open/inventory/update-category-by-id", className: "api-post" },
@@ -279,6 +296,7 @@ module.exports = {
         type: "category",
         label: "Member",
         items: [
+          "campaign/member/overview",
           { type: "doc", id: "campaign/member/register-loyalty-member", className: "api-post" },
           { type: "doc", id: "campaign/member/check-loyalty-member", className: "api-post" },
           { type: "doc", id: "campaign/member/profile", className: "api-get" },
@@ -286,6 +304,7 @@ module.exports = {
             type: "category",
             label: "Vouchers",
             items: [
+              "campaign/member/vouchers/overview",
               { type: "doc", id: "campaign/member/vouchers/vouchers-detail", className: "api-get" },
               { type: "doc", id: "campaign/member/vouchers/voucher-by-code", className: "api-get" },
               { type: "doc", id: "campaign/member/vouchers/redeem-voucher", className: "api-post" },
@@ -295,6 +314,7 @@ module.exports = {
             type: "category",
             label: "Rewards",
             items: [
+              "campaign/member/rewards/overview",
               { type: "doc", id: "campaign/member/rewards/rewards-detail", className: "api-get" },
               { type: "doc", id: "campaign/member/rewards/reward-by-id", className: "api-get" },
               { type: "doc", id: "campaign/member/rewards/redeem-reward", className: "api-post" },
@@ -306,10 +326,12 @@ module.exports = {
         type: "category",
         label: "Loyalty",
         items: [
+          "campaign/loyalty/overview",
           {
             type: "category",
             label: "Loyalty Point",
             items: [
+              "campaign/loyalty/loyalty-point/overview",
               { type: "doc", id: "campaign/loyalty/loyalty-point/give-loyalty-point", className: "api-post" },
               { type: "doc", id: "campaign/loyalty/loyalty-point/deduct-loyalty-point", className: "api-delete" },
               { type: "doc", id: "campaign/loyalty/loyalty-point/spending-loyalty-point", className: "api-post" },
@@ -321,6 +343,7 @@ module.exports = {
             type: "category",
             label: "Loyalty Members",
             items: [
+              "campaign/loyalty/loyalty-members/overview",
               { type: "doc", id: "campaign/loyalty/loyalty-members/member-authorize", className: "api-post" },
               { type: "doc", id: "campaign/loyalty/loyalty-members/loyalty-members", className: "api-get" },
               { type: "doc", id: "campaign/loyalty/loyalty-members/loyalty-member", className: "api-get" },
@@ -334,6 +357,7 @@ module.exports = {
             type: "category",
             label: "Loyalty Balance",
             items: [
+              "campaign/loyalty/loyalty-balance/overview",
               { type: "doc", id: "campaign/loyalty/loyalty-balance/get-loyalty-balances", className: "api-get" },
               { type: "doc", id: "campaign/loyalty/loyalty-balance/spend-loyalty-balance", className: "api-post" },
             ],
@@ -358,6 +382,7 @@ module.exports = {
         type: "category",
         label: "Campaign",
         items: [
+          "campaign/campaign-overview",
           { type: "doc", id: "campaign/chop-stamp", className: "api-post" },
           { type: "doc", id: "campaign/gourmet-card", className: "api-post" },
         ],

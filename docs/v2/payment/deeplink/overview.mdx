@@ -1,0 +1,71 @@
+---
+hide_title: true
+id: overview
+title: DeepLink
+sidebar_label: Overview
+---
+
+import { LuLink, LuQrCode, LuCreditCard, LuCircleX, LuRepeat2, LuFileText } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuLink size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>DeepLink</h1>
+</div>
+
+Trigger payment flows directly inside wallet or terminal apps via deeplink. Supports QR, card, void, and settlement operations.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./setup" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuFileText size={22} /></div>
+    <span className="ov-card-title">Setup</span>
+    <span className="ov-card-desc">Prerequisites and configuration for deeplink integration.</span>
+  </div>
+</a>
+
+<a href="./quick-pay" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuQrCode size={22} /></div>
+    <span className="ov-card-title">Quick Pay</span>
+    <span className="ov-card-desc">Initiate a QR payment via deeplink.</span>
+  </div>
+</a>
+
+<a href="./card-payment" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuCreditCard size={22} /></div>
+    <span className="ov-card-title">Card Payment</span>
+    <span className="ov-card-desc">Initiate a card payment via deeplink.</span>
+  </div>
+</a>
+
+<a href="./void-transaction" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuCircleX size={22} /></div>
+    <span className="ov-card-title">Void Transaction</span>
+    <span className="ov-card-desc">Cancel a deeplink-initiated transaction.</span>
+  </div>
+</a>
+
+<a href="./wallet-settlement" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuRepeat2 size={22} /></div>
+    <span className="ov-card-title">Wallet Settlement</span>
+    <span className="ov-card-desc">Trigger wallet settlement via deeplink.</span>
+  </div>
+</a>
+
+<a href="./card-settlement" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuLink size={22} /></div>
+    <span className="ov-card-title">Card Settlement</span>
+    <span className="ov-card-desc">Trigger card settlement via deeplink.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->
