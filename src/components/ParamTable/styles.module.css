@@ -65,10 +65,12 @@
 
 /* ─── Type label ──────────────────────────────────────── */
 .typeLabel {
-  font-size: 0.72rem;
-  font-weight: 500;
-  padding: 0.08rem 0.4rem;
-  border-radius: 4px;
+  font-size: 0.55rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.12rem 0.25rem;
+  border-radius: 3px;
+  vertical-align: middle;
   background: var(--ifm-color-emphasis-200);
   color: var(--ifm-color-emphasis-600);
 }
@@ -103,9 +105,11 @@
 
 /* ─── Required label ──────────────────────────────────── */
 .requiredLabel {
-  font-size: 0.7rem;
-  font-weight: 500;
-  padding: 0.08rem 0.4rem;
+  font-size: 0.55rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.12rem 0.25rem;
+  vertical-align: middle;
   border-radius: 4px;
   background: #fee2e2;
   color: #b91c1c;

@@ -57,7 +57,7 @@ export default function TokenBanner({ status, onClear }: Props) {
   }
 
   return (
-    <div className={`${styles.banner} ${styles.bannerPrimary}`}>
+    <div className={`${styles.banner} ${styles.bannerError}`}>
       <span className={styles.bannerDot} />
       <span>No access token</span>
       <button className={styles.bannerAction} onClick={openModal}>
