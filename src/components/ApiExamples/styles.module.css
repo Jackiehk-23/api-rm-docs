@@ -25,6 +25,7 @@
   padding: 10px 16px;
   background: var(--ifm-color-emphasis-100);
   cursor: pointer;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-weight: 600;
   font-size: 13px;
   user-select: none;
