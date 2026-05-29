@@ -249,15 +249,16 @@ body {
 .api-delete > .menu__link,
 .api-patch > .menu__link {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+  gap: 6px;
 }
 
-.api-get > .menu__link::after,
-.api-post > .menu__link::after,
-.api-put > .menu__link::after,
-.api-delete > .menu__link::after,
-.api-patch > .menu__link::after {
+.api-get > .menu__link::before,
+.api-post > .menu__link::before,
+.api-put > .menu__link::before,
+.api-delete > .menu__link::before,
+.api-patch > .menu__link::before {
   padding: 1px 4px;
   font-size: 9px;
   font-weight: 700;
@@ -266,61 +267,61 @@ body {
   flex-shrink: 0;
 }
 
-.api-get > .menu__link::after {
+.api-get > .menu__link::before {
   content: "GET";
   background: #e6f6ee;
   color: #1a7f4b;
   border: 1px solid #b0dfc5;
 }
-[data-theme="dark"] .api-get > .menu__link::after {
+[data-theme="dark"] .api-get > .menu__link::before {
   background: #0d3d22;
   color: #4ade80;
   border-color: #166534;
 }
 
-.api-post > .menu__link::after {
+.api-post > .menu__link::before {
   content: "POST";
   background: #fffbeb;
   color: #b45309;
   border: 1px solid #fef3c7;
 }
-[data-theme="dark"] .api-post > .menu__link::after {
+[data-theme="dark"] .api-post > .menu__link::before {
   background: #3d2d00;
   color: #fbbf24;
   border-color: #7c5c00;
 }
 
-.api-put > .menu__link::after {
+.api-put > .menu__link::before {
   content: "PUT";
   background: #e8f0fe;
   color: #1d4ed8;
   border: 1px solid #a8c0f8;
 }
-[data-theme="dark"] .api-put > .menu__link::after {
+[data-theme="dark"] .api-put > .menu__link::before {
   background: #0d1f4d;
   color: #60a5fa;
   border-color: #1e3a8a;
 }
 
-.api-delete > .menu__link::after {
+.api-delete > .menu__link::before {
   content: "DEL";
   background: #fef2f2;
   color: #b91c1c;
   border: 1px solid #fca5a5;
 }
-[data-theme="dark"] .api-delete > .menu__link::after {
+[data-theme="dark"] .api-delete > .menu__link::before {
   background: #3d0a0a;
   color: #f87171;
   border-color: #7f1d1d;
 }
 
-.api-patch > .menu__link::after {
+.api-patch > .menu__link::before {
   content: "PATCH";
   background: #f3f0ff;
   color: #6d28d9;
   border: 1px solid #c4b5fd;
 }
-[data-theme="dark"] .api-patch > .menu__link::after {
+[data-theme="dark"] .api-patch > .menu__link::before {
   background: #1e0a3d;
   color: #a78bfa;
   border-color: #4c1d95;

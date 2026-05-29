@@ -31,8 +31,8 @@ export default function LayoutWrapper(props) {
   const [mobilePlaygroundOpen, setMobilePlaygroundOpen] = useState(false);
 
   useEffect(() => {
-    publishTOC(toc ?? []);
-  }, [toc]);
+    publishTOC(frontMatter?.hide_table_of_contents ? [] : (toc ?? []));
+  }, [toc, frontMatter?.hide_table_of_contents]);
 
   if (!api) {
     return (
