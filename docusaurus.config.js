@@ -11,6 +11,7 @@ module.exports = {
   organizationName: "aimandanish02", //previously was "RevenueMonster"
   projectName: "api-rm-docs", //previously was "doc-v2"
   trailingSlash: false, //before this doesnt have this
+  onBrokenLinks: 'warn',
 
   plugins: [
     path.resolve(__dirname, "./node_modules/docusaurus-lunr-search/"),
@@ -80,6 +81,10 @@ module.exports = {
           "https://directus.superapp.my/assets/4bec8b80-eaaa-4a71-b2e6-3dd26c7afede.png",
       },
     ],
+
+    prism: {
+      additionalLanguages: ['php', 'python', 'go', 'kotlin', 'swift', 'java'],
+    },
 
     colorMode: {
       defaultMode: "light",

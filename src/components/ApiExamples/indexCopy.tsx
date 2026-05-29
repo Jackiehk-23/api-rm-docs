@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CodeBlock from "@theme/CodeBlock";
-import { useDoc } from "@docusaurus/theme-common/internal";
+import { useDoc } from "@docusaurus/plugin-content-docs/client";
 import { SNIPPET_LANGS, SnippetLang, generateSnippet } from "../../utils/snippets";
 import styles from "./styles.module.css";
 

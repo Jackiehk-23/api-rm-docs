@@ -4,11 +4,12 @@ title: Introduction
 sidebar_label: Introduction
 ---
 
+import React, { useState } from 'react';
 import { LuZap, LuBuilding2, LuCreditCard, LuGift, LuPackage, LuScanFace, LuMail, LuHeadphones, LuLock } from "react-icons/lu";
 import Admonition from '@theme/Admonition';
 
 export const CopyUrl = ({children}) => {
-  const [ok, setOk] = React.useState(false);
+  const [ok, setOk] = useState(false);
   return (
     <div
       onClick={() => { navigator.clipboard.writeText(children); setOk(true); setTimeout(() => setOk(false), 1800); }}
@@ -67,7 +68,7 @@ Integrate payments, user management, store operations, and loyalty programs via 
 
 
 <Admonition type="danger" title="Always Test in Sandbox First">
-  Test your integration in the sandbox environment before going live. Contact <a href="mailto:support@revenuemonster.my">support@revenuemonster.my</a> to activate your sandbox account.
+  Test your integration in the sandbox environment before going live. Contact <a href="mailto:support@revenuemonster.my">{'support@revenuemonster.my'}</a> to activate your sandbox account.
 </Admonition>
 
 ---
@@ -167,7 +168,7 @@ This documentation covers the **RESTful API**. For language-specific SDKs, see t
     <LuMail size={16} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
     <span className="ov-card-title">Business Inquiries</span>
   </div>
-  <a href="mailto:bd@revenuemonster.my">bd@revenuemonster.my</a>
+  <a href="mailto:bd@revenuemonster.my">{'bd@revenuemonster.my'}</a>
 </div>
 
 <div className="ov-card">
@@ -175,9 +176,9 @@ This documentation covers the **RESTful API**. For language-specific SDKs, see t
     <LuHeadphones size={16} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
     <span className="ov-card-title">Technical Support</span>
   </div>
-  <a href="mailto:support@revenuemonster.my">support@revenuemonster.my</a>
+  <a href="mailto:support@revenuemonster.my">{'support@revenuemonster.my'}</a>
 </div>
 
 </div>
 
-<!-- SPDX-License-Identifier: Apache-2.0 -->
+{/* SPDX-License-Identifier: Apache-2.0 */}

@@ -1,16 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import Highlight, { defaultProps } from "prism-react-renderer";
+import { Highlight } from "prism-react-renderer";
 import type { Language } from "prism-react-renderer";
 import styles from "./styles.module.css";
-
-import Prism from "prism-react-renderer/prism";
-(typeof global !== "undefined" ? global : window).Prism = Prism;
-require("prismjs/components/prism-kotlin");
-require("prismjs/components/prism-swift");
-require("prismjs/components/prism-java");
-require("prismjs/components/prism-python");
-require("prismjs/components/prism-php");
-require("prismjs/components/prism-markup-templating");
 
 // Light theme for syntax highlighting
 const lightTheme = {
@@ -193,7 +184,6 @@ export default function CodeBlock({
       <div className={`${styles.collapseBody} ${collapsed ? styles.collapseBodyClosed : styles.collapseBodyOpen}`}>
       <div className={styles.codeWrapper}>
         <Highlight
-          {...defaultProps}
           code={children.trim()}
           language={prismLang}
           theme={theme}

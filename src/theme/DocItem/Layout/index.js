@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "@theme-original/DocItem/Layout";
-import { useDoc } from "@docusaurus/theme-common/internal";
+import { useDoc } from "@docusaurus/plugin-content-docs/client";
 import ApiPlayground from "@site/src/components/ApiPlayground";
 import ApiExamples from "@site/src/components/ApiExamples";
 import { useApiSharedState } from "@site/src/components/ApiPlayground/UseApiSharedState";

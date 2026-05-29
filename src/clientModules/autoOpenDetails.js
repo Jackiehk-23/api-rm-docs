@@ -33,6 +33,7 @@ function animateClose(details) {
 function setupDetails() {
     document.querySelectorAll("details").forEach((details) => {
         if (details.dataset.animated) return;
+        if (details.classList.contains("section-details")) return;
         details.dataset.animated = "true";
 
         const summary = details.querySelector("summary");

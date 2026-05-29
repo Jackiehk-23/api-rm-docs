@@ -1,22 +1,10 @@
 //example request/response component for API reference pages. Expects frontMatter.
 import React, { useState, useEffect } from "react";
-import Highlight, { defaultProps } from "prism-react-renderer";
+import { Highlight } from "prism-react-renderer";
 import type { Language } from "prism-react-renderer";
-import { useDoc } from "@docusaurus/theme-common/internal";
+import { useDoc } from "@docusaurus/plugin-content-docs/client";
 import { SNIPPET_LANGS, SnippetLang, generateSnippet } from "../../utils/snippets";
 import styles from "./styles.module.css";
-
-// ── Extend prism-react-renderer's bundled Prism with the languages we need.
-// The bundled Prism only ships markup/css/clike/js/jsx/ts/bash/yaml/etc.
-// PHP, Python, Go, and JSON must be registered manually or they render as plain text.
-import Prism from "prism-react-renderer/prism";
-(typeof global !== "undefined" ? global : window).Prism = Prism;
-// markup-templating MUST be registered before php (php depends on it).
-require("prismjs/components/prism-markup-templating");
-require("prismjs/components/prism-json");
-require("prismjs/components/prism-php");
-require("prismjs/components/prism-python");
-require("prismjs/components/prism-go");
 
 // ── Color palette (shared between light/dark for consistent semantics) ──
 // Keywords / property keys / tags / constants / variables-in-keyword-role → red/pink
@@ -179,7 +167,6 @@ function CodeHighlight({ code, language }: { code: string; language: Language })
 
   return (
     <Highlight
-      {...defaultProps}
       code={code.trim()}
       language={language}
       theme={theme}
