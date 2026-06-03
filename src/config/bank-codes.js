@@ -168,30 +168,7 @@ const bankCodes = [
       { code: 'UOB0228:B2B', name: 'UOB Regional', isOnline: true },
     ],
   },
-  {
-    name: 'SBI Bank A (Test)',
-    logo: null,
-    entries: [
-      { code: 'TEST0021:B2C', name: 'SBI Bank A', isOnline: true },
-      { code: 'TEST0021:B2B', name: 'SBI Bank A', isOnline: true },
-    ],
-  },
-  {
-    name: 'SBI Bank B (Test)',
-    logo: null,
-    entries: [
-      { code: 'TEST0022:B2C', name: 'SBI Bank B', isOnline: true },
-      { code: 'TEST0022:B2B', name: 'SBI Bank B', isOnline: true },
-    ],
-  },
-  {
-    name: 'SBI Bank C (Test)',
-    logo: null,
-    entries: [
-      { code: 'TEST0023:B2C', name: 'SBI Bank C', isOnline: true },
-      { code: 'TEST0023:B2B', name: 'SBI Bank C', isOnline: true },
-    ],
-  },
+
 ];
 
 export default bankCodes;
