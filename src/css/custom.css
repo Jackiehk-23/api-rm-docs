@@ -20,6 +20,12 @@
   --ifm-code-font-size: 95%;
   --doc-sidebar-width: 300px;
   --ifm-h1-font-size: 1.3rem;
+
+  /* Stripe-style system font stack, 14px base */
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --ifm-font-size-base: 14px;
+  --ifm-line-height-base: 1.6;
 }
 
 /* ================================
