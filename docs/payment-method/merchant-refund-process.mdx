@@ -9,9 +9,10 @@ import { FaCheck, FaTimes } from "react-icons/fa"
 export const Check = () => <FaCheck color="#22c55e" size={18} />
 export const Cross = () => <FaTimes color="#ef4444" size={18} />
 
-export const WalletIcon = ({ src }) => (
-  <div style={{display:'flex',justifyContent:'center',alignItems:'center',minHeight:'60px'}}>
-    <img src={src} style={{height:'48px',width:'48px',objectFit:'contain'}} />
+export const WalletIcon = ({ src, name }) => (
+  <div style={{display:'flex',alignItems:'center',gap:'10px',minHeight:'60px',padding:'0 4px'}}>
+    <img src={src} style={{height:'40px',width:'40px',objectFit:'contain',flexShrink:0}} />
+    {name && <span style={{fontWeight:500,whiteSpace:'nowrap'}}>{name}</span>}
   </div>
 )
 
@@ -32,7 +33,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* GrabPay */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td style={{padding:'12px',textAlign:'center'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/GrabPay/GrabPay_V1_ROU.svg" /></td>
+      <td style={{padding:'12px'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/GrabPay/GrabPay_V1_ROU.svg" name="GrabPay" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online &amp; Offline</td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
@@ -41,7 +42,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* ShopBack */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td style={{padding:'12px',textAlign:'center'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/BNPL/ShopBack/ShopBack_V1_ROU.svg" /></td>
+      <td style={{padding:'12px'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/BNPL/ShopBack/ShopBack_V1_ROU.svg" name="ShopBack" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online &amp; Offline</td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
@@ -50,7 +51,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* TNG */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td style={{padding:'12px',textAlign:'center'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/TNG/TNG_V1_ROU.svg" /></td>
+      <td style={{padding:'12px'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/TNG/TNG_V1_ROU.svg" name="Touch 'n Go" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online &amp; Offline</td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
@@ -59,7 +60,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* Alipay */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td style={{padding:'12px',textAlign:'center'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/Alipay/Alipay_V1_ROU.svg" /></td>
+      <td style={{padding:'12px'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/Alipay/Alipay_V1_ROU.svg" name="Alipay" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online &amp; Offline</td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
@@ -68,7 +69,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* AlipayPlus */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td style={{padding:'12px',textAlign:'center'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/AlipayPlus/AlipayPlus_V1_ROU.svg" /></td>
+      <td style={{padding:'12px'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/AlipayPlus/AlipayPlus_V1_ROU.svg" name="Alipay+" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online &amp; Offline</td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
@@ -77,7 +78,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* WechatPay */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td style={{padding:'12px',textAlign:'center'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/WechatPay/WeChat_V1_ROU.svg" /></td>
+      <td style={{padding:'12px'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/WechatPay/WeChat_V1_ROU.svg" name="WechatPay" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online &amp; Offline</td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
@@ -86,7 +87,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* ShopeePay */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td style={{padding:'12px',textAlign:'center'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/ShopeePay/ShopeePay_V1_ROU.svg" /></td>
+      <td style={{padding:'12px'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/ShopeePay/ShopeePay_V1_ROU.svg" name="ShopeePay" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online &amp; Offline</td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
@@ -95,7 +96,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* Setel */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td style={{padding:'12px',textAlign:'center'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/Setel/Setel_V1_ROU.svg" /></td>
+      <td style={{padding:'12px'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/Setel/Setel_V1_ROU.svg" name="Setel" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online &amp; Offline</td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
@@ -104,7 +105,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* Truemoney */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td style={{padding:'12px',textAlign:'center'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/Truemoney/Truemoney_V1_ROU.svg" /></td>
+      <td style={{padding:'12px'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/Truemoney/Truemoney_V1_ROU.svg" name="Truemoney" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online &amp; Offline</td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
@@ -113,7 +114,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* Boost */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td style={{padding:'12px',textAlign:'center'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/Boost/Boost_V1_ROU.svg" /></td>
+      <td style={{padding:'12px'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/Boost/Boost_V1_ROU.svg" name="Boost" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online &amp; Offline</td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
@@ -122,7 +123,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* MAE — Online/Offline split */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td rowSpan={2} style={{padding:'12px',textAlign:'center',verticalAlign:'middle'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/MAE/MAE_V1_ROU.svg" /></td>
+      <td rowSpan={2} style={{padding:'12px',verticalAlign:'middle'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/MAE/MAE_V1_ROU.svg" name="MAE" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online</td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>
@@ -137,7 +138,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* Visa — Online/Offline split */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td rowSpan={2} style={{padding:'12px',textAlign:'center',verticalAlign:'middle'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Card/Visa/VISA_V1_ROU.svg" /></td>
+      <td rowSpan={2} style={{padding:'12px',verticalAlign:'middle'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Card/Visa/VISA_V1_ROU.svg" name="Visa" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online</td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>
@@ -152,7 +153,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* Mastercard — Online/Offline split */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td rowSpan={2} style={{padding:'12px',textAlign:'center',verticalAlign:'middle'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Card/Master/MASTER_V1_ROU.svg" /></td>
+      <td rowSpan={2} style={{padding:'12px',verticalAlign:'middle'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Card/Master/MASTER_V1_ROU.svg" name="Mastercard" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online</td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>
@@ -167,7 +168,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* FPX */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td style={{padding:'12px',textAlign:'center'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Other/FPX/FPX_V1_ROU.svg" /></td>
+      <td style={{padding:'12px'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Other/FPX/FPX_V1_ROU.svg" name="FPX" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online</td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>
@@ -176,7 +177,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* TaPay */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td style={{padding:'12px',textAlign:'center'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/TaPay/TaPay_V1_ROU.svg" /></td>
+      <td style={{padding:'12px'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/TaPay/TaPay_V1_ROU.svg" name="TaPay" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online &amp; Offline</td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>
@@ -185,7 +186,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* MCash */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td style={{padding:'12px',textAlign:'center'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/MCash/MCash_V1_ROU.svg" /></td>
+      <td style={{padding:'12px'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Wallet/MCash/MCash_V1_ROU.svg" name="MCash" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online &amp; Offline</td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>
@@ -194,7 +195,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* UnionPay */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td style={{padding:'12px',textAlign:'center'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Card/UnionPay/UNIONPAY_V1_ROU.svg" /></td>
+      <td style={{padding:'12px'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Card/UnionPay/UNIONPAY_V1_ROU.svg" name="UnionPay" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online &amp; Offline</td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>
@@ -203,7 +204,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* Atome */}
     <tr style={{borderBottom:'1px solid #eee'}}>
-      <td style={{padding:'12px',textAlign:'center'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/BNPL/Atome/Atome_V1_ROU.svg" /></td>
+      <td style={{padding:'12px'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/BNPL/Atome/Atome_V1_ROU.svg" name="Atome" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online &amp; Offline</td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>
@@ -212,7 +213,7 @@ export const WalletIcon = ({ src }) => (
 
     {/* DuitNow */}
     <tr>
-      <td style={{padding:'12px',textAlign:'center'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Other/DuitNow/DuitNow_V1_ROU.svg" /></td>
+      <td style={{padding:'12px'}}><WalletIcon src="https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master/Other/DuitNow/DuitNow_V1_ROU.svg" name="DuitNow" /></td>
       <td style={{padding:'12px',textAlign:'center'}}>Online &amp; Offline</td>
       <td style={{padding:'12px',textAlign:'center'}}><Check /></td>
       <td style={{padding:'12px',textAlign:'center'}}><Cross /></td>

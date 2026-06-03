@@ -31,7 +31,15 @@ import { FaCheck } from "react-icons/fa"
   <tbody>
     {payments.map((payment, index) => (
       <tr key={index}>
-        <td>{payment.method}</td>
+        <td>
+          <div style={{display:'flex',alignItems:'center',gap:'8px'}}>
+            {payment.logo
+              ? <img src={payment.logo} style={{height:'28px',width:'28px',objectFit:'contain',flexShrink:0}} />
+              : <span style={{display:'inline-block',width:'28px',height:'28px',flexShrink:0}} />
+            }
+            <span>{payment.method}</span>
+          </div>
+        </td>
         <td>{payment.region}</td>
         <td style={{textAlign: 'center'}}>{payment.quickPay && <FaCheck color="#22c55e" />}</td>
         <td style={{textAlign: 'center'}}>{payment.web && <FaCheck color="#22c55e" />}</td>

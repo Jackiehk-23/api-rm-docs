@@ -1,6 +1,9 @@
+const BASE = 'https://raw.githubusercontent.com/SnorSnor9998/Payment-Icon/master';
+
 const payments = [
     {
         method: 'WechatPay',
+        logo: `${BASE}/Wallet/WechatPay/WeChat_V1_ROU.svg`,
         region: 'China',
         systemMethod: 'WECHATPAY',
         quickPay: true,
@@ -10,6 +13,7 @@ const payments = [
     },
     {
         method: 'WechatPay',
+        logo: `${BASE}/Wallet/WechatPay/WeChat_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'WECHATPAY',
         quickPay: true,
@@ -19,6 +23,7 @@ const payments = [
     },
     {
         method: 'Presto',
+        logo: `${BASE}/Wallet/Presto/Presto_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'PRESTO',
         quickPay: true,
@@ -28,6 +33,7 @@ const payments = [
     },
     {
         method: 'Alipay',
+        logo: `${BASE}/Wallet/Alipay/Alipay_V1_ROU.svg`,
         region: 'China',
         systemMethod: 'ALIPAY',
         quickPay: true,
@@ -37,6 +43,7 @@ const payments = [
     },
     {
         method: 'TNG',
+        logo: `${BASE}/Wallet/TNG/TNG_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'TNG',
         quickPay: true,
@@ -45,6 +52,7 @@ const payments = [
     },
     {
         method: 'Boost',
+        logo: `${BASE}/Wallet/Boost/Boost_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'BOOST',
         quickPay: true,
@@ -54,6 +62,7 @@ const payments = [
     },
     {
         method: 'Maybank',
+        logo: `${BASE}/Other/MaybankQR/MaybankQR_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'MAYBANK',
         quickPay: true,
@@ -61,6 +70,7 @@ const payments = [
     },
     {
         method: 'GrabPay',
+        logo: `${BASE}/Wallet/GrabPay/GrabPay_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'GRABPAY',
         quickPay: true,
@@ -69,6 +79,7 @@ const payments = [
     },
     {
         method: 'ShopeePay',
+        logo: `${BASE}/Wallet/ShopeePay/ShopeePay_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'SHOPEEPAY',
         quickPay: true,
@@ -77,6 +88,7 @@ const payments = [
     },
     {
         method: 'Gobiz',
+        logo: `${BASE}/Card/Gobiz/Gobiz_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'GOBIZ',
         web: true,
@@ -84,6 +96,7 @@ const payments = [
     },
     {
         method: 'Paydee',
+        logo: `${BASE}/Card/Paydee/Paydee_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'PAYDEE',
         web: true,
@@ -91,6 +104,7 @@ const payments = [
     },
     {
         method: 'Zapp',
+        logo: `${BASE}/Wallet/Zapp/Zapp_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'ZAPP',
         quickPay: true,
@@ -98,12 +112,14 @@ const payments = [
     },
     {
         method: 'Tapay',
+        logo: `${BASE}/Wallet/TaPay/TaPay_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'TAPAY',
         quickPay: true,
     },
     {
         method: 'MCash',
+        logo: `${BASE}/Wallet/MCash/MCash_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'MCASH',
         quickPay: true,
@@ -112,12 +128,14 @@ const payments = [
     },
     {
         method: 'Lazada',
+        logo: `${BASE}/Wallet/Lazada/Lazada_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'LAZADA',
         quickPay: true,
     },
     {
         method: 'FPX',
+        logo: `${BASE}/Other/FPX/FPX_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'FPX',
         web: true,
@@ -125,6 +143,7 @@ const payments = [
     },
     {
         method: 'SarawakPay',
+        logo: `${BASE}/Wallet/SarawakPay/SarawakPay_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'SARAWAKPAY',
         quickPay: true,
@@ -133,6 +152,7 @@ const payments = [
     },
     {
         method: 'FavePay',
+        logo: `${BASE}/Wallet/FavePay/FavePay_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'FAVEPAY',
         quickPay: true,
@@ -140,6 +160,7 @@ const payments = [
     },
     {
         method: 'BInfinite',
+        logo: `${BASE}/Wallet/Binfinite/Binfinite_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'BINFINITE',
         quickPay: true,
@@ -147,6 +168,7 @@ const payments = [
     },
     {
         method: 'Alipay+',
+        logo: `${BASE}/Wallet/AlipayPlus/AlipayPlus_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'ALIPAYPLUS',
         quickPay: true,
@@ -155,6 +177,7 @@ const payments = [
     },
     {
         method: 'SenHengPay',
+        logo: `${BASE}/Wallet/Senheng/Senheng_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'SENHENGPAY',
         web: true,
@@ -162,18 +185,21 @@ const payments = [
     },
     {
         method: 'Split',
+        logo: `${BASE}/BNPL/Split/Split_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'SPLIT',
         web: true,
     },
     {
         method: 'IOUPay',
+        logo: `${BASE}/BNPL/IOUPay/IOUPay_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'IOUPAY',
         web: true,
     },
     {
         method: 'Atome',
+        logo: `${BASE}/BNPL/Atome/Atome_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'ATOME',
         quickPay: true,
@@ -181,6 +207,7 @@ const payments = [
     },
     {
         method: 'NetsPay',
+        logo: `${BASE}/Other/NetsPay/NetsPay_V1_ROU.svg`,
         region: 'Singapore',
         systemMethod: 'NETSPAY',
         web: true,
@@ -188,6 +215,7 @@ const payments = [
     },
     {
         method: 'Setel',
+        logo: `${BASE}/Wallet/Setel/Setel_V1_ROU.svg`,
         region: 'Malaysia',
         systemMethod: 'SETEL',
         quickPay: true,
