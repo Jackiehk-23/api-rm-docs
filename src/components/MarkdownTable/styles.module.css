@@ -22,8 +22,8 @@
   border-spacing: 0;
   font-size: 0.9rem;
   line-height: 1.6;
-  table-layout: fixed;
-  word-break: break-word;
+  table-layout: auto;
+  word-break: normal;
   display: table; /* Override any display: block */
   margin-bottom: 0; /* Override any inherited margin */
 }
@@ -46,17 +46,22 @@
   letter-spacing: 0.05em;
   color: #ffffff;
   border: none;
-  white-space: normal;
-  word-break: break-word;
+  white-space: nowrap;
+  word-break: normal;
 }
 
-/* First header cell gets left padding */
-.table thead th:first-child {
+/* Separator between multi-row headers (e.g. rowSpan / colSpan combos) */
+.table thead tr:not(:last-child) th {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Only the very first th in the first header row gets top-left radius */
+.table thead tr:first-child th:first-child {
   border-radius: 16px 0 0 0;
 }
 
-/* Last header cell gets right padding */
-.table thead th:last-child {
+/* Only the very last th in the first header row gets top-right radius */
+.table thead tr:first-child th:last-child {
   border-radius: 0 16px 0 0;
 }
 
