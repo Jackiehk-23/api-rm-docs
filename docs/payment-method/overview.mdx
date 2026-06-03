@@ -1,0 +1,54 @@
+---
+hide_table_of_contents: true
+id: overview
+title: Payment Method
+sidebar_label: Overview
+---
+
+import { LuArrowRightLeft, LuActivity, LuRefreshCcw, LuGlobe } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <h1 style={{margin:0}}>Payment Method</h1>
+</div>
+
+Reference tables for transaction types, statuses, refund processes, and supported payment methods by region.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="./transaction-type" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuArrowRightLeft size={22} /></div>
+    <span className="ov-card-title">Transaction Type</span>
+    <span className="ov-card-desc">All supported transaction type values — QuickPay, Web Payment, Recurring, and more.</span>
+  </div>
+</a>
+
+<a href="./transaction-status" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuActivity size={22} /></div>
+    <span className="ov-card-title">Transaction Status</span>
+    <span className="ov-card-desc">All possible transaction status values — Success, Failed, In Process, Refunded, Reversed.</span>
+  </div>
+</a>
+
+<a href="./merchant-refund-process" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuRefreshCcw size={22} /></div>
+    <span className="ov-card-title">Merchant Refund Process</span>
+    <span className="ov-card-desc">Refund eligibility by payment method — same day, next day, online vs offline.</span>
+  </div>
+</a>
+
+<a href="./transaction-method-region" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuGlobe size={22} /></div>
+    <span className="ov-card-title">Transaction Method &amp; Region</span>
+    <span className="ov-card-desc">Supported payment methods per region and checkout type — Quick Pay, Web, Mobile Web, QR.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -415,7 +415,13 @@ module.exports = {
 
     { type: "category", label: "Appendix", items: [
       "appendix-overview",
-      "payment-method",
+      { type: "category", label: "Payment Method", items: [
+        "payment-method/overview",
+        "payment-method/transaction-type",
+        "payment-method/transaction-status",
+        "payment-method/merchant-refund-process",
+        "payment-method/transaction-method-region",
+      ]},
       "product-terms",
       "error-codes",
       "bank-code",
