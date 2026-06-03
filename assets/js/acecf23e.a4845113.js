@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrevenuemonster=self.webpackChunkrevenuemonster||[]).push([[1903],{1912(e){e.exports=JSON.parse('{"blogBasePath":"/api-rm-docs/blog","blogTitle":"Blog","authorsListPath":"/api-rm-docs/blog/authors"}')}}]);

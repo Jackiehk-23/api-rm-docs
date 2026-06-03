@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkrevenuemonster=self.webpackChunkrevenuemonster||[]).push([[4746],{8761:e=>{e.exports=JSON.parse('{"permalink":"/api-rm-docs/blog/tags/revenuemonster","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

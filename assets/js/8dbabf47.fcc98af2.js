@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrevenuemonster=self.webpackChunkrevenuemonster||[]).push([[4307],{8180(e){e.exports=JSON.parse('{"metadata":{"permalink":"/api-rm-docs/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
