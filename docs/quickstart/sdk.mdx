@@ -1,0 +1,62 @@
+---
+id: sdk
+title: SDK
+sidebar_label: SDK
+---
+
+import Admonition from '@theme/Admonition';
+import SdkCard from '@site/src/components/SdkCard';
+
+# SDK
+
+Official language SDKs for the Revenue Monster API. Click any card to visit the repository.
+
+<Admonition type="note">
+Not all SDKs fully implement every API function. Pull requests are welcome.
+</Admonition>
+
+<div className="sdk-grid">
+  <SdkCard href="https://github.com/RevenueMonster/rm-sdk-go" light="/img/sdk/go_icon.svg" dark="/img/sdk/go_icon_dark.svg" label="Go" />
+  <SdkCard href="https://github.com/RevenueMonster/RM-API-SDK-PHP" light="/img/sdk/php_icon.svg" dark="/img/sdk/php_icon_dark.svg" label="PHP" />
+  <SdkCard href="https://github.com/RevenueMonster/RM-API-SDK-Nodejs" light="/img/sdk/nodejs_icon.svg" dark="/img/sdk/nodejs_icon_dark.svg" label="NodeJS" />
+  <SdkCard href="https://github.com/RevenueMonster/RM-API-SDK-JAVA" light="/img/sdk/java_icon.svg" dark="/img/sdk/java_icon_dark.svg" label="Java" />
+  <SdkCard href="https://github.com/RevenueMonster/RM-API-SDK-Python" light="/img/sdk/python_icon.svg" dark="/img/sdk/python_icon_dark.svg" label="Python" />
+  <SdkCard href="https://github.com/RevenueMonster/RM-API-SDK-Csharp" light="/img/sdk/csharp_icon.svg" dark="/img/sdk/csharp_icon_dark.svg" label="C# (Deprecated)" />
+</div>
+
+<style>{`
+.sdk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.sdk-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.25rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-alert-border-radius);
+  text-align: center;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.sdk-card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+}
+.sdk-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+[data-theme='dark'] .sdk-light { display: none; }
+html:not([data-theme='dark']) .sdk-dark { display: none; }
+`}</style>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->

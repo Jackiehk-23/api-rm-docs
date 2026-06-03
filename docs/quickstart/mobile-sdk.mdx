@@ -16,9 +16,13 @@ Not all SDKs fully implement every API function. Pull requests are welcome.
 
 <div className="sdk-grid">
 
-[**Android →**](https://github.com/RevenueMonster/RM-Android)
+<a href="https://github.com/RevenueMonster/RM-Android" target="_blank" rel="noopener noreferrer" className="sdk-card">
+  <span>Android</span>
+</a>
 
-[**iOS →**](https://github.com/RevenueMonster/RM-IOS)
+<a href="https://github.com/RevenueMonster/RM-IOS" target="_blank" rel="noopener noreferrer" className="sdk-card">
+  <span>iOS</span>
+</a>
 
 </div>
 
@@ -29,18 +33,23 @@ Not all SDKs fully implement every API function. Pull requests are welcome.
   gap: 1rem;
   margin: 1.5rem 0;
 }
-.sdk-grid a {
-  display: block;
-  padding: 1rem;
+.sdk-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1.25rem 1rem;
   border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: var(--ifm-alert-border-radius);
   text-align: center;
   font-weight: 600;
-  color: var(--ifm-color-primary);
+  color: var(--ifm-font-color-base);
   text-decoration: none;
   transition: all 0.2s ease;
+  min-height: 100px;
 }
-.sdk-grid a:hover {
+.sdk-card:hover {
   border-color: var(--ifm-color-primary);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   text-decoration: none;
