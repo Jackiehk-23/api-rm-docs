@@ -97,35 +97,28 @@ export function useApiSharedState(props: PlaygroundProps): SharedState {
 // const [keyLoaded, setKeyLoaded] = useState(() => hasPrivateKey());
 useEffect(() => {
     const run = async () => {
-        console.log("[auth] syncing status...");
-
         const sessionId = getSessionId();
 
-        // ✅ HARD FALLBACK — if session exists, assume logged in
+        // Hard fallback — if a session exists locally, assume logged in
         if (sessionId) {
-            console.log("[auth] found sessionId locally");
             setTokenStatus("active");
         }
 
-        // ✅ Try server validation
+        // Validate against the server
         await syncAuthStatus(
             () => {
-                console.log("[auth] server says authenticated");
                 setTokenStatus("active");
             },
             () => {
-                console.log("[auth] server says NOT authenticated");
-
-                // ✅ trust local session
+                // Trust local session if present
                 if (sessionId) {
-                    console.log("[auth] fallback: trusting local session");
                     setTokenStatus("active");
                 } else {
                     setTokenStatus("missing");
                 }
             }
         );
-    }; // ✅ THIS LINE WAS MISSING
+    };
 
     run();
 

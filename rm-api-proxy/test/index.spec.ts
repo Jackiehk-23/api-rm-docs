@@ -2,23 +2,58 @@ import { env, createExecutionContext, waitOnExecutionContext, SELF } from 'cloud
 import { describe, it, expect } from 'vitest';
 import worker from '../src/index';
 
-// For now, you'll need to do something like this to get a correctly-typed
-// `Request` to pass to `worker.fetch()`.
 const IncomingRequest = Request<unknown, IncomingRequestCfProperties>;
 
-describe('Hello World worker', () => {
-	it('responds with Hello World! (unit style)', async () => {
+describe('rm-api-proxy worker', () => {
+	it('health check returns { ok: true } (unit style)', async () => {
 		const request = new IncomingRequest('http://example.com');
-		// Create an empty context to pass to `worker.fetch()`.
 		const ctx = createExecutionContext();
 		const response = await worker.fetch(request, env, ctx);
-		// Wait for all `Promise`s passed to `ctx.waitUntil()` to settle before running test assertions
 		await waitOnExecutionContext(ctx);
-		expect(await response.text()).toMatchInlineSnapshot(`"Hello World!"`);
+		expect(response.status).toBe(200);
+		expect(await response.json()).toEqual({ ok: true });
 	});
 
-	it('responds with Hello World! (integration style)', async () => {
+	it('health check returns { ok: true } (integration style)', async () => {
 		const response = await SELF.fetch('https://example.com');
-		expect(await response.text()).toMatchInlineSnapshot(`"Hello World!"`);
+		expect(response.status).toBe(200);
+		expect(await response.json()).toEqual({ ok: true });
+	});
+
+	it('rejects preflight from a disallowed origin', async () => {
+		const request = new IncomingRequest('https://example.com/auth/sign', {
+			method: 'OPTIONS',
+			headers: { Origin: 'https://evil.example.com' },
+		});
+		const ctx = createExecutionContext();
+		const response = await worker.fetch(request, env, ctx);
+		await waitOnExecutionContext(ctx);
+		expect(response.status).toBe(403);
+		expect(response.headers.get('Access-Control-Allow-Origin')).toBeNull();
+	});
+
+	it('allows preflight from localhost with credentials', async () => {
+		const request = new IncomingRequest('https://example.com/auth/sign', {
+			method: 'OPTIONS',
+			headers: { Origin: 'http://localhost:3000' },
+		});
+		const ctx = createExecutionContext();
+		const response = await worker.fetch(request, env, ctx);
+		await waitOnExecutionContext(ctx);
+		expect(response.status).toBe(204);
+		expect(response.headers.get('Access-Control-Allow-Origin')).toBe('http://localhost:3000');
+		expect(response.headers.get('Access-Control-Allow-Credentials')).toBe('true');
+	});
+
+	it('blocks a credentialed POST from a disallowed origin', async () => {
+		const request = new IncomingRequest('https://example.com/auth/sign', {
+			method: 'POST',
+			headers: { Origin: 'https://evil.example.com', 'Content-Type': 'application/json' },
+			body: JSON.stringify({ method: 'get', url: 'https://sb-open.revenuemonster.my/v1/x' }),
+		});
+		const ctx = createExecutionContext();
+		const response = await worker.fetch(request, env, ctx);
+		await waitOnExecutionContext(ctx);
+		expect(response.status).toBe(403);
 	});
 });

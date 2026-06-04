@@ -77,8 +77,6 @@ export async function syncAuthStatus(
     const headers: Record<string, string> = {};
     if (sessionId) headers["X-Session-Id"] = sessionId;
 
-    console.log("[syncAuthStatus] calling /auth/status with sessionId:", sessionId);
-
     const res = await fetch(`${WORKER_BASE}/auth/status`, {
       method: "GET",
       credentials: "include",
@@ -86,7 +84,6 @@ export async function syncAuthStatus(
     });
 
     const data = await res.json();
-    console.log("[syncAuthStatus] response status:", res.status, "body:", data);
 
     if (data.authenticated && typeof data.expiresIn === "number") {
       setTokenExpiry(data.expiresIn);
@@ -95,7 +92,7 @@ export async function syncAuthStatus(
       clearTokenExpiry();
       onInactive();
     }
-  } catch (err) {
-    console.log("[syncAuthStatus] fetch error:", err);
+  } catch {
+    /* network error — leave current auth state unchanged */
   }
 }

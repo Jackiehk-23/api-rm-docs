@@ -11,7 +11,7 @@ module.exports = {
   organizationName: "aimandanish02", //previously was "RevenueMonster"
   projectName: "api-rm-docs", //previously was "doc-v2"
   trailingSlash: false, //before this doesnt have this
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
 
   plugins: [
     path.resolve(__dirname, "./node_modules/docusaurus-lunr-search/"),
@@ -52,7 +52,7 @@ module.exports = {
       },
       { name: "og:site_name", content: "Revenue Monster" },
       { name: "og:type", content: "website" },
-      { name: "og:url", content: "https://doc.revenuemonster.my" },
+      { name: "og:url", content: "https://aimandanish02.github.io/api-rm-docs" },
       {
         name: "og:title",
         content:
@@ -69,7 +69,7 @@ module.exports = {
           "https://directus.superapp.my/assets/4bec8b80-eaaa-4a71-b2e6-3dd26c7afede.png",
       },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:url", content: "https://doc.revenuemonster.my" },
+      { name: "twitter:url", content: "https://aimandanish02.github.io/api-rm-docs" },
       {
         name: "twitter:title",
         content:

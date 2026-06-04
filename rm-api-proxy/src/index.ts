@@ -10,16 +10,34 @@ interface Env {
   RM_KV: KVNamespace;
 }
 
+// API hosts the proxy is permitted to forward to (sandbox + production)
 const allowedHosts = [
   "sb-open.revenuemonster.my",
-  "sb-oauth.revenuemonster.my"
+  "sb-oauth.revenuemonster.my",
+  "open.revenuemonster.my",
+  "oauth.revenuemonster.my",
 ]
 
-const TOKEN_COOKIE = "rm_api_token"
+// Browser origins permitted to make credentialed CORS calls.
+// Anything else is rejected (prevents cross-site use of the session cookie).
+const ALLOWED_ORIGINS = new Set([
+  "https://aimandanish02.github.io",
+  "https://doc.revenuemonster.my",
+])
+
 const SESSION_COOKIE = "rm_session_id"
 const SESSION_LENGTH = 64
 const OAUTH_PATHS = ["/v1/token"]
 const KV_TTL = 2592000
+
+// Returns the origin to echo in CORS headers, or null if the origin is not
+// allowed. Localhost (any port) is permitted for local development.
+function resolveOrigin(origin: string | null): string | null {
+  if (!origin) return null
+  if (ALLOWED_ORIGINS.has(origin)) return origin
+  if (/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) return origin
+  return null
+}
 
 function isOAuthEndpoint(url: string): boolean {
   try {
@@ -33,13 +51,19 @@ function isOAuthEndpoint(url: string): boolean {
   }
 }
 
-function buildCorsHeaders(origin: string) {
-  return {
-    "Access-Control-Allow-Origin": origin,
+// CORS headers. Allow-Origin / credentials are only emitted for allowed
+// origins; disallowed origins get no ACAO so the browser blocks the response.
+function buildCorsHeaders(allowedOrigin: string | null) {
+  const headers: Record<string, string> = {
     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Signature, X-Nonce-Str, X-Timestamp, X-Session-Id",
-    "Access-Control-Allow-Credentials": "true",
+    "Vary": "Origin",
   }
+  if (allowedOrigin) {
+    headers["Access-Control-Allow-Origin"] = allowedOrigin
+    headers["Access-Control-Allow-Credentials"] = "true"
+  }
+  return headers
 }
 
 function buildCookieParts(name: string, value: string, maxAge: number, isLocalhost: boolean): string {
@@ -74,15 +98,13 @@ function getSessionId(request: Request): string | null {
   return request.headers.get("X-Session-Id");
 }
 
+// Derive a full-entropy 32-byte AES key from the secret via SHA-256.
+// Note: changing derivation invalidates previously-encrypted KV values; existing
+// sessions simply fail to decrypt (caught downstream) and users re-authenticate.
 async function getEncryptionKey(env: Env): Promise<CryptoKey> {
-  const secret = env.ENCRYPTION_KEY;
-  const rawKey = Uint8Array.from(secret.slice(0, 32), (c) => c.charCodeAt(0));
-  if (secret.length < 32) {
-    const padded = new Uint8Array(32);
-    padded.set(rawKey);
-    return crypto.subtle.importKey("raw", padded.buffer, "AES-GCM", false, ["encrypt", "decrypt"]);
-  }
-  return crypto.subtle.importKey("raw", rawKey.buffer, "AES-GCM", false, ["encrypt", "decrypt"]);
+  const material = new TextEncoder().encode(env.ENCRYPTION_KEY);
+  const hash = await crypto.subtle.digest("SHA-256", material);
+  return crypto.subtle.importKey("raw", hash, "AES-GCM", false, ["encrypt", "decrypt"]);
 }
 
 async function encrypt(plaintext: string, env: Env): Promise<string> {
@@ -188,14 +210,25 @@ async function importPrivateKeyWorker(pem: string): Promise<CryptoKey> {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    const origin = request.headers.get("Origin") || "*"
-    const corsHeaders = buildCorsHeaders(origin)
-    const isLocalhost = origin.includes("localhost") || origin.includes("127.0.0.1")
+    const origin = request.headers.get("Origin")
+    const allowedOrigin = resolveOrigin(origin)
+    const corsHeaders = buildCorsHeaders(allowedOrigin)
+    const isLocalhost = !!allowedOrigin && (allowedOrigin.includes("localhost") || allowedOrigin.includes("127.0.0.1"))
     const urlObj = new URL(request.url)
 
     // ── CORS preflight ───────────────────────────────────────────────────
     if (request.method === "OPTIONS") {
-      return new Response(null, { status: 204, headers: corsHeaders })
+      return new Response(null, { status: allowedOrigin ? 204 : 403, headers: corsHeaders })
+    }
+
+    // ── Reject browser requests from disallowed origins ──────────────────
+    // Requests without an Origin header (server-to-server) are permitted; they
+    // cannot be a cross-site browser attack and still require a valid session.
+    if (origin && !allowedOrigin) {
+      return new Response(JSON.stringify({ error: "Origin not allowed" }), {
+        status: 403,
+        headers: { ...corsHeaders, "Content-Type": "application/json" }
+      })
     }
 
     // ── Health check ─────────────────────────────────────────────────────
@@ -230,7 +263,16 @@ export default {
             headers: { ...corsHeaders, "Content-Type": "application/json" }
           });
         }
-        return new Response(JSON.stringify({ authenticated: true, expiresIn: 3600 }), {
+        // Report real seconds remaining from the stored token, not a constant.
+        let expiresIn = 0;
+        try {
+          const encryptedToken = await env.RM_KV.get(`token:${sessionId}`);
+          if (encryptedToken) {
+            const tokenData = JSON.parse(await decrypt(encryptedToken, env));
+            expiresIn = Math.max(0, Math.floor((tokenData.storedAt + tokenData.expiresIn * 1000 - Date.now()) / 1000));
+          }
+        } catch { }
+        return new Response(JSON.stringify({ authenticated: true, expiresIn }), {
           status: 200,
           headers: { ...corsHeaders, "Content-Type": "application/json" }
         });
@@ -251,7 +293,7 @@ export default {
     if (urlObj.pathname === "/auth/login") {
       const ip = request.headers.get("CF-Connecting-IP") || "unknown";
       const rateLimitKey = `ratelimit:${ip}`;
-      const attempts = parseInt(await env.RM_KV.get(rateLimitKey) || "0");
+      const attempts = parseInt(await env.RM_KV.get(rateLimitKey) || "0", 10);
       if (attempts >= 10) {
         return new Response(JSON.stringify({ error: "Too many attempts. Try again later." }), {
           status: 429,
@@ -425,12 +467,6 @@ export default {
         }
       }
 
-      // Legacy cookie fallback
-      const tokenFromCookie = getCookieValue(request.headers.get("Cookie"), TOKEN_COOKIE)
-      if (tokenFromCookie && !isOAuthEndpoint(url) && !finalHeaders["Authorization"]) {
-        finalHeaders["Authorization"] = `Bearer ${tokenFromCookie}`
-      }
-
       const requestBody = body && typeof body !== "string" ? JSON.stringify(body) : body
       const response = await fetch(url, { method, headers: finalHeaders, body: requestBody })
       const responseText = await response.text()
@@ -453,7 +489,6 @@ export default {
               headers: {
                 ...corsHeaders,
                 "Content-Type": "application/json",
-                "Set-Cookie": buildCookieParts(TOKEN_COOKIE, token, expiresIn, isLocalhost),
               }
             }
           )
