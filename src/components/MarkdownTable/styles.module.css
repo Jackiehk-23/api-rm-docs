@@ -116,12 +116,14 @@
   background: var(--ifm-color-emphasis-50);
 }
 
-/* Code in tables */
+/* Code in tables — branded value chip */
 .table code {
   font-size: 0.85em;
   padding: 3px 8px;
   border-radius: 6px;
-  background: var(--ifm-color-emphasis-200);
+  background: rgba(102, 102, 235, 0.1);
+  color: var(--ifm-color-primary);
+  border: 1px solid rgba(102, 102, 235, 0.22);
   word-break: break-word;
   font-family: var(--ifm-font-family-monospace);
 }
@@ -177,7 +179,9 @@
 }
 
 [data-theme="dark"] .table code {
-  background: var(--ifm-color-emphasis-300);
+  background: rgba(124, 124, 245, 0.16);
+  color: #a5a5f5;
+  border-color: rgba(124, 124, 245, 0.3);
 }
 
 /* ================================

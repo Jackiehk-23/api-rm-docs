@@ -2,10 +2,12 @@
 id: overview
 title: Introduction
 sidebar_label: Introduction
+expand_all_sections: true
 ---
 
 import React, { useState } from 'react';
-import { LuZap, LuBuilding2, LuCreditCard, LuGift, LuPackage, LuScanFace, LuMail, LuHeadphones, LuLock } from "react-icons/lu";
+import { LuZap, LuBuilding2, LuCreditCard, LuGift, LuPackage, LuScanFace, LuMail, LuHeadphones, LuLock, LuInfo } from "react-icons/lu";
+import { TbCircleNumber1, TbCircleNumber2, TbCircleNumber3 } from "react-icons/tb";
 import Admonition from '@theme/Admonition';
 
 export const CopyUrl = ({children}) => {
@@ -15,11 +17,11 @@ export const CopyUrl = ({children}) => {
       onClick={() => { navigator.clipboard.writeText(children); setOk(true); setTimeout(() => setOk(false), 1800); }}
       style={{
         display:'flex', alignItems:'center', justifyContent:'space-between',
-        background:'var(--ifm-code-background)', borderRadius:'6px',
-        padding:'8px 12px', marginBottom:'10px', cursor:'pointer',
+        background:'var(--ifm-color-emphasis-100)', border:'1px solid var(--ifm-color-emphasis-200)',
+        borderRadius:'6px', padding:'8px 12px', marginBottom:'10px', cursor:'pointer',
       }}
     >
-      <code style={{fontFamily:'var(--ifm-font-family-monospace)',fontSize:'0.78rem',background:'none',padding:0,border:'none'}}>{children}</code>
+      <code style={{fontFamily:'var(--ifm-font-family-monospace)',fontSize:'0.78rem',background:'none',padding:0,border:'none',color:'var(--ifm-font-color-base)'}}>{children}</code>
       <span style={{
         marginLeft:'10px', padding:'2px 8px', borderRadius:'4px', flexShrink:0,
         border:`1px solid ${ok ? 'rgba(104,211,145,0.4)' : 'var(--ifm-color-emphasis-300)'}`,
@@ -45,9 +47,9 @@ Integrate payments, user management, store operations, and loyalty programs via 
   <span className="ov-card-label">Development</span>
   <h3 style={{margin:'0 0 14px',fontSize:'1rem'}}>Sandbox</h3>
   <p className="ov-card-sub">OAuth Server</p>
-  <CopyUrl>https://sb-oauth.revenuemonster.my</CopyUrl>
+  <CopyUrl>{'https://sb-oauth.revenuemonster.my'}</CopyUrl>
   <p className="ov-card-sub">API Server</p>
-  <CopyUrl>https://sb-open.revenuemonster.my</CopyUrl>
+  <CopyUrl>{'https://sb-open.revenuemonster.my'}</CopyUrl>
   <p className="ov-card-footer">Free testing environment. No charges, instant access.</p>
 </div>
 
@@ -58,9 +60,9 @@ Integrate payments, user management, store operations, and loyalty programs via 
   </div>
   <h3 style={{margin:'0 0 14px',fontSize:'1rem'}}>Production</h3>
   <p className="ov-card-sub">OAuth Server</p>
-  <CopyUrl>https://oauth.revenuemonster.my</CopyUrl>
+  <CopyUrl>{'https://oauth.revenuemonster.my'}</CopyUrl>
   <p className="ov-card-sub">API Server</p>
-  <CopyUrl>https://open.revenuemonster.my</CopyUrl>
+  <CopyUrl>{'https://open.revenuemonster.my'}</CopyUrl>
   <p className="ov-card-footer">Live environment. Requires approval (2–3 business days).</p>
 </div>
 
@@ -78,30 +80,37 @@ Integrate payments, user management, store operations, and loyalty programs via 
 <div className="ov-grid-auto">
 
 <div className="ov-card">
-  <div className="ov-card-icon" style={{fontSize:'1.2rem'}}>1️⃣</div>
+  <div className="ov-card-icon"><TbCircleNumber1 size={24} /></div>
   <span className="ov-card-title">Create a Merchant Account</span>
   <p className="ov-card-desc">Sign up on the <a href="https://sb-merchant.revenuemonster.my/">Sandbox Portal</a> or <a href="https://merchant.revenuemonster.my/">Production Portal</a> for your target environment.</p>
 </div>
 
 <div className="ov-card">
-  <div className="ov-card-icon" style={{fontSize:'1.2rem'}}>2️⃣</div>
+  <div className="ov-card-icon"><TbCircleNumber2 size={24} /></div>
   <span className="ov-card-title">Submit Required Documents</span>
   <p className="ov-card-desc">Complete all document submissions in the portal. Your account will be reviewed and approved by an administrator.</p>
 </div>
 
 <div className="ov-card">
-  <div className="ov-card-icon" style={{fontSize:'1.2rem'}}>3️⃣</div>
+  <div className="ov-card-icon"><TbCircleNumber3 size={24} /></div>
   <span className="ov-card-title">Get Your API Credentials</span>
   <p className="ov-card-desc">Once approved, retrieve your Client ID and Secret key from the Merchant Portal to start making API calls.</p>
 </div>
 
 </div>
 
-<Admonition type="info" title="SDK vs REST API">
-This documentation covers the **RESTful API**. For language-specific SDKs, see the [SDK section](../quickstart/sdk).
-</Admonition>
-
----
+<div style={{
+  display:'flex', gap:'10px', alignItems:'flex-start',
+  borderLeft:'3px solid var(--ifm-color-primary)',
+  background:'var(--ifm-color-emphasis-100)',
+  borderRadius:'6px', padding:'12px 14px', margin:'20px 0',
+}}>
+  <LuInfo size={18} style={{color:'var(--ifm-color-primary)', flexShrink:0, marginTop:'2px'}} />
+  <div>
+    <strong>SDK vs REST API</strong>
+    <p style={{margin:'4px 0 0'}}>This documentation covers the <strong>RESTful API</strong>. For language-specific SDKs, see the <a href="../quickstart/sdk">SDK section</a>.</p>
+  </div>
+</div>
 
 ## What do you want to do?
 

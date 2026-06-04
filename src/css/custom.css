@@ -890,6 +890,11 @@ details.section-details details.section-details .section-toggle {
   }
 }
 
+/* Breathing room between page content and the Previous/Next pagination */
+.pagination-nav {
+  margin-top: 2.5rem;
+}
+
 /* Hide What/When/How headings from TOC sidebar */
 .table-of-contents li:has(> a[href^="#what"]),
 .table-of-contents li:has(> a[href^="#when"]),

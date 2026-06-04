@@ -1,6 +1,10 @@
 module.exports = function rehypeCollapsibleSections() {
-  return function (tree) {
-    tree.children = groupByTag(tree.children, "h2", true);
+  return function (tree, vfile) {
+    const fm = (vfile && vfile.data && vfile.data.frontMatter) || {};
+    // Pages can set `expand_all_sections: true` to keep every section open by
+    // default (the collapse toggle still works, nothing starts collapsed).
+    const forceOpen = fm.expand_all_sections === true;
+    tree.children = groupByTag(tree.children, "h2", true, forceOpen);
   };
 };
 
@@ -75,12 +79,13 @@ function injectIcon(heading) {
   };
 }
 
-function makeDetails(heading, body) {
+function makeDetails(heading, body, forceOpen) {
   const headingWithIcon = injectIcon(heading);
+  const open = forceOpen ? true : (isCollapsedByDefault(heading) ? undefined : true);
   return {
     type: "element",
     tagName: "details",
-    properties: { open: isCollapsedByDefault(heading) ? undefined : true, className: ["section-details"] },
+    properties: { open, className: ["section-details"] },
     children: [
       {
         type: "element",
@@ -106,16 +111,16 @@ function makeDetails(heading, body) {
   };
 }
 
-function groupByTag(children, tag, nestH3) {
+function groupByTag(children, tag, nestH3, forceOpen) {
   const output = [];
   let currentGroup = null;
 
   function closeGroup() {
     if (!currentGroup) return;
     const body = nestH3
-      ? groupByTag(currentGroup.body, "h3", false)
+      ? groupByTag(currentGroup.body, "h3", false, forceOpen)
       : currentGroup.body;
-    output.push(makeDetails(currentGroup.heading, body));
+    output.push(makeDetails(currentGroup.heading, body, forceOpen));
     currentGroup = null;
   }
 
