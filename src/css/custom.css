@@ -895,6 +895,52 @@ details.section-details details.section-details .section-toggle {
   margin-top: 2.5rem;
 }
 
+/* Instant hover tooltip (used on table capability checkmarks) */
+.rm-tip {
+  position: relative;
+  display: inline-flex;
+  cursor: default;
+}
+.rm-tip::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: #1f2430;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.08s ease;
+  pointer-events: none;
+  z-index: 20;
+}
+.rm-tip::before {
+  content: "";
+  position: absolute;
+  bottom: calc(100% + 1px);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #1f2430;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.08s ease;
+  pointer-events: none;
+  z-index: 20;
+}
+.rm-tip:hover::after,
+.rm-tip:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* Hide What/When/How headings from TOC sidebar */
 .table-of-contents li:has(> a[href^="#what"]),
 .table-of-contents li:has(> a[href^="#when"]),

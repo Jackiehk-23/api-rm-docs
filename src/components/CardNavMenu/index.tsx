@@ -29,7 +29,7 @@ const navItems = [
       { label: "Push Notification", href: "/docs/push-notification/push-to-merchant" },
       { label: "Downloads", href: "/docs/downloads/revenue-monster-logo" },
       { label: "e-Commerce Plugin", href: "/docs/ecom-plugin/lowCodeCheckout" },
-      { label: "Appendix", href: "/docs/payment-method" },
+      { label: "Appendix", href: "/docs/appendix-overview" },
     ],
   },
 ];

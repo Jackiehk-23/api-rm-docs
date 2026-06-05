@@ -5,6 +5,7 @@ sidebar_label: Mobile SDK
 ---
 
 import Admonition from '@theme/Admonition';
+import { FaApple, FaAndroid } from 'react-icons/fa';
 
 # Mobile SDK
 
@@ -17,10 +18,12 @@ Not all SDKs fully implement every API function. Pull requests are welcome.
 <div className="sdk-grid">
 
 <a href="https://github.com/RevenueMonster/RM-Android" target="_blank" rel="noopener noreferrer" className="sdk-card">
+  <FaAndroid className="sdk-logo" />
   <span>Android</span>
 </a>
 
 <a href="https://github.com/RevenueMonster/RM-IOS" target="_blank" rel="noopener noreferrer" className="sdk-card">
+  <FaApple className="sdk-logo" />
   <span>iOS</span>
 </a>
 
@@ -38,8 +41,8 @@ Not all SDKs fully implement every API function. Pull requests are welcome.
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-  padding: 1.25rem 1rem;
+  gap: 0.7rem;
+  padding: 1.5rem 1rem;
   border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: var(--ifm-alert-border-radius);
   text-align: center;
@@ -47,12 +50,20 @@ Not all SDKs fully implement every API function. Pull requests are welcome.
   color: var(--ifm-font-color-base);
   text-decoration: none;
   transition: all 0.2s ease;
-  min-height: 100px;
+  min-height: 120px;
 }
 .sdk-card:hover {
   border-color: var(--ifm-color-primary);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   text-decoration: none;
+  transform: translateY(-2px);
+}
+.sdk-logo {
+  width: 48px;
+  height: 48px;
+}
+.sdk-card:hover .sdk-logo {
+  color: var(--ifm-color-primary);
 }
 `}</style>
 

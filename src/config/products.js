@@ -81,7 +81,7 @@ const products = [
     key: "appendix",
     title: "Appendix",
     description: "Payment methods, error codes, bank codes, and terms.",
-    to: "/docs/payment-method",
+    to: "/docs/appendix-overview",
   },
 ];
 

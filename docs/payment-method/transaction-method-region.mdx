@@ -9,6 +9,13 @@ import Admonition from '@theme/Admonition';
 import payments from "../../src/config/payment-method.js"
 import { FaCheck } from "react-icons/fa"
 import MarkdownTable from '@site/src/components/MarkdownTable'
+import PayIcon from '@site/src/components/PayIcon'
+
+export const Check = ({ label }) => (
+  <span className="rm-tip" data-tip={label}>
+    <FaCheck color="#22c55e" />
+  </span>
+);
 
 <Admonition type="note">
 **For online web and mobile web payments.** Append the region code to the system method name. For example, Malaysia uses `MY`, so the full method name becomes `ALIPAYPLUS_MY`.
@@ -29,23 +36,23 @@ import MarkdownTable from '@site/src/components/MarkdownTable'
     </tr>
   </thead>
   <tbody>
-    {payments.map((payment, index) => (
+    {payments
+      .slice()
+      .sort((a, b) => a.method.localeCompare(b.method) || a.region.localeCompare(b.region))
+      .map((payment, index) => (
       <tr key={index}>
         <td>
           <div style={{display:'flex',alignItems:'center',gap:'8px'}}>
-            {payment.logo
-              ? <img src={payment.logo} style={{height:'28px',width:'28px',objectFit:'contain',flexShrink:0}} />
-              : <span style={{display:'inline-block',width:'28px',height:'28px',flexShrink:0}} />
-            }
+            <PayIcon path={payment.logo} size={28} alt={payment.method} />
             <span>{payment.method}</span>
           </div>
         </td>
         <td>{payment.region}</td>
-        <td style={{textAlign: 'center'}}>{payment.quickPay && <FaCheck color="#22c55e" />}</td>
-        <td style={{textAlign: 'center'}}>{payment.web && <FaCheck color="#22c55e" />}</td>
-        <td style={{textAlign: 'center'}}>{payment.mobileWeb && <FaCheck color="#22c55e" />}</td>
-        <td style={{textAlign: 'center'}}>{payment.transactionQR && <FaCheck color="#22c55e" />}</td>
-        <td style={{textAlign: 'center'}}>{payment.retailQR && <FaCheck color="#22c55e" />}</td>
+        <td style={{textAlign: 'center'}}>{payment.quickPay && <Check label="Quick Pay" />}</td>
+        <td style={{textAlign: 'center'}}>{payment.web && <Check label="Web Payment" />}</td>
+        <td style={{textAlign: 'center'}}>{payment.mobileWeb && <Check label="Mobile Web Payment" />}</td>
+        <td style={{textAlign: 'center'}}>{payment.transactionQR && <Check label="Transaction QR" />}</td>
+        <td style={{textAlign: 'center'}}>{payment.retailQR && <Check label="Retail QR" />}</td>
       </tr>
     ))}
   </tbody>
