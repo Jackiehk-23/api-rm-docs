@@ -4,6 +4,7 @@ import { Highlight } from "prism-react-renderer";
 import type { Language } from "prism-react-renderer";
 import { useDoc } from "@docusaurus/plugin-content-docs/client";
 import { SNIPPET_LANGS, SnippetLang, generateSnippet } from "../../utils/snippets";
+import "../../utils/prismLanguages";
 import styles from "./styles.module.css";
 
 // ── Color palette (shared between light/dark for consistent semantics) ──

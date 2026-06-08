@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Highlight } from "prism-react-renderer";
 import type { Language } from "prism-react-renderer";
+import "../../utils/prismLanguages";
 import styles from "./styles.module.css";
 
 // Light theme for syntax highlighting
