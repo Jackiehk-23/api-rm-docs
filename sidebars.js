@@ -129,6 +129,14 @@ module.exports = {
           "v2/payment/online-payment/redirect-response",
         ],
       },
+      { type: "category", label: "Invoice", items: [
+        "invoice/overview",
+        { type: "doc", id: "invoice/create-invoice", className: "api-post" },
+        { type: "doc", id: "invoice/get-invoices", className: "api-get" },
+        { type: "doc", id: "invoice/get-invoice-by-id", className: "api-get" },
+        { type: "doc", id: "invoice/edit-invoice", className: "api-patch" },
+        { type: "doc", id: "invoice/cancel-invoice", className: "api-post" },
+      ]},
       {
         type: "category",
         label: "Terminal",
