@@ -110,8 +110,6 @@ module.exports = {
         items: [
           "v2/payment/online-payment/overview",
           { type: "doc", id: "v2/payment/online-payment/hosted-checkout", className: "api-post" },
-          "v2/payment/online-payment/individual-checkout",
-          { type: "doc", id: "v2/payment/online-payment/query-checkout", className: "api-get" },
           {
             type: "category",
             label: "Direct Checkout",
@@ -126,6 +124,9 @@ module.exports = {
               { type: "doc", id: "v2/payment/online-payment/direct-checkout/mode-gobiz", className: "api-post" },
             ],
           },
+          { type: "doc", id: "v2/payment/online-payment/query-checkout", className: "api-get" },
+          "v2/payment/online-payment/notify-response",
+          "v2/payment/online-payment/redirect-response",
         ],
       },
       {

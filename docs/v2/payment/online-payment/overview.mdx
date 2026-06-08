@@ -6,7 +6,7 @@ title: Online Payment
 sidebar_label: Overview
 ---
 
-import { LuMonitor, LuLink, LuSearch, LuList } from "react-icons/lu";
+import { LuMonitor, LuLink, LuSearch, LuBell, LuCornerUpLeft } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
   <LuMonitor size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
@@ -27,11 +27,19 @@ Web-based payment flows — hosted checkout pages, individual wallet checkouts, 
   </div>
 </a>
 
-<a href="./individual-checkout" className="ov-card--link">
+<a href="./notify-response" className="ov-card--link">
   <div className="ov-card">
-    <div className="ov-card-icon"><LuList size={22} /></div>
-    <span className="ov-card-title">Individual Checkout</span>
-    <span className="ov-card-desc">Build a custom checkout UI using individual wallet payment methods.</span>
+    <div className="ov-card-icon"><LuBell size={22} /></div>
+    <span className="ov-card-title">Notify Response</span>
+    <span className="ov-card-desc">Server-side callback payload sent to your notifyUrl on successful payment.</span>
+  </div>
+</a>
+
+<a href="./redirect-response" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuCornerUpLeft size={22} /></div>
+    <span className="ov-card-title">Redirect Response</span>
+    <span className="ov-card-desc">Parameters sent to your redirectUrl when the customer returns after payment.</span>
   </div>
 </a>
 

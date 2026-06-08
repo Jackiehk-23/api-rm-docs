@@ -111,9 +111,7 @@ Use this endpoint when:
     { name: "notifyUrl", type: "String", required: true, description: "Server URL to receive payment status callbacks." },
     { name: "layoutVersion", type: "String", required: true, description: "Always use \"v4\"." },
     { name: "type", type: "String", required: true, description: "Checkout session type." },
-    { name: "method", type: "Array", description: "Payment methods to enable.", children: [
-        { name: "[item]", type: "String", description: "Payment method identifier (e.g., \"WECHATPAY\", \"ALIPAY\", \"FPX\")" }
-      ] },
+    { name: "method", type: "Array", description: "Payment methods to enable. Each item is a payment method identifier.", example: '["WECHATPAY", "ALIPAY", "FPX"]' },
     { name: "order", type: "Object", required: true, description: "Order details",
       children: [
       { name: "id", type: "String", required: true, description: "Order ID" },
@@ -156,5 +154,15 @@ Use this endpoint when:
     },
   ]}
 />
+
+## Build the Checkout URL
+
+Use the `checkoutId` from the response to send the customer to the payment page. You can use this URL directly, or wrap it inside a deep link or webview for a custom experience.
+
+<CodeBlock language="plaintext" filename="Checkout URL" hideLineNumbers>
+{`https://sb-pg.revenuemonster.my/v4/checkout?checkoutId=1548316308361173347`}
+</CodeBlock>
+
+When the customer completes payment, RM redirects to your `redirectUrl` (GET) and, on success, also POSTs to your `notifyUrl` server-side. See [Redirect Response](./redirect-response) and [Notify Response](./notify-response) for the payload details.
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

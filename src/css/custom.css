@@ -129,13 +129,13 @@ body {
 }
  
 .navbar .navbar__search .navbar__search-input {
-  width: 6.5rem;
-  animation-timing-function: width 0.2s ease-in-out;
+  width: 14rem;
+  transition: width 0.2s ease-in-out, border-color 0.2s ease;
 }
- 
+
 .navbar .navbar__search .navbar__search-input:focus {
   background-color: aliceblue;
-  width: 100%;
+  width: 16rem;
 }
  
 /* Dark mode styles for search bar */
@@ -271,6 +271,10 @@ body {
   border-radius: 3px;
   letter-spacing: 0.03em;
   flex-shrink: 0;
+  width: 42px;
+  text-align: center;
+  box-sizing: border-box;
+  white-space: nowrap;
 }
 
 .api-get > .menu__link::before {
@@ -640,6 +644,15 @@ details.section-details {
   border: none;
   background: transparent;
   margin-bottom: 1.5rem;
+  /* Docusaurus themes bare <details> as an info admonition (alert alert--info),
+     which injects a cyan accent (#54c7ec) into borders, the arrow decoration,
+     and inline-code backgrounds. Neutralize all of it for our sections. */
+  --ifm-alert-background-color: transparent;
+  --ifm-alert-background-color-highlight: var(--ifm-color-emphasis-200);
+  --ifm-alert-border-color: var(--ifm-color-emphasis-300);
+  --docusaurus-details-decoration-color: var(--ifm-color-emphasis-300);
+  --ifm-color-info: var(--ifm-color-emphasis-400);
+  box-shadow: none;
 }
 
 details.section-details > summary.section-summary {
@@ -659,7 +672,7 @@ details.section-details > summary.section-summary:hover {
 }
 
 [data-theme="dark"] details.section-details > summary.section-summary {
-  border-bottom-color: rgba(102, 102, 235, 0.35);
+  border-bottom-color: var(--ifm-color-emphasis-300);
 }
 
 /* Suppress the generic details::before arrow inside section summaries */
@@ -707,7 +720,7 @@ details.section-details details.section-details {
 }
 
 [data-theme="dark"] details.section-details details.section-details {
-  border-left-color: rgba(102, 102, 235, 0.25);
+  border-left-color: var(--ifm-color-emphasis-300);
 }
 
 /* Lighter divider on nested summary to differentiate from parent */
@@ -718,7 +731,7 @@ details.section-details details.section-details > summary.section-summary {
 }
 
 [data-theme="dark"] details.section-details details.section-details > summary.section-summary {
-  border-bottom-color: rgba(102, 102, 235, 0.2);
+  border-bottom-color: var(--ifm-color-emphasis-200);
 }
 
 /* Smaller toggle icon on nested sections */
