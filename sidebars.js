@@ -290,6 +290,17 @@ module.exports = {
         { type: "doc", id: "ekyc/get-mykad-result", className: "api-post" },
         { type: "doc", id: "ekyc/get-ekyc-result", className: "api-post" },
       ]},
+      { type: "category", label: "Notification", items: [
+        "notification/overview",
+        { type: "category", label: "Short Message Service", items: [
+          "sms/overview",
+          { type: "doc", id: "sms/send-sms", className: "api-post" },
+        ]},
+        { type: "category", label: "Push Notification", items: [
+          "push-notification/overview",
+          { type: "doc", id: "push-notification/push-to-merchant", className: "api-post" },
+        ]},
+      ]},
     ]},
 
     { type: "category", label: "Loyalty & Voucher", items: [
@@ -392,15 +403,6 @@ module.exports = {
     ]},
 
 
-    { type: "category", label: "Short Message Service", items: [
-      "sms/overview",
-      { type: "doc", id: "sms/send-sms", className: "api-post" },
-    ]},
-
-    { type: "category", label: "Push Notification", items: [
-      "push-notification/overview",
-      { type: "doc", id: "push-notification/push-to-merchant", className: "api-post" },
-    ]},
 
     { type: "category", label: "e-Commerce Plugin", items: [
       "ecom-plugin/overview",

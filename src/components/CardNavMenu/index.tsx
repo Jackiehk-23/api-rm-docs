@@ -25,8 +25,7 @@ const navItems = [
     links: [
       { label: "Settings", href: "/docs/settings/account-detail/create-account" },
       { label: "eKYC", href: "/docs/ekyc/mykad-recognition" },
-      { label: "Short Message Service", href: "/docs/sms/send-sms" },
-      { label: "Push Notification", href: "/docs/push-notification/push-to-merchant" },
+      { label: "Notification", href: "/docs/notification/overview" },
       { label: "Downloads", href: "/docs/downloads/revenue-monster-logo" },
       { label: "e-Commerce Plugin", href: "/docs/ecom-plugin/lowCodeCheckout" },
       { label: "Appendix", href: "/docs/appendix-overview" },

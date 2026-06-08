@@ -1,0 +1,40 @@
+---
+hide_title: true
+hide_table_of_contents: true
+id: overview
+title: Notification
+sidebar_label: Overview
+---
+
+import { LuBell, LuMessageSquare, LuSmartphone } from "react-icons/lu";
+
+<div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+  <LuBell size={28} style={{color:'var(--ifm-color-primary)',flexShrink:0}} />
+  <h1 style={{margin:0}}>Notification</h1>
+</div>
+
+Reach merchants and customers through Revenue Monster's notification channels — SMS messaging and in-app push notifications.
+
+---
+
+<div className="ov-grid-auto">
+
+<a href="../sms/overview" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuMessageSquare size={22} /></div>
+    <span className="ov-card-title">Short Message Service</span>
+    <span className="ov-card-desc">Send SMS to any Malaysian mobile number — OTP delivery, transaction alerts, and customer notifications.</span>
+  </div>
+</a>
+
+<a href="../push-notification/overview" className="ov-card--link">
+  <div className="ov-card">
+    <div className="ov-card-icon"><LuSmartphone size={22} /></div>
+    <span className="ov-card-title">Push Notification</span>
+    <span className="ov-card-desc">Send push notifications to merchants through the Revenue Monster app.</span>
+  </div>
+</a>
+
+</div>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->
