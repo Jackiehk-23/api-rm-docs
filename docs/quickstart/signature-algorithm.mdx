@@ -5,33 +5,102 @@ sidebar_label: Signature Algorithm
 ---
 
 import Admonition from '@theme/Admonition';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import { LuArrowRight, LuMail, LuShieldCheck, LuBookOpen } from "react-icons/lu";
 
-
-
-
-<Admonition type="note">
-Signature algorithm is used to sign your payment API request with a private key to obtain additional security.
-</Admonition>
-
-<Admonition type="important">
-**Data object** needs to be sorted, the **Nested object** also needs to be sorted.
-</Admonition>
-
----
+<p className="sig-lede">
+Sign every API request with <strong>RSA&nbsp;SHA256</strong> to authenticate securely.
+All requests must be signed before they are sent.
+</p>
 
 ## How It Works
 
-### Step 1 — Prepare a Request Parameter
+<div className="sig-flow">
+  <div className="sig-step">
+    <span className="sig-step-num">1</span>
+    <span className="sig-step-label">Sort JSON</span>
+  </div>
+  <LuArrowRight className="sig-flow-arrow" size={22} />
+  <div className="sig-step">
+    <span className="sig-step-num">2</span>
+    <span className="sig-step-label">Base64 Encode</span>
+  </div>
+  <LuArrowRight className="sig-flow-arrow" size={22} />
+  <div className="sig-step">
+    <span className="sig-step-num">3</span>
+    <span className="sig-step-label">Build String</span>
+  </div>
+  <LuArrowRight className="sig-flow-arrow" size={22} />
+  <div className="sig-step">
+    <span className="sig-step-num">4</span>
+    <span className="sig-step-label">Sign &amp; Send</span>
+  </div>
+</div>
+
+## Required Headers
+
+<div className="sig-headers">
+  <p className="sig-headers-hint">Add these to every signed request:</p>
+  <div className="sig-hrow"><span className="sig-hkey">Authorization</span><span className="sig-hval">Bearer &lt;access_token&gt;</span></div>
+  <div className="sig-hrow"><span className="sig-hkey">X-Signature</span><span className="sig-hval">sha256 &lt;signature&gt;</span></div>
+  <div className="sig-hrow"><span className="sig-hkey">X-Nonce-Str</span><span className="sig-hval">random string</span></div>
+  <div className="sig-hrow"><span className="sig-hkey">X-Timestamp</span><span className="sig-hval">unix timestamp</span></div>
+  <div className="sig-hrow"><span className="sig-hkey">Content-Type</span><span className="sig-hval">application/json</span></div>
+</div>
+
+---
+
+## Step by Step
+
+### Step 1 — Sort JSON Alphabetically
+
+Sort **all** keys alphabetically, including nested objects, then remove all spaces and newlines so the JSON is compact.
 
 **Method:** <HttpMethodBadge method="POST" />
 
-<Admonition type="note">
-Refer to which API endpoint you are calling. Below request parameter is just an **EXAMPLE**.
+<Admonition type="important">
+Both the **data object** and every **nested object** must be sorted. Before encoding, replace special characters:
+
+| Character | Replace With |
+|-----------|-------------|
+| `<` | `\u003c` |
+| `>` | `\u003e` |
+| `&` | `\u0026` |
 </Admonition>
 
-#### Example of Web/Mobile Payment
+<Admonition type="note">
+The request body depends on which API endpoint you are calling. The body below is just an **EXAMPLE**.
+</Admonition>
 
-##### Request Body Parameters
+<CodeBlock language="json" filename="Example Request (before sorting)">
+{`{
+  "order": {
+    "title": "hello",
+    "detail": "",
+    "additionalData": "world",
+    "amount": 10,
+    "currencyType": "MYR",
+    "id": "7211"
+  },
+  "customer": {
+    "userId": "13245876",
+    "email": ""
+  },
+  "method": [],
+  "type": "WEB_PAYMENT",
+  "storeId": "1608123035564538121",
+  "redirectUrl": "https://revenuemonster.my",
+  "notifyUrl": "https://dev-rm-api.ap.ngrok.io",
+  "layoutVersion": "v3"
+}`}
+</CodeBlock>
+
+<CodeBlock language="plaintext" filename="Sorted + Compact" hideLineNumbers>
+{`{"additionalData":"world","amount":10,"currencyType":"MYR",...}`}
+</CodeBlock>
+
+#### Request Body Parameters
 
 <ParamTable
   title="Request Body Parameters"
@@ -67,78 +136,9 @@ Refer to which API endpoint you are calling. Below request parameter is just an 
   ]}
 />
 
+### Step 2 — Base64 Encode
 
-#### Example Request
-<!-- 
-```json
-{
-  "order": {
-    "title": "hello",
-    "detail": "",
-    "additionalData": "world",
-    "amount": 10,
-    "currencyType": "MYR",
-    "id": "7211"
-  },
-  "customer": {
-    "userId": "13245876",
-    "email": ""
-  },
-  "method": [],
-  "type": "WEB_PAYMENT",
-  "storeId": "1608123035564538121",
-  "redirectUrl": "https://revenuemonster.my",
-  "notifyUrl": "https://dev-rm-api.ap.ngrok.io",
-  "layoutVersion": "v3"
-}
-``` -->
-<CodeBlock language="json" filename="Example Request">
-{`{
-  "order": {
-    "title": "hello",
-    "detail": "",
-    "additionalData": "world",
-    "amount": 10,
-    "currencyType": "MYR",
-    "id": "7211"
-  },
-  "customer": {
-    "userId": "13245876",
-    "email": ""
-  },
-  "method": [],
-  "type": "WEB_PAYMENT",
-  "storeId": "1608123035564538121",
-  "redirectUrl": "https://revenuemonster.my",
-  "notifyUrl": "https://dev-rm-api.ap.ngrok.io",
-  "layoutVersion": "v3"
-}`}
-</CodeBlock>
-
-<Admonition type="important">
-Before signing, you must:
-
-1. **Sort all JSON keys alphabetically** — including nested objects
-2. **Make the JSON compact** — remove extra spaces and newlines
-3. **Replace special characters:**
-
-| Character | Replace With |
-|-----------|-------------|
-| `<` | `\u003c` |
-| `>` | `\u003e` |
-| `&` | `\u0026` |
-</Admonition>
-
----
-
-### Step 2 — Base64-encode the Data
-
-Take the compact, sorted JSON string and Base64-encode it.
-
-<!-- :::note Example output:
-`ewogICAgIm9yZGVyIjogewogICAgCSJ0aXRsZSI6ICJoZWxsbyIsCiAgICAJImRldGFpbCI6ICIiLAogICAgCSJhZGRpdGlvbmFsRGF0YSI6ICJ3b3JsZCIsCgkgICAgImFtb3VudCI6IDEwLAoJICAgICJjdXJyZW5jeVR5cGUiOiAiTVlSIiwKCSAgICAiaWQiOiAgIjcyMTEiCiAgICB9LAogICAgImN1c3RvbWVyIjogewogICAgInVzZXJJZCI6ICIiLAogICAgImVtYWlsIjogIiIKfSwKICAgICJtZXRob2QiOltdLAogICAgInR5cGUiOiAiV0VCX1BBWU1FTlQiLAogICAgInN0b3JlSWQiOiAiMTYwODEyMzAzNTU2NDUzODEyMSIsCiAgICAicmVkaXJlY3RVcmwiOiAiaHR0cHM6Ly9yZXZlbnVlbW9uc3Rlci5teSIsCiAgICAibm90aWZ5VXJsIjogImh0dHBzOi8vZGV2LXJtLWFwaS5hcC5uZ3Jvay5pbyIsCiAgICAibGF5b3V0VmVyc2lvbiI6InYzIgp9`
-::: -->
-
+Encode the compact, sorted JSON string using Base64.
 
 <CodeBlock language="plaintext" filename="Base64 Encoded" hideLineNumbers>
 {`ewogICAgIm9yZGVyIjogewogICAgCSJ0aXRsZSI6ICJoZWxsbyIsCiAgICAJImRldGFpbCI6IC
@@ -151,8 +151,9 @@ Rlci5teSIsCiAgICAibm90aWZ5VXJsIjogImh0dHBzOi8vZGV2LXJtLWFwaS5hcC5uZ3Jvay5pby
 IsCiAgICAibGF5b3V0VmVyc2lvbiI6InYzIgp9`}
 </CodeBlock>
 
-
 ### Step 3 — Construct the Signing String
+
+Combine the encoded body with the request parameters, joined by `&` in **alphabetical** order.
 
 <Admonition type="important">
 - If the body is empty, the `data` parameter can be skipped.
@@ -162,43 +163,26 @@ IsCiAgICAibGF5b3V0VmVyc2lvbiI6InYzIgp9`}
 <ParamTable
   title="Signing String Parameters"
   rows={[
-    { name: "data", type: "String", required: true, description: "Base64-encoded data body from Step 2.", example: "(See Step 2 output)", anchor: "#step-2--base64-encode-the-data" },
-    { name: "method", type: "String", required: true, description: "HTTP call method used.", example: "\"post\"" },
+    { name: "data", type: "String", required: true, description: "Base64-encoded data body from Step 2.", example: "eyJhZGRpdGlvbmFs...", anchor: "#step-2--base64-encode" },
+    { name: "method", type: "String", required: true, description: "HTTP call method, lowercase.", example: "\"post\"" },
     { name: "nonceStr", type: "String", required: true, description: "A unique random string. Must not be reused within 120 seconds.", example: "\"VYNknZohxwicZMaWbNdBKUrnrxDtaRhN\"" },
     { name: "requestUrl", type: "String", required: true, description: "The exact API URL being called, including the full path.", example: "\"https://sb-open.revenuemonster.my/v3/payment/online\"" },
-    { name: "signType", type: "String", required: true, description: "The signing algorithm to use.", example: "\"sha256\"" },
-    { name: "timestamp", type: "String", required: true, description: "UNIX timestamp of the request. Must be within 120 seconds of server time.", example: "\"1527407052\"" }
+    { name: "signType", type: "String", required: true, description: "The signing algorithm. Always this value.", example: "\"sha256\"" },
+    { name: "timestamp", type: "String", required: true, description: "UNIX timestamp (UTC). Must be within 120 seconds of server time.", example: "\"1527407052\"" }
   ]}
 />
 
-<!-- :::note Example signing string:
-```
-data=ewogICAgIm9yZGVyIjog...&method=post&nonceStr=VYNknZohxwicZMaWbNdBKUrnrxDtaRhN&requestUrl=https://sb-open.revenuemonster.my/v3/payment/online&signType=sha256&timestamp=1527407052
-```
-::: -->
-
 <CodeBlock language="plaintext" filename="Signing String" hideLineNumbers>
-{`data=ewogICAgIm9yZGVyIjog...
-&method=post
-&nonceStr=VYNknZohxwicZMaWbNdBKUrnrxDtaRhN
-&requestUrl=https://sb-open.revenuemonster.my/v3/payment/online
-&signType=sha256
-&timestamp=1527407052`}
+{`data=eyJhZGRpdGlvbmFs...&method=post&nonceStr=VYNknZohxwicZMaWbNdBKUrnrxDtaRhN&requestUrl=https://sb-open.revenuemonster.my/v3/payment/online&signType=sha256&timestamp=1527407052`}
 </CodeBlock>
-
----
 
 ### Step 4 — Sign with Your Private Key
 
-Sign the plain text string from Step 3 using `sha256` with your RSA private key.
+Sign the signing string using **RSA SHA256** with your private key. Base64-encode the result.
 
 <Admonition type="important">
-Sign this content using `sha256` with your **private key** and make sure the **public key** has been uploaded to the **RM Merchant Portal**.
+Make sure the matching **public key** has been uploaded to the **RM Merchant Portal**, or verification will fail.
 </Admonition>
-
-<!-- :::note Example signature:
-`sha256 IrBg6t73VsH7ieEnQDB4CXHFjMWUkp8Dtddpxqw+4Gvz6Tag7Dx6nrfAt2ofYK8xZN9aBCvAKAfmAOGWIXnsTXfhFBnMA2kadiga7ufUJ81ozyhllbiliRM2ugw1OcqSTLRHWBPhrVwhHBxgDiG9wbuI3FKURrz+CufYYakFoCw=`
-::: -->
 
 <CodeBlock language="plaintext" filename="Signature" hideLineNumbers>
 {`sha256 IrBg6t73VsH7ieEnQDB4CXHFjMWUkp8Dtddpxqw+4Gvz6Tag7Dx6nrfAt2ofYK8xZN9aBCvAKAfmAOGWIXnsTXfhFBnMA2kadiga7ufUJ81ozyhllbiliRM2ugw1OcqSTLRHWBPhrVwhHBxgDiG9wbuI3FKURrz+CufYYakFoCw=`}
@@ -206,57 +190,135 @@ Sign this content using `sha256` with your **private key** and make sure the **p
 
 ---
 
-### Step 5 — Add Headers to Your Request
+## Code Examples
 
-Place the signature in the `X-Signature` header, prefixed with the sign type:
+<Tabs groupId="lang">
+<TabItem value="node" label="Node.js" default>
 
-| Header | Value |
-|---|---|
-| `X-Signature` | `sha256 <your_signature>` |
-| `X-Nonce-Str` | The nonce string you generated |
-| `X-Timestamp` | The Unix timestamp you generated |
-| `Authorization` | `Bearer <access_token>` |
-| `Content-Type` | `application/json` |
+<CodeBlock language="javascript" filename="Node.js">
+{`const crypto = require('crypto');
+const fs = require('fs');
 
-#### Example cURL Request
+// Load your RSA private key from a secure location (never hardcode it)
+const privateKeyPem = fs.readFileSync(process.env.RM_PRIVATE_KEY_PATH, 'utf8');
+const url = 'https://sb-open.revenuemonster.my/v3/payment/online';
 
-<!-- ```bash
-curl --request POST \
-  --url 'https://sb-open.revenuemonster.my/v3/payment/online' \
-  --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjIwMTgtMDMtMTMiLCJ0eXAiOiJKV1QifQ...' \
-  --header 'Content-Type: application/json' \
-  --header 'X-Nonce-Str: VYNknZohxwicZMaWbNdBKUrnrxDtaRhN' \
-  --header 'X-Signature: sha256 IrBg6t73VsH7ieEnQDB4CXHFjMWUkp8Dtddpxqw+4Gvz6Tag7Dx6nrfAt2ofYK8xZN9aBCvAKAfmAOGWIXnsTXfhFBnMA2kadiga7ufUJ81ozyhllbiliRM2ugw1OcqSTLRHWBPhrVwhHBxgDiG9wbuI3FKURrz+CufYYakFoCw=' \
-  --header 'X-Timestamp: 1527407052' \
-  --data '{
-    "order": {
-      "title": "hello",
-      "detail": "",
-      "additionalData": "world",
-      "amount": 10,
-      "currencyType": "MYR",
-      "id": "7211"
-    },
-    "customer": {
-      "userId": "13245876",
-      "email": ""
-    },
+const body = {
+  order: { title: 'hello', detail: '', additionalData: 'world',
+           amount: 10, currencyType: 'MYR', id: '7211' },
+  customer: { userId: '13245876', email: '' },
+  method: [],
+  type: 'WEB_PAYMENT',
+  storeId: '1608123035564538121',
+  redirectUrl: 'https://revenuemonster.my',
+  notifyUrl: 'https://dev-rm-api.ap.ngrok.io',
+  layoutVersion: 'v3',
+};
+
+// 1. Sort keys recursively, then compact + escape special characters
+function sortObject(obj) {
+  if (Array.isArray(obj)) return obj.map(sortObject);
+  if (obj && typeof obj === 'object') {
+    return Object.keys(obj).sort().reduce((acc, k) => {
+      acc[k] = sortObject(obj[k]);
+      return acc;
+    }, {});
+  }
+  return obj;
+}
+const compact = JSON.stringify(sortObject(body))
+  .replace(/</g, '\\\\u003c')
+  .replace(/>/g, '\\u003e')
+  .replace(/&/g, '\\u0026');
+
+// 2. Base64 encode
+const data = Buffer.from(compact).toString('base64');
+
+// 3. Build the signing string (params in alphabetical order)
+const nonceStr = crypto.randomBytes(16).toString('hex');
+const timestamp = Math.floor(Date.now() / 1000).toString();
+const signString =
+  'data=' + data +
+  '&method=post' +
+  '&nonceStr=' + nonceStr +
+  '&requestUrl=' + url +
+  '&signType=sha256' +
+  '&timestamp=' + timestamp;
+
+// 4. Sign with RSA SHA256 private key
+const signature = crypto.createSign('RSA-SHA256')
+  .update(signString)
+  .sign(privateKeyPem, 'base64');
+
+// Send these headers with your request:
+//   X-Signature:  'sha256 ' + signature
+//   X-Nonce-Str:  nonceStr
+//   X-Timestamp:  timestamp`}
+</CodeBlock>
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+<CodeBlock language="python" filename="Python">
+{`import json, base64, time, os, secrets
+from cryptography.hazmat.primitives import hashes, serialization
+from cryptography.hazmat.primitives.asymmetric import padding
+
+# Load your RSA private key from a secure location (never hardcode it)
+with open(os.environ["RM_PRIVATE_KEY_PATH"], "rb") as f:
+    private_key = serialization.load_pem_private_key(f.read(), password=None)
+
+url = "https://sb-open.revenuemonster.my/v3/payment/online"
+body = {
+    "order": {"title": "hello", "detail": "", "additionalData": "world",
+              "amount": 10, "currencyType": "MYR", "id": "7211"},
+    "customer": {"userId": "13245876", "email": ""},
     "method": [],
     "type": "WEB_PAYMENT",
     "storeId": "1608123035564538121",
     "redirectUrl": "https://revenuemonster.my",
     "notifyUrl": "https://dev-rm-api.ap.ngrok.io",
-    "layoutVersion": "v3"
-  }'
-``` -->
+    "layoutVersion": "v3",
+}
 
-<CodeBlock language="bash" filename="cURL" hideLineNumbers>
+def sort_obj(o):
+    if isinstance(o, dict):
+        return {k: sort_obj(o[k]) for k in sorted(o)}
+    if isinstance(o, list):
+        return [sort_obj(i) for i in o]
+    return o
+
+# 1. Sort + compact + escape
+compact = json.dumps(sort_obj(body), separators=(",", ":"), ensure_ascii=False)
+compact = compact.replace("<", "\\\\u003c").replace(">", "\\\\u003e").replace("&", "\\\\u0026")
+
+# 2. Base64 encode
+data = base64.b64encode(compact.encode()).decode()
+
+# 3. Build the signing string
+nonce = secrets.token_hex(16)
+timestamp = str(int(time.time()))
+sign_string = (
+    f"data={data}&method=post&nonceStr={nonce}"
+    f"&requestUrl={url}&signType=sha256&timestamp={timestamp}"
+)
+
+# 4. Sign with RSA SHA256 private key
+sig = private_key.sign(sign_string.encode(), padding.PKCS1v15(), hashes.SHA256())
+signature = base64.b64encode(sig).decode()
+# Send header  ->  X-Signature: f"sha256 {signature}\"`}
+</CodeBlock>
+
+</TabItem>
+<TabItem value="curl" label="cURL">
+
+<CodeBlock language="curl" filename="cURL" hideLineNumbers>
 {`curl --request POST \\
   --url 'https://sb-open.revenuemonster.my/v3/payment/online' \\
-  --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjIwMTgtMDMtMTMiLCJ0eXAiOiJKV1QifQ...' \\
+  --header 'Authorization: Bearer eyJhbGci...' \\
   --header 'Content-Type: application/json' \\
   --header 'X-Nonce-Str: VYNknZohxwicZMaWbNdBKUrnrxDtaRhN' \\
-  --header 'X-Signature: sha256 IrBg6t73VsH7ieEnQDB4CXHFjMWUkp8Dtddpxqw+4Gvz6Tag7Dx6nrfAt2ofYK8xZN9aBCvAKAfmAOGWIXnsTXfhFBnMA2kadiga7ufUJ81ozyhllbiliRM2ugw1OcqSTLRHWBPhrVwhHBxgDiG9wbuI3FKURrz+CufYYakFoCw=' \\
+  --header 'X-Signature: sha256 IrBg6t73VsH7ieEnQDB4...' \\
   --header 'X-Timestamp: 1527407052' \\
   --data '{
     "order": {
@@ -267,10 +329,7 @@ curl --request POST \
       "currencyType": "MYR",
       "id": "7211"
     },
-    "customer": {
-      "userId": "13245876",
-      "email": ""
-    },
+    "customer": { "userId": "13245876", "email": "" },
     "method": [],
     "type": "WEB_PAYMENT",
     "storeId": "1608123035564538121",
@@ -280,9 +339,12 @@ curl --request POST \
   }'`}
 </CodeBlock>
 
+</TabItem>
+</Tabs>
+
 ---
 
-## Response Parameters
+## Response
 
 <ParamTable
   title="Response Parameters"
@@ -297,19 +359,7 @@ curl --request POST \
   ]}
 />
 
-### Example Response
-
-<!-- ```json
-{
-  "item": {
-    "checkoutId": "1548316308361173347",
-    "url": "https://sb-pg.revenuemonster.my/checkout?checkoutId=1548316308361173347"
-  },
-  "code": "SUCCESS"
-}
-``` -->
-
-<CodeBlock language="json" filename="Response">
+<CodeBlock language="json" filename="Example Response">
 {`{
   "item": {
     "checkoutId": "1548316308361173347",
@@ -318,6 +368,64 @@ curl --request POST \
   "code": "SUCCESS"
 }`}
 </CodeBlock>
+
+---
+
+## Common Mistakes
+
+<div className="sig-mistakes">
+  <div className="sig-mistake">
+    <strong>❌ JSON keys not sorted</strong>
+    <p>Sort alphabetically including nested objects. Check every level.</p>
+  </div>
+  <div className="sig-mistake">
+    <strong>❌ Extra spaces in JSON</strong>
+    <p>Make it compact: <code>{`{"a":1}`}</code> not <code>{`{"a": 1}`}</code>. Remove all whitespace.</p>
+  </div>
+  <div className="sig-mistake">
+    <strong>❌ Forgot to escape special characters</strong>
+    <p>Replace <code>&lt;</code> → <code>{'\\u003c'}</code>, <code>&gt;</code> → <code>{'\\u003e'}</code>, <code>&amp;</code> → <code>{'\\u0026'}</code> before encoding.</p>
+  </div>
+  <div className="sig-mistake">
+    <strong>❌ Timestamp too old</strong>
+    <p>Must be within <strong>120 seconds</strong> of server UTC time. Sync your clock.</p>
+  </div>
+  <div className="sig-mistake">
+    <strong>❌ Reused nonce</strong>
+    <p>Generate a new nonce for each request. Don't reuse within 120 seconds.</p>
+  </div>
+  <div className="sig-mistake">
+    <strong>❌ Wrong private key</strong>
+    <p>Verify your private key matches the public key uploaded to the portal.</p>
+  </div>
+</div>
+
+---
+
+## Security Best Practices
+
+<div className="sig-bp-grid">
+  <div className="sig-bp sig-do">
+    <div className="sig-bp-head">✅ DO</div>
+    <ul>
+      <li>Store private keys securely</li>
+      <li>Use environment variables</li>
+      <li>Generate a unique nonce per request</li>
+      <li>Verify certificate validity</li>
+      <li>Rotate keys periodically</li>
+    </ul>
+  </div>
+  <div className="sig-bp sig-dont">
+    <div className="sig-bp-head">❌ DON'T</div>
+    <ul>
+      <li>Hardcode private keys</li>
+      <li>Commit keys to git</li>
+      <li>Reuse nonce values</li>
+      <li>Skip the timestamp check</li>
+      <li>Share private keys</li>
+    </ul>
+  </div>
+</div>
 
 ---
 
@@ -331,9 +439,7 @@ Go to **Merchant Portal → Developer → Applications** and create a new applic
 
 ### Step 2 — Obtain Credentials
 
-Click on the application you created. You can edit and update relevant information here.
-
-To disable the application, toggle the **ON/OFF** switch at the top right:
+Click on the application you created. You can edit and update relevant information here. To disable the application, toggle the **ON/OFF** switch at the top right:
 
 <img src={require('/img/developer-application/4.png').default} />
 
@@ -350,13 +456,11 @@ Go to **Merchant Portal → Developer → Application → Generate RSA Key**. Re
 
 <img src={require('/img/developer-application/rks-key.png').default} />
 
-
 ### Step 4 — Wrap Your Public Key (For Signature Debugger)
 
-Your public key needs to be wrapped in standard PEM format before using with the Signature Debugger:
+Your public key needs to be wrapped in standard PEM format before using it with the Signature Debugger:
 
 <img src={require('/img/developer-application/9.png').default} />
-
 
 ### Step 5 — Use the Signature Debugger (Optional)
 
@@ -373,55 +477,6 @@ If you receive an `INVALID_REQUEST_SIGNATURE` error, the response includes a `de
 <Admonition type="note">
 Compare the `preVerifyContent` steps below with your own output to find where they diverge.
 </Admonition>
-
-<!-- ```json
-{
-  "debug": {
-    "preVerifyContent": {
-      "step1": {
-        "content": "{\"layoutVersion\":\"v2\",\"method\":[\"GOBIZ_MY\"],\"notifyUrl\":\"https://dev-rm-api.ap.ngrok.io\",\"order\":{\"additionalData\":\"world\",\"amount\":10,\"currencyType\":\"MYR\",\"detail\":\"hello\",\"id\":\"721115\",\"title\":\"hello\"},\"redirectUrl\":\"https://revenuemonster.my\",\"storeId\":\"10946114768247530\",\"type\":\"WEB_PAYMENT\"}",
-        "remark": "Sort the json key alphabetically"
-      },
-      "step2": {
-        "content": "eyJsYXlvdXRWZXJzaW9uIjoidjIiLCJtZXRob2QiOlsiR09CSVpfTVkiXSwibm90aWZ5VXJsIjoiaHR0cHM6Ly9kZXYtcm0tYXBpLmFwLm5ncm9rLmlvIiwib3JkZXIiOnsiYWRkaXRpb25hbERhdGEiOiJ3b3JsZCIsImFtb3VudCI6MTAsImN1cnJlbmN5VHlwZSI6Ik1ZUiIsImRldGFpbCI6ImhlbGxvIiwiaWQiOiI3MjExMTUiLCJ0aXRsZSI6ImhlbGxvIn0sInJlZGlyZWN0VXJsIjoiaHR0cHM6Ly9yZXZlbnVlbW9uc3Rlci5teSIsInN0b3JlSWQiOiIxMDk0NjExNDc2ODI0NzUzMCIsInR5cGUiOiJXRUJfUEFZTUVOVCJ9",
-        "remark": "Encode the data using Base64 format"
-      },
-      "step3": {
-        "content": "data=eyJsYXlvd...&method=post&nonceStr=XAYZRZNLGCKSTURRFKBIGYALUKLCLJOG&requestUrl=https://sb-open.revenuemonster.my/v3/payment/online&signType=sha256&timestamp=1599467903",
-        "remark": "Construct plain text parameters on this format. If the body is empty, the data parameter can be omitted."
-      },
-      "step4": {
-        "content": "data=eyJsYXlvd...&method=post&nonceStr=XAYZRZNLGCKSTURRFKBIGYALUKLCLJOG&requestUrl=https://sb-open.revenuemonster.my/v3/payment/online&signType=sha256&timestamp=1599467903",
-        "remark": "Sign this content using sha256 with rsa private key and make sure the public key has been uploaded to the portal."
-      },
-      "step5": {
-        "remark": "Pass the generated signature in the X-Signature header, prefixed with the sign type. Example: sha256 {{ signatureContent }}"
-      }
-    },
-    "requestHeader": {
-      "X-Nonce-Str": {
-        "currentValue": "XAYZRZNLGCKSTURRFKBIGYALUKLCLJOG",
-        "isValid": true,
-        "remark": "The nonce string must not contain spaces and must be unique for at least 120 seconds. Reusing it will result in a duplicate request error."
-      },
-      "X-Signature": {
-        "currentValue": "sha256 XvedDW8H2gqGL5gMzTHqDy1PXX3OqRF09WuQDkeCDwuinOAsPstcPOSefUwkyHPM9WPNKKHyR5qXbKNLC7UgQyGi8Ynio03kDo0p+g3BqXaUT1tpo5D8kv42Kh2S8CW4RkX2Dkf+Yxi2XMQ8l3kzPZaRyhudaGerUZony4Npzf63p4+oTBbXE01uX/4x/WL57+zkaaVRc1KlJsLdGsBmLlPOHLana7udJffJyxXhOmyokBuJ4GoOC8JpDG9oaKCNMZ88ow9CWWB0yRPrK2KeaEDwzCm2Jh8IFKw1gS6avQAwsjychZWv5XmAXkZ8ZQrnLXJquA09QpLxPTtOeQC9SA==",
-        "isValid": false,
-        "remark": "The signature is invalid. Check preVerifyContent above to see what the server expected at each step."
-      },
-      "X-Timestamp": {
-        "currentValue": "1599467903",
-        "isValid": false,
-        "remark": "The timestamp must be in UTC and within 120 seconds of the server time."
-      }
-    }
-  },
-  "error": {
-    "code": "INVALID_REQUEST_SIGNATURE",
-    "message": "The request signature is invalid"
-  }
-}
-``` -->
 
 <CodeBlock language="json" filename="Debug Response">
 {`{
@@ -484,6 +539,191 @@ Compare the `preVerifyContent` steps below with your own output to find where th
 | `X-Nonce-Str` was reused within a 120-second window | Generate a new nonce for each request |
 | Amount is in cents — `"amount": 100` = RM 1.00 | Multiply the amount by 100 |
 
+---
+
+## Need Help?
+
+<div className="sig-help-grid">
+  <a className="sig-help" href="mailto:support@revenuemonster.my">
+    <div className="sig-help-icon"><LuMail size={20} /></div>
+    <div>
+      <div className="sig-help-title">Support</div>
+      <div className="sig-help-sub">support@revenuemonster.my</div>
+    </div>
+  </a>
+  <a className="sig-help" href="./verify-signature">
+    <div className="sig-help-icon"><LuShieldCheck size={20} /></div>
+    <div>
+      <div className="sig-help-title">Verify Signature</div>
+      <div className="sig-help-sub">Check incoming webhooks</div>
+    </div>
+  </a>
+  <a className="sig-help" href="../v2/payment/online-payment/overview.mdx">
+    <div className="sig-help-icon"><LuBookOpen size={20} /></div>
+    <div>
+      <div className="sig-help-title">API Reference</div>
+      <div className="sig-help-sub">Full endpoint docs</div>
+    </div>
+  </a>
+</div>
+
+<style>{`
+.sig-lede {
+  font-size: 1.05rem;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0.5rem 0 1.5rem;
+}
+
+/* How It Works flow */
+.sig-flow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 1.25rem 0 1.75rem;
+}
+.sig-step {
+  flex: 1 1 120px;
+  min-width: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 12px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  background: var(--ifm-background-color);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.sig-step:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 2px 10px rgba(102, 102, 235, 0.12);
+}
+.sig-step-num {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  line-height: 1;
+}
+.sig-step-label { font-size: 0.85rem; font-weight: 600; color: var(--ifm-color-emphasis-800); }
+.sig-flow-arrow { flex: 0 0 auto; color: var(--ifm-color-emphasis-500); }
+@media (max-width: 768px) {
+  .sig-flow-arrow { transform: rotate(90deg); }
+}
+
+/* Required Headers */
+.sig-headers {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 1rem 0 1.5rem;
+  background: var(--ifm-background-surface-color);
+}
+.sig-headers-hint {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-600);
+  margin: 0 0 10px;
+}
+.sig-hrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+.sig-hrow:first-of-type { border-top: none; }
+.sig-hkey { font-weight: 600; font-size: 0.9rem; }
+.sig-hval {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.82rem;
+  color: var(--ifm-color-primary);
+}
+
+/* Common Mistakes */
+.sig-mistakes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 1.25rem 0;
+}
+@media (max-width: 768px) {
+  .sig-mistakes { grid-template-columns: 1fr; }
+}
+.sig-mistake {
+  border-left: 3px solid var(--ifm-color-primary);
+  border-radius: 8px;
+  padding: 12px 16px;
+  background: rgba(102, 102, 235, 0.06);
+}
+.sig-mistake strong { display: block; font-size: 0.95rem; margin-bottom: 4px; }
+.sig-mistake p { margin: 0; font-size: 0.85rem; color: var(--ifm-color-emphasis-700); }
+
+/* Security Best Practices */
+.sig-bp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 1.25rem 0;
+}
+@media (max-width: 768px) {
+  .sig-bp-grid { grid-template-columns: 1fr; }
+}
+.sig-bp {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+.sig-bp-head { font-weight: 700; font-size: 1rem; margin-bottom: 10px; }
+.sig-bp ul { margin: 0; padding-left: 1.1rem; }
+.sig-bp li { font-size: 0.88rem; margin: 4px 0; color: var(--ifm-color-emphasis-800); }
+.sig-do { background: rgba(46, 160, 67, 0.06); border-color: rgba(46, 160, 67, 0.3); }
+.sig-dont { background: rgba(218, 54, 51, 0.06); border-color: rgba(218, 54, 51, 0.3); }
+
+/* Need Help */
+.sig-help-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 1.25rem 0;
+}
+@media (max-width: 768px) {
+  .sig-help-grid { grid-template-columns: 1fr; }
+}
+.sig-help {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.sig-help:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 2px 10px rgba(102, 102, 235, 0.12);
+  text-decoration: none;
+  color: inherit;
+}
+.sig-help-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(102, 102, 235, 0.12);
+  color: var(--ifm-color-primary);
+}
+.sig-help-title { font-weight: 600; font-size: 0.92rem; }
+.sig-help-sub { font-size: 0.8rem; color: var(--ifm-color-emphasis-600); }
+
+[data-theme="dark"] .sig-mistake { background: rgba(124, 124, 245, 0.1); }
+[data-theme="dark"] .sig-do { background: rgba(46, 160, 67, 0.1); }
+[data-theme="dark"] .sig-dont { background: rgba(218, 54, 51, 0.1); }
+`}</style>
+
 <!-- SPDX-License-Identifier: Apache-2.0 -->
-
-
