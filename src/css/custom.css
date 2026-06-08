@@ -129,13 +129,13 @@ body {
 }
  
 .navbar .navbar__search .navbar__search-input {
-  width: 9rem;
+  width: 10rem;
   transition: width 0.2s ease-in-out, border-color 0.2s ease;
 }
 
 .navbar .navbar__search .navbar__search-input:focus {
   background-color: aliceblue;
-  width: 16rem;
+  width: 13rem;
 }
  
 /* Dark mode styles for search bar */
