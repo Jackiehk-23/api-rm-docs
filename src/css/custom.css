@@ -129,7 +129,7 @@ body {
 }
  
 .navbar .navbar__search .navbar__search-input {
-  width: 14rem;
+  width: 9rem;
   transition: width 0.2s ease-in-out, border-color 0.2s ease;
 }
 
