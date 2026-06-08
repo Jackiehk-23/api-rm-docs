@@ -4,8 +4,7 @@ title: Downloads
 sidebar_label: Downloads
 ---
 
-import { LuImage, LuPalette, LuSmartphone, LuWallet } from "react-icons/lu";
-
+import { LuImage, LuPalette, LuSmartphone } from "react-icons/lu";
 import Admonition from '@theme/Admonition';
 
 Official Revenue Monster branding assets, app downloads, and sandbox testing credentials.
@@ -98,32 +97,8 @@ Official Revenue Monster branding assets, app downloads, and sandbox testing cre
 
 </div>
 
----
-
-## Testing Wallets
-
-<Admonition type="note">
-- Only limited wallets provide testing accounts — most are in beta (unstable).
-- WeChat Pay is the only wallet usable with a real production wallet in **both** production and sandbox environments.
-- Recommend using WeChat Pay in sandbox for one round of testing, then move to production for other wallets.
+<Admonition type="info">
+Looking for sandbox test cards, FPX, e-wallet, and DuitNow QR? See [Sandbox Testing](./quickstart/sandbox-testing).
 </Admonition>
-
-<div style={{display:"flex",alignItems:"center",gap:"10px",marginBottom:"12px"}}>
-  <LuWallet size={18} style={{color:"var(--ifm-color-primary)",flexShrink:0}} />
-  <span style={{fontWeight:600}}>Wallet availability by environment</span>
-</div>
-
-| Wallet | Production | Sandbox |
-|---|---|---|
-| WeChat Pay | Yes | No |
-| Alipay | Yes | Yes |
-| ShopeePay | Yes | Yes |
-| Maybank | Yes | Yes |
-| GrabPay | Yes | No |
-| RazerPay | Yes | Yes |
-| TaPay | Yes | No |
-| GoBiz | Credit Card | No |
-| Zapp | Yes | No |
-| MCash | Yes | No |
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

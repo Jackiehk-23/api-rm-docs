@@ -9,6 +9,7 @@ module.exports = {
       "quickstart/overview",
       "quickstart/signature-algorithm",
       "quickstart/verify-signature",
+      "quickstart/sandbox-testing",
       {
         type: "category",
         label: "Access Token",

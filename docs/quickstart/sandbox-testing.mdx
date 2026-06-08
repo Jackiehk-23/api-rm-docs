@@ -1,0 +1,157 @@
+---
+id: sandbox-testing
+title: Sandbox Testing
+sidebar_label: Sandbox Testing
+hide_table_of_contents: true
+---
+
+import Admonition from '@theme/Admonition';
+import { LuCreditCard, LuLandmark, LuWallet, LuQrCode } from "react-icons/lu";
+
+Use the values below to test payments in the **sandbox** environment.
+
+<div className="sbx-grid">
+
+<div className="sbx-card">
+  <div className="sbx-head">
+    <div className="sbx-icon"><LuCreditCard size={20} /></div>
+    <span className="sbx-title">Card</span>
+  </div>
+  <div className="sbx-body">
+    <div className="sbx-row"><span className="sbx-label">Mastercard</span><span className="sbx-code">5123 4500 0000 0008</span></div>
+    <div className="sbx-row"><span className="sbx-label">Visa</span><span className="sbx-code">4440 0000 0990 0010</span></div>
+    <div className="sbx-row"><span className="sbx-label">Expiry</span><span className="sbx-muted">any future date (MM/YY)</span></div>
+    <div className="sbx-row"><span className="sbx-label">CVV</span><span className="sbx-muted">any 3 digits</span></div>
+  </div>
+</div>
+
+<div className="sbx-card">
+  <div className="sbx-head">
+    <div className="sbx-icon"><LuLandmark size={20} /></div>
+    <span className="sbx-title">FPX Online Banking</span>
+  </div>
+  <div className="sbx-body">
+    <p className="sbx-muted">On the sandbox bank login page, use any <strong>4-digit number</strong> as both the username and the password.</p>
+  </div>
+</div>
+
+<div className="sbx-card">
+  <div className="sbx-head">
+    <div className="sbx-icon"><LuWallet size={20} /></div>
+    <span className="sbx-title">E-wallet — Touch 'n Go</span>
+  </div>
+  <div className="sbx-body">
+    <p className="sbx-muted">Pay using the sandbox Touch 'n Go app.</p>
+    {/* TODO: when the TNG sandbox APK URL is available, replace this span with:
+        <a className="sbx-btn" href="REAL_URL" target="_blank" rel="noopener noreferrer">Download TNG APK</a> */}
+    <span className="sbx-pending">APK download link — coming soon</span>
+  </div>
+</div>
+
+<div className="sbx-card">
+  <div className="sbx-head">
+    <div className="sbx-icon"><LuQrCode size={20} /></div>
+    <span className="sbx-title">DuitNow QR</span>
+  </div>
+  <div className="sbx-body">
+    <p className="sbx-muted">Generate a DuitNow QR online, then scan it with the sandbox Touch 'n Go app to complete payment.</p>
+  </div>
+</div>
+
+</div>
+
+<style>{`
+.sbx-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+@media (max-width: 768px) {
+  .sbx-grid { grid-template-columns: 1fr; }
+}
+.sbx-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 18px;
+  background: var(--ifm-background-color);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.sbx-card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 2px 10px rgba(102, 102, 235, 0.12);
+}
+.sbx-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.sbx-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(102, 102, 235, 0.12);
+  color: var(--ifm-color-primary);
+}
+.sbx-title { font-weight: 600; font-size: 1rem; }
+.sbx-body { display: flex; flex-direction: column; gap: 8px; }
+.sbx-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.sbx-label { font-size: 0.85rem; color: var(--ifm-color-emphasis-700); font-weight: 500; }
+.sbx-code {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 5px;
+  background: rgba(102, 102, 235, 0.1);
+  color: var(--ifm-color-primary);
+  border: 1px solid rgba(102, 102, 235, 0.22);
+  white-space: nowrap;
+}
+.sbx-muted { font-size: 0.88rem; color: var(--ifm-color-emphasis-700); margin: 0; }
+.sbx-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 7px 14px;
+  background: var(--ifm-color-primary);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  width: fit-content;
+}
+.sbx-btn:hover { color: #fff; text-decoration: none; opacity: 0.9; }
+.sbx-pending {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  width: fit-content;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-600);
+  border: 1px dashed var(--ifm-color-emphasis-400);
+}
+[data-theme="dark"] .sbx-code {
+  background: rgba(124, 124, 245, 0.16);
+  color: #a5a5f5;
+  border-color: rgba(124, 124, 245, 0.3);
+}
+`}</style>
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->
