@@ -6,6 +6,8 @@ title: Account
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuShield, LuCirclePlus, LuList, LuPencil, LuSend } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -19,45 +21,45 @@ Programmatically create, retrieve, and update RM accounts. Submit completed acco
 
 <div className="ov-grid-auto">
 
-<a href="./create-account" className="ov-card--link">
+<Link to="./create-account" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuCirclePlus size={22} /></div>
     <span className="ov-card-title">Create Account</span>
     <span className="ov-card-desc">Register a new account under the merchant.</span>
   </div>
-</a>
+</Link>
 
-<a href="./get-accounts" className="ov-card--link">
+<Link to="./get-accounts" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuList size={22} /></div>
     <span className="ov-card-title">Get Accounts</span>
     <span className="ov-card-desc">List all accounts under the merchant.</span>
   </div>
-</a>
+</Link>
 
-<a href="./get-account" className="ov-card--link">
+<Link to="./get-account" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuShield size={22} /></div>
     <span className="ov-card-title">Get Account</span>
     <span className="ov-card-desc">Retrieve details for a specific account.</span>
   </div>
-</a>
+</Link>
 
-<a href="./update-account" className="ov-card--link">
+<Link to="./update-account" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuPencil size={22} /></div>
     <span className="ov-card-title">Update Account</span>
     <span className="ov-card-desc">Update account details and configuration.</span>
   </div>
-</a>
+</Link>
 
-<a href="./submit-account-review" className="ov-card--link">
+<Link to="./submit-account-review" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuSend size={22} /></div>
     <span className="ov-card-title">Submit for Review</span>
     <span className="ov-card-desc">Submit the account to RM for approval.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

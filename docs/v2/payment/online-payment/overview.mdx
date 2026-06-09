@@ -6,6 +6,8 @@ title: Online Payment
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuMonitor, LuLink, LuSearch, LuBell, LuCornerUpLeft } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -19,45 +21,45 @@ Web-based payment flows — hosted checkout pages, individual wallet checkouts, 
 
 <div className="ov-grid-auto">
 
-<a href="./hosted-checkout" className="ov-card--link">
+<Link to="./hosted-checkout" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuMonitor size={22} /></div>
     <span className="ov-card-title">Hosted Checkout</span>
     <span className="ov-card-desc">Generate a hosted payment page that RM renders for the customer.</span>
   </div>
-</a>
+</Link>
 
-<a href="./notify-response" className="ov-card--link">
+<Link to="./notify-response" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuBell size={22} /></div>
     <span className="ov-card-title">Notify Response</span>
     <span className="ov-card-desc">Server-side callback payload sent to your notifyUrl on successful payment.</span>
   </div>
-</a>
+</Link>
 
-<a href="./redirect-response" className="ov-card--link">
+<Link to="./redirect-response" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuCornerUpLeft size={22} /></div>
     <span className="ov-card-title">Redirect Response</span>
     <span className="ov-card-desc">Parameters sent to your redirectUrl when the customer returns after payment.</span>
   </div>
-</a>
+</Link>
 
-<a href="./query-checkout" className="ov-card--link">
+<Link to="./query-checkout" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuSearch size={22} /></div>
     <span className="ov-card-title">Query Checkout</span>
     <span className="ov-card-desc">Check the status of an online payment checkout session.</span>
   </div>
-</a>
+</Link>
 
-<a href="./direct-checkout/overview" className="ov-card--link">
+<Link to="./direct-checkout/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuLink size={22} /></div>
     <span className="ov-card-title">Direct Checkout</span>
     <span className="ov-card-desc">Launch a specific payment mode directly — URL, QR, FPX, DuitNow, Alipay Mini, WeChat Pay Mini, GoBiz.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

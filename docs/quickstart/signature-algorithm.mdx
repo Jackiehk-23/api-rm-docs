@@ -429,44 +429,13 @@ signature = base64.b64encode(sig).decode()
 
 ---
 
-## Set Up in the Merchant Portal
+## Prerequisites — App & RSA Keys
 
-### Step 1 — Create a New Application
+Signing requires an application and an RSA key pair from the Merchant Portal. If you haven't set those up yet:
 
-Go to **Merchant Portal → Developer → Applications** and create a new application:
-
-<img src={require('/img/developer-application/1.png').default} />
-
-### Step 2 — Obtain Credentials
-
-Click on the application you created. You can edit and update relevant information here. To disable the application, toggle the **ON/OFF** switch at the top right:
-
-<img src={require('/img/developer-application/4.png').default} />
-
-Click **Show** to reveal your `clientSecret`:
-
-<img src={require('/img/developer-application/5.png').default} />
-
-### Step 3 — Generate RSA Keys
-
-Go to **Merchant Portal → Developer → Application → Generate RSA Key**. Recommended key size: **2048-bit**.
-
-- **Private Key** — store securely, never expose publicly. Used to sign your API requests.
-- **Public Key** — upload to the Merchant Portal so RM can verify your signatures.
-
-<img src={require('/img/developer-application/rks-key.png').default} />
-
-### Step 4 — Wrap Your Public Key (For Signature Debugger)
-
-Your public key needs to be wrapped in standard PEM format before using it with the Signature Debugger:
-
-<img src={require('/img/developer-application/9.png').default} />
-
-### Step 5 — Use the Signature Debugger (Optional)
-
-For security purposes, RM has enhanced its authentication flow by adding layers of encryption to endpoints. You may develop your own encryption tool, or use the **Signature Debugger** to sign and verify content using your private/public keys:
-
-<img src={require('/img/developer-application/signature-debug.png').default} />
+<Admonition type="info">
+See **[Set Up Your Application](./app-setup)** — create an app, obtain your `clientId` / `clientSecret`, generate your RSA keys, and (optionally) use the Signature Debugger.
+</Admonition>
 
 ---
 

@@ -6,6 +6,8 @@ title: Loyalty & Voucher
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuGift, LuUserCheck, LuStar, LuTicket, LuStamp } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -21,21 +23,21 @@ Build and manage customer loyalty programs — register members, issue and redee
 
 <div className="ov-grid-auto">
 
-<a href="./member/overview" className="ov-card--link">
+<Link to="./member/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuUserCheck size={22} /></div>
     <span className="ov-card-title">Member</span>
     <span className="ov-card-desc">Register members, check status, view profiles, and manage member vouchers and rewards.</span>
   </div>
-</a>
+</Link>
 
-<a href="./loyalty/overview" className="ov-card--link">
+<Link to="./loyalty/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuStar size={22} /></div>
     <span className="ov-card-title">Loyalty</span>
     <span className="ov-card-desc">Give, deduct, and spend loyalty points. Manage members, history, and point balances.</span>
   </div>
-</a>
+</Link>
 
 </div>
 
@@ -43,21 +45,21 @@ Build and manage customer loyalty programs — register members, issue and redee
 
 <div className="ov-grid-auto">
 
-<a href="./voucher/overview" className="ov-card--link">
+<Link to="./voucher/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuTicket size={22} /></div>
     <span className="ov-card-title">Voucher</span>
     <span className="ov-card-desc">Issue, void, reinstate, and bulk redeem vouchers. Query batches and individual voucher codes.</span>
   </div>
-</a>
+</Link>
 
-<a href="./campaign-overview" className="ov-card--link">
+<Link to="./campaign-overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuStamp size={22} /></div>
     <span className="ov-card-title">Campaign</span>
     <span className="ov-card-desc">Chop stamp cards and Alipay gourmet card integration for in-store promotions.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

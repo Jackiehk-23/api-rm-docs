@@ -6,6 +6,8 @@ title: Payment
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuCreditCard, LuQrCode, LuMonitor, LuTerminal, LuLink, LuRepeat2, LuSearchCode, LuCircleX, LuFileText } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -21,45 +23,45 @@ Accept payments across all channels — QR code scan, hosted checkout, POS termi
 
 <div className="ov-grid-auto">
 
-<a href="./quick-pay/overview" className="ov-card--link">
+<Link to="./quick-pay/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuQrCode size={22} /></div>
     <span className="ov-card-title">Quick Pay</span>
     <span className="ov-card-desc">Scan-to-pay via QR code. Supports vouchers, loyalty spending, and membership cards.</span>
   </div>
-</a>
+</Link>
 
-<a href="./online-payment/overview" className="ov-card--link">
+<Link to="./online-payment/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuMonitor size={22} /></div>
     <span className="ov-card-title">Online Payment</span>
     <span className="ov-card-desc">Hosted checkout, direct checkout (URL, QR, FPX, DuitNow, Alipay Mini), and individual checkout.</span>
   </div>
-</a>
+</Link>
 
-<a href="./terminal/overview" className="ov-card--link">
+<Link to="./terminal/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuTerminal size={22} /></div>
     <span className="ov-card-title">Terminal</span>
     <span className="ov-card-desc">POS terminal integration — QR pay, card payment, refund, and settlement.</span>
   </div>
-</a>
+</Link>
 
-<a href="./deeplink/overview" className="ov-card--link">
+<Link to="./deeplink/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuLink size={22} /></div>
     <span className="ov-card-title">DeepLink</span>
     <span className="ov-card-desc">Trigger payment flows directly inside wallet or terminal apps via deeplink.</span>
   </div>
-</a>
+</Link>
 
-<a href="./tokenization/overview" className="ov-card--link">
+<Link to="./tokenization/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuRepeat2 size={22} /></div>
     <span className="ov-card-title">Tokenization</span>
     <span className="ov-card-desc">Recurring billing and tokenized card payments. Save cards for future charges.</span>
   </div>
-</a>
+</Link>
 
 </div>
 
@@ -67,29 +69,29 @@ Accept payments across all channels — QR code scan, hosted checkout, POS termi
 
 <div className="ov-grid-auto">
 
-<a href="./query/overview" className="ov-card--link">
+<Link to="./query/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuSearchCode size={22} /></div>
     <span className="ov-card-title">Query Transaction</span>
     <span className="ov-card-desc">Look up transactions by order ID, transaction ID, or fetch all with filters.</span>
   </div>
-</a>
+</Link>
 
-<a href="./cancel-transaction/overview" className="ov-card--link">
+<Link to="./cancel-transaction/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuCircleX size={22} /></div>
     <span className="ov-card-title">Cancel / Refund</span>
     <span className="ov-card-desc">Reverse or refund a transaction after it has been processed.</span>
   </div>
-</a>
+</Link>
 
-<a href="./reconciliation" className="ov-card--link">
+<Link to="./reconciliation" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuFileText size={22} /></div>
     <span className="ov-card-title">Reconciliation</span>
     <span className="ov-card-desc">Generate daily settlement reports for accounting reconciliation.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

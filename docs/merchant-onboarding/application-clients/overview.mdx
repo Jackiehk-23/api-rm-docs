@@ -6,6 +6,8 @@ title: Application Clients
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuAppWindow, LuList, LuCirclePlus, LuPencil } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -19,29 +21,29 @@ Create and manage OAuth application clients for a merchant. Required for server-
 
 <div className="ov-grid-auto">
 
-<a href="./get-application-clients" className="ov-card--link">
+<Link to="./get-application-clients" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuList size={22} /></div>
     <span className="ov-card-title">Get Application Clients</span>
     <span className="ov-card-desc">List all OAuth application clients registered for a merchant.</span>
   </div>
-</a>
+</Link>
 
-<a href="./create-application-client" className="ov-card--link">
+<Link to="./create-application-client" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuCirclePlus size={22} /></div>
     <span className="ov-card-title">Create Application Client</span>
     <span className="ov-card-desc">Register a new OAuth application client for a merchant.</span>
   </div>
-</a>
+</Link>
 
-<a href="./update-application-client" className="ov-card--link">
+<Link to="./update-application-client" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuPencil size={22} /></div>
     <span className="ov-card-title">Update Application Client</span>
     <span className="ov-card-desc">Update the name, scopes, or redirect URIs of an application client.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

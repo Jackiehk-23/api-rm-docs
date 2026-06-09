@@ -6,6 +6,8 @@ title: Plugin
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuPuzzle, LuBookOpen, LuCode } from "react-icons/lu";
 
 import Admonition from '@theme/Admonition';
@@ -23,21 +25,21 @@ Extend the RM Merchant Portal with your own web app or deeplink. Plugins authent
 
 <div className="ov-grid-auto">
 
-<a href="./introduction" className="ov-card--link">
+<Link to="./introduction" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuBookOpen size={22} /></div>
     <span className="ov-card-title">Introduction</span>
     <span className="ov-card-desc">Plugin types (URL, source code, deeplink), versioning, and existing partner plugins.</span>
   </div>
-</a>
+</Link>
 
-<a href="./integration" className="ov-card--link">
+<Link to="./integration" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuCode size={22} /></div>
     <span className="ov-card-title">Integration Guide</span>
     <span className="ov-card-desc">Step-by-step: signed request authentication, OAuth flow, and calling RM APIs from your plugin.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

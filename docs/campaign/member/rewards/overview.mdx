@@ -6,6 +6,8 @@ title: Member Rewards
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuGift, LuSearch } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -19,29 +21,29 @@ View and redeem rewards available to a loyalty member.
 
 <div className="ov-grid-auto">
 
-<a href="./rewards-detail" className="ov-card--link">
+<Link to="./rewards-detail" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuGift size={22} /></div>
     <span className="ov-card-title">Rewards Detail</span>
     <span className="ov-card-desc">List all rewards available to a loyalty member.</span>
   </div>
-</a>
+</Link>
 
-<a href="./reward-by-id" className="ov-card--link">
+<Link to="./reward-by-id" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuSearch size={22} /></div>
     <span className="ov-card-title">Reward by ID</span>
     <span className="ov-card-desc">Retrieve details of a specific reward by its ID.</span>
   </div>
-</a>
+</Link>
 
-<a href="./redeem-reward" className="ov-card--link">
+<Link to="./redeem-reward" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuGift size={22} /></div>
     <span className="ov-card-title">Redeem Reward</span>
     <span className="ov-card-desc">Redeem a member reward against a transaction.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

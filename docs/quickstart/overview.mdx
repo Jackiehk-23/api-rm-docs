@@ -6,6 +6,8 @@ title: Quick Start
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuZap, LuKeyRound, LuShieldCheck, LuPackage, LuSmartphone, LuLock, LuFlaskConical } from "react-icons/lu";
 
 import Admonition from '@theme/Admonition';
@@ -29,37 +31,37 @@ Set up authentication and make your first RM API call. All endpoints require a v
 
 <div className="ov-grid-auto">
 
-<a href="./signature-algorithm" className="ov-card--link">
+<Link to="./signature-algorithm" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuShieldCheck size={22} /></div>
     <span className="ov-card-title">Signature Algorithm</span>
     <span className="ov-card-desc">HMAC-SHA256 request signing required on every API call.</span>
   </div>
-</a>
+</Link>
 
-<a href="./verify-signature" className="ov-card--link">
+<Link to="./verify-signature" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuLock size={22} /></div>
     <span className="ov-card-title">Verify Signature</span>
     <span className="ov-card-desc">Validate incoming webhook payloads from RM servers.</span>
   </div>
-</a>
+</Link>
 
-<a href="./accesstoken/overview" className="ov-card--link">
+<Link to="./accesstoken/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuKeyRound size={22} /></div>
     <span className="ov-card-title">Access Token</span>
     <span className="ov-card-desc">Obtain OAuth 2.0 tokens via client credentials or authorization code flow.</span>
   </div>
-</a>
+</Link>
 
-<a href="./sandbox-testing" className="ov-card--link">
+<Link to="./sandbox-testing" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuFlaskConical size={22} /></div>
     <span className="ov-card-title">Sandbox Testing</span>
     <span className="ov-card-desc">Test cards, FPX, e-wallet, and DuitNow QR credentials for the sandbox environment.</span>
   </div>
-</a>
+</Link>
 
 </div>
 
@@ -67,21 +69,21 @@ Set up authentication and make your first RM API call. All endpoints require a v
 
 <div className="ov-grid-auto">
 
-<a href="./sdk" className="ov-card--link">
+<Link to="./sdk" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuPackage size={22} /></div>
     <span className="ov-card-title">SDK Reference</span>
     <span className="ov-card-desc">Node.js, PHP, Python, Go, Java, and more.</span>
   </div>
-</a>
+</Link>
 
-<a href="./mobile-sdk" className="ov-card--link">
+<Link to="./mobile-sdk" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuSmartphone size={22} /></div>
     <span className="ov-card-title">Mobile SDK</span>
     <span className="ov-card-desc">iOS and Android SDK for native app integrations.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

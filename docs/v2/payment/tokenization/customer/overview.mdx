@@ -6,6 +6,8 @@ title: Customer
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuUser, LuList, LuShield, LuCirclePlus } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -19,37 +21,37 @@ Manage tokenized customers — retrieve customer info, view past orders, toggle 
 
 <div className="ov-grid-auto">
 
-<a href="./get-info" className="ov-card--link">
+<Link to="./get-info" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuUser size={22} /></div>
     <span className="ov-card-title">Get Info</span>
     <span className="ov-card-desc">Retrieve tokenized customer profile and card details.</span>
   </div>
-</a>
+</Link>
 
-<a href="./get-orders" className="ov-card--link">
+<Link to="./get-orders" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuList size={22} /></div>
     <span className="ov-card-title">Get Orders</span>
     <span className="ov-card-desc">List all charges made against a tokenized customer.</span>
   </div>
-</a>
+</Link>
 
-<a href="./toggle-status" className="ov-card--link">
+<Link to="./toggle-status" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuShield size={22} /></div>
     <span className="ov-card-title">Toggle Status</span>
     <span className="ov-card-desc">Enable or disable a tokenized customer's subscription.</span>
   </div>
-</a>
+</Link>
 
-<a href="./create-order" className="ov-card--link">
+<Link to="./create-order" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuCirclePlus size={22} /></div>
     <span className="ov-card-title">Create Order</span>
     <span className="ov-card-desc">Charge a tokenized customer using their saved payment method.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

@@ -6,6 +6,8 @@ title: Inventory
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuPackage, LuList, LuCirclePlus, LuPencil, LuSearch } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -21,29 +23,29 @@ Manage your store's menu — create and update categories and items, and adjust 
 
 <div className="ov-grid-auto">
 
-<a href="./create-category-by-store-id" className="ov-card--link">
+<Link to="./create-category-by-store-id" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuCirclePlus size={22} /></div>
     <span className="ov-card-title">Create Category</span>
     <span className="ov-card-desc">Add a new menu category to a store.</span>
   </div>
-</a>
+</Link>
 
-<a href="./get-categories-by-store-id" className="ov-card--link">
+<Link to="./get-categories-by-store-id" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuList size={22} /></div>
     <span className="ov-card-title">Get Categories</span>
     <span className="ov-card-desc">List all menu categories for a store.</span>
   </div>
-</a>
+</Link>
 
-<a href="./update-category-by-id" className="ov-card--link">
+<Link to="./update-category-by-id" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuPencil size={22} /></div>
     <span className="ov-card-title">Update Category</span>
     <span className="ov-card-desc">Rename or reorder a menu category.</span>
   </div>
-</a>
+</Link>
 
 </div>
 
@@ -51,45 +53,45 @@ Manage your store's menu — create and update categories and items, and adjust 
 
 <div className="ov-grid-auto">
 
-<a href="./create-item" className="ov-card--link">
+<Link to="./create-item" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuCirclePlus size={22} /></div>
     <span className="ov-card-title">Create Item</span>
     <span className="ov-card-desc">Add a new menu item to a category.</span>
   </div>
-</a>
+</Link>
 
-<a href="./get-items-by-category-id" className="ov-card--link">
+<Link to="./get-items-by-category-id" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuSearch size={22} /></div>
     <span className="ov-card-title">Get Items by Category</span>
     <span className="ov-card-desc">List all items within a specific menu category.</span>
   </div>
-</a>
+</Link>
 
-<a href="./get-all-items-by-store-id" className="ov-card--link">
+<Link to="./get-all-items-by-store-id" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuList size={22} /></div>
     <span className="ov-card-title">Get All Items</span>
     <span className="ov-card-desc">List every menu item across all categories for a store.</span>
   </div>
-</a>
+</Link>
 
-<a href="./update-item-by-id" className="ov-card--link">
+<Link to="./update-item-by-id" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuPencil size={22} /></div>
     <span className="ov-card-title">Update Item</span>
     <span className="ov-card-desc">Update item details — name, price, description, or image.</span>
   </div>
-</a>
+</Link>
 
-<a href="./update-item-quantity-by-id" className="ov-card--link">
+<Link to="./update-item-quantity-by-id" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuPackage size={22} /></div>
     <span className="ov-card-title">Update Quantity</span>
     <span className="ov-card-desc">Adjust the stock quantity for a menu item.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

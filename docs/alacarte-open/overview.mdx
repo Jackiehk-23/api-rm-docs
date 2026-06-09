@@ -6,6 +6,8 @@ title: à la carte
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuUtensilsCrossed, LuClipboardList, LuStore, LuPackage, LuBell } from "react-icons/lu";
 
 import Admonition from '@theme/Admonition';
@@ -23,37 +25,37 @@ RM's digital ordering solution for F&B and retail. Manage orders, stores, and in
 
 <div className="ov-grid-auto">
 
-<a href="./orders/overview" className="ov-card--link">
+<Link to="./orders/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuClipboardList size={22} /></div>
     <span className="ov-card-title">Orders</span>
     <span className="ov-card-desc">Fetch, update status, and refund customer orders by store.</span>
   </div>
-</a>
+</Link>
 
-<a href="./store/overview" className="ov-card--link">
+<Link to="./store/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuStore size={22} /></div>
     <span className="ov-card-title">Store</span>
     <span className="ov-card-desc">Retrieve and update store settings — delivery, order types, and availability.</span>
   </div>
-</a>
+</Link>
 
-<a href="./inventory/overview" className="ov-card--link">
+<Link to="./inventory/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuPackage size={22} /></div>
     <span className="ov-card-title">Inventory</span>
     <span className="ov-card-desc">Manage categories, menu items, and stock quantities.</span>
   </div>
-</a>
+</Link>
 
-<a href="./set-notification" className="ov-card--link">
+<Link to="./set-notification" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuBell size={22} /></div>
     <span className="ov-card-title">Notifications</span>
     <span className="ov-card-desc">Set a webhook URL to receive real-time order event callbacks.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

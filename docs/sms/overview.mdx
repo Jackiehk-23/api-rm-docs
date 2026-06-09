@@ -6,6 +6,8 @@ title: Short Message Service
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuMessageSquare } from "react-icons/lu";
 
 import Admonition from '@theme/Admonition';
@@ -21,13 +23,13 @@ Send SMS messages to any Malaysian mobile number via RM's gateway. Useful for OT
 
 <div className="ov-grid-auto">
 
-<a href="./send-sms" className="ov-card--link">
+<Link to="./send-sms" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuMessageSquare size={22} /></div>
     <span className="ov-card-title">Send SMS</span>
     <span className="ov-card-desc">Send a text message to a phone number. Specify country code, number, and message body.</span>
   </div>
-</a>
+</Link>
 
 </div>
 
