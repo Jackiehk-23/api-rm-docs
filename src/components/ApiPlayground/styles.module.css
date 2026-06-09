@@ -1019,3 +1019,98 @@
     padding: 8px 14px;
   }
 }
+/* ================= TRY-IT PANEL (editable playground) ================= */
+
+.tryItPanel {
+  margin-top: 18px;
+  padding: 14px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 14px;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.tryItLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.tryItTitle {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+}
+
+.tryItHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  color: var(--ifm-color-emphasis-700);
+  font-style: italic;
+}
+
+.tryItPencil {
+  font-style: normal;
+  color: var(--ifm-color-primary);
+}
+
+/* Inside the panel, the first editor card shouldn't add extra top gap */
+.tryItPanel .editorCard:first-of-type {
+  margin-top: 8px;
+}
+
+/* ================= RESPONSE CARD (live result) ================= */
+
+.responseCard {
+  margin-top: 16px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.responseHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.responseTitle {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.responseHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Pre inside the response card: drop the standalone margin/radius */
+.responseCard .response {
+  margin-top: 0;
+  border-radius: 0;
+}
+
+.jsonBadge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: rgba(102, 102, 235, 0.14);
+  color: var(--ifm-color-primary);
+  border: 1px solid rgba(102, 102, 235, 0.28);
+}
+
+[data-theme="dark"] .jsonBadge {
+  background: rgba(124, 124, 245, 0.18);
+  color: #a5a5f5;
+  border-color: rgba(124, 124, 245, 0.32);
+}

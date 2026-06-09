@@ -5,6 +5,9 @@ import {
     clearTokenExpiry,
     syncAuthStatus,
     getSessionId,
+    resolveTestPlaceholders,
+    getStoreId,
+    getMerchantId,
 } from "../../utils/auth";
 import {
     getPrivateKey,
@@ -31,6 +34,7 @@ export type SharedState = {
     params: Record<string, string>;
     setParams: (p: Record<string, string>) => void;
     paramKeys: string[];
+    resolveParam: (key: string) => string;
     tokenStatus: TokenStatus;
     // keyLoaded: boolean;
     handleClearToken: () => void;
@@ -83,13 +87,34 @@ export function useApiSharedState(props: PlaygroundProps): SharedState {
         [baseUrl]
     );
     const [params, setParams] = useState<Record<string, string>>({});
+
+    // Default a URL path param to the saved test value (storeId / merchantId),
+    // case-insensitive so {storeId}, {merchantId} and {merchantID} all resolve.
+    // An explicit inline edit (params[key]) always wins.
+    const savedParamValue = (key: string): string => {
+        if (/^store_?id$/i.test(key)) return getStoreId();
+        if (/^merchant_?id$/i.test(key)) return getMerchantId();
+        return "";
+    };
+    const resolveParam = (key: string): string =>
+        params[key] ?? (savedParamValue(key) || key);
+
     const resolvedUrl = useMemo(
         () => paramKeys.reduce(
-            (url: string, key: string) => url.replace(`{${key}}`, params[key] ?? key),
+            (url: string, key: string) => url.replace(`{${key}}`, resolveParam(key)),
             baseUrl
         ),
         [baseUrl, paramKeys, params]
     );
+
+    // Re-render when the saved test values (storeId / merchantId) change in the modal,
+    // so the URL path params displayed in the playground update live.
+    const [, forceTick] = useState(0);
+    useEffect(() => {
+        const bump = () => forceTick((n) => n + 1);
+        window.addEventListener("rm-test-values-changed", bump);
+        return () => window.removeEventListener("rm-test-values-changed", bump);
+    }, []);
 
     const [tokenStatus, setTokenStatus] = useState<TokenStatus>(
         () => deriveTokenStatus()
@@ -235,8 +260,16 @@ const handleClearToken = async () => {
 
         let requestBody: any;
         if (!["GET", "DELETE"].includes(props.method)) {
-            requestBody = JSON.parse(jsonBody || "{}");
+            // Fill {{storeId}} / {{merchantId}} from the saved test values before signing/sending
+            requestBody = JSON.parse(resolveTestPlaceholders(jsonBody || "{}"));
         }
+
+        // Resolve URL path params fresh at send time so the latest saved
+        // storeId / merchantId values are always used (memoized resolvedUrl can be stale).
+        const liveUrl = paramKeys.reduce(
+            (u: string, k: string) => u.replace(`{${k}}`, resolveParam(k)),
+            baseUrl
+        );
 
         const finalHeaders: Record<string, string> = { ...headers };
         if (requestBody !== undefined) {
@@ -256,7 +289,7 @@ const handleClearToken = async () => {
                         headers: workerHeaders(),
                         body: JSON.stringify({
                             method: props.method,
-                            url: resolvedUrl,
+                            url: liveUrl,
                             body: requestBody,
                         }),
                     }
@@ -277,7 +310,7 @@ const handleClearToken = async () => {
                 credentials: "include",
                 headers: workerHeaders(),
                 body: JSON.stringify({
-                    url: resolvedUrl,
+                    url: liveUrl,
                     method: props.method,
                     headers: finalHeaders,
                     body: requestBody,
@@ -317,6 +350,7 @@ const handleClearToken = async () => {
         params,
         setParams,
         paramKeys,
+        resolveParam,
         tokenStatus,
         handleClearToken,
         headers,

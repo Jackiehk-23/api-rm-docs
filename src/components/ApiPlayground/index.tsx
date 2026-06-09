@@ -34,7 +34,7 @@ type Props = {
 export default function ApiPlayground({ shared, children, onCollapsePanel }: Props) {
   const {
     baseUrl,
-    params, setParams,
+    params, setParams, resolveParam,
     tokenStatus,
     handleClearToken,
     headers, setHeaders, jsonBody, setJsonBody,
@@ -48,6 +48,7 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
   const [missedSignature, setMissedSignature] = useState(false);
   const [copiedHeaders, setCopiedHeaders] = useState(false);
   const [copiedBody, setCopiedBody] = useState(false);
+  const [copiedResponse, setCopiedResponse] = useState(false);
   const [openHeaders, setOpenHeaders] = useState(true);
   const [openBody, setOpenBody] = useState(true);
   const headersPreRef = useRef<HTMLPreElement>(null);
@@ -81,6 +82,13 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
     navigator.clipboard.writeText(jsonBody).then(() => {
       setCopiedBody(true);
       setTimeout(() => setCopiedBody(false), 2000);
+    });
+  };
+
+  const handleCopyResponse = () => {
+    navigator.clipboard.writeText(JSON.stringify(response, null, 2)).then(() => {
+      setCopiedResponse(true);
+      setTimeout(() => setCopiedResponse(false), 2000);
     });
   };
 
@@ -146,7 +154,7 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
                       setParams({ ...params, [key]: e.currentTarget.innerText.trim() })
                     }
                   >
-                    {params[key] ?? key}
+                    {resolveParam(key)}
                   </span>
                 );
               })}
@@ -178,6 +186,19 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
         {requiresAccessToken && (
           <TokenBanner status={tokenStatus} onClear={handleClearToken} />
         )}
+
+        {/* Example request / response — shown first */}
+        {children}
+
+        {/* Editable playground panel */}
+        <div className={styles.tryItPanel}>
+          <div className={styles.tryItLabel}>
+            <span className={styles.tryItTitle}>Try it out</span>
+            <span className={styles.tryItHint}>
+              <span className={styles.tryItPencil}>✎</span>
+              Editable — change the headers{method !== "GET" ? " and body" : ""}, then Send
+            </span>
+          </div>
 
         {/* Headers card */}
         <div className={styles.editorCard}>
@@ -239,8 +260,6 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
           </div>
         )}
 
-        {children}
-
         <button
           className={`${styles.send} ${notReady ? styles.sendBlocked : ""}`}
           onClick={handleSend}
@@ -249,6 +268,8 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
         >
           {loading ? "Sending…" : "▶ Send Request"}
         </button>
+        </div>
+        {/* end editable playground panel */}
 
         {missedSignature && (
           <div className={`${styles.banner} ${styles.bannerWarning}`} style={{ marginTop: 12 }}>
@@ -271,9 +292,28 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
               )}
             </div>
             {!response?._error && (
-              <pre className={styles.response}>
-                {JSON.stringify(response, null, 2)}
-              </pre>
+              <div className={styles.responseCard}>
+                <div className={styles.responseHeader}>
+                  <span className={styles.responseTitle}>Response</span>
+                  <div className={styles.responseHeaderRight}>
+                    <span className={styles.jsonBadge}>JSON</span>
+                    <button
+                      type="button"
+                      className={`${styles.editorCopyBtn} ${copiedResponse ? styles.editorCopied : ""}`}
+                      onClick={handleCopyResponse}
+                      title="Copy response"
+                    >
+                      {copiedResponse ? "✓" : "Copy"}
+                    </button>
+                  </div>
+                </div>
+                <pre
+                  className={styles.response}
+                  dangerouslySetInnerHTML={{
+                    __html: highlightJson(JSON.stringify(response, null, 2)),
+                  }}
+                />
+              </div>
             )}
             {status >= 300 && !response?._error && (() => {
               const codes = extractErrorCodes(response);
