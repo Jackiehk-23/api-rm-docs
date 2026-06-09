@@ -8,7 +8,7 @@ expand_all_sections: true
 import Link from "@docusaurus/Link";
 
 import React, { useState } from 'react';
-import { LuZap, LuBuilding2, LuCreditCard, LuGift, LuPackage, LuScanFace, LuMail, LuHeadphones, LuLock, LuInfo } from "react-icons/lu";
+import { LuZap, LuBuilding2, LuCreditCard, LuGift, LuPackage, LuScanFace, LuMail, LuHeadphones, LuInfo } from "react-icons/lu";
 import { TbCircleNumber1, TbCircleNumber2, TbCircleNumber3 } from "react-icons/tb";
 import Admonition from '@theme/Admonition';
 
@@ -46,7 +46,6 @@ Integrate payments, user management, store operations, and loyalty programs via 
 <div className="ov-grid-2">
 
 <div className="ov-card">
-  <span className="ov-card-label">Development</span>
   <h3 style={{margin:'0 0 14px',fontSize:'1rem'}}>Sandbox</h3>
   <p className="ov-card-sub">OAuth Server</p>
   <CopyUrl>{'https://sb-oauth.revenuemonster.my'}</CopyUrl>
@@ -56,10 +55,6 @@ Integrate payments, user management, store operations, and loyalty programs via 
 </div>
 
 <div className="ov-card">
-  <div style={{display:'flex',alignItems:'center',gap:'6px',marginBottom:'10px'}}>
-    <LuLock size={14} style={{color:'#fff',flexShrink:0}} />
-    <span className="ov-card-label ov-card-label--primary">Production</span>
-  </div>
   <h3 style={{margin:'0 0 14px',fontSize:'1rem'}}>Production</h3>
   <p className="ov-card-sub">OAuth Server</p>
   <CopyUrl>{'https://oauth.revenuemonster.my'}</CopyUrl>
