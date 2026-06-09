@@ -1104,13 +1104,13 @@
   letter-spacing: 0.04em;
   padding: 2px 7px;
   border-radius: 5px;
-  background: rgba(102, 102, 235, 0.14);
-  color: var(--ifm-color-primary);
-  border: 1px solid rgba(102, 102, 235, 0.28);
+  background: rgba(180, 83, 9, 0.08);
+  color: #b45309;
+  border: 1px solid rgba(180, 83, 9, 0.2);
 }
 
 [data-theme="dark"] .jsonBadge {
-  background: rgba(124, 124, 245, 0.18);
-  color: #a5a5f5;
-  border-color: rgba(124, 124, 245, 0.32);
+  background: rgba(246, 173, 85, 0.12);
+  color: #f6ad55;
+  border-color: rgba(246, 173, 85, 0.2);
 }

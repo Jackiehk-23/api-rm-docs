@@ -87,14 +87,15 @@
   font-weight: 600;
   padding: 2px 6px;
   border-radius: 4px;
-  background: var(--ifm-color-emphasis-200);
-  color: var(--ifm-color-emphasis-700);
-  border: 1px solid var(--ifm-color-emphasis-300);
+  background: rgba(180, 83, 9, 0.08);
+  color: #b45309;
+  border: 1px solid rgba(180, 83, 9, 0.2);
 }
 
 [data-theme="dark"] .jsonBadge {
-  background: #374151;
-  color: #9ca3af;
+  background: rgba(246, 173, 85, 0.12);
+  color: #f6ad55;
+  border-color: rgba(246, 173, 85, 0.2);
 }
 
 /* ── Copy button ── */
