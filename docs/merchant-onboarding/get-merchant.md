@@ -5,7 +5,7 @@ sidebar_label: Merchant Info
 api:
   method: GET
   url:
-    sandbox: https://sb-open.revenuemonster.my/v3/partner/merchants/{merchantID}
+    sandbox: https://sb-open.revenuemonster.my/v3/partner/merchants/{merchantId}
 
   headers:
     Content-Type: application/json
@@ -49,8 +49,8 @@ import Admonition from '@theme/Admonition';
 
 <ApiEndpoint
   method="GET"
-  sandbox="/v3/partner/merchants/{merchantID}"
-  prod="/v3/partner/merchants/{merchantID}"
+  sandbox="/v3/partner/merchants/{merchantId}"
+  prod="/v3/partner/merchants/{merchantId}"
 />
 
 ## What is this?

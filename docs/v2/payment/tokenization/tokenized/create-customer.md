@@ -17,7 +17,7 @@ api:
     type: json
     example: |
       {
-        "storeId": "1602660043994159611",
+        "storeId": "{{storeId}}",
         "email": "customer@email.com",
         "name": "Customer Name",
         "countryCode": "60",
@@ -36,7 +36,7 @@ examples:
     --header "X-Timestamp: {{timestamp}}" \
     --header "Content-Type: application/json" \
     --data '{
-      "storeId": "1602660043994159611",
+      "storeId": "{{storeId}}",
       "email": "customer@email.com",
       "name": "Customer Name",
       "countryCode": "60",

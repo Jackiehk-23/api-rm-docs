@@ -18,7 +18,7 @@ api:
     example: |
       {
         "referenceId": "my-order-001",
-        "storeId": "1608714483132458121",
+        "storeId": "{{storeId}}",
         "payerEmail": "payer@example.com",
         "payerName": "John Doe",
         "emailSubject": "Your Invoice #001",
@@ -40,7 +40,7 @@ examples:
     --header "X-Timestamp: {{timestamp}}" \
     --data '{
       "referenceId": "my-order-001",
-      "storeId": "1608714483132458121",
+      "storeId": "{{storeId}}",
       "payerEmail": "payer@example.com",
       "payerName": "John Doe",
       "emailSubject": "Your Invoice #001",

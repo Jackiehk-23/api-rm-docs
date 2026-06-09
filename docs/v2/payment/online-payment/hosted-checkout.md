@@ -17,7 +17,7 @@ api:
     type: json
     example: |
       {
-        "storeId": "123456789012345678901234",
+        "storeId": "{{storeId}}",
         "redirectUrl": "https://merchant.com/payment/redirect",
         "notifyUrl": "https://merchant.com/payment/notify",
         "layoutVersion": "v4",
@@ -39,7 +39,7 @@ examples:
     --header "X-Nonce-Str: {{nonce}}" \
     --header "X-Timestamp: {{timestamp}}" \
     --data '{
-      "storeId": "123456789012345678901234",
+      "storeId": "{{storeId}}",
       "redirectUrl": "https://merchant.com/payment/redirect",
       "notifyUrl": "https://merchant.com/payment/notify",
       "layoutVersion": "v4",

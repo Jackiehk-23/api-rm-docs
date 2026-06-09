@@ -22,7 +22,7 @@ api:
         "version": "v1",
         "function": "get.store.orders",
         "request": {
-          "storeId": "2808912573238362402",
+          "storeId": "{{storeId}}",
           "paymentStatus": ["COMPLETED"],
           "type": ["DINEIN","DELIVERY"],
           "sort": ["-deliveryAt"]
@@ -42,7 +42,7 @@ examples:
         "version": "v1",
         "function": "get.store.orders",
         "request": {
-            "storeId": "2808912573238362402",
+            "storeId": "{{storeId}}",
             "shortOrderId":"spv4",
             "cursor": "",
             "paymentStatus": ["COMPLETED"],

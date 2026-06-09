@@ -24,7 +24,7 @@ examples:
     --header "X-Nonce-Str: VYNknZohxwicZMaWbNdBKUrnrxDtaRhN" \
     --header "X-Timestamp: 1717039047" \
     --data-raw "{
-     \"storeId\": \"1331862367915081342\"
+     \"storeId\": \"{{storeId}}\"
     }"
   body: |
     There is no example body request.
