@@ -555,8 +555,16 @@ html[data-theme="light"] .menu__list .menu__list {
 /* Inline <code> (not inside <pre>): allow long tokens to wrap so they don't
    blow out the column. Excludes code inside fenced blocks so long URLs stay
    on one line and scroll horizontally instead of being broken mid-character. */
-.docItemCol :not(pre) > code {
+.theme-doc-markdown :not(pre) > code {
   word-break: break-word;
+  color: var(--ifm-color-primary);
+  background: rgba(102, 102, 235, 0.1);
+  border: 1px solid rgba(102, 102, 235, 0.22);
+}
+[data-theme="dark"] .theme-doc-markdown :not(pre) > code {
+  background: rgba(124, 124, 245, 0.14);
+  color: #a5a5f5;
+  border-color: rgba(124, 124, 245, 0.28);
 }
 
 /* Fenced code blocks: keep content on one line and scroll horizontally so long
@@ -650,7 +658,10 @@ details.section-details {
   --ifm-alert-background-color: transparent;
   --ifm-alert-background-color-highlight: var(--ifm-color-emphasis-200);
   --ifm-alert-border-color: var(--ifm-color-emphasis-300);
-  --docusaurus-details-decoration-color: var(--ifm-color-emphasis-300);
+  /* transparent: kills the Docusaurus details border-top decoration that
+     otherwise doubles the line under the collapsible header. The header's
+     own divider (summary border-bottom) is unaffected. */
+  --docusaurus-details-decoration-color: transparent;
   --ifm-color-info: var(--ifm-color-emphasis-400);
   box-shadow: none;
 }
@@ -959,4 +970,24 @@ details.section-details details.section-details .section-toggle {
 .table-of-contents li:has(> a[href^="#when"]),
 .table-of-contents li:has(> a[href^="#how"]) {
   display: none;
+}
+/* ================================
+   STEP HEADINGS ("Step N — Title")
+   Split by src/rehype/stepHeadings.js into label / separator / title
+   so the step number reads as a colored label and the title stays bold.
+================================ */
+.step-label {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+.step-sep {
+  color: var(--ifm-color-emphasis-500);
+  font-weight: 400;
+  margin: 0 0.1em;
+}
+.step-title {
+  font-weight: 700;
+}
+[data-theme="dark"] .step-label {
+  color: #a5a5f5;
 }
