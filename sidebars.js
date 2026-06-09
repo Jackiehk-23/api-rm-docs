@@ -7,6 +7,7 @@ module.exports = {
 
     { type: "category", label: "Quick Start", items: [
       "quickstart/overview",
+      "quickstart/app-setup",
       "quickstart/signature-algorithm",
       "quickstart/verify-signature",
       "quickstart/sandbox-testing",
