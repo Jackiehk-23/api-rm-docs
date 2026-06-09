@@ -114,10 +114,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/voucher-batches"
 />
 
-**Method :** <HttpMethodBadge method="GET" />
-Url : `https://open.revenuemonster.my/v3/voucher-batches`
-Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher-batches`
-
 ## What is this?
 
 List all voucher batches created by the merchant.

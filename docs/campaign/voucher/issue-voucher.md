@@ -39,10 +39,6 @@ import Admonition from '@theme/Admonition';
   prod="/v3/voucher-batch/{batchkey}/issue"
 />
 
-**Method :** <HttpMethodBadge method="POST" />
-Url : `https://open.revenuemonster.my/v3/voucher-batch/EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQkvnGweaB2uQg/issue`
-Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher-batch/EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQkvnGweaB2uQg/issue`
-
 ## What is this?
 
 Issue one or more vouchers from a voucher batch to customer(s). Each issued voucher gets a unique `code`.

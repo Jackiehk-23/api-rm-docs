@@ -75,10 +75,6 @@ import Admonition from '@theme/Admonition';
   prod="/v3/voucher/{code}/void"
 />
 
-**Method :** <HttpMethodBadge method="POST" />
-Url :`https://open.revenuemonster.my/v3/voucher/NAklEfbVdV/void`
-Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher/NAklEfbVdV/void`
-
 ## What is this?
 
 Void a customer's voucher by `code`. Sets the voucher status to `VOID` so it can no longer be used.

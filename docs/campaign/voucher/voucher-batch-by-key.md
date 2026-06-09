@@ -94,10 +94,6 @@ import Admonition from '@theme/Admonition';
   prod="/v3/voucher-batch/{batchKey}/vouchers"
 />
 
-**Method :** <HttpMethodBadge method="GET" />
-Url : `https://sb-open.revenuemonster.my/v3/voucher-batch/EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQi5rUhcrdx78V/vouchers`
-Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher-batch/EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQi5rUhcrdx78V/vouchers`
-
 ## What is this?
 
 Retrieve all vouchers belonging to a specific voucher batch by its `batchkey`.
