@@ -370,3 +370,17 @@
   cursor: pointer;
   margin-bottom: 8px;
 }
+/* ===== Playground test values (storeId / merchantId) ===== */
+.testValues {
+  margin: 4px 0 18px;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.testValuesTitle {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+  letter-spacing: 0.01em;
+}

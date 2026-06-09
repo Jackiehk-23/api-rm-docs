@@ -96,3 +96,43 @@ export async function syncAuthStatus(
     /* network error — leave current auth state unchanged */
   }
 }
+/* ===================== Test values (storeId / merchantId) =====================
+   User-supplied IDs used to fill {{storeId}} / {{merchantId}} placeholders in
+   playground request bodies. Stored in sessionStorage so they follow the same
+   "cleared when you close the tab" promise as the rest of the session. */
+
+const STORE_ID_KEY = "rm_store_id";
+const MERCHANT_ID_KEY = "rm_merchant_id";
+
+function readTestValue(key: string): string {
+  if (typeof window === "undefined") return "";
+  return sessionStorage.getItem(key) ?? "";
+}
+
+function writeTestValue(key: string, value: string) {
+  if (typeof window === "undefined") return;
+  if (value) sessionStorage.setItem(key, value);
+  else sessionStorage.removeItem(key);
+}
+
+export function getStoreId(): string {
+  return readTestValue(STORE_ID_KEY);
+}
+export function setStoreId(value: string) {
+  writeTestValue(STORE_ID_KEY, value.trim());
+}
+export function getMerchantId(): string {
+  return readTestValue(MERCHANT_ID_KEY);
+}
+export function setMerchantId(value: string) {
+  writeTestValue(MERCHANT_ID_KEY, value.trim());
+}
+
+/** Replace {{storeId}} / {{merchantId}} tokens with the saved test values.
+    Leaves other {{...}} placeholders (token/signature/nonce) untouched —
+    those are injected server-side by the signing proxy. */
+export function resolveTestPlaceholders(text: string): string {
+  return text
+    .replace(/\{\{\s*storeId\s*\}\}/g, getStoreId())
+    .replace(/\{\{\s*merchantId\s*\}\}/g, getMerchantId());
+}

@@ -6,6 +6,10 @@ import {
   clearTokenExpiry,
   setSessionId,
   clearSessionId,
+  getStoreId,
+  setStoreId,
+  getMerchantId,
+  setMerchantId,
 } from "../../utils/auth";
 import { setPrivateKey, clearPrivateKey } from "../../utils/privateKey";
 import styles from "./styles.module.css";
@@ -28,6 +32,26 @@ export default function AuthModal() {
 
   const [step, setStep] = useState<Step>(initialStep);
   const [errorMsg, setErrorMsg] = useState("");
+
+  // Test values used to fill {{storeId}} / {{merchantId}} in playground bodies
+  const [storeId, setStoreIdInput] = useState("");
+  const [merchantId, setMerchantIdInput] = useState("");
+
+  useEffect(() => {
+    setStoreIdInput(getStoreId());
+    setMerchantIdInput(getMerchantId());
+  }, [open]);
+
+  const handleStoreIdChange = (v: string) => {
+    setStoreIdInput(v);
+    setStoreId(v);
+    window.dispatchEvent(new Event("rm-test-values-changed"));
+  };
+  const handleMerchantIdChange = (v: string) => {
+    setMerchantIdInput(v);
+    setMerchantId(v);
+    window.dispatchEvent(new Event("rm-test-values-changed"));
+  };
 
   useEffect(() => {
     const handler = () => setOpen(true);
@@ -160,6 +184,40 @@ export default function AuthModal() {
             <p className={styles.subtitle}>Credentials stay in your browser only</p>
           </div>
           <button className={styles.closeBtn} onClick={handleClose}>✕</button>
+        </div>
+
+        <div className={styles.testValues}>
+          <p className={styles.testValuesTitle}>Playground test values</p>
+          <div className={styles.fields}>
+            <div className={styles.field}>
+              <label className={styles.label}>
+                Store ID
+                <span className={styles.labelBadge}>fills {`{{storeId}}`}</span>
+              </label>
+              <input
+                className={styles.input}
+                type="text"
+                value={storeId}
+                onChange={(e) => handleStoreIdChange(e.target.value)}
+                placeholder="Enter a storeId to use in requests"
+                autoComplete="off"
+              />
+            </div>
+            <div className={styles.field}>
+              <label className={styles.label}>
+                Merchant ID
+                <span className={styles.labelBadge}>fills {`{{merchantId}}`}</span>
+              </label>
+              <input
+                className={styles.input}
+                type="text"
+                value={merchantId}
+                onChange={(e) => handleMerchantIdChange(e.target.value)}
+                placeholder="Enter a merchantId to use in requests"
+                autoComplete="off"
+              />
+            </div>
+          </div>
         </div>
 
         {step === "success" ? (
