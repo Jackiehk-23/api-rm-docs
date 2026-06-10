@@ -51,6 +51,7 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
   const [copiedResponse, setCopiedResponse] = useState(false);
   const [openHeaders, setOpenHeaders] = useState(true);
   const [openBody, setOpenBody] = useState(true);
+  const [openTryIt, setOpenTryIt] = useState(true);
   const headersPreRef = useRef<HTMLPreElement>(null);
   const bodyPreRef = useRef<HTMLPreElement>(null);
   const isEditingHeadersRef = useRef(false);
@@ -192,14 +193,21 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
 
         {/* Editable playground panel */}
         <div className={styles.tryItPanel}>
-          <div className={styles.tryItLabel}>
+          <div
+            className={styles.tryItLabel}
+            onClick={() => setOpenTryIt((v) => !v)}
+            role="button"
+            tabIndex={0}
+          >
             <span className={styles.tryItTitle}>Try it out</span>
             <span className={styles.tryItHint}>
               <span className={styles.tryItPencil}>✎</span>
               Editable — change the headers{method !== "GET" ? " and body" : ""}, then Send
             </span>
+            <span className={`${styles.tryItChevron} ${!openTryIt ? styles.tryItChevronCollapsed : ""}`}>▾</span>
           </div>
 
+        <div className={`${styles.tryItBody} ${!openTryIt ? styles.tryItBodyClosed : ""}`}>
         {/* Headers card */}
         <div className={styles.editorCard}>
           <div className={styles.editorCardHeader} onClick={() => setOpenHeaders(!openHeaders)}>
@@ -268,6 +276,7 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
         >
           {loading ? "Sending…" : "▶ Send Request"}
         </button>
+        </div>
         </div>
         {/* end editable playground panel */}
 

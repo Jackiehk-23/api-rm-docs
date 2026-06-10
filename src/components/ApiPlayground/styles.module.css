@@ -1114,3 +1114,30 @@
   color: #f6ad55;
   border-color: rgba(246, 173, 85, 0.2);
 }
+
+/* Try-it panel collapse */
+.tryItLabel {
+  cursor: pointer;
+  user-select: none;
+}
+.tryItChevron {
+  margin-left: auto;
+  font-size: 13px;
+  opacity: 0.55;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.tryItChevronCollapsed {
+  transform: rotate(-90deg);
+}
+
+.tryItBody {
+  max-height: 3000px;
+  overflow: hidden;
+  opacity: 1;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.22s ease;
+}
+.tryItBodyClosed {
+  max-height: 0 !important;
+  opacity: 0;
+}
