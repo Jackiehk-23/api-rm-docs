@@ -62,7 +62,7 @@ Complete list of error codes returned by the Revenue Monster API. Use this refer
 | CHOP_STAMP_QUANTITY_EXCEED                  | Exceeded the number of chop stamp card                                                                                               |
 | CLIENT_INVALID                              | Invalid client                                                                                                                       |
 | CLIENT_NO_PERMISSION                        | Developer application does not have permission to access                                                                             |
-| CLIENT_NOT_AUTHORIZE_STORE                  | Mercahant don't have the authorize to enter this store                                                                               |
+| CLIENT_NOT_AUTHORIZE_STORE                  | Merchant don't have the authorize to enter this store                                                                                |
 | CLIENT_NOT_FOUND                            | Developer application client not found                                                                                               |
 | CLIENT_NOT_SET_PUBLIC_KEY                   | Developer application does not set public key                                                                                        |
 | CLIENT_PRODUCT_NOT_SETUP                    | Developer application product not setup                                                                                              |
@@ -85,9 +85,9 @@ Complete list of error codes returned by the Revenue Monster API. Use this refer
 | GRABPAY_MALAYSIA_MERCHANT_ID_NOT_SET        | GrabPay Malaysia is not active. Please contact Revenue Monster to activate merchant for GrabPay                                      |
 | GRABPAY_MALAYSIA_NOT_ACTIVE                 | GrabPay Malaysia is not active. Please contact Revenue Monster to activate merchant for GrabPay                                      |
 | GRANT_TYPE_INVALID                          | Invalid grant type                                                                                                                   |
-| INSUFFICIENT_CARD_BALANCE                   | Insuﬃcient customer balance                                                                                                          |
-| INSUFFICIENT_LOYALTY_BALANCE                | Insuﬃcient loyalty balance                                                                                                           |
-| INSUFFICIENT_MERCHANT_BALANCE               | Insuﬃcient merchant balance                                                                                                          |
+| INSUFFICIENT_CARD_BALANCE                   | Insufficient customer balance                                                                                                        |
+| INSUFFICIENT_LOYALTY_BALANCE                | Insufficient loyalty balance                                                                                                         |
+| INSUFFICIENT_MERCHANT_BALANCE               | Insufficient merchant balance                                                                                                        |
 | INSUFFICIENT_PERMISSION_LEVEL               | Insufficient Permission                                                                                                              |
 | INSUFFICIENT_REFUND_AMOUNT                  | Insufficient refund amount                                                                                                           |
 | INTERNAL_ERROR                              | Internal error                                                                                                                       |
@@ -130,7 +130,7 @@ Complete list of error codes returned by the Revenue Monster API. Use this refer
 | LOYALTY_NOT_FOUND                           | Loyalty not found                                                                                                                    |
 | LOYALTY_NOT_SUBSCRIBED                      | Not subscribed to loyalty program                                                                                                    |
 | LOYALTY_POINT_ALREADY_REDEEMED              | Loyalty point already redeemed                                                                                                       |
-| LOYALTY_POINT_IS_PROCESSING                 | Loyalty point is proccessing                                                                                                         |
+| LOYALTY_POINT_IS_PROCESSING                 | Loyalty point is processing                                                                                                          |
 | LOYALTY_POINT_MISSING                       | Loyalty point missing for certain custom id                                                                                          |
 | LOYALTY_QUANTITY_MAX                        | Member has exceeded the maximum quantity of loyalty points                                                                           |
 | LOYALTY_SPENDING_NOT_ALLOWED                | Loyalty spending not allowed                                                                                                         |
@@ -177,7 +177,7 @@ Complete list of error codes returned by the Revenue Monster API. Use this refer
 | MERCHANT_REQUESTED_JOIN_NOT_FOUND           | Merchant join request not found                                                                                                      |
 | MERCHANT_SUSPENDED                          | Merchant suspended                                                                                                                   |
 | MERCHANT_VERIFIED                           | Merchant profile is verified                                                                                                         |
-| MESSAGE_TYPE_NOT_FUND                       | Message type not found                                                                                                               |
+| MESSAGE_TYPE_NOT_FOUND                      | Message type not found                                                                                                               |
 | MESSENGER_ACCOUNT_EXISTS                    | Messenger account already exist                                                                                                      |
 | MESSENGER_CODE_EXPIRED                      | Messenger code expired                                                                                                               |
 | MESSENGER_INVALID_TOKEN                     | Invalid messenger token                                                                                                              |
@@ -258,7 +258,7 @@ Complete list of error codes returned by the Revenue Monster API. Use this refer
 | PLUGIN_NOT_FOUND                            | Plugin not found                                                                                                                     |
 | PLUGIN_NOT_INSTALLED                        | Plugin not installed                                                                                                                 |
 | PLUGIN_NOT_VERIFIED                         | Plugin not verified                                                                                                                  |
-| PLUGIN_SHOULD_GREATE_THAN_PREVIOUS_VERSION  | Plugin version should be greater than previous version                                                                               |
+| PLUGIN_SHOULD_GREATER_THAN_PREVIOUS_VERSION | Plugin version should be greater than previous version                                                                               |
 | PRESTO_MALAYSIA_NOT_ACTIVE                  | Presto Malaysia is not active. Please contact Revenue Monster to activate merchant for Presto                                        |
 | PRESTO_MDR_NOT_SET                          | Presto mdr not set. Please contact Revenue Monster to set.                                                                           |
 | PRESTO_MERCHANT_ID_NOT_SET                  | Presto merchant id not set. Please contact Revenue Monster to set the merchant id                                                    |
@@ -269,7 +269,7 @@ Complete list of error codes returned by the Revenue Monster API. Use this refer
 | QUICK_PAY_NOT_REGISTERED                    | User is not registered with Quick Pay                                                                                                |
 | RECONCILIATION_NOT_FOUND                    | Reconciliation record not found                                                                                                      |
 | REDEMPTION_MERCHANT_INVALID                 | Invalid redemption rule merchant                                                                                                     |
-| REDEMTION_PARENT_INVALID                    | Invalid redemption rule parent key                                                                                                   |
+| REDEMPTION_PARENT_INVALID                   | Invalid redemption rule parent key                                                                                                   |
 | REDEMPTION_RULE_KEY_FOUND                   | Invalid redemption rule key                                                                                                          |
 | REDEMPTION_RULE_LIMIT_REACHED               | Reached the voucher limit per member                                                                                                 |
 | REDEMPTION_RULE_NOT_FOUND                   | Redemption rule not found                                                                                                            |
