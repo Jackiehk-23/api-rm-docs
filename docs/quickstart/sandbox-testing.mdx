@@ -5,8 +5,31 @@ sidebar_label: Sandbox Testing
 hide_table_of_contents: true
 ---
 
+import React from 'react';
 import Admonition from '@theme/Admonition';
 import { LuCreditCard, LuLandmark, LuWallet, LuQrCode } from "react-icons/lu";
+
+export const CopyValue = ({ children, copy }) => {
+  const [copied, setCopied] = React.useState(false);
+  const text = copy ?? (typeof children === 'string' ? children : String(children));
+  return (
+    <button
+      type="button"
+      className={`sbx-code sbx-copy ${copied ? 'sbx-copied' : ''}`}
+      onClick={() => {
+        navigator.clipboard.writeText(text).then(() => {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 1500);
+        });
+      }}
+      title="Click to copy"
+      aria-label="Copy card number"
+    >
+      <span>{children}</span>
+      <span className="sbx-copy-icon" aria-hidden="true">{copied ? '✓' : '⧉'}</span>
+    </button>
+  );
+};
 
 Use the values below to test payments in the **sandbox** environment.
 
@@ -18,7 +41,7 @@ Use the values below to test payments in the **sandbox** environment.
     <span className="sbx-title">Card</span>
   </div>
   <div className="sbx-body">
-    <div className="sbx-row"><span className="sbx-label">Card Number</span><span className="sbx-code">4111 1111 1111 1111</span></div>
+    <div className="sbx-row"><span className="sbx-label">Card Number</span><CopyValue copy="4111111111111111">4111 1111 1111 1111</CopyValue></div>
     <div className="sbx-row"><span className="sbx-label">Expiry</span><span className="sbx-muted">any future date (MM/YY)</span></div>
     <div className="sbx-row"><span className="sbx-label">CVV</span><span className="sbx-muted">any 3 digits</span></div>
   </div>
@@ -120,6 +143,18 @@ Use the values below to test payments in the **sandbox** environment.
   border: 1px solid rgba(102, 102, 235, 0.22);
   white-space: nowrap;
 }
+.sbx-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  line-height: 1.4;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.sbx-copy:hover { background: rgba(102, 102, 235, 0.18); border-color: rgba(102, 102, 235, 0.4); }
+.sbx-copy-icon { font-size: 0.8rem; opacity: 0.7; }
+.sbx-copied { background: rgba(34, 197, 94, 0.14); color: #16a34a; border-color: rgba(34, 197, 94, 0.4); }
+.sbx-copied .sbx-copy-icon { opacity: 1; }
 .sbx-muted { font-size: 0.88rem; color: var(--ifm-color-emphasis-700); margin: 0; }
 .sbx-btn {
   display: inline-block;
