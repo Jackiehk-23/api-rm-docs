@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import {
   getSessionId,
   syncAuthStatus,
@@ -44,6 +44,16 @@ export default function AuthModal() {
   // Active merchant id + (partner only) the list of sub-merchants
   const [merchantId, setMerchantIdState] = useState("");
   const [merchants, setMerchants] = useState<Array<{ id: string; name: string }>>([]);
+
+  // Wizard height tracks the active slide so there's no empty space below the shorter one
+  const slide1Ref = useRef<HTMLDivElement>(null);
+  const slide2Ref = useRef<HTMLDivElement>(null);
+  const [wizardH, setWizardH] = useState<number | undefined>(undefined);
+  useLayoutEffect(() => {
+    if (!open) return;
+    const active = step === "success" ? slide2Ref.current : slide1Ref.current;
+    if (active) setWizardH(active.offsetHeight);
+  }, [open, step, stores, merchants, storesLoading, storesError, errorMsg]);
 
   useEffect(() => {
     setStoreIdInput(getStoreId());
@@ -295,23 +305,25 @@ export default function AuthModal() {
           <button className={styles.closeBtn} onClick={handleClose}>✕</button>
         </div>
 
-        <div className={styles.wizard}>
+        <div className={styles.wizard} style={{ height: wizardH }}>
           <div
             className={styles.track}
             style={{ transform: step === "success" ? "translateX(-100%)" : "translateX(0)" }}
           >
             {/* ── Slide 1: enter credentials ── */}
-            <div className={styles.slide} aria-hidden={step === "success"}>
-              <a
-                href="https://sb-oauth.revenuemonster.my/login?redirectUri=https://sb-merchant.revenuemonster.my/developer/applications"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.dashboardBtn}
-              >
-                Create App on Dashboard
-              </a>
-
-              <p className={styles.dividerLabel}>or paste your credentials below</p>
+            <div className={styles.slide} ref={slide1Ref} aria-hidden={step === "success"}>
+              <p className={styles.formIntro}>
+                Get your <strong>Client ID</strong>, <strong>Client Secret</strong> and RSA keys from the{" "}
+                <a
+                  href="https://sb-oauth.revenuemonster.my/login?redirectUri=https://sb-merchant.revenuemonster.my/developer/applications"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.portalLink}
+                >
+                  Merchant Portal ↗
+                </a>
+                , then paste them below.
+              </p>
 
               {step === "error" && (
                 <div className={styles.errorBanner}>{errorMsg}</div>
@@ -356,7 +368,7 @@ export default function AuthModal() {
               </div>
 
               <button
-                className={styles.connectBtn}
+                className={`rm-gradient-btn ${styles.connectBtn}`}
                 onClick={handleConnect}
                 disabled={step === "loading"}
               >
@@ -369,7 +381,7 @@ export default function AuthModal() {
             </div>
 
             {/* ── Slide 2: connected + stores ── */}
-            <div className={styles.slide} aria-hidden={step !== "success"}>
+            <div className={styles.slide} ref={slide2Ref} aria-hidden={step !== "success"}>
               <div className={styles.connectedRow}>
                 <span className={styles.connectedDot} />
                 <span className={styles.connectedText}>Connected — session active</span>
@@ -379,7 +391,13 @@ export default function AuthModal() {
                 <p className={styles.testValuesTitle}>Pick a store</p>
                 <div className={styles.storePicker}>
                   <div className={styles.storePickerHead}>
-                    <span>{storeId ? "Selected — used in your requests" : "Select one to use in your requests"}</span>
+                    <span>
+                      {storesError
+                        ? "Couldn't load stores"
+                        : storeId
+                        ? "Selected — used in your requests"
+                        : "Select one to use in your requests"}
+                    </span>
                     {!storesLoading && (
                       <button
                         type="button"
@@ -397,8 +415,15 @@ export default function AuthModal() {
                     </div>
                   ) : storesError ? (
                     <div className={styles.storeError}>
-                      Couldn't load your stores — connect with your <strong>private key</strong> so requests can be signed.
-                      <div className={styles.storeErrorDetail}>{storesError}</div>
+                      You're connected, but requests can't be signed — you connected
+                      without a <strong>private key</strong>.
+                      <button
+                        type="button"
+                        className={styles.reconnectBtn}
+                        onClick={handleLogout}
+                      >
+                        Reconnect with private key →
+                      </button>
                     </div>
                   ) : stores.length === 0 ? (
                     <div className={styles.storeEmpty}>No stores found.</div>
