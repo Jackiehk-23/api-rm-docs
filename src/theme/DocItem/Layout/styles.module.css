@@ -256,6 +256,14 @@
     height: auto;
     overflow-y: visible;
     padding-bottom: 80px;
+    /* trim the extra side gutter on mobile so content gets more width */
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .articleWrapper {
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   /* Playground hidden by default on mobile */

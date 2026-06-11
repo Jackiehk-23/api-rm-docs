@@ -908,6 +908,13 @@ details.section-details details.section-details .section-toggle {
   margin: 0;
 }
 
+/* Tablet / mobile: never more than 2 cards per row so text isn't squeezed */
+@media (max-width: 996px) {
+  .ov-grid-auto {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 640px) {
   .ov-grid-2 {
     grid-template-columns: 1fr;
