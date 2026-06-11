@@ -1,7 +1,6 @@
 import React, { useState, useRef, useLayoutEffect } from "react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import { lookupError, extractErrorCodes } from "../../utils/errorCodes";
-import TokenBanner from "./TokenBanner";
 // import PrivateKeyBanner from "./PrivateKeyBanner";
 import { SharedState } from "./UseApiSharedState";
 import HttpMethodBadge from "../HttpMethodBadge";
@@ -184,9 +183,6 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
       </div>
 
       <div className={styles.playgroundBody}>
-        {requiresAccessToken && (
-          <TokenBanner status={tokenStatus} onClear={handleClearToken} />
-        )}
 
         {/* Example request / response — shown first */}
         {children}
@@ -269,7 +265,7 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
         )}
 
         <button
-          className={`${styles.send} ${notReady ? styles.sendBlocked : ""}`}
+          className={`rm-gradient-btn ${styles.send} ${notReady ? styles.sendBlocked : ""}`}
           onClick={handleSend}
           disabled={loading}
           title={notReady ? "Resolve the warnings above before sending" : undefined}
@@ -296,9 +292,14 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
               <span className={status >= 200 && status < 300 ? styles.statusOk : styles.statusErr}>
                 {status}
               </span>
-              {response?._error && (
+              {response?._error ? (
                 <span className={styles.statusHint}>{response._error}</span>
-              )}
+              ) : status >= 300 ? (() => {
+                const codes = extractErrorCodes(response);
+                return codes.length ? (
+                  <span className={styles.statusErrCode}>{codes[0]}</span>
+                ) : null;
+              })() : null}
             </div>
             {!response?._error && (
               <div className={styles.responseCard}>
