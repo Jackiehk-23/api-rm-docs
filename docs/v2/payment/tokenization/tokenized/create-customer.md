@@ -5,7 +5,7 @@ sidebar_label: "Create Customer"
 api:
   method: POST
   url:
-    sandbox: https://sb-open.revenuemonster.my/v3/recurring-payment
+    sandbox: https://sb-open.revenuemonster.my/v3/tokenized-payment
 
   headers:
     Authorization: Bearer {{access_token}}
@@ -29,7 +29,7 @@ api:
 
 examples:
   request: |
-    curl --location --request POST "https://sb-open.revenuemonster.my/v3/recurring-payment" \
+    curl --location --request POST "https://sb-open.revenuemonster.my/v3/tokenized-payment" \
     --header "Authorization: Bearer {{access_token}}" \
     --header "X-Signature: sha256 {{signature}}" \
     --header "X-Nonce-Str: {{nonce}}" \
@@ -56,8 +56,8 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
   method="POST"
-  sandbox="/v3/recurring-payment"
-  prod="/v3/recurring-payment"
+  sandbox="/v3/tokenized-payment"
+  prod="/v3/tokenized-payment"
 />
 
 ## What is this?
