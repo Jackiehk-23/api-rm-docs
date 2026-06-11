@@ -209,10 +209,7 @@ POST to `/v3/vouchers/redeem` with an array of voucher codes.
         { name: "usedAt", type: "DateTime", description: "Date time of voucher being used (UTC)", example: "\"0001-01-01T00:00:00Z\"" },
         { name: "redeemedAt", type: "DateTime", description: "Date time of voucher being redeemed (UTC)", example: "\"2025-06-13T09:18:05Z\"" },
         { name: "isDeviceRedeem", type: "Boolean", description: "TRUE means only can be redeemed through merchant app. FALSE means customer can do redemption from own loyalty app.", example: "false" },
-        { name: "status", type: "String", description: "Status of current voucher:
-         1. Merchant created voucher batch (status=VALID)2. Merchant issued or going to transfer voucher to customer (status=ISSUED)
-         3. Merchant shows voucher to customer and customer scans to get it (status=REDEEMED)
-         4. Customers go back to shop and use the voucher (status=reinstate)", example: "\"VALID\"" },
+        { name: "status", type: "String", description: "Status of current voucher: 1. Merchant created voucher batch (status=VALID) 2. Merchant issued or going to transfer voucher to customer (status=ISSUED) 3. Merchant shows voucher to customer and customer scans to get it (status=REDEEMED) 4. Customers go back to shop and use the voucher (status=reinstate)", example: "\"VALID\"" },
         { name: "createdAt", type: "DateTime", description: "Date time of voucher being created (UTC)", example: "\"2018-06-21T11:08:00Z\"" },
         { name: "updatedAt", type: "DateTime", description: "Date time of voucher being updated (UTC)", example: "\"2018-09-28T17:19:44.686549977Z\"" }
       ]},
