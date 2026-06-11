@@ -6,6 +6,8 @@ title: User
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuUser } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -19,13 +21,13 @@ Retrieve profile information for the currently authenticated user.
 
 <div className="ov-grid-auto">
 
-<a href="./user-profile" className="ov-card--link">
+<Link to="./user-profile" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuUser size={22} /></div>
     <span className="ov-card-title">User Profile</span>
     <span className="ov-card-desc">Fetch the name, email, and details of the authenticated user.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

@@ -1,7 +1,6 @@
 import React, { useState, useRef, useLayoutEffect } from "react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import { lookupError, extractErrorCodes } from "../../utils/errorCodes";
-import TokenBanner from "./TokenBanner";
 // import PrivateKeyBanner from "./PrivateKeyBanner";
 import { SharedState } from "./UseApiSharedState";
 import HttpMethodBadge from "../HttpMethodBadge";
@@ -34,7 +33,7 @@ type Props = {
 export default function ApiPlayground({ shared, children, onCollapsePanel }: Props) {
   const {
     baseUrl,
-    params, setParams,
+    params, setParams, resolveParam,
     tokenStatus,
     handleClearToken,
     headers, setHeaders, jsonBody, setJsonBody,
@@ -48,8 +47,10 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
   const [missedSignature, setMissedSignature] = useState(false);
   const [copiedHeaders, setCopiedHeaders] = useState(false);
   const [copiedBody, setCopiedBody] = useState(false);
+  const [copiedResponse, setCopiedResponse] = useState(false);
   const [openHeaders, setOpenHeaders] = useState(true);
   const [openBody, setOpenBody] = useState(true);
+  const [openTryIt, setOpenTryIt] = useState(true);
   const headersPreRef = useRef<HTMLPreElement>(null);
   const bodyPreRef = useRef<HTMLPreElement>(null);
   const isEditingHeadersRef = useRef(false);
@@ -81,6 +82,13 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
     navigator.clipboard.writeText(jsonBody).then(() => {
       setCopiedBody(true);
       setTimeout(() => setCopiedBody(false), 2000);
+    });
+  };
+
+  const handleCopyResponse = () => {
+    navigator.clipboard.writeText(JSON.stringify(response, null, 2)).then(() => {
+      setCopiedResponse(true);
+      setTimeout(() => setCopiedResponse(false), 2000);
     });
   };
 
@@ -146,7 +154,7 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
                       setParams({ ...params, [key]: e.currentTarget.innerText.trim() })
                     }
                   >
-                    {params[key] ?? key}
+                    {resolveParam(key)}
                   </span>
                 );
               })}
@@ -175,10 +183,27 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
       </div>
 
       <div className={styles.playgroundBody}>
-        {requiresAccessToken && (
-          <TokenBanner status={tokenStatus} onClear={handleClearToken} />
-        )}
 
+        {/* Example request / response — shown first */}
+        {children}
+
+        {/* Editable playground panel */}
+        <div className={styles.tryItPanel}>
+          <div
+            className={styles.tryItLabel}
+            onClick={() => setOpenTryIt((v) => !v)}
+            role="button"
+            tabIndex={0}
+          >
+            <span className={styles.tryItTitle}>Try it out</span>
+            <span className={styles.tryItHint}>
+              <span className={styles.tryItPencil}>✎</span>
+              Editable — change the headers{method !== "GET" ? " and body" : ""}, then Send
+            </span>
+            <span className={`${styles.tryItChevron} ${!openTryIt ? styles.tryItChevronCollapsed : ""}`}>▾</span>
+          </div>
+
+        <div className={`${styles.tryItBody} ${!openTryIt ? styles.tryItBodyClosed : ""}`}>
         {/* Headers card */}
         <div className={styles.editorCard}>
           <div className={styles.editorCardHeader} onClick={() => setOpenHeaders(!openHeaders)}>
@@ -239,16 +264,17 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
           </div>
         )}
 
-        {children}
-
         <button
-          className={`${styles.send} ${notReady ? styles.sendBlocked : ""}`}
+          className={`rm-gradient-btn ${styles.send} ${notReady ? styles.sendBlocked : ""}`}
           onClick={handleSend}
           disabled={loading}
           title={notReady ? "Resolve the warnings above before sending" : undefined}
         >
           {loading ? "Sending…" : "▶ Send Request"}
         </button>
+        </div>
+        </div>
+        {/* end editable playground panel */}
 
         {missedSignature && (
           <div className={`${styles.banner} ${styles.bannerWarning}`} style={{ marginTop: 12 }}>
@@ -266,14 +292,38 @@ export default function ApiPlayground({ shared, children, onCollapsePanel }: Pro
               <span className={status >= 200 && status < 300 ? styles.statusOk : styles.statusErr}>
                 {status}
               </span>
-              {response?._error && (
+              {response?._error ? (
                 <span className={styles.statusHint}>{response._error}</span>
-              )}
+              ) : status >= 300 ? (() => {
+                const codes = extractErrorCodes(response);
+                return codes.length ? (
+                  <span className={styles.statusErrCode}>{codes[0]}</span>
+                ) : null;
+              })() : null}
             </div>
             {!response?._error && (
-              <pre className={styles.response}>
-                {JSON.stringify(response, null, 2)}
-              </pre>
+              <div className={styles.responseCard}>
+                <div className={styles.responseHeader}>
+                  <span className={styles.responseTitle}>Response</span>
+                  <div className={styles.responseHeaderRight}>
+                    <span className={styles.jsonBadge}>JSON</span>
+                    <button
+                      type="button"
+                      className={`${styles.editorCopyBtn} ${copiedResponse ? styles.editorCopied : ""}`}
+                      onClick={handleCopyResponse}
+                      title="Copy response"
+                    >
+                      {copiedResponse ? "✓" : "Copy"}
+                    </button>
+                  </div>
+                </div>
+                <pre
+                  className={styles.response}
+                  dangerouslySetInnerHTML={{
+                    __html: highlightJson(JSON.stringify(response, null, 2)),
+                  }}
+                />
+              </div>
             )}
             {status >= 300 && !response?._error && (() => {
               const codes = extractErrorCodes(response);

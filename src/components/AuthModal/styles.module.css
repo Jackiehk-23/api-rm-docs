@@ -48,63 +48,13 @@
   line-height: 1;
 }
 
+/* style/animation from global .rm-gradient-btn; here = layout only */
 .dashboardBtn {
   display: block;
   width: 100%;
-  position: relative;
-  padding: 12px 20px;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 14px;
   text-align: center;
   text-decoration: none;
-  cursor: pointer;
-  z-index: 1;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  isolation: isolate;
   margin-bottom: 6px;
-}
-
-:root[data-theme="light"] .dashboardBtn {
-  background: #ffffff;
-  color: #111111;
-}
-
-:root[data-theme="dark"] .dashboardBtn {
-  background: #000000;
-  color: #ffffff;
-}
-
-.dashboardBtn::before {
-  content: "";
-  position: absolute;
-  inset: -1.5px;
-  border-radius: 13px;
-  background-image: linear-gradient(135deg, #1e2891 1.85%, #734696 69.78%, #eb008c 100.66%);
-  mask-image: conic-gradient(#000 10deg, #000 var(--reveal-angle), transparent var(--reveal-angle));
-  z-index: -1;
-}
-
-.dashboardBtn:hover::before {
-  animation: angle-rotation 1.5s ease forwards;
-}
-
-.dashboardBtn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  background: inherit;
-  z-index: -1;
-}
-
-.dashboardBtn:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-
-.dashboardBtn:active {
-  transform: scale(0.97);
 }
 
 .dividerLabel {
@@ -216,93 +166,10 @@
 
 /* ================= CONNECT BUTTON ================= */
 
-@property --gradient-angle {
-  syntax: "<angle>";
-  initial-value: 135deg;
-  inherits: false;
-}
-
-@property --reveal-angle {
-  syntax: "<angle>";
-  initial-value: 360deg;
-  inherits: false;
-}
-
-@keyframes angle-rotation {
-  0% {
-    --gradient-angle: 135deg;
-    --reveal-angle: 0deg;
-  }
-  100% {
-    --gradient-angle: 495deg;
-    --reveal-angle: 360deg;
-  }
-}
-
+/* style/animation from global .rm-gradient-btn; here = layout only */
 .connectBtn {
   width: 100%;
-  position: relative;
-  padding: 12px 20px;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  border: none;
-  z-index: 1;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  isolation: isolate;
   margin-bottom: 10px;
-}
-
-:root[data-theme="light"] .connectBtn {
-  background: #ffffff;
-  color: #111111;
-}
-
-:root[data-theme="dark"] .connectBtn {
-  background: #000000;
-  color: #ffffff;
-}
-
-.connectBtn::before {
-  content: "";
-  position: absolute;
-  inset: -1.5px;
-  border-radius: 13px;
-  background-image: linear-gradient(135deg, #1e2891 1.85%, #734696 69.78%, #eb008c 100.66%);
-  mask-image: conic-gradient(#000 10deg, #000 var(--reveal-angle), transparent var(--reveal-angle));
-  z-index: -1;
-}
-
-.connectBtn:hover::before {
-  animation: angle-rotation 1.5s ease forwards;
-}
-
-.connectBtn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  background: inherit;
-  z-index: -1;
-}
-
-.connectBtn:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-
-.connectBtn:active {
-  transform: scale(0.97);
-}
-
-.connectBtn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.connectBtn:disabled::before {
-  animation: none;
 }
 
 .sessionNote {
@@ -370,3 +237,234 @@
   cursor: pointer;
   margin-bottom: 8px;
 }
+/* ===== Playground test values (storeId / merchantId) ===== */
+.testValues {
+  margin: 4px 0 18px;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.testValuesTitle {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+  letter-spacing: 0.01em;
+}
+
+/* ===== Store picker (GET /v3/stores) ===== */
+.storePicker {
+  margin-top: 10px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  overflow: hidden;
+  animation: storeFade 0.25s ease;
+}
+
+@keyframes storeFade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.storePickerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ifm-color-emphasis-700);
+  background: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.storeRefresh {
+  border: none;
+  background: transparent;
+  color: var(--ifm-color-primary);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.storeLoading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 12px;
+  font-size: 12px;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--ifm-color-emphasis-300);
+  border-top-color: var(--ifm-color-primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.storeError {
+  padding: 12px;
+  font-size: 12px;
+  color: #ef4444;
+}
+
+.storeEmpty {
+  padding: 12px;
+  font-size: 12px;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.storeList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.storeItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  padding: 9px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  transition: background 0.12s ease;
+}
+
+.storeItem:last-child { border-bottom: none; }
+.storeItem:hover { background: var(--ifm-color-emphasis-100); }
+
+.storeItemActive {
+  background: rgba(102, 102, 235, 0.08);
+}
+
+.storeName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+  flex-shrink: 0;
+}
+
+.storeIdText {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 11px;
+  color: var(--ifm-color-emphasis-600);
+  margin-left: auto;
+}
+
+.storeCheck {
+  color: var(--ifm-color-primary);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.storeHint {
+  padding: 14px 12px;
+  font-size: 12px;
+  color: var(--ifm-color-emphasis-600);
+  border: 1px dashed var(--ifm-color-emphasis-300);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.storeErrorDetail {
+  margin-top: 6px;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 10.5px;
+  opacity: 0.7;
+  word-break: break-word;
+}
+
+/* ===== Swoosh wizard (creds → stores) ===== */
+.wizard {
+  /* Tight horizontal clip so the off-screen slide stays hidden. Height tracks
+     the active slide (set inline) so there's no empty space below the shorter one. */
+  overflow: hidden;
+  width: 100%;
+  transition: height 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+
+.slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+  /* inner gutter on all sides so the buttons' gradient outline (incl. the
+     first/last button's top & bottom edges) clears the clip boundary */
+  padding: 8px 8px;
+  /* keep both slides aligned to the top while sliding */
+  align-self: flex-start;
+}
+
+.connectedRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.connectedDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.18);
+  flex-shrink: 0;
+}
+
+.connectedText {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+}
+
+/* Form intro (replaces the old "Create App" button) */
+.formIntro {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-700);
+  margin: 4px 0 16px;
+}
+.portalLink {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.portalLink:hover {
+  border-bottom-color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.reconnectBtn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 12px;
+  border: 1px solid #ef4444;
+  background: transparent;
+  color: #ef4444;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.reconnectBtn:hover { background: rgba(239, 68, 68, 0.1); }

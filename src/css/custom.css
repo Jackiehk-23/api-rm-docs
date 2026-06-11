@@ -555,8 +555,16 @@ html[data-theme="light"] .menu__list .menu__list {
 /* Inline <code> (not inside <pre>): allow long tokens to wrap so they don't
    blow out the column. Excludes code inside fenced blocks so long URLs stay
    on one line and scroll horizontally instead of being broken mid-character. */
-.docItemCol :not(pre) > code {
+.theme-doc-markdown :not(pre) > code {
   word-break: break-word;
+  color: var(--ifm-color-primary);
+  background: rgba(102, 102, 235, 0.1);
+  border: 1px solid rgba(102, 102, 235, 0.22);
+}
+[data-theme="dark"] .theme-doc-markdown :not(pre) > code {
+  background: rgba(124, 124, 245, 0.14);
+  color: #a5a5f5;
+  border-color: rgba(124, 124, 245, 0.28);
 }
 
 /* Fenced code blocks: keep content on one line and scroll horizontally so long
@@ -650,7 +658,10 @@ details.section-details {
   --ifm-alert-background-color: transparent;
   --ifm-alert-background-color-highlight: var(--ifm-color-emphasis-200);
   --ifm-alert-border-color: var(--ifm-color-emphasis-300);
-  --docusaurus-details-decoration-color: var(--ifm-color-emphasis-300);
+  /* transparent: kills the Docusaurus details border-top decoration that
+     otherwise doubles the line under the collapsible header. The header's
+     own divider (summary border-bottom) is unaffected. */
+  --docusaurus-details-decoration-color: transparent;
   --ifm-color-info: var(--ifm-color-emphasis-400);
   box-shadow: none;
 }
@@ -897,6 +908,13 @@ details.section-details details.section-details .section-toggle {
   margin: 0;
 }
 
+/* Tablet / mobile: never more than 2 cards per row so text isn't squeezed */
+@media (max-width: 996px) {
+  .ov-grid-auto {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 640px) {
   .ov-grid-2 {
     grid-template-columns: 1fr;
@@ -960,3 +978,72 @@ details.section-details details.section-details .section-toggle {
 .table-of-contents li:has(> a[href^="#how"]) {
   display: none;
 }
+/* ================================
+   STEP HEADINGS ("Step N — Title")
+   Split by src/rehype/stepHeadings.js into label / separator / title
+   so the step number reads as a colored label and the title stays bold.
+================================ */
+.step-label {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+.step-sep {
+  color: var(--ifm-color-emphasis-500);
+  font-weight: 400;
+  margin: 0 0.1em;
+}
+.step-title {
+  font-weight: 700;
+}
+[data-theme="dark"] .step-label {
+  color: #a5a5f5;
+}
+
+/* ============================================================
+   Reusable gradient-border button — used by Send Request,
+   Connect, and Create App on Dashboard so they stay identical.
+   (Original Connect-modal design + hover reveal animation.)
+============================================================ */
+@property --rm-grad-angle { syntax: "<angle>"; initial-value: 135deg; inherits: false; }
+
+@keyframes rm-grad-sweep {
+  0%   { --rm-grad-angle: 135deg; }
+  100% { --rm-grad-angle: 495deg; }
+}
+
+.rm-gradient-btn {
+  position: relative;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  background: #ffffff;
+  color: #111111;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+[data-theme="dark"] .rm-gradient-btn { background: #000000; color: #ffffff; }
+
+/* Pixel-perfect gradient border via mask-composite ring — no pseudo offset,
+   so no bleed on any edge/corner. Gradient rotates on hover. */
+.rm-gradient-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(var(--rm-grad-angle), #1e2891 1.85%, #734696 69.78%, #eb008c 100.66%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+.rm-gradient-btn:hover::before { animation: rm-grad-sweep 1.5s ease forwards; }
+
+.rm-gradient-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+.rm-gradient-btn:active { transform: scale(0.97); }
+.rm-gradient-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.rm-gradient-btn:disabled::before { animation: none; }

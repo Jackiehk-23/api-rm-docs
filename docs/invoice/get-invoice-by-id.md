@@ -6,7 +6,7 @@ sidebar_label: Get Invoice by ID
 api:
   method: GET
   url:
-    sandbox: https://sb-open.revenuemonster.my/api/v3/invoice/1779261889474362606
+    sandbox: https://sb-open.revenuemonster.my/api/v3/invoice/{id}
   headers:
     Authorization: Bearer {{access_token}}
     X-Signature: sha256 {{signature}}
@@ -15,7 +15,7 @@ api:
 
 examples:
   request: |
-    curl --location --request GET "https://sb-open.revenuemonster.my/api/v3/invoice/1779261889474362606" \
+    curl --location --request GET "https://sb-open.revenuemonster.my/api/v3/invoice/{id}" \
     --header "Authorization: Bearer {{access_token}}" \
     --header "X-Signature: sha256 {{signature}}" \
     --header "X-Nonce-Str: {{nonce}}" \

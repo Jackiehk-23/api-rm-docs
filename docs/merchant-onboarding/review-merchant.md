@@ -5,7 +5,7 @@ sidebar_label: Submit Merchant for Review
 api:
   method: POST
   url:
-    sandbox: https://sb-open.revenuemonster.my/v3/partner/merchant/{merchantID}
+    sandbox: https://sb-open.revenuemonster.my/v3/partner/merchant/{merchantId}
 
   headers:
     Content-Type: application/json
@@ -107,8 +107,8 @@ import Admonition from '@theme/Admonition';
 
 <ApiEndpoint
   method="POST"
-  sandbox="/v3/partner/merchant/{merchantID}"
-  prod="/v3/partner/merchant/{merchantID}"
+  sandbox="/v3/partner/merchant/{merchantId}"
+  prod="/v3/partner/merchant/{merchantId}"
 />
 
 <Admonition type="note">

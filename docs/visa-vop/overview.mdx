@@ -6,6 +6,8 @@ title: Visa Offers Platform
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuBadgeCheck, LuUserPlus, LuUserMinus, LuCreditCard, LuWifi } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -21,45 +23,45 @@ Enroll Visa cardholders into card-linked offers. When an enrolled card transacts
 
 <div className="ov-grid-auto">
 
-<a href="./enroll-user" className="ov-card--link">
+<Link to="./enroll-user" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuUserPlus size={22} /></div>
     <span className="ov-card-title">Enroll User</span>
     <span className="ov-card-desc">Register a user into the Visa Offers Platform program.</span>
   </div>
-</a>
+</Link>
 
-<a href="./unenroll-user" className="ov-card--link">
+<Link to="./unenroll-user" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuUserMinus size={22} /></div>
     <span className="ov-card-title">Unenroll User</span>
     <span className="ov-card-desc">Remove a user from the Visa Offers Platform program.</span>
   </div>
-</a>
+</Link>
 
-<a href="./enroll-card" className="ov-card--link">
+<Link to="./enroll-card" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuCreditCard size={22} /></div>
     <span className="ov-card-title">Enroll Card</span>
     <span className="ov-card-desc">Link a specific Visa card PAN to an enrolled user's offer account.</span>
   </div>
-</a>
+</Link>
 
-<a href="./unenroll-card" className="ov-card--link">
+<Link to="./unenroll-card" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuCreditCard size={22} /></div>
     <span className="ov-card-title">Unenroll Card</span>
     <span className="ov-card-desc">Unlink a Visa card from the offer program.</span>
   </div>
-</a>
+</Link>
 
-<a href="./webhook" className="ov-card--link">
+<Link to="./webhook" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuWifi size={22} /></div>
     <span className="ov-card-title">Webhook</span>
     <span className="ov-card-desc">Receive real-time callbacks when a qualifying transaction is detected.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

@@ -6,6 +6,8 @@ title: Invoice
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuFileText, LuPlus, LuList, LuSearch, LuPencil, LuBan } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -19,45 +21,45 @@ Create and manage invoices — bill customers with a shareable payment link, lis
 
 <div className="ov-grid-auto">
 
-<a href="./create-invoice" className="ov-card--link">
+<Link to="./create-invoice" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuPlus size={22} /></div>
     <span className="ov-card-title">Create Invoice</span>
     <span className="ov-card-desc">Create a new invoice and get a shareable payment URL.</span>
   </div>
-</a>
+</Link>
 
-<a href="./get-invoices" className="ov-card--link">
+<Link to="./get-invoices" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuList size={22} /></div>
     <span className="ov-card-title">Get Invoices</span>
     <span className="ov-card-desc">List invoices with filtering by store, status, and date range.</span>
   </div>
-</a>
+</Link>
 
-<a href="./get-invoice-by-id" className="ov-card--link">
+<Link to="./get-invoice-by-id" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuSearch size={22} /></div>
     <span className="ov-card-title">Get Invoice by ID</span>
     <span className="ov-card-desc">Retrieve a single invoice by its ID.</span>
   </div>
-</a>
+</Link>
 
-<a href="./edit-invoice" className="ov-card--link">
+<Link to="./edit-invoice" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuPencil size={22} /></div>
     <span className="ov-card-title">Edit Invoice</span>
     <span className="ov-card-desc">Update a pending invoice's details before payment.</span>
   </div>
-</a>
+</Link>
 
-<a href="./cancel-invoice" className="ov-card--link">
+<Link to="./cancel-invoice" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuBan size={22} /></div>
     <span className="ov-card-title">Cancel Invoice</span>
     <span className="ov-card-desc">Cancel a pending invoice (status becomes EXPIRED).</span>
   </div>
-</a>
+</Link>
 
 </div>
 

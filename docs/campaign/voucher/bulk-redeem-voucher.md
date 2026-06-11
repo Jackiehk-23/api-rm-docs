@@ -145,10 +145,6 @@ import Admonition from '@theme/Admonition';
   prod="/v3/vouchers/redeem"
 />
 
-**Method :** <HttpMethodBadge method="POST" />
-Url :`https://open.revenuemonster.my/v3/vouchers/redeem`
-Sandbox Url : `https://sb-open.revenuemonster.my/v3/vouchers/redeem`
-
 ## What is this?
 
 Redeem multiple vouchers in a single bulk call. Marks each provided voucher code as redeemed.

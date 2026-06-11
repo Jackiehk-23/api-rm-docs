@@ -16,7 +16,7 @@ api:
   body: |
     {
       "memberCardId": "string",
-      "storeId": "string"
+      "storeId": "{{storeId}}"
     }
 
 examples:
@@ -29,7 +29,7 @@ examples:
     --header "X-Timestamp: 1528450585" \
     --data-raw "{
     \"memberCardId\": \"28158443195878043074\"
-     \"storeId\": \"4949529109748431621\",
+     \"storeId\": \"{{storeId}}\",
     }"
   body: |
     There is no example body request.

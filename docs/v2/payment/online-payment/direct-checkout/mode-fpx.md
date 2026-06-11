@@ -5,7 +5,7 @@ sidebar_label: "Mode: FPX"
 api:
   method: POST
   url:
-    sandbox: https://sb-open.revenuemonster.my/v3/payment/online
+    sandbox: https://sb-open.revenuemonster.my/v3/payment/online/checkout
 
   headers:
     Content-Type: application/json
@@ -23,7 +23,7 @@ api:
 
 examples:
   request: |
-    curl --location --request POST "https://sb-open.revenuemonster.my/v3/payment/online" \
+    curl --location --request POST "https://sb-open.revenuemonster.my/v3/payment/online/checkout" \
     --header "Content-Type: application/json" \
     --header "Authorization: Bearer {{access_token}}" \
     --header "X-Timestamp: {{timestamp}}" \
@@ -44,8 +44,8 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 
 <ApiEndpoint
   method="POST"
-  sandbox="/v3/payment/online"
-  prod="/v3/payment/online"
+  sandbox="/v3/payment/online/checkout"
+  prod="/v3/payment/online/checkout"
 />
 
 ## What is this?
@@ -62,7 +62,7 @@ Use this mode when:
 
 ### Step 1: Get the FPX Bank List
 
-GET `/v3/payment/fpx-bank` (see code table below) and let the customer pick their bank.
+GET `/v3/payment/fpx-bank` to retrieve the list of supported banks, and let the customer pick their bank.
 
 ### Step 2: Create a Checkout
 
@@ -75,34 +75,6 @@ POST with `type: "URL"`, `method: "FPX_MY"`, and `fpx.bankCode`.
 ### Step 4: Redirect the Customer
 
 Send the customer to the returned `url` to complete payment at their bank.
-
----
-
-## Get FPX Bank List
-
-**Method:** <HttpMethodBadge method="GET" /> `https://sb-open.revenuemonster.my/v3/payment/fpx-bank`
-
-| Code | Name |
-|---|---|
-| ABB0233:B2C | Affin Bank |
-| ABMB0212:B2C | Alliance Bank (Personal) |
-| AGRO01:B2C | AGRONet |
-| AMBB0209:B2C | AmBank |
-| BCBB0235:B2C | CIMB Bank |
-| BIMB0340:B2C | Bank Islam |
-| BKRM0602:B2C | Bank Rakyat |
-| BMMB0341:B2C | Bank Muamalat |
-| BSN0601:B2C | Bank Simpanan Nasional |
-| HLB0224:B2C | Hong Leong Bank |
-| HSBC0223:B2C | HSBC |
-| KFH0346:B2C | Kuwait Finance House |
-| MB2U0227:B2C | Maybank2U |
-| MBB0228:B2C | Maybank2E |
-| OCBC0229:B2C | OCBC |
-| PBB0233:B2C | Public Bank |
-| RHB0218:B2C | RHB Bank |
-| SCB0216:B2C | Standard Chartered Bank |
-| UOB0226:B2C | United Oversea Bank |
 
 ---
 

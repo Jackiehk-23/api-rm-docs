@@ -61,13 +61,13 @@ Sort **all** keys alphabetically, including nested objects, then remove all spac
 
 <Admonition type="important">
 Both the **data object** and every **nested object** must be sorted. Before encoding, replace special characters:
+</Admonition>
 
 | Character | Replace With |
 |-----------|-------------|
 | `<` | `\u003c` |
 | `>` | `\u003e` |
 | `&` | `\u0026` |
-</Admonition>
 
 <Admonition type="note">
 The request body depends on which API endpoint you are calling. The body below is just an **EXAMPLE**.
@@ -195,18 +195,27 @@ Make sure the matching **public key** has been uploaded to the **RM Merchant Por
 <Tabs groupId="lang">
 <TabItem value="node" label="Node.js" default>
 
-<CodeBlock language="javascript" filename="Node.js">
-{`const crypto = require('crypto');
+```js
+const crypto = require('crypto');
 const fs = require('fs');
 
-// Load your RSA private key from a secure location (never hardcode it)
-const privateKeyPem = fs.readFileSync(process.env.RM_PRIVATE_KEY_PATH, 'utf8');
+// Load your RSA private key from a secure location — never hardcode it.
+const privateKey = fs.readFileSync(process.env.RM_PRIVATE_KEY_PATH, 'utf8');
 const url = 'https://sb-open.revenuemonster.my/v3/payment/online';
 
 const body = {
-  order: { title: 'hello', detail: '', additionalData: 'world',
-           amount: 10, currencyType: 'MYR', id: '7211' },
-  customer: { userId: '13245876', email: '' },
+  order: {
+    title: 'hello',
+    detail: '',
+    additionalData: 'world',
+    amount: 10,
+    currencyType: 'MYR',
+    id: '7211',
+  },
+  customer: {
+    userId: '13245876',
+    email: '',
+  },
   method: [],
   type: 'WEB_PAYMENT',
   storeId: '1608123035564538121',
@@ -215,64 +224,85 @@ const body = {
   layoutVersion: 'v3',
 };
 
-// 1. Sort keys recursively, then compact + escape special characters
-function sortObject(obj) {
-  if (Array.isArray(obj)) return obj.map(sortObject);
-  if (obj && typeof obj === 'object') {
-    return Object.keys(obj).sort().reduce((acc, k) => {
-      acc[k] = sortObject(obj[k]);
-      return acc;
-    }, {});
+// 1. Sort keys recursively, then compact and escape special characters.
+function sortObject(value) {
+  if (Array.isArray(value)) {
+    return value.map(sortObject);
   }
-  return obj;
+  if (value && typeof value === 'object') {
+    return Object.keys(value)
+      .sort()
+      .reduce((acc, key) => {
+        acc[key] = sortObject(value[key]);
+        return acc;
+      }, {});
+  }
+  return value;
 }
+
 const compact = JSON.stringify(sortObject(body))
-  .replace(/</g, '\\\\u003c')
+  .replace(/</g, '\\u003c')
   .replace(/>/g, '\\u003e')
   .replace(/&/g, '\\u0026');
 
-// 2. Base64 encode
+// 2. Base64-encode the compact JSON.
 const data = Buffer.from(compact).toString('base64');
 
-// 3. Build the signing string (params in alphabetical order)
+// 3. Build the signing string (parameters in alphabetical order).
 const nonceStr = crypto.randomBytes(16).toString('hex');
 const timestamp = Math.floor(Date.now() / 1000).toString();
 const signString =
-  'data=' + data +
-  '&method=post' +
-  '&nonceStr=' + nonceStr +
-  '&requestUrl=' + url +
-  '&signType=sha256' +
-  '&timestamp=' + timestamp;
+  `data=${data}` +
+  `&method=post` +
+  `&nonceStr=${nonceStr}` +
+  `&requestUrl=${url}` +
+  `&signType=sha256` +
+  `&timestamp=${timestamp}`;
 
-// 4. Sign with RSA SHA256 private key
-const signature = crypto.createSign('RSA-SHA256')
+// 4. Sign with RSA-SHA256, then Base64-encode the signature.
+const signature = crypto
+  .createSign('RSA-SHA256')
   .update(signString)
-  .sign(privateKeyPem, 'base64');
+  .sign(privateKey, 'base64');
 
-// Send these headers with your request:
-//   X-Signature:  'sha256 ' + signature
+// Send with headers:
+//   X-Signature:  `sha256 ${signature}`
 //   X-Nonce-Str:  nonceStr
-//   X-Timestamp:  timestamp`}
-</CodeBlock>
+//   X-Timestamp:  timestamp
+```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
-<CodeBlock language="python" filename="Python">
-{`import json, base64, time, os, secrets
+```python
+import base64
+import json
+import os
+import secrets
+import time
+
 from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import padding
 
-# Load your RSA private key from a secure location (never hardcode it)
-with open(os.environ["RM_PRIVATE_KEY_PATH"], "rb") as f:
-    private_key = serialization.load_pem_private_key(f.read(), password=None)
+# Load your RSA private key from a secure location — never hardcode it.
+with open(os.environ["RM_PRIVATE_KEY_PATH"], "rb") as key_file:
+    private_key = serialization.load_pem_private_key(key_file.read(), password=None)
 
 url = "https://sb-open.revenuemonster.my/v3/payment/online"
+
 body = {
-    "order": {"title": "hello", "detail": "", "additionalData": "world",
-              "amount": 10, "currencyType": "MYR", "id": "7211"},
-    "customer": {"userId": "13245876", "email": ""},
+    "order": {
+        "title": "hello",
+        "detail": "",
+        "additionalData": "world",
+        "amount": 10,
+        "currencyType": "MYR",
+        "id": "7211",
+    },
+    "customer": {
+        "userId": "13245876",
+        "email": "",
+    },
     "method": [],
     "type": "WEB_PAYMENT",
     "storeId": "1608123035564538121",
@@ -281,45 +311,133 @@ body = {
     "layoutVersion": "v3",
 }
 
-def sort_obj(o):
-    if isinstance(o, dict):
-        return {k: sort_obj(o[k]) for k in sorted(o)}
-    if isinstance(o, list):
-        return [sort_obj(i) for i in o]
-    return o
 
-# 1. Sort + compact + escape
-compact = json.dumps(sort_obj(body), separators=(",", ":"), ensure_ascii=False)
-compact = compact.replace("<", "\\\\u003c").replace(">", "\\\\u003e").replace("&", "\\\\u0026")
+def sort_object(value):
+    if isinstance(value, dict):
+        return {key: sort_object(value[key]) for key in sorted(value)}
+    if isinstance(value, list):
+        return [sort_object(item) for item in value]
+    return value
 
-# 2. Base64 encode
-data = base64.b64encode(compact.encode()).decode()
 
-# 3. Build the signing string
-nonce = secrets.token_hex(16)
-timestamp = str(int(time.time()))
-sign_string = (
-    f"data={data}&method=post&nonceStr={nonce}"
-    f"&requestUrl={url}&signType=sha256&timestamp={timestamp}"
+# 1. Sort keys recursively, then compact and escape special characters.
+compact = json.dumps(sort_object(body), separators=(",", ":"), ensure_ascii=False)
+compact = (
+    compact.replace("<", "\\u003c")
+    .replace(">", "\\u003e")
+    .replace("&", "\\u0026")
 )
 
-# 4. Sign with RSA SHA256 private key
-sig = private_key.sign(sign_string.encode(), padding.PKCS1v15(), hashes.SHA256())
-signature = base64.b64encode(sig).decode()
-# Send header  ->  X-Signature: f"sha256 {signature}\"`}
-</CodeBlock>
+# 2. Base64-encode the compact JSON.
+data = base64.b64encode(compact.encode()).decode()
+
+# 3. Build the signing string (parameters in alphabetical order).
+nonce_str = secrets.token_hex(16)
+timestamp = str(int(time.time()))
+sign_string = (
+    f"data={data}"
+    f"&method=post"
+    f"&nonceStr={nonce_str}"
+    f"&requestUrl={url}"
+    f"&signType=sha256"
+    f"&timestamp={timestamp}"
+)
+
+# 4. Sign with RSA-SHA256, then Base64-encode the signature.
+signature = base64.b64encode(
+    private_key.sign(sign_string.encode(), padding.PKCS1v15(), hashes.SHA256())
+).decode()
+# Send header  ->  X-Signature: f"sha256 {signature}"
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+package main
+
+import (
+	"crypto"
+	"crypto/rand"
+	"crypto/rsa"
+	"crypto/sha256"
+	"crypto/x509"
+	"encoding/base64"
+	"encoding/json"
+	"encoding/pem"
+	"fmt"
+	"os"
+	"time"
+)
+
+func main() {
+	// Load your RSA private key from a secure location — never hardcode it.
+	keyPEM, _ := os.ReadFile(os.Getenv("RM_PRIVATE_KEY_PATH"))
+	block, _ := pem.Decode(keyPEM)
+	privateKey, _ := x509.ParsePKCS1PrivateKey(block.Bytes)
+
+	url := "https://sb-open.revenuemonster.my/v3/payment/online"
+
+	body := map[string]any{
+		"order": map[string]any{
+			"title":          "hello",
+			"detail":         "",
+			"additionalData": "world",
+			"amount":         10,
+			"currencyType":   "MYR",
+			"id":             "7211",
+		},
+		"customer": map[string]any{
+			"userId": "13245876",
+			"email":  "",
+		},
+		"method":        []string{},
+		"type":          "WEB_PAYMENT",
+		"storeId":       "1608123035564538121",
+		"redirectUrl":   "https://revenuemonster.my",
+		"notifyUrl":     "https://dev-rm-api.ap.ngrok.io",
+		"layoutVersion": "v3",
+	}
+
+	// 1. Marshal — Go sorts map keys and escapes <, >, & to \u003c automatically.
+	raw, _ := json.Marshal(body)
+	compact := string(raw)
+
+	// 2. Base64-encode the compact JSON.
+	data := base64.StdEncoding.EncodeToString([]byte(compact))
+
+	// 3. Build the signing string (parameters in alphabetical order).
+	nonce := make([]byte, 16)
+	rand.Read(nonce)
+	nonceStr := fmt.Sprintf("%x", nonce)
+	timestamp := fmt.Sprintf("%d", time.Now().Unix())
+	signString := fmt.Sprintf(
+		"data=%s&method=post&nonceStr=%s&requestUrl=%s&signType=sha256&timestamp=%s",
+		data, nonceStr, url, timestamp,
+	)
+
+	// 4. Sign with RSA-SHA256, then Base64-encode the signature.
+	hashed := sha256.Sum256([]byte(signString))
+	sig, _ := rsa.SignPKCS1v15(rand.Reader, privateKey, crypto.SHA256, hashed[:])
+	signature := base64.StdEncoding.EncodeToString(sig)
+
+	fmt.Println("X-Signature: sha256", signature)
+	fmt.Println("X-Nonce-Str:", nonceStr)
+	fmt.Println("X-Timestamp:", timestamp)
+}
+```
 
 </TabItem>
 <TabItem value="curl" label="cURL">
 
-<CodeBlock language="curl" filename="cURL" hideLineNumbers>
-{`curl --request POST \\
-  --url 'https://sb-open.revenuemonster.my/v3/payment/online' \\
-  --header 'Authorization: Bearer eyJhbGci...' \\
-  --header 'Content-Type: application/json' \\
-  --header 'X-Nonce-Str: VYNknZohxwicZMaWbNdBKUrnrxDtaRhN' \\
-  --header 'X-Signature: sha256 IrBg6t73VsH7ieEnQDB4...' \\
-  --header 'X-Timestamp: 1527407052' \\
+```bash
+curl --request POST \
+  --url 'https://sb-open.revenuemonster.my/v3/payment/online' \
+  --header 'Authorization: Bearer eyJhbGci...' \
+  --header 'Content-Type: application/json' \
+  --header 'X-Nonce-Str: VYNknZohxwicZMaWbNdBKUrnrxDtaRhN' \
+  --header 'X-Signature: sha256 IrBg6t73VsH7ieEnQDB4...' \
+  --header 'X-Timestamp: 1527407052' \
   --data '{
     "order": {
       "title": "hello",
@@ -329,15 +447,18 @@ signature = base64.b64encode(sig).decode()
       "currencyType": "MYR",
       "id": "7211"
     },
-    "customer": { "userId": "13245876", "email": "" },
+    "customer": {
+      "userId": "13245876",
+      "email": ""
+    },
     "method": [],
     "type": "WEB_PAYMENT",
     "storeId": "1608123035564538121",
     "redirectUrl": "https://revenuemonster.my",
     "notifyUrl": "https://dev-rm-api.ap.ngrok.io",
     "layoutVersion": "v3"
-  }'`}
-</CodeBlock>
+  }'
+```
 
 </TabItem>
 </Tabs>
@@ -429,44 +550,13 @@ signature = base64.b64encode(sig).decode()
 
 ---
 
-## Set Up in the Merchant Portal
+## Prerequisites — App & RSA Keys
 
-### Step 1 — Create a New Application
+Signing requires an application and an RSA key pair from the Merchant Portal. If you haven't set those up yet:
 
-Go to **Merchant Portal → Developer → Applications** and create a new application:
-
-<img src={require('/img/developer-application/1.png').default} />
-
-### Step 2 — Obtain Credentials
-
-Click on the application you created. You can edit and update relevant information here. To disable the application, toggle the **ON/OFF** switch at the top right:
-
-<img src={require('/img/developer-application/4.png').default} />
-
-Click **Show** to reveal your `clientSecret`:
-
-<img src={require('/img/developer-application/5.png').default} />
-
-### Step 3 — Generate RSA Keys
-
-Go to **Merchant Portal → Developer → Application → Generate RSA Key**. Recommended key size: **2048-bit**.
-
-- **Private Key** — store securely, never expose publicly. Used to sign your API requests.
-- **Public Key** — upload to the Merchant Portal so RM can verify your signatures.
-
-<img src={require('/img/developer-application/rks-key.png').default} />
-
-### Step 4 — Wrap Your Public Key (For Signature Debugger)
-
-Your public key needs to be wrapped in standard PEM format before using it with the Signature Debugger:
-
-<img src={require('/img/developer-application/9.png').default} />
-
-### Step 5 — Use the Signature Debugger (Optional)
-
-For security purposes, RM has enhanced its authentication flow by adding layers of encryption to endpoints. You may develop your own encryption tool, or use the **Signature Debugger** to sign and verify content using your private/public keys:
-
-<img src={require('/img/developer-application/signature-debug.png').default} />
+<Admonition type="info">
+See **[Set Up Your Application](./app-setup)** — create an app, obtain your `clientId` / `clientSecret`, generate your RSA keys, and (optionally) use the Signature Debugger.
+</Admonition>
 
 ---
 

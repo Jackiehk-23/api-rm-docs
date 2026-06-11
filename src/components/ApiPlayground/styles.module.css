@@ -160,106 +160,19 @@
 
 
 /* ================= SEND BUTTON ================= */
-
-@property --gradient-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
-@property --reveal-angle {
-  syntax: "<angle>";
-  initial-value: 360deg;
-  inherits: false;
-}
-
-@keyframes angle-rotation {
-  0% {
-    --gradient-angle: 0deg;
-    --reveal-angle: 0deg;
-  }
-  100% {
-    --gradient-angle: 360deg;
-    --reveal-angle: 360deg;
-  }
-}
+/* Visual style + animation come from the global .rm-gradient-btn class
+   (src/css/custom.css). Here we only handle layout/placement. */
 
 .send {
   margin-top: 20px;
   margin-left: auto;
   display: block;
-  position: relative;
-  padding: 12px 20px;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  border: none;
-  z-index: 1;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  isolation: isolate;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 
-:root[data-theme="light"] .send {
-  background: #ffffff;
-  color: #111111;
-}
-
-:root[data-theme="dark"] .send {
-  background: var(--ifm-background-surface-color);
-  color: #ffffff;
-}
-
-.send::before {
-  content: "";
-  position: absolute;
-  inset: -1.5px;
-  border-radius: 13px;
-  background-image: linear-gradient(135deg, #1e2891 1.85%, #734696 69.78%, #eb008c 100.66%);
-  mask-image: conic-gradient(#000 10deg, #000 var(--reveal-angle), transparent var(--reveal-angle));
-  z-index: -1;
-}
-
-.send:hover::before {
-  animation: angle-rotation 1.5s ease forwards;
-}
-
-.send::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  background: inherit;
-  z-index: -1;
-}
-
-.send:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-
-.send:active {
-  transform: scale(0.97);
-}
-
-.send:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.send:disabled::before {
-  animation: none;
-}
-
 .sendBlocked {
   opacity: 0.55;
-}
-
-.sendBlocked::before {
-  background-image: linear-gradient(var(--gradient-angle), #6b7280, #9ca3af);
-  animation: none;
 }
 
 /* ================= OUTPUT ================= */
@@ -304,6 +217,18 @@
   font-size: 12px;
   opacity: 0.7;
   font-style: italic;
+}
+
+/* Error code name shown next to the status pill at the top */
+.statusErrCode {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #ef4444;
+}
+[data-theme="dark"] .statusErrCode {
+  color: #f87171;
 }
 
 /* ================= EDITOR CARD (Headers / Body) ================= */
@@ -738,10 +663,10 @@
   gap: 8px;
   align-items: flex-start;
   padding: 8px 12px;
-  background: #17261a;
-  border: 1px solid #22c55e22;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.18);
   border-radius: 8px;
-  color: #86efac;
+  color: var(--ifm-color-emphasis-700);
   font-size: 12.5px;
   line-height: 1.5;
   margin-top: 4px;
@@ -749,19 +674,19 @@
 
 /* light mode override */
 :root[data-theme="light"] .errorLookupSolution {
-  background: #f0fdf4;
-  border-color: #22c55e33;
-  color: #15803d;
+  background: #fef2f2;
+  border-color: rgba(239, 68, 68, 0.2);
+  color: #7f1d1d;
 }
 
 .errorLookupSolutionLabel {
   flex-shrink: 0;
   font-weight: 700;
-  color: #22c55e;
+  color: #ef4444;
 }
 
 :root[data-theme="light"] .errorLookupSolutionLabel {
-  color: #16a34a;
+  color: #dc2626;
 }
 
 .errorLookupFooter {
@@ -1018,4 +943,126 @@
     font-size: 12px;
     padding: 8px 14px;
   }
+}
+/* ================= TRY-IT PANEL (editable playground) ================= */
+
+.tryItPanel {
+  margin-top: 18px;
+  padding: 14px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 14px;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.tryItLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.tryItTitle {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+}
+
+.tryItHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  color: var(--ifm-color-emphasis-700);
+  font-style: italic;
+}
+
+.tryItPencil {
+  font-style: normal;
+  color: var(--ifm-color-primary);
+}
+
+/* Inside the panel, the first editor card shouldn't add extra top gap */
+.tryItPanel .editorCard:first-of-type {
+  margin-top: 8px;
+}
+
+/* ================= RESPONSE CARD (live result) ================= */
+
+.responseCard {
+  margin-top: 16px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.responseHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.responseTitle {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.responseHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Pre inside the response card: drop the standalone margin/radius */
+.responseCard .response {
+  margin-top: 0;
+  border-radius: 0;
+}
+
+.jsonBadge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: rgba(180, 83, 9, 0.08);
+  color: #b45309;
+  border: 1px solid rgba(180, 83, 9, 0.2);
+}
+
+[data-theme="dark"] .jsonBadge {
+  background: rgba(246, 173, 85, 0.12);
+  color: #f6ad55;
+  border-color: rgba(246, 173, 85, 0.2);
+}
+
+/* Try-it panel collapse */
+.tryItLabel {
+  cursor: pointer;
+  user-select: none;
+}
+.tryItChevron {
+  margin-left: auto;
+  font-size: 13px;
+  opacity: 0.55;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.tryItChevronCollapsed {
+  transform: rotate(-90deg);
+}
+
+.tryItBody {
+  max-height: 3000px;
+  overflow: hidden;
+  opacity: 1;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.22s ease;
+}
+.tryItBodyClosed {
+  max-height: 0 !important;
+  opacity: 0;
 }

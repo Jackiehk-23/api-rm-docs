@@ -6,7 +6,7 @@ sidebar_label: Edit Invoice
 api:
   method: PATCH
   url:
-    sandbox: https://sb-open.revenuemonster.my/api/v3/invoice/1779260530271049335
+    sandbox: https://sb-open.revenuemonster.my/api/v3/invoice/{id}
   headers:
     Content-Type: application/json
     Authorization: Bearer {{access_token}}
@@ -18,7 +18,7 @@ api:
     example: |
       {
         "referenceId": "my-order-001",
-        "storeId": "1608714483132458121",
+        "storeId": "{{storeId}}",
         "payerEmail": "payer@example.com",
         "payerName": "John Doe",
         "emailSubject": "Your Invoice #001",
@@ -32,7 +32,7 @@ api:
 
 examples:
   request: |
-    curl --location --request PATCH "https://sb-open.revenuemonster.my/api/v3/invoice/1779260530271049335" \
+    curl --location --request PATCH "https://sb-open.revenuemonster.my/api/v3/invoice/{id}" \
     --header "Content-Type: application/json" \
     --header "Authorization: Bearer {{access_token}}" \
     --header "X-Signature: sha256 {{signature}}" \
@@ -40,7 +40,7 @@ examples:
     --header "X-Timestamp: {{timestamp}}" \
     --data '{
       "referenceId": "my-order-001",
-      "storeId": "1608714483132458121",
+      "storeId": "{{storeId}}",
       "payerEmail": "payer@example.com",
       "payerName": "John Doe",
       "emailSubject": "Your Invoice #001",

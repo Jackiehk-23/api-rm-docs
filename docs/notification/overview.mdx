@@ -6,6 +6,8 @@ title: Notification
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuBell, LuMessageSquare, LuSmartphone } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -19,21 +21,21 @@ Reach merchants and customers through Revenue Monster's notification channels â€
 
 <div className="ov-grid-auto">
 
-<a href="../sms/overview" className="ov-card--link">
+<Link to="../sms/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuMessageSquare size={22} /></div>
     <span className="ov-card-title">Short Message Service</span>
     <span className="ov-card-desc">Send SMS to any Malaysian mobile number â€” OTP delivery, transaction alerts, and customer notifications.</span>
   </div>
-</a>
+</Link>
 
-<a href="../push-notification/overview" className="ov-card--link">
+<Link to="../push-notification/overview" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuSmartphone size={22} /></div>
     <span className="ov-card-title">Push Notification</span>
     <span className="ov-card-desc">Send push notifications to merchants through the Revenue Monster app.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

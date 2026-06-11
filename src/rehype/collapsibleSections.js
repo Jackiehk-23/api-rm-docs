@@ -80,7 +80,9 @@ function injectIcon(heading) {
 }
 
 function makeDetails(heading, body, forceOpen) {
-  const headingWithIcon = injectIcon(heading);
+  // Icons removed: section headers (What is this / When to Use / How to Use)
+  // render without a leading icon. (injectIcon kept but unused.)
+  const headingWithIcon = heading;
   const open = forceOpen ? true : (isCollapsedByDefault(heading) ? undefined : true);
   return {
     type: "element",

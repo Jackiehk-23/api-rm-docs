@@ -6,6 +6,8 @@ title: Member Vouchers
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuTicket, LuSearch } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -19,29 +21,29 @@ View and redeem vouchers assigned to a loyalty member.
 
 <div className="ov-grid-auto">
 
-<a href="./vouchers-detail" className="ov-card--link">
+<Link to="./vouchers-detail" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuTicket size={22} /></div>
     <span className="ov-card-title">Vouchers Detail</span>
     <span className="ov-card-desc">List all vouchers held by a loyalty member.</span>
   </div>
-</a>
+</Link>
 
-<a href="./voucher-by-code" className="ov-card--link">
+<Link to="./voucher-by-code" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuSearch size={22} /></div>
     <span className="ov-card-title">Voucher by Code</span>
     <span className="ov-card-desc">Look up a specific member voucher by its code.</span>
   </div>
-</a>
+</Link>
 
-<a href="./redeem-voucher" className="ov-card--link">
+<Link to="./redeem-voucher" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuTicket size={22} /></div>
     <span className="ov-card-title">Redeem Voucher</span>
     <span className="ov-card-desc">Apply a member voucher to a transaction.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

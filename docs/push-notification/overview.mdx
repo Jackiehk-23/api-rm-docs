@@ -6,6 +6,8 @@ title: Push Notification
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuBell } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -19,13 +21,13 @@ Send real-time push notifications to merchants via the RM Merchant app. Use this
 
 <div className="ov-grid-auto">
 
-<a href="./push-to-merchant" className="ov-card--link">
+<Link to="./push-to-merchant" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuBell size={22} /></div>
     <span className="ov-card-title">Push to Merchant</span>
     <span className="ov-card-desc">Send a notification with a custom title and body to a merchant's RM app.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

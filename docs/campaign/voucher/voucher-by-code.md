@@ -68,10 +68,6 @@ import Admonition from '@theme/Admonition';
   prod="/v3/voucher/{voucher_code}"
 />
 
-**Method :** <HttpMethodBadge method="POST" />
-Url :`https://open.revenuemonster.my/v3/voucher/NAklEfbVdV`
-Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher/NAklEfbVdV`
-
 ## What is this?
 
 Retrieve a single voucher's details by its `code`.

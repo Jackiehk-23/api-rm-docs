@@ -16,7 +16,7 @@ api:
   body: |
     {
       "authCode": "283838110784383199",
-      "storeId": "10946114768247530",
+      "storeId": "{{storeId}}",
       "memberId": "1626838502220135674",
       "order": {
         "id": "123asd1e1zz2ed",
@@ -36,7 +36,7 @@ examples:
   body: |
     {
         "authCode": "283838110784383199",
-        "storeId": "10946114768247530",
+        "storeId": "{{storeId}}",
         "memberId": "1626838502220135674",
         "order": {
             "id": "123asd1e1zz2ed",

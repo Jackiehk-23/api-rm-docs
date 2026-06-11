@@ -6,6 +6,8 @@ title: Downloads
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuDownload, LuImage, LuSmartphone, LuPalette } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -19,29 +21,29 @@ Official Revenue Monster branding assets, app downloads, and sandbox testing cre
 
 <div className="ov-grid-auto">
 
-<a href="./revenue-monster-logo" className="ov-card--link">
+<Link to="./revenue-monster-logo" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuImage size={22} /></div>
     <span className="ov-card-title">Revenue Monster Logo</span>
     <span className="ov-card-desc">Official RM wordmark and icon in various formats.</span>
   </div>
-</a>
+</Link>
 
-<a href="./logo" className="ov-card--link">
+<Link to="./logo" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuPalette size={22} /></div>
     <span className="ov-card-title">Payment Method Logos</span>
     <span className="ov-card-desc">Logos for supported payment methods (Grab, Touch 'n Go, DuitNow, etc.).</span>
   </div>
-</a>
+</Link>
 
-<a href="./application" className="ov-card--link">
+<Link to="./application" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuSmartphone size={22} /></div>
     <span className="ov-card-title">Application</span>
     <span className="ov-card-desc">Download links for the RM Merchant and consumer apps.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

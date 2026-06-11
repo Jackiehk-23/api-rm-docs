@@ -6,6 +6,8 @@ title: Cancel Transaction
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuCircleX, LuRepeat2 } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -19,21 +21,21 @@ Reverse or refund a payment after it has been processed.
 
 <div className="ov-grid-auto">
 
-<a href="./reverse-transaction" className="ov-card--link">
+<Link to="./reverse-transaction" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuCircleX size={22} /></div>
     <span className="ov-card-title">Reverse Transaction</span>
     <span className="ov-card-desc">Cancel a transaction before settlement — returns funds immediately.</span>
   </div>
-</a>
+</Link>
 
-<a href="./refund-transaction" className="ov-card--link">
+<Link to="./refund-transaction" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuRepeat2 size={22} /></div>
     <span className="ov-card-title">Refund Transaction</span>
     <span className="ov-card-desc">Issue a refund for an already settled transaction.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

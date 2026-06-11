@@ -6,7 +6,7 @@ sidebar_label: Cancel Invoice
 api:
   method: POST
   url:
-    sandbox: https://sb-open.revenuemonster.my/api/v3/invoice/1779261889474362606/cancel
+    sandbox: https://sb-open.revenuemonster.my/api/v3/invoice/{id}/cancel
   headers:
     Authorization: Bearer {{access_token}}
     X-Signature: sha256 {{signature}}
@@ -15,7 +15,7 @@ api:
 
 examples:
   request: |
-    curl --location --request POST "https://sb-open.revenuemonster.my/api/v3/invoice/1779261889474362606/cancel" \
+    curl --location --request POST "https://sb-open.revenuemonster.my/api/v3/invoice/{id}/cancel" \
     --header "Authorization: Bearer {{access_token}}" \
     --header "X-Signature: sha256 {{signature}}" \
     --header "X-Nonce-Str: {{nonce}}" \

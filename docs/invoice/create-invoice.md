@@ -17,7 +17,7 @@ api:
     type: json
     example: |
       {
-        "storeId": "1608714483132458121",
+        "storeId": "{{storeId}}",
         "referenceId": "my-order-001",
         "payerEmail": "payer@example.com",
         "payerName": "John Doe",
@@ -39,7 +39,7 @@ examples:
     --header "X-Nonce-Str: {{nonce}}" \
     --header "X-Timestamp: {{timestamp}}" \
     --data '{
-      "storeId": "1608714483132458121",
+      "storeId": "{{storeId}}",
       "referenceId": "my-order-001",
       "payerEmail": "payer@example.com",
       "payerName": "John Doe",

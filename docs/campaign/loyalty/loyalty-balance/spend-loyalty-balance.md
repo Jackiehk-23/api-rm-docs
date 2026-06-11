@@ -16,7 +16,7 @@ api:
   body: |
     {
       "authCode": "string",
-      "storeId": "string",
+      "storeId": "{{storeId}}",
       "order": {
         "id": "string",
         "title": "string",
@@ -37,7 +37,7 @@ examples:
   body: |
     {
       "authCode": "loyalty_qr_authcode",
-      "storeId": "store_id",
+      "storeId": "{{storeId}}",
       "order": {
         "id": "some unique id",
         "title": "Loyalty Balance Payment",

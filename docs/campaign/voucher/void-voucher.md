@@ -24,7 +24,7 @@ examples:
     --header "X-Nonce-Str: VYNknZohxwicZMaWbNdBKUrnrxDtaRhN" \
     --header "X-Timestamp: 1717039047" \
     --data-raw "{
-     \"storeId\": \"1331862367915081342\"
+     \"storeId\": \"{{storeId}}\"
     }"
   body: |
     There is no example body request.
@@ -74,10 +74,6 @@ import Admonition from '@theme/Admonition';
   sandbox="/v3/voucher/{code}/void"
   prod="/v3/voucher/{code}/void"
 />
-
-**Method :** <HttpMethodBadge method="POST" />
-Url :`https://open.revenuemonster.my/v3/voucher/NAklEfbVdV/void`
-Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher/NAklEfbVdV/void`
 
 ## What is this?
 

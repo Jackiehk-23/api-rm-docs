@@ -82,10 +82,6 @@ import Admonition from '@theme/Admonition';
   prod="/v3/voucher/{code}/reinstate"
 />
 
-**Method :** <HttpMethodBadge method="PATCH" />
-Url :`https://open.revenuemonster.my/v3/voucher/8JwpM3BC/reinstate`
-Sandbox Url : `https://sb-open.revenuemonster.my/v3/voucher/8JwpM3BC/reinstate`
-
 ## What is this?
 
 Reinstate a previously voided voucher — restores the voucher to a usable state.

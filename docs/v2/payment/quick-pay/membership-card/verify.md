@@ -16,7 +16,7 @@ api:
     example: |
       {
         "memberCardId": "28158443195878043074",
-        "storeId": "4949529109748431621"
+        "storeId": "{{storeId}}"
       }
 
 examples:
@@ -27,7 +27,7 @@ examples:
     --header "X-Timestamp: {{timestamp}}" \
     --data '{
       "memberCardId": "28158443195878043074",
-      "storeId": "4949529109748431621"
+      "storeId": "{{storeId}}"
     }'
   response: |
     {

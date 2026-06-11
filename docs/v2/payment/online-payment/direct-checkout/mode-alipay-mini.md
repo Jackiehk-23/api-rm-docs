@@ -5,7 +5,7 @@ sidebar_label: "Mode: Alipay Mini Program"
 api:
   method: POST
   url:
-    sandbox: https://sb-open.revenuemonster.my/v3/payment/online
+    sandbox: https://sb-open.revenuemonster.my/v3/payment/online/checkout
 
   headers:
     Content-Type: application/json
@@ -22,7 +22,7 @@ api:
 
 examples:
   request: |
-    curl --location --request POST "https://sb-open.revenuemonster.my/v3/payment/online" \
+    curl --location --request POST "https://sb-open.revenuemonster.my/v3/payment/online/checkout" \
     --header "Content-Type: application/json" \
     --header "Authorization: Bearer {{access_token}}" \
     --header "X-Timestamp: {{timestamp}}" \
@@ -44,8 +44,8 @@ import Admonition from '@theme/Admonition';
 
 <ApiEndpoint
   method="POST"
-  sandbox="/v3/payment/online"
-  prod="/v3/payment/online"
+  sandbox="/v3/payment/online/checkout"
+  prod="/v3/payment/online/checkout"
 />
 
 ## What is this?

@@ -6,6 +6,8 @@ title: Orders
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuClipboardList, LuSearch, LuPencil, LuRepeat2 } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -19,37 +21,37 @@ Fetch, update, and refund customer orders in your à la carte store.
 
 <div className="ov-grid-auto">
 
-<a href="./get-orders-by-store-id" className="ov-card--link">
+<Link to="./get-orders-by-store-id" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuClipboardList size={22} /></div>
     <span className="ov-card-title">Get Orders by Store</span>
     <span className="ov-card-desc">List all orders placed at a specific store.</span>
   </div>
-</a>
+</Link>
 
-<a href="./get-order-by-id" className="ov-card--link">
+<Link to="./get-order-by-id" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuSearch size={22} /></div>
     <span className="ov-card-title">Get Order by ID</span>
     <span className="ov-card-desc">Retrieve full details of a specific order.</span>
   </div>
-</a>
+</Link>
 
-<a href="./update-order-status" className="ov-card--link">
+<Link to="./update-order-status" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuPencil size={22} /></div>
     <span className="ov-card-title">Update Order Status</span>
     <span className="ov-card-desc">Move an order through its lifecycle — confirm, prepare, complete, or cancel.</span>
   </div>
-</a>
+</Link>
 
-<a href="./refund-order" className="ov-card--link">
+<Link to="./refund-order" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuRepeat2 size={22} /></div>
     <span className="ov-card-title">Refund Order</span>
     <span className="ov-card-desc">Issue a refund for a completed order.</span>
   </div>
-</a>
+</Link>
 
 </div>
 

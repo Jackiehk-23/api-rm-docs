@@ -16,7 +16,7 @@ api:
     example: |
       {
         "authCode": "134850717797247290",
-        "storeId": "6170506694335521334",
+        "storeId": "{{storeId}}",
         "ipAddress": "8.8.8.8",
         "order": {
           "id": "ODR-20230513-1001",
@@ -38,7 +38,7 @@ examples:
     --header "X-Timestamp: {{timestamp}}" \
     --data '{
       "authCode": "134850717797247290",
-      "storeId": "6170506694335521334",
+      "storeId": "{{storeId}}",
       "ipAddress": "8.8.8.8",
       "order": {
         "id": "ODR-20230513-1001",

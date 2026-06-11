@@ -6,6 +6,8 @@ title: Recurring
 sidebar_label: Overview
 ---
 
+import Link from "@docusaurus/Link";
+
 import { LuRepeat2, LuUser, LuFileText } from "react-icons/lu";
 
 <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
@@ -19,29 +21,29 @@ Set up recurring billing — create a customer token, then handle the redirect a
 
 <div className="ov-grid-auto">
 
-<a href="./create-customer" className="ov-card--link">
+<Link to="./create-customer" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuUser size={22} /></div>
     <span className="ov-card-title">Create Customer</span>
     <span className="ov-card-desc">Register a customer and initiate the recurring billing token flow.</span>
   </div>
-</a>
+</Link>
 
-<a href="./redirect-response" className="ov-card--link">
+<Link to="./redirect-response" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuRepeat2 size={22} /></div>
     <span className="ov-card-title">Redirect Response</span>
     <span className="ov-card-desc">Handle the browser redirect callback after customer authorizes recurring billing.</span>
   </div>
-</a>
+</Link>
 
-<a href="./notify-response" className="ov-card--link">
+<Link to="./notify-response" className="ov-card--link">
   <div className="ov-card">
     <div className="ov-card-icon"><LuFileText size={22} /></div>
     <span className="ov-card-title">Notify Response</span>
     <span className="ov-card-desc">Process the server-to-server webhook notification for each recurring charge.</span>
   </div>
-</a>
+</Link>
 
 </div>
 
