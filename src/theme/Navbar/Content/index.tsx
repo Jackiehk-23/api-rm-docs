@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import OriginalNavbarContent from "@theme-original/Navbar/Content";
 import CardNavMenu from "@site/src/components/CardNavMenu";
 import AuthModal from "@site/src/components/AuthModal";
-import { deriveTokenStatus, syncAuthStatus, getSessionId } from "@site/src/utils/auth";
+import { deriveTokenStatus, syncAuthStatus, getSessionId, tokenExpiryLabel } from "@site/src/utils/auth";
 import { hasPrivateKey } from "@site/src/utils/privateKey";
 
 function AuthBadge() {
@@ -85,7 +85,12 @@ function AuthBadge() {
       : "var(--ifm-color-emphasis-400)",
   };
 
-  const label = connected ? "Connected" : expired ? "Token expired" : "Connect";
+  const expiry = connected ? tokenExpiryLabel() : null;
+  const label = connected
+    ? (expiry && expiry !== "expired" ? `Connected · ${expiry}` : "Connected")
+    : expired
+    ? "Token expired"
+    : "Connect";
 
   return (
     <button 

@@ -998,3 +998,52 @@ details.section-details details.section-details .section-toggle {
 [data-theme="dark"] .step-label {
   color: #a5a5f5;
 }
+
+/* ============================================================
+   Reusable gradient-border button — used by Send Request,
+   Connect, and Create App on Dashboard so they stay identical.
+   (Original Connect-modal design + hover reveal animation.)
+============================================================ */
+@property --rm-grad-angle { syntax: "<angle>"; initial-value: 135deg; inherits: false; }
+
+@keyframes rm-grad-sweep {
+  0%   { --rm-grad-angle: 135deg; }
+  100% { --rm-grad-angle: 495deg; }
+}
+
+.rm-gradient-btn {
+  position: relative;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  background: #ffffff;
+  color: #111111;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+[data-theme="dark"] .rm-gradient-btn { background: #000000; color: #ffffff; }
+
+/* Pixel-perfect gradient border via mask-composite ring — no pseudo offset,
+   so no bleed on any edge/corner. Gradient rotates on hover. */
+.rm-gradient-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(var(--rm-grad-angle), #1e2891 1.85%, #734696 69.78%, #eb008c 100.66%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+.rm-gradient-btn:hover::before { animation: rm-grad-sweep 1.5s ease forwards; }
+
+.rm-gradient-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+.rm-gradient-btn:active { transform: scale(0.97); }
+.rm-gradient-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.rm-gradient-btn:disabled::before { animation: none; }
