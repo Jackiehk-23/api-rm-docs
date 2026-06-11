@@ -162,7 +162,7 @@ GET `/v3/loyalty/balances` with signed authentication headers.
         { name: "id", type: "String", description: "Store ID", example: "\"1601912947341252990\"" },
         { name: "merchantSettlementId", type: "String", description: "Merchant Settlement ID", example: "\"1596124535165747709\"" },
         { name: "name", type: "String", description: "Store Name", example: "\"Mountain Food - Aeon Mall Shah Alam\"" },
-        { name: "imageUrl", type: "String", description: "Yes", example: "\"https://storage.googleapis.com/rm-prod-asset/img/store.png\"" },
+        { name: "imageUrl", type: "String", description: "Store image URL", example: "\"https://storage.googleapis.com/rm-prod-asset/img/store.png\"" },
         { name: "addressLine1", type: "String", description: "Store Address 1", example: "\"B-5-30, 5th Floor, Block Bougainvillea,\"" },
         { name: "addressLine2", type: "String", description: "Store Address 2", example: "\"PJU 6A, Lebuhraya SPRINT, 10 Boulevard,\"" },
         { name: "postCode", type: "String", description: "Postcode of store", example: "\"47400\"" },

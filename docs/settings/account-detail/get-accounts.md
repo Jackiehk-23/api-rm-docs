@@ -175,9 +175,9 @@ No request body. Authenticated headers only.
         { name: "companyType", type: "String", description: "Type of company incorporation", example: "\"SOLE PROPRIETOR\"" },
         { name: "registrationNumber", type: "String", description: "Registration number of merchant", example: "“12344”" },
         { name: "businessCategory", type: "String", description: "Business category of merchant", example: "\"SOFTWARE AND IT\"" },
-        { name: "businessScope", type: "String", description: "Business category of merchant", example: "\"SOFTWARE AND IT\"" },
-        { name: "sourceOfFunds", type: "String", description: "Business category of merchant", example: "\"SOFTWARE AND IT\"" },
-        { name: "customerOrigin", type: "String", description: "Business category of merchant", example: "\"SOFTWARE AND IT\"" },
+        { name: "businessScope", type: "String", description: "Business scope of merchant", example: "\"SOFTWARE AND IT\"" },
+        { name: "sourceOfFunds", type: "String", description: "Source of funds of merchant", example: "\"BUSINESS REVENUE\"" },
+        { name: "customerOrigin", type: "String", description: "Customer origin of merchant", example: "\"DOMESTIC\"" },
         { name: "establishedAt", type: "DateTime", description: "Established date time of merchant", example: "\"2018-03-26T04:50:57Z\"" },
         { name: "countryCode", type: "String", description: "Country code of merchant contact number", example: "\"60\"" },
         { name: "phoneNumber", type: "String", description: "Phone number of merchant", example: "\"377334080\"" },
@@ -192,7 +192,7 @@ No request body. Authenticated headers only.
       children: [
         { name: "addressLine1", type: "String", description: "AddressLine1", example: "\"\"" },
         { name: "addressLine2", type: "String", description: "AddressLine2", example: "\"\"" },
-        { name: "postCode", type: "String", description: "Customer Remark", example: "\"\"" },
+        { name: "postCode", type: "String", description: "PostCode of invoice address", example: "\"\"" },
         { name: "city", type: "String", description: "City", example: "\"\"" },
         { name: "state", type: "String", description: "Address State", example: "\"\"" },
         { name: "country", type: "String", description: "Country", example: "\"\"" }

@@ -150,10 +150,13 @@ PATCH `/v3/voucher/{code}/reinstate` with no request body. Get `code` from the [
         { name: "day", type: "Integer", description: "Only required by \"DYNAMIC\" expiry type. To indicate number of days from now until expiry.", example: "30" },
         { name: "expiryAt", type: "DateTime", description: "Only required by \"FIXED\". To indicate specific expiry date.", example: "\"2020-10-07T17:44:26.679908+08:00\"" }
       ]},
-        { name: "usedAt", type: "DateTime", description: "Date time of voucher being reinstateed (UTC)", example: "\"GIFT\"" },
-        { name: "redeemedAt", type: "DateTime", description: "Date time of voucher being redeemed (UTC)", example: "\"GIFT\"" },
+        { name: "usedAt", type: "DateTime", description: "Date time of voucher being used (UTC)", example: "\"2025-04-08T03:36:22Z\"" },
+        { name: "redeemedAt", type: "DateTime", description: "Date time of voucher being redeemed (UTC)", example: "\"2025-04-08T03:36:17Z\"" },
         { name: "isDeviceRedeem", type: "Boolean", description: "TRUE means only can be redeemed through merchant app. FALSE means customer can do redemption from own loyalty app.", example: "false" },
-        { name: "status", type: "String", description: "Status of current voucher: 1. Merchant created voucher batch (status=VALID)2. Merchant issued or going to transfer voucher to customer (status=ISSUED)3. Merchant shows voucher to customer and customer scans to get it (status=REDEEMED)4. Customers go back to shop and use the voucher (status=reinstate)", example: "\"VALID\"" },
+        { name: "status", type: "String", description: "Status of current voucher: 
+        1. Merchant created voucher batch (status=VALID)2. Merchant issued or going to transfer voucher to customer (status=ISSUED)
+        3. Merchant shows voucher to customer and customer scans to get it (status=REDEEMED)
+        4. Customers go back to shop and use the voucher (status=reinstate)", example: "\"VALID\"" },
         { name: "createdAt", type: "DateTime", description: "Date time of voucher being created (UTC)", example: "\"2018-06-21T11:08:00Z\"" },
         { name: "updatedAt", type: "DateTime", description: "Date time of voucher being updated (UTC)", example: "\"2018-09-28T17:19:44.686549977Z\"" }
       ]},

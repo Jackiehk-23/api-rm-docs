@@ -146,7 +146,7 @@ No request body. Authenticated headers only.
     { name: "items", type: "Array", description: "Voucher object array",
       children: [
         { name: "id", type: "String", description: "Voucher ID", example: "“6544507929221794245\"" },
-        { name: "key", type: "String", description: "Vocher Key", example: "\"EhQKCE1lcmNoYW50EJXVzd3wraqTORIVCgdWb3VjaGVyGgpOQWtsRWZiVmRW\"" },
+        { name: "key", type: "String", description: "Voucher Key", example: "\"EhQKCE1lcmNoYW50EJXVzd3wraqTORIVCgdWb3VjaGVyGgpOQWtsRWZiVmRW\"" },
         { name: "label", type: "String", description: "label of voucher for merchant remarks", example: "\"Free Breakfast”" },
         { name: "type", type: "String", description: "Define type of vouchers: DISCOUNT, GIFT, “CASH\"", example: "“GIFT\"" },
         { name: "amount", type: "Integer", description: "Required if type = CASH, notation in cents, eg. RM 1.00 = 100", example: "10000" },

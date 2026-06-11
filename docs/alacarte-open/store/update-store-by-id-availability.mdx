@@ -20,7 +20,7 @@ api:
       {
         "service": "alacarte",
         "version": "v1",
-        "function": "update.store.avaiablility",
+        "function": "update.store.availability",
         "request": {
           "storeId": "2808912573238362402",
           "closedUntil": "2020-09-22T05:00:06.741Z"
@@ -38,7 +38,7 @@ examples:
     --data-raw '{
       "service": "alacarte",
       "version": "v1",
-      "function": "update.store.avaiablility",
+      "function": "update.store.availability",
       "request": {
         "storeId": "2808912573238362402",
         "closedUntil": "2020-09-22T05:00:06.741Z"
@@ -111,7 +111,7 @@ POST `function: "updates.store.availability"` with `storeId` and `closedUntil` (
   rows={[
     { name: "service", type: "String", description: "alacarte service", example: "\"alacarte\"" },
     { name: "version", type: "String", description: "Currently only support 'v1\"", example: "\"v1\"" },
-    { name: "function", type: "String", description: "Function that provide by alacarte", example: "\"updates.store.avaiablility\"" },
+    { name: "function", type: "String", description: "Function that provide by alacarte", example: "\"updates.store.availability\"" },
     { name: "request", type: "Object", description: "Request body",
       children: [
         { name: "storeId", type: "String", description: "ID of the Store that Create from RM", example: "\"2808912573238362402\"" },

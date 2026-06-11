@@ -67,7 +67,7 @@ POST to `/v3/loyalty/spending-reward` with `currencyType`, `amount`, and the mem
   title="Request Parameters"
   rows={[
     { name: "currencyType", type: "String", required: true, description: "Currently MYR only", example: "MYR" },
-    { name: "amount", type: "Integer", required: true, description: "Loyalty point given to customers.", example: "100" },
+    { name: "amount", type: "Integer", required: true, description: "Transaction amount to calculate loyalty points earned.", example: "100" },
     { name: "type", type: "String", required: true, description: "\"ID\" ,\"PHONENUMBER\" or \"QRCODE\"", example: "Use phone number , ID or QR Code to give loyalty point(s)." },
     { name: "memberId", type: "String", description: "Member ID if type \"ID\" being provided.", example: "\"2777058682717858418\"" },
     { name: "countryCode", type: "String", description: "Country code if type \"PHONENUMBER\" being provided.", example: "\"60\"" },

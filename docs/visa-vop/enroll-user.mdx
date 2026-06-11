@@ -124,15 +124,15 @@ The response returns the RM-issued `user.id` and `card.id`. Use these for [Enrol
         { name: "name", type: "String", description: "Name of the card", example: "\"Ambank Visa Infinite\"" },
         { name: "panLastFour", type: "String", description: "Last four number of the card", example: "\"2449\"" },
         { name: "type", type: "String", description: "Type of card", example: "\"CREDIT\"" },
-        { name: "createdAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:00Z\"" },
-        { name: "updatedAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:00Z\"" },
+        { name: "createdAt", type: "String", description: "Card Enrolled Time", example: "\"2023-11-07T04:25:00Z\"" },
+        { name: "updatedAt", type: "String", description: "Card Last Updated time", example: "\"2023-11-07T04:25:00Z\"" },
         ]
       },
       { name: "user", type: "Object", description: "User details",
         children: [
         { name: "id", type: "String", description: "RM VOP User ID", example: "\"1699331101742889953\"" },
         { name: "createdAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:00Z\"" },
-        { name: "updatedAt", type: "String", description: "User Enrolled Time", example: "\"2023-11-07T04:25:00Z\"" },
+        { name: "updatedAt", type: "String", description: "User Last Updated Time", example: "\"2023-11-07T04:25:00Z\"" },
         ]
       },
       ]

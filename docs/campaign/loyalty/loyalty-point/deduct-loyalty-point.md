@@ -63,7 +63,8 @@ POST to `/v3/loyalty/reward` with the `point` amount and `memberId` / phone iden
 <ParamTable
   title="Request Parameters"
   rows={[
-    { name: "point", type: "Integer", required: true, description: "Loyalty point given to customers.", example: "100" },
+    { name: "point", type: "Integer", required: true, 
+    description: "Loyalty point deducted from customers.", example: "100" },
     { name: "memberId", type: "String", description: "Member ID if type \"ID\" being provided.", example: "\"2777058682717858418\"" }
   ]}
 />
