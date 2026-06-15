@@ -45,7 +45,7 @@ For terminal MF919, receipt printing cannot be controlled programmatically.
 
 <ParamTable
   rows={[
-    { name: "item", type: "JSON", description: "Transaction response object" },
+    { name: "item", type: "Object", description: "Transaction response object" },
     { name: "code", type: "String", description: "\"SUCCESS\" if the payment succeeded, otherwise an error code." },
     { name: "error", type: "Object", description: "Error details",
       children: [

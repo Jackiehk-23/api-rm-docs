@@ -20,7 +20,7 @@ The notify URL informs your server of the transaction status after a successful 
     { name: "eventType", type: "String", required: true, description: "Notify event type. Always \"PAYMENT_WEB_ONLINE\"." },
     { name: "data", type: "Object", required: true, description: "Request data",
       children: [
-      { name: "store", type: "JSON", description: "Store details." },
+      { name: "store", type: "Object", description: "Store details." },
       { name: "referenceId", type: "String", description: "Reference ID." },
       { name: "transactionId", type: "String", required: true, description: "Transaction ID." },
       { name: "terminalId", type: "String", description: "Terminal ID." },

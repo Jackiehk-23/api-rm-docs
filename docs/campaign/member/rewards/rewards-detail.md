@@ -125,7 +125,7 @@ Example: `https://open.revenuemonster.my/v3/loyalty/me/rewards?countryCode=60&ph
     { name: "quantity", type: "Integer", description: "Reward Quantity", example: "49998" },
     { name: "balanceQuantity", type: "Integer", description: "Reward Balance Quantity", example: "49991" },
     { name: "usedQuantity", type: "Integer", description: "Reward Used Quantity", example: "2" },
-    { name: "redeemQuantity", type: "String", description: "Reward Redeem Quantity", example: "7" },
+    { name: "redeemQuantity", type: "Integer", description: "Reward Redeem Quantity", example: "7" },
     { name: "isEnabled", type: "Boolean", description: "Enable Reward", example: "true" },
     { name: "limitPerUser", type: "Integer", description: "Set Limit per User use", example: "1" },
     { name: "status", type: "String", description: "Reward status have (\"COMPLETED\", \"INPROGRESS\", \"FAILED\", \"EXPIRED\")", example: "\"COMPLETED\"" },

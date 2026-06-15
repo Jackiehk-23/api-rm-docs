@@ -155,7 +155,7 @@ No request body. Authenticated headers only.
         { name: "phoneNumber", type: "String", description: "Phone number of store", example: "\"377334080\"" },
         { name: "geoLocation", type: "Object", description: "Geo Location (latitude and longitude) of store", example: "{\"Lat\": 3.1349857, \"Lng\": 101.6136659 }" },
         { name: "status", type: "String", description: "Current status of store", example: "\"ACTIVE\"" },
-        { name: "isDefault", type: "String", description: "Default store of merchant (first store created upon signup)", example: "true" },
+        { name: "isDefault", type: "Boolean", description: "Default store of merchant (first store created upon signup)", example: "true" },
         { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2018-02-12T08:53:13Z\"" },
         { name: "updatedAt", type: "DateTime", description: "Last update date time of store", example: "\"2018-02-12T08:53:13Z\"" }
       ]},

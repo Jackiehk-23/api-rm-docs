@@ -129,7 +129,7 @@ POST `memberCardId` and `storeId` to `/v3/membership/verify`. Use the returned d
         { name: "amount", type: "Integer", description: "Amount", example: "10" },
         { name: "currency", type: "String", description: "Currency type", example: "\"RMB\"" },
         { name: "discountType", type: "String", description: "Discount type", example: "\"DISCOUNT\"" },
-        { name: "discountValue", type: "String", description: "Discount Value", example: "\"1000\"" },
+        { name: "discountValue", type: "Number", description: "Discount Value", example: "1000" },
         { name: "minimumSpentAmount", type: "Integer", description: "Minimum Spent Amount", example: "10" },
         { name: "wallet", type: "String", description: "Wallet : Alipay", example: "\"ALIPAY\"" },
         { name: "templateId", type: "String", description: "Template ID", example: "\"20191218000000002154347000300178\"" },
