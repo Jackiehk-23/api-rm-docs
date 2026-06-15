@@ -22,7 +22,7 @@ The transaction object is returned in the `item` (or `items[]`) field of query r
 
 <ParamTable
   rows={[
-    { name: "store", type: "JSON", description: "Store details" },
+    { name: "store", type: "Object", description: "Store details" },
     { name: "referenceId", type: "String", description: "Reference ID from the payment provider" },
     { name: "transactionId", type: "String", required: true, description: "Revenue Monster's unique transaction ID" },
     { name: "terminalId", type: "String", description: "Terminal ID if applicable" },
