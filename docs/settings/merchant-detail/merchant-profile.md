@@ -112,7 +112,7 @@ No request body. Authenticated headers only.
   rows={[
     { name: "item", type: "Object", description: "Object of item details.",
       children: [
-        { name: "id", type: "String", description: "Store ID", example: "\"6170506694335521334\"" },
+        { name: "id", type: "String", description: "Merchant ID", example: "\"6170506694335521334\"" },
         { name: "companyName", type: "String", description: "Company name of merchant", example: "\"REVENUE MONSTER\"" },
         { name: "companyType", type: "String", description: "Type of company incorporation", example: "\"SOLE PROPRIETOR\"" },
         { name: "companyLogoUrl", type: "String", description: "Public URL to show merchant's logo", example: "\"https://storage.googleapis.com/rm-dev-asset/img/merchant.png\"" },

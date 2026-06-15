@@ -119,7 +119,7 @@ POST `memberCardId` and `storeId` to `/v3/membership/verify`. Use the returned d
         { name: "memberId", type: "String", description: "Member ID", example: "\"1584431797984173748\"" },
         { name: "expiredAt", type: "DateTime", description: "Expired date time", example: "\"2020-05-16T07:59:18Z\"" },
         { name: "createdAt", type: "DateTime", description: "Creation date time", example: "\"2020-03-17T07:59:18Z\"" },
-        { name: "updateAt", type: "DateTime", description: "Last update date time", example: "\"2020-03-05T09:40:21Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-03-05T09:40:21Z\"" },
         { name: "card", type: "Object", description: "Refer to explanation below",
       children: [
         { name: "id", type: "String", description: "Card ID", example: "\"1576632501406219093\"" },
@@ -136,8 +136,8 @@ POST `memberCardId` and `storeId` to `/v3/membership/verify`. Use the returned d
         { name: "status", type: "String", description: "Status", example: "\"ACTIVE\"" },
         { name: "image", type: "String", description: "Image", example: "\"https://rm-sandbox-membership-public.oss-ap-southeast-3.aliyuncs.com/gourmet/card/image-1579510518825819467-1579510518.png\"" },
         { name: "icon", type: "String", description: "Icon", example: "\"https://rm-sandbox-membership-public.oss-ap-southeast-3.aliyuncs.com/gourmet/card/icon-1579505367845553007-1579505367.png\"" },
-        { name: "createAt", type: "DateTime", description: "Create date time", example: "\"2019-12-18T01:28:24Z\"" },
-        { name: "updateAt", type: "DateTime", description: "Update date time", example: "\"2019-12-18T01:28:24Z\"" }
+        { name: "createdAt", type: "DateTime", description: "Create date time", example: "\"2019-12-18T01:28:24Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Update date time", example: "\"2019-12-18T01:28:24Z\"" }
       ]}
       ]},
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }

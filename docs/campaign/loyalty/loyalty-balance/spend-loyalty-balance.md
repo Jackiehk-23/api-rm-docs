@@ -120,12 +120,12 @@ POST `authCode`, `storeId`, and `order` details. Returns the loyalty-credit tran
 <ParamTable
   title="Request Parameters"
   rows={[
-    { name: "authCode", type: "String", description: "Yes", example: "Auth code of QR code/barcode being scanned. Length: 18" },
+    { name: "authCode", type: "String", description: "Auth code of QR code/barcode being scanned. Length: 18", example: "\"loyalty_qr_authcode\"" },
     { name: "storeId", type: "String" },
     { name: "order", type: "Object",
       children: [
         { name: "id", type: "String", required: true, description: "Order ID (from Merchant), max: 24", example: "\"134850717797247290\"" },
-        { name: "title", type: "String", required: true, example: "\"1601912947341252990\"" },
+        { name: "title", type: "String", required: true, example: "\"In store payment\"" },
         { name: "detail", type: "String", required: true, example: "\"\"" },
         { name: "additionalData", type: "String", example: "\"\"" },
         { name: "amount", type: "Integer", required: true, description: "Amount of order in cent (min RM 0.10 or amount: 10)", example: "100" }
@@ -154,7 +154,7 @@ POST `authCode`, `storeId`, and `order` details. Returns the loyalty-credit tran
         { name: "id", type: "String", description: "Store ID", example: "\"1601912947341252990\"" },
         { name: "merchantSettlementId", type: "String", description: "Merchant Settlement ID", example: "\"1596124535165747709\"" },
         { name: "name", type: "String", description: "Store Name", example: "\"Mountain Food - Aeon Mall Shah Alam\"" },
-        { name: "imageUrl", type: "String", description: "Yes", example: "\"https://storage.googleapis.com/rm-prod-asset/img/store.png\"" },
+        { name: "imageUrl", type: "String", description: "Store image URL", example: "\"https://storage.googleapis.com/rm-prod-asset/img/store.png\"" },
         { name: "addressLine1", type: "String", description: "Store Address 1", example: "\"B-5-30, 5th Floor, Block Bougainvillea,\"" },
         { name: "addressLine2", type: "String", description: "Store Address 2", example: "\"PJU 6A, Lebuhraya SPRINT, 10 Boulevard,\"" },
         { name: "postCode", type: "String", description: "Postcode of store", example: "\"47400\"" },

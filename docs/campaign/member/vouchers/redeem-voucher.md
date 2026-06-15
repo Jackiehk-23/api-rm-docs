@@ -49,7 +49,7 @@ POST with `voucher-code` in the path and `countryCode` + `phoneNumber` as query 
         { name: "key", type: "String", description: "Voucher Key (Internal Usage)", example: "\"EhIKBk1lbWJlchDOuOKz24XWkg4SGQoNTWVtYmVyUHJvZmlsZRDl-MTxiPOPjzY\"" },
         { name: "label", type: "String", description: "Voucher Label", example: "\"asdasd\"" },
         { name: "voucherBatchKey", type: "String", description: "Voucher Batch Key", example: "\"EhQKCE1lcmNoYW50EJXVzd3wraqTORIYCgxWb3VjaGVyQmF0Y2gQs4n7iuzioaQW\"" },
-        { name: "type", type: "String", description: "Voucher Type (\"CASH\", \"DISCOUND\", \"GIFT\")", example: "\"CASH\"" },
+        { name: "type", type: "String", description: "Voucher Type (\"CASH\", \"DISCOUNT\", \"GIFT\")", example: "\"CASH\"" },
         { name: "amount", type: "Integer", description: "Amount of the voucher", example: "100" },
         { name: "discountRate", type: "Integer", description: "Voucher Discount Rate", example: "0" },
         { name: "minimumSpendAmount", type: "Integer", description: "Set a Minimum Spend Amount", example: "0" },
@@ -89,7 +89,7 @@ POST with `voucher-code` in the path and `countryCode` + `phoneNumber` as query 
         { name: "isDeviceRedeem", type: "Boolean", description: "Voucher Redeem Device", example: "true" },
         { name: "status", type: "String", description: "Voucher Status (\"VALID\", \"ISSUE\", \"REDEEMED\", \"VOID\", \"EXPIRED\", \"MARKET_PLACE\", \"COMPLETE\")", example: "\"VOID\"" },
         { name: "voucherComboKey", type: "String", description: "Voucher Combo Key", example: "null" },
-        { name: "isMarketPlace", type: "Boolean", description: "Last update date time", example: "false" },
+        { name: "isMarketPlace", type: "Boolean", description: "True if the voucher originates from the marketplace", example: "false" },
         { name: "createdAt", type: "DateTime", description: "Create date time", example: "\"2020-11-18T06:43:19Z\"" },
         { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-11-25T05:58:56Z\"" }
       ]},
