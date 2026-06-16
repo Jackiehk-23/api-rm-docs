@@ -68,6 +68,14 @@ POST `/v3/loyalty/member/{memberId}/topup-online` with the desired top-up `amoun
 
 ### Request Parameters
 
+<ParamTable
+  title="Request Parameters"
+  rows={[
+    { name: "topUpAmount", type: "Integer", required: true, description: "Amount of credit to top up", example: "10" },
+    { name: "redirectUrl", type: "String", required: true, description: "URL to redirect the member to after payment", example: "\"https://revenuemonster.my\"" }
+  ]}
+/>
+
 ### Response Parameters
 
 <ParamTable

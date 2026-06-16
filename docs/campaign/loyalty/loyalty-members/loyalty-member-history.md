@@ -114,5 +114,27 @@ GET `/v3/loyalty/member/{memberId}/history`.
 
 ### Response Parameters
 
+<ParamTable
+  title="Response Parameters"
+  rows={[
+    { name: "items", type: "Array", description: "Array of loyalty history records",
+      children: [
+        { name: "key", type: "String", description: "History record key (internal usage)", example: "\"EhIKBk1lbWJlchCpzIGbrcmr_BUSGQoNTWVtYmVyUHJvZmlsZRDclJuNr8mr_BUSGgoOTG95YWx0eUhpc3RvcnkQlYaaufPqrPwV\"" },
+        { name: "merchantKey", type: "String", description: "Merchant key (internal usage)", example: "\"EhQKCE1lcmNoYW50EJXVzd3wraqTOQ\"" },
+        { name: "type", type: "String", description: "History record type (e.g. VOUCHER_REDEEM, CREDIT_TOP_UP, QR_CODE_REDEEM)", example: "\"VOUCHER_REDEEM\"" },
+        { name: "description", type: "String", description: "Description of the record", example: "\"voucher combo voucher redeemed\"" },
+        { name: "point", type: "Integer", description: "Loyalty point change (can be negative)", example: "-4" },
+        { name: "credit", type: "Integer", description: "Credit change", example: "0" },
+        { name: "creditBalance", type: "Integer", description: "Credit balance after this record", example: "1" },
+        { name: "createdAt", type: "DateTime", description: "Creation date time", example: "\"2020-03-03T05:14:16Z\"" },
+        { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-03-03T05:14:16Z\"" }
+      ]},
+    { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" },
+    { name: "meta", type: "Object", description: "Pagination metadata",
+      children: [
+        { name: "count", type: "Integer", description: "Total number of records returned", example: "4" }
+      ]}
+  ]}
+/>
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->
