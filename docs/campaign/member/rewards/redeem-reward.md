@@ -61,6 +61,8 @@ POST `/v3/loyalty/me/reward/{reward-id}/redeem` with `countryCode` and `phoneNum
 
 ### Request Parameters
 
+No request body. The reward is identified by the `reward-id` path parameter, and the member by the `countryCode` and `phoneNumber` query parameters.
+
 ### Response Parameters
 
 <ParamTable

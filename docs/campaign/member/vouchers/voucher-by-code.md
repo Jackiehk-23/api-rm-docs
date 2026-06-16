@@ -95,6 +95,8 @@ GET `/v3/loyalty/me/voucher/{voucherCode}` with `countryCode` and `phoneNumber` 
 
 ### Request Parameters
 
+No request body. The voucher is identified by the `voucherCode` path parameter.
+
 ### Response Parameters
 
 <ParamTable

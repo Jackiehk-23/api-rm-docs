@@ -90,6 +90,8 @@ Example: `https://open.revenuemonster.my/v3/loyalty/me/rewards?countryCode=60&ph
 
 ### Request Parameters
 
+No request body. The member is identified by the `countryCode` and `phoneNumber` query parameters.
+
 ### Response Parameters
 
 <ParamTable

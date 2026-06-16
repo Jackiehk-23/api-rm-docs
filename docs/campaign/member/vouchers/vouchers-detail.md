@@ -130,6 +130,8 @@ Example: `https://open.revenuemonster.my/v3/loyalty/me/vouchers?countryCode=60&p
 
 ### Request Parameters
 
+No request body. Authenticated headers only.
+
 ### Response Parameters
 
 <ParamTable

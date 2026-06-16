@@ -140,6 +140,8 @@ GET `/v3/loyalty/balances` with signed authentication headers.
 
 ### Request Parameters
 
+No request body. Authenticated headers only.
+
 ### Response Parameters
 
 <ParamTable
