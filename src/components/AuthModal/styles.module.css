@@ -57,13 +57,6 @@
   margin-bottom: 6px;
 }
 
-.dividerLabel {
-  font-size: 12px;
-  color: var(--ifm-color-content-secondary);
-  text-align: center;
-  margin: 0 0 1rem;
-}
-
 .envBtn {
   font-size: 12px;
   padding: 4px 12px;
@@ -72,22 +65,6 @@
   background: transparent;
   color: var(--ifm-color-content-secondary);
   cursor: pointer;
-}
-
-.envActive {
-  background: var(--ifm-color-primary-lightest, #e8f4fd);
-  color: var(--ifm-color-primary);
-  border-color: var(--ifm-color-primary);
-}
-
-.hint {
-  font-size: 13px;
-  color: var(--ifm-color-primary);
-  background: var(--ifm-color-primary-lightest, #e8f4fd);
-  border: 1px solid var(--ifm-color-primary-light);
-  border-radius: 6px;
-  padding: 8px 12px;
-  margin-bottom: 1rem;
 }
 
 .errorBanner {
@@ -177,40 +154,6 @@
   color: var(--ifm-color-content-secondary);
   text-align: center;
   margin: 0;
-}
-
-.successBlock {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem 0;
-  text-align: center;
-}
-
-.successIcon {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--ifm-color-success-lightest, #edfaf1);
-  color: var(--ifm-color-success);
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-}
-
-.successTitle {
-  font-size: 15px;
-  font-weight: 600;
-  margin: 0 0 6px;
-  color: var(--ifm-color-content);
-}
-
-.successDesc {
-  font-size: 13px;
-  color: var(--ifm-color-content-secondary);
-  margin: 0 0 1.25rem;
 }
 
 .doneBtn {
@@ -369,23 +312,6 @@
   color: var(--ifm-color-primary);
   font-weight: 700;
   flex-shrink: 0;
-}
-
-.storeHint {
-  padding: 14px 12px;
-  font-size: 12px;
-  color: var(--ifm-color-emphasis-600);
-  border: 1px dashed var(--ifm-color-emphasis-300);
-  border-radius: 10px;
-  text-align: center;
-}
-
-.storeErrorDetail {
-  margin-top: 6px;
-  font-family: var(--ifm-font-family-monospace);
-  font-size: 10.5px;
-  opacity: 0.7;
-  word-break: break-word;
 }
 
 /* ===== Swoosh wizard (creds → stores) ===== */

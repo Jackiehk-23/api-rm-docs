@@ -21,30 +21,6 @@
   font-size: 13px;
 }
 
-.post {
-  background: #facc15;
-  color: rgb(255, 255, 255);
-}
-
-.get {
-  background: #22c55e;
-}
-
-.put {
-  background: #3b82f6;
-  color: white;
-}
-
-.patch {
-  background: #808080;
-  color: white;
-}
-
-.delete {
-  background: #ef4444;
-  color: white;
-}
-
 .url {
   font-size: 13px;
   color: var(--ifm-font-color-base);
@@ -69,58 +45,12 @@
   text-decoration: none;
 }
 
-
-/* ================= ENV ================= */
-
-.envToggle {
-  margin-left: auto;
-  display: flex;
-  gap: 6px;
-}
-
-.envBtn {
-  padding: 4px 12px;
-  font-size: 12px;
-  border-radius: 999px;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  background: var(--ifm-background-color);
-  color: var(--ifm-font-color-base);
-  cursor: pointer;
-}
-
-.envActiveSandbox {
-  background: #facc15;
-  color: #111827;
-  border-color: #facc15;
-  font-weight: 700;
-}
-
-.envActiveProd {
-  background: #ef4444;
-  color: white;
-  border-color: #ef4444;
-  font-weight: 700;
-}
-
-/* ================= TABS ================= */
-
-.tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
 .tab {
   padding: 6px 14px;
   border-radius: 999px;
   border: 1px solid var(--ifm-color-emphasis-300);
   background: transparent;
   cursor: pointer;
-}
-
-.tabActive {
-  background: var(--ifm-color-primary);
-  color: white;
 }
 
 .select {
@@ -157,7 +87,6 @@
 .textarea {
   min-height: 120px;
 }
-
 
 /* ================= SEND BUTTON ================= */
 /* Visual style + animation come from the global .rm-gradient-btn class
@@ -341,7 +270,6 @@
   padding-bottom: 0;
 }
 
-
 .playgroundBody {
   animation: fadeIn 0.2s ease-in-out;
 }
@@ -372,44 +300,6 @@
 .jsonNumValue { color: #d73a49; }
 [data-theme="dark"] .jsonNumValue { color: #fc8181; }
 
-.iconBtn {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  color: var(--ifm-font-color-base);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.iconBtn:hover {
-  opacity: 0.7;
-  transform: scale(1.1);
-}
-
-.editorWrapper {
-  position: relative;
-}
-
-.copyIcon {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  color: var(--ifm-font-color-base);
-  transition: all 0.2s ease;
-  z-index: 2;
-}
-
-.copyIcon:hover {
-  opacity: 0.7;
-  transform: scale(1.1);
-}
-
 .copied {
   color: #22c55e;
 }
@@ -436,25 +326,6 @@
 .urlParam:focus {
   outline: 2px solid var(--ifm-color-primary);
   outline-offset: 1px;
-}
-
-/* ================= ENV SWITCH ================= */
-
-.envSwitch {
-  margin-bottom: 10px;
-}
-
-.envSwitch button {
-  margin-right: 8px;
-  padding: 4px 10px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-}
-
-.activeEnv {
-  background: var(--ifm-color-primary);
-  color: white;
 }
 
 /* ================= AUTH STATUS BANNERS ================= */
@@ -509,12 +380,6 @@
 .bannerWarning .bannerDot {
   background: #fbbf24;
   box-shadow: 0 0 6px #fbbf2488;
-}
-
-.bannerPrimary {
-  background: rgba(102, 102, 235, 0.08);
-  border-color: rgba(102, 102, 235, 0.35);
-  color: var(--ifm-color-primary);
 }
 
 .bannerPrimary .bannerDot {
