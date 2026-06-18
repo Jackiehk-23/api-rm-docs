@@ -511,6 +511,14 @@ html[data-theme="light"] .menu__list .menu__list {
   margin: 0 !important;
 }
 
+/* Mobile: drop the Infima `.container` horizontal padding
+   (padding: 0 var(--ifm-spacing-horizontal)) so doc content goes edge-to-edge. */
+@media (max-width: 996px) {
+  [class*="docMainContainer"] .container {
+    padding: 0 !important;
+  }
+}
+
 .api-page-layout .container {
   max-width: 100% !important;
   margin: 0 !important;
@@ -646,6 +654,12 @@ html[data-theme='light'] .docs-wrapper,
 /* ================================
    COLLAPSIBLE SECTION HEADINGS
 ================================ */
+
+/* Hide the `---` thematic-break dividers between/at the end of doc sections
+   (e.g. after Request Parameters and How to Use). */
+.theme-doc-markdown hr {
+  display: none;
+}
 
 details.section-details {
   overflow: visible;
