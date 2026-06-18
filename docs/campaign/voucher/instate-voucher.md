@@ -28,8 +28,8 @@ examples:
     --header "X-Nonce-Str: VYNknZohxwicZMaWbNdBKUrnrxDtaRhN" \
     --header "X-Timestamp: 1717039047" \
     --data-raw "{
-    \"pin\": \"321123\"
-     \"reason\": \"wrong void\",
+    \"pin\": \"321123\",
+    \"reason\": \"wrong void\"
     }"
   body: |
     There is no example body request.

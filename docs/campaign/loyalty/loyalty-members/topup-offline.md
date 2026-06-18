@@ -159,7 +159,7 @@ POST `/v3/loyalty/member/{memberId}/topup-offline` with the scanned `authCode` a
         { name: "country", type: "String", description: "Country of store", example: "\"Malaysia\"" },
         { name: "countryCode", type: "String", description: "Country code of store contact number", example: "\"60\"" },
         { name: "phoneNumber", type: "String", description: "Phone number of store", example: "\"377334080\"" },
-        { name: "geoLocation", type: "Object", description: "Geo Location (latitude and longtitude) of store", example: "{\"latitude\": 3.1349857, \"longtitude\": 101.6136659 }" },
+        { name: "geoLocation", type: "Object", description: "Geo Location (latitude and longitude) of store", example: "{\"latitude\": 3.1349857, \"longitude\": 101.6136659 }" },
         { name: "status", type: "String", description: "Current status of store", example: "\"ACTIVE\"" },
         { name: "createdAt", type: "DateTime", description: "Creation date time of store", example: "\"2018-02-12T08:53:13Z\"" },
         { name: "updatedAt", type: "DateTime", description: "Last update date time of store", example: "\"2018-02-12T08:53:13Z\"" }
