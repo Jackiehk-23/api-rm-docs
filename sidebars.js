@@ -85,8 +85,7 @@ module.exports = {
       {
         type: "category",
         label: "Quick Pay",
-        collapsible: true,
-        collapsed: true,
+        collapsible: false,
         items: [
           "v2/payment/quick-pay/overview",
           { type: "doc", id: "v2/payment/quick-pay/standard", className: "api-post" },
@@ -106,8 +105,7 @@ module.exports = {
       {
         type: "category",
         label: "Online Payment",
-        collapsible: true,
-        collapsed: true,
+        collapsible: false,
         items: [
           "v2/payment/online-payment/overview",
           { type: "doc", id: "v2/payment/online-payment/hosted-checkout", className: "api-post" },
@@ -141,8 +139,7 @@ module.exports = {
       {
         type: "category",
         label: "Terminal",
-        collapsible: true,
-        collapsed: true,
+        collapsible: false,
         items: [
           "v2/payment/terminal/overview",
           { type: "doc", id: "v2/payment/terminal/quick-pay", className: "api-post" },
@@ -155,8 +152,7 @@ module.exports = {
       {
         type: "category",
         label: "DeepLink",
-        collapsible: true,
-        collapsed: true,
+        collapsible: false,
         items: [
           "v2/payment/deeplink/overview",
           "v2/payment/deeplink/setup",
@@ -170,8 +166,7 @@ module.exports = {
       {
         type: "category",
         label: "Tokenization",
-        collapsible: true,
-        collapsed: true,
+        collapsible: false,
         items: [
           "v2/payment/tokenization/overview",
           {
@@ -209,8 +204,7 @@ module.exports = {
       {
         type: "category",
         label: "Query",
-        collapsible: true,
-        collapsed: true,
+        collapsible: false,
         items: [
           "v2/payment/query/overview",
           { type: "doc", id: "v2/payment/query/by-order-id", className: "api-get" },
@@ -222,8 +216,7 @@ module.exports = {
       {
         type: "category",
         label: "Cancel Transaction",
-        collapsible: true,
-        collapsed: true,
+        collapsible: false,
         items: [
           "v2/payment/cancel-transaction/overview",
           { type: "doc", id: "v2/payment/cancel-transaction/reverse-transaction", className: "api-post" },

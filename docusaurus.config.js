@@ -124,7 +124,7 @@ module.exports = {
 
     docs: {
       sidebar: {
-        hideable: true,
+        hideable: false,
       },
     },
 
@@ -140,6 +140,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
+          sidebarCollapsible: false,
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           remarkPlugins: [
