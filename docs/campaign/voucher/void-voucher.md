@@ -66,8 +66,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Void a customer's voucher by `code`. Sets the voucher status to `VOID` so it can no longer be used.
 
 ## When to Use

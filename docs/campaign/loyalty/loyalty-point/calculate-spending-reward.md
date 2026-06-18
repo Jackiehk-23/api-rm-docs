@@ -42,7 +42,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Calculate the number of spending-reward points a given sale amount would yield, based on the merchant's loyalty rules.
 

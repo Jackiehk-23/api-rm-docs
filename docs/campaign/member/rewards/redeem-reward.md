@@ -34,7 +34,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Redeem a reward on behalf of a loyalty member. Deducts the required points and marks the reward as redeemed.
 

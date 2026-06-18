@@ -101,7 +101,6 @@ examples:
     }
 
 ---
-## What is this?
 
 List a loyalty member's vouchers. Supports limit and cursor-based pagination.
 

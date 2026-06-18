@@ -113,7 +113,6 @@ examples:
       }
     }
 ---
-## What is this?
 
 Retrieve the list of loyalty balance (credit) transactions across all members.
 

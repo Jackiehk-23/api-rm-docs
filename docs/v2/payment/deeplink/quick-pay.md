@@ -3,8 +3,6 @@ title: "DeepLink — Quick Pay"
 sidebar_label: "Quick Pay"
 ---
 
-## What is this?
-
 Sends a Quick Pay intent (`transactionType: 1`) to the RM Merchant App to accept e-wallet QR payments via DeepLink.
 
 ## When to Use

@@ -63,7 +63,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Creates a recurring payment customer. The customer binds their card on the RM-hosted page, after which RM automatically charges them on your defined schedule (weekly or monthly).
 

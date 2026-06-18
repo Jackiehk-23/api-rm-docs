@@ -37,7 +37,6 @@ examples:
     }
 
 ---
-## What is this?
 
 Sends a card settlement event to the RM Terminal. The terminal settles all pending card transactions in its batch.
 

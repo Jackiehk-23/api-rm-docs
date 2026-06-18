@@ -49,8 +49,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Retrieves a paginated list of invoices. Supports filtering by store, status, and date range.
 
 ## When to Use

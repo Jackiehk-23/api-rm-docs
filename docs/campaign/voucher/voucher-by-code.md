@@ -59,8 +59,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Retrieve a single voucher's details by its `code`.
 
 ## When to Use

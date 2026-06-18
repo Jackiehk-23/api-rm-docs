@@ -36,10 +36,7 @@ examples:
     }
 ---
 
-
 import Admonition from '@theme/Admonition';
-
-## What is this?
 
 Exchange a refresh token for a new access token, without re-sending your `clientId` and `clientSecret`. A refresh token is returned alongside the access token when you first authenticate via [Client Credentials](./client-credentials) or [Authorization Code](./authorization-code). Store both tokens securely.
 

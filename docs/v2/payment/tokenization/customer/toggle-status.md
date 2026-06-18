@@ -28,8 +28,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Activates or deactivates a customer's token. Toggling to inactive stops all future recurring charges and prevents new tokenized charges.
 
 ## When to Use

@@ -32,7 +32,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Deduct loyalty points from a customer's balance, identified by phone number or member ID.
 

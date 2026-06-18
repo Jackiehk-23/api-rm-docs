@@ -57,8 +57,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Quick Pay with a Revenue Monster voucher applied. The voucher's discount is deducted from the order total before processing the e-wallet payment.
 
 ## When to Use

@@ -3,8 +3,6 @@ title: "DeepLink — Void Transaction"
 sidebar_label: "Void Transaction"
 ---
 
-## What is this?
-
 Sends a Void Transaction intent (`transactionType: 3`) to the RM Merchant App to void a card transaction via DeepLink.
 
 ## When to Use

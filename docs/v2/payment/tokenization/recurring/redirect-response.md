@@ -5,9 +5,6 @@ sidebar_label: "Redirect Response"
 
 import Admonition from '@theme/Admonition';
 
-
-## What is this?
-
 After the recurring customer completes card binding on the RM-hosted page, RM redirects them back to your `redirectUrl` with the parameters below.
 
 ## When to Use

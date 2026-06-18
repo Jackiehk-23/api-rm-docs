@@ -6,9 +6,6 @@ sidebar_label: POS Terminal Integration
 
 import Admonition from '@theme/Admonition';
 
-
-## What is this?
-
 Integrate RM Terminal with a POS system or Kiosk machine using local callback. Drives the terminal to initiate an e-wallet or card payment from your POS app.
 
 ## When to Use

@@ -41,7 +41,6 @@ examples:
     }
 
 ---
-## What is this?
 
 Get an online top-up URL for a loyalty member. Redirect the member to this URL to top up their loyalty credit via the standard payment gateway.
 

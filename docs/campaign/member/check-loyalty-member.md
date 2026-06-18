@@ -43,7 +43,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Check whether a phone number is already registered as a loyalty member.
 

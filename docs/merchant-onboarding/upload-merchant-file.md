@@ -52,8 +52,6 @@ File upload is **not supported in the API Playground**.
 Please use the cURL example or a server-side integration to test this endpoint.
 </Admonition>
 
-## What is this?
-
 Upload a supporting document (such as a business registration document, IC copy, or bank statement) for a merchant under your Partner account.
 
 ## When to Use

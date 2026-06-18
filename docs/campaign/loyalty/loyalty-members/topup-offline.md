@@ -96,7 +96,6 @@ examples:
     }
 
 ---
-## What is this?
 
 Top up a loyalty member's credit balance offline using a Quick Pay scan.
 

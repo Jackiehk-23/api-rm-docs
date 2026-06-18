@@ -38,7 +38,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Fetch the profile of the currently authenticated user. Returns identity details such as name, contact info, status, and associated store IDs.
 

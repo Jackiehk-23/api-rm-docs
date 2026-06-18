@@ -39,8 +39,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Returns a QR code image for the selected payment method. Display this QR code on screen for the customer to scan with their mobile banking or wallet app.
 
 ## When to Use

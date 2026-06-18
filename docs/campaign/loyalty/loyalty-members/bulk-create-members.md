@@ -135,7 +135,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Bulk-create multiple loyalty members in a single request.
 

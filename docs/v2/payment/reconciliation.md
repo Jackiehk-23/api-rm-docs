@@ -33,7 +33,6 @@ examples:
   response: |
     There is no example response provided.
 ---
-## What is this?
 
 Retrieve a list of settled transactions for a specific date, filtered by payment method and region. Use this for end-of-day reconciliation, financial reporting, or matching transactions against your own records.
 

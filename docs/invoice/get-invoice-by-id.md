@@ -46,8 +46,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Retrieves a single invoice by its `id`.
 
 ## When to Use

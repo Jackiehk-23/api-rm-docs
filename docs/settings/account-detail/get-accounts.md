@@ -119,7 +119,6 @@ examples:
       "meta": {}
     }
 ---
-## What is this?
 
 Retrieve a list of all accounts associated with the authenticated merchant.
 

@@ -47,7 +47,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Retrieve the merchant's active product subscriptions — Payment, Loyalty & Voucher, Market Place, or Social Media.
 

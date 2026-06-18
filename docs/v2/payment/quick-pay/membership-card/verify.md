@@ -36,8 +36,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Verify an Alipay Gourmet Card before applying its discount in a payment. Returns whether the card is valid for use at the given store.
 
 ## When to Use

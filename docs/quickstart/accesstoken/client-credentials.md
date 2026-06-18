@@ -34,9 +34,6 @@ examples:
     }
 ---
 
-
-## What is this?
-
 Get an access token using the `client_credentials` grant type. This flow requires a **Client ID** and **Client Secret**, which you can obtain from the RM Merchant Portal.
 
 ## When to Use

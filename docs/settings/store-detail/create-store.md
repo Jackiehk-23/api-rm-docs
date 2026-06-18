@@ -75,7 +75,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Register a new store under a merchant account. The new store becomes available for transactions tied to that merchant.
 

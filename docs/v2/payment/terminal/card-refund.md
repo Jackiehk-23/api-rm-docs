@@ -51,8 +51,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Sends a card refund event to the RM Terminal. The terminal processes the refund for the specified transaction.
 
 ## When to Use

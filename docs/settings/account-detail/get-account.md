@@ -116,7 +116,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Retrieve detailed information for a single account by its `id`, including company, bank, documents, and verification status.
 

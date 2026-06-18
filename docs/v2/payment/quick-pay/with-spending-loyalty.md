@@ -61,8 +61,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Quick Pay that links the transaction to a loyalty member, so the customer earns spending loyalty points alongside their payment.
 
 ## When to Use

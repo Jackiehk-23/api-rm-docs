@@ -43,8 +43,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Retrieve detailed information about a specific merchant under your Partner account, including merchant details, settlement information, and document status.
 
 ## When to Use

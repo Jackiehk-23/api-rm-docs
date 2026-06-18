@@ -64,10 +64,7 @@ examples:
     }
 ---
 
-
 import Admonition from '@theme/Admonition';
-
-## What is this?
 
 Create a new merchant account under your Partner account. This endpoint submits merchant information for review. Once approved, the merchant can access RM services.
 

@@ -73,8 +73,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Reinstate a previously voided voucher — restores the voucher to a usable state.
 
 ## When to Use

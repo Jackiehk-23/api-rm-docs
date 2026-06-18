@@ -61,7 +61,6 @@ examples:
       "meta": {}
     }
 ---
-## What is this?
 
 List a loyalty member's available rewards. Supports limit and cursor-based pagination.
 

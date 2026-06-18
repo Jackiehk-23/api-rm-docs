@@ -75,7 +75,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Update details of an existing store under a merchant account.
 

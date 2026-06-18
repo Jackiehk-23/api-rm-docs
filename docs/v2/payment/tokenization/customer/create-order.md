@@ -45,8 +45,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Charges a customer's bound card immediately. Use this for tokenized payment customers where you manage your own charging schedule.
 
 ## When to Use

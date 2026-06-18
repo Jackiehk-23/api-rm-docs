@@ -24,8 +24,6 @@ examples:
 
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Query the status of a previously created payment checkout session using its `checkoutId`. Returns checkout-level status, amount, and the linked `transactionId`.
 
 ## When to Use

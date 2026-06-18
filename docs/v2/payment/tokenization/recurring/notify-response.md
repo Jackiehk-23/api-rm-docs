@@ -5,9 +5,6 @@ sidebar_label: "Notify Response"
 
 import Admonition from '@theme/Admonition';
 
-
-## What is this?
-
 Your `notifyUrl` receives this callback each time a recurring payment is successfully charged. Use it to record charges in your own ledger.
 
 ## When to Use

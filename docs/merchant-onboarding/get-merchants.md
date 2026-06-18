@@ -39,8 +39,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Retrieve a list of all merchants under your Partner account. This endpoint returns merchant details including registration status, company information, and subscription settings.
 
 ## When to Use

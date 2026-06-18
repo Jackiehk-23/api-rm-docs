@@ -49,7 +49,6 @@ examples:
     }
 
 ---
-## What is this?
 
 Sends a card payment event to the RM Terminal. The terminal prompts the customer to tap, insert, or swipe their card.
 

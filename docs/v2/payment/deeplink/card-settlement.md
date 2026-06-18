@@ -3,8 +3,6 @@ title: "DeepLink — Card Settlement"
 sidebar_label: "Card Settlement"
 ---
 
-## What is this?
-
 Sends a Card Settlement intent (`transactionType: 5`) to the RM Merchant App to settle card transactions via DeepLink.
 
 ## When to Use

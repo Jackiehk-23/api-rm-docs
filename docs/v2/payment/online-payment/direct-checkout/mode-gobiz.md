@@ -37,7 +37,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Returns a payment redirect URL for card (Mastercard / Visa) or GoBiz payment methods.
 

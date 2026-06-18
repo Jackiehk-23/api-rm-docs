@@ -75,8 +75,6 @@ import Admonition from '@theme/Admonition';
 This endpoint is for merchants with a Partner account. To activate a Partner account, [contact us](https://revenuemonster.my/about-us).
 </Admonition>
 
-## What is this?
-
 Update an existing application client for a merchant under your Partner account. Use this to modify application details such as the name, URLs, redirect URIs, public key, or active status.
 
 ## When to Use

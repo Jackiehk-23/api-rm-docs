@@ -25,8 +25,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Retrieve a transaction by the Order ID you provided when initiating the payment.
 
 <Admonition type="tip">

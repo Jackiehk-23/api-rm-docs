@@ -23,7 +23,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Fetch a paginated list of all transactions for your store.
 

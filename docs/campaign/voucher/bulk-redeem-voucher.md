@@ -136,8 +136,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Redeem multiple vouchers in a single bulk call. Marks each provided voucher code as redeemed.
 
 ## When to Use

@@ -39,7 +39,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Returns an FPX (online banking) redirect URL. Customer chooses their bank from the FPX bank list and is redirected to complete payment.
 

@@ -45,7 +45,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Fetch the full record for a single store by its `storeId`.
 

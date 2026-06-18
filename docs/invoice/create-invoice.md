@@ -77,8 +77,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Creates a new invoice. The response includes a shareable `invoiceUrl` that can be sent to the payer to complete payment.
 
 ## When to Use

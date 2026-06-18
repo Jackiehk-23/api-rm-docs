@@ -38,10 +38,7 @@ examples:
     }
 ---
 
-
 import Admonition from '@theme/Admonition';
-
-## What is this?
 
 Get an access token using the `authorization_code` grant type. Unlike client credentials, this flow involves redirecting the merchant to an RM consent screen where they approve the requested permissions.
 

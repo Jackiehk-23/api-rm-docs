@@ -5,9 +5,6 @@ sidebar_label: "Transaction Object"
 
 import Admonition from '@theme/Admonition';
 
-
-## What is this?
-
 Reference for the **transaction object** returned in `item` (or each entry in `items[]`) by all transaction query and payment endpoints. Use this page as the canonical field map when parsing responses.
 
 ## When to Use

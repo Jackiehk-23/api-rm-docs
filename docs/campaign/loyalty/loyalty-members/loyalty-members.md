@@ -101,7 +101,6 @@ examples:
       }
     }
 ---
-## What is this?
 
 List all loyalty members under the merchant.
 

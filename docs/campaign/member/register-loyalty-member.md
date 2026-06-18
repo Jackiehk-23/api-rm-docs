@@ -96,7 +96,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Register a new loyalty member under the merchant. Returns the new member's profile record.
 

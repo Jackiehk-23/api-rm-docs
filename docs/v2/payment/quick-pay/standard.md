@@ -55,8 +55,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Quick Pay lets merchants accept payments by scanning a QR code presented by the customer. The customer scans the merchant's QR code using their preferred payment app, and the payment is processed instantly.
 
 ## When to Use

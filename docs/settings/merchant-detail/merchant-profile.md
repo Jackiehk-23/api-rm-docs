@@ -58,7 +58,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Retrieve the authenticated merchant's full profile — company details, address, status, and partner flags.
 

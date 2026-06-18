@@ -26,8 +26,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Permanently delete a store under a merchant account.
 
 <Admonition type="danger">

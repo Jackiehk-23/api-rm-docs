@@ -28,8 +28,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Reverse a transaction — used to void a payment before settlement. If a transaction times out, perform a reverse before creating a new transaction to prevent a double charge.
 
 <Admonition type="danger">

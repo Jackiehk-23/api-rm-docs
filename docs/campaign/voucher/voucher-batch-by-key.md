@@ -85,8 +85,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Retrieve all vouchers belonging to a specific voucher batch by its `batchkey`.
 
 ## When to Use

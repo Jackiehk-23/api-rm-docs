@@ -68,7 +68,6 @@ examples:
       }
     }
 ---
-## What is this?
 
 Retrieve voucher details for a specific member by `voucherCode`.
 

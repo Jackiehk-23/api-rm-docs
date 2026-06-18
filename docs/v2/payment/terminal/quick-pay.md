@@ -53,8 +53,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Sends an e-wallet Quick Pay event to the RM Terminal. The terminal opens its camera to scan the customer's QR code and complete the payment.
 
 ## When to Use

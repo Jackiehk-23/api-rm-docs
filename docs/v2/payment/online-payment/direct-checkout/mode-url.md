@@ -39,8 +39,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Returns a redirect URL for the selected payment method. Redirect the customer to this URL to complete payment.
 
 ## When to Use

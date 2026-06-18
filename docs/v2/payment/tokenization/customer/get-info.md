@@ -28,8 +28,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Returns the customer record for a recurring or tokenized customer — including their masked card label, active status, and recurring schedule.
 
 ## When to Use

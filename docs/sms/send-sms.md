@@ -44,8 +44,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Send an SMS verification code (TAC) to a user's mobile phone. Useful for two-factor authentication, account verification, and transaction confirmation flows.
 
 ## When to Use

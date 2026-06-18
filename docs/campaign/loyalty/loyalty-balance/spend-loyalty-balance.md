@@ -90,7 +90,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Spend a member's loyalty credit balance at checkout. The customer's loyalty QR code is scanned to capture the `authCode`.
 

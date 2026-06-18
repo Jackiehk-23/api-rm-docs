@@ -57,7 +57,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Quick Pay that applies an Alipay Gourmet Card (Membership Card) discount before settling the e-wallet payment.
 

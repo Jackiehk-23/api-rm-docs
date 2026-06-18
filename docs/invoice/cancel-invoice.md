@@ -45,8 +45,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Cancels a pending invoice. Only invoices with `PENDING` status can be cancelled.
 
 ## When to Use

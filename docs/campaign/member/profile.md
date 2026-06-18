@@ -65,7 +65,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Retrieve a loyalty member's full profile — name, contact, tier, loyalty point balance, and credit balance — by their phone number.
 

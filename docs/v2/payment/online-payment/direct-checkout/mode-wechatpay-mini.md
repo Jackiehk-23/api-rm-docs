@@ -41,8 +41,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Returns base64-encoded data to pass to the WeChat Pay Mini Program payment API for in-app payment within the WeChat app.
 
 ## When to Use

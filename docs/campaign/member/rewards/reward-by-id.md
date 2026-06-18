@@ -60,7 +60,6 @@ examples:
       }
     }
 ---
-## What is this?
 
 Retrieve full details of a single reward by `reward-id` for a specific loyalty member.
 

@@ -235,8 +235,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Submit a filled-in account for RM verification review. Once submitted, the account status moves from `UNVERIFIED` to `REVIEWING`.
 
 ## When to Use

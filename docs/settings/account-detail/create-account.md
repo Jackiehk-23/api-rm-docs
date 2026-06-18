@@ -96,7 +96,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Create a new empty account under a merchant. The account is created in `UNVERIFIED` status and must later be filled in and submitted for review.
 

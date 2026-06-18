@@ -37,7 +37,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-## What is this?
 
 Cancel a previously issued spending-loyalty-point reward by its `id`.
 

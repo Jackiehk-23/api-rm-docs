@@ -67,8 +67,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Verify and retrieve full details of an Alipay Gourmet Card (美食卡) using its `memberCardId`. Returns the card's discount details, expiry, and metadata.
 
 ## When to Use

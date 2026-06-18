@@ -28,8 +28,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Returns the list of payment orders made for a recurring or tokenized customer.
 
 ## When to Use

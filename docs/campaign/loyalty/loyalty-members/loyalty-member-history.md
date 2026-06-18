@@ -77,8 +77,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Retrieve a loyalty member's point history — earnings, redemptions, and adjustments.
 
 ## When to Use

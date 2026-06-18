@@ -90,8 +90,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Retrieve all stores belonging to the authenticated merchant.
 
 ## When to Use

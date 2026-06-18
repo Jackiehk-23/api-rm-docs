@@ -5,9 +5,6 @@ sidebar_label: "Setup"
 
 import Admonition from '@theme/Admonition';
 
-
-## What is this?
-
 DeepLink Integration lets businesses manage orders through a single mobile application and process transactions using various payment methods via the Revenue Monster Merchant App on Android terminals.
 
 <Admonition type="note">

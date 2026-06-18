@@ -75,8 +75,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Updates an existing invoice. Only invoices with `PENDING` status can be edited.
 
 ## When to Use

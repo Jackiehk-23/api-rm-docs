@@ -59,8 +59,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Creates a unified payment checkout page for both web and mobile. The customer is redirected to the RM-hosted checkout page to complete payment.
 
 ## When to Use

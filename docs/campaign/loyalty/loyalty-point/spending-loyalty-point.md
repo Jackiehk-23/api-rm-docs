@@ -32,8 +32,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Award spending-loyalty points to a member based on a sales `amount`. Uses the merchant's loyalty point rules to compute the reward.
 
 ## When to Use

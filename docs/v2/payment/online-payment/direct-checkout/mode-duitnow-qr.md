@@ -39,8 +39,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Returns a DuitNow QR code that supports all DuitNow-compatible payment apps in Malaysia.
 
 ## When to Use

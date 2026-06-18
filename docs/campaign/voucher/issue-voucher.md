@@ -30,8 +30,6 @@ examples:
 ---
 import Admonition from '@theme/Admonition';
 
-## What is this?
-
 Issue one or more vouchers from a voucher batch to customer(s). Each issued voucher gets a unique `code`.
 
 ## When to Use
