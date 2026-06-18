@@ -35,15 +35,6 @@ examples:
     }
 
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/payment/terminal/quickpay"
-  prod="/v3/payment/terminal/quickpay"
-/>
-
 ## What is this?
 
 Cancels any ongoing event on the RM Terminal (e.g., an active Quick Pay or Card Payment that has not yet completed).

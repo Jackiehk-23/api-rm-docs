@@ -134,16 +134,7 @@ examples:
     }
 
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/vouchers/redeem"
-  prod="/v3/vouchers/redeem"
-/>
 
 ## What is this?
 
@@ -218,6 +209,5 @@ POST to `/v3/vouchers/redeem` with an array of voucher codes.
 />
 
 <a id="item" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

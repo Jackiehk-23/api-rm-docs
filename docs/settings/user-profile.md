@@ -38,15 +38,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/user"
-  prod="/v3/user"
-/>
-
 ## What is this?
 
 Fetch the profile of the currently authenticated user. Returns identity details such as name, contact info, status, and associated store IDs.

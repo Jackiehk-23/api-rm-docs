@@ -101,15 +101,6 @@ examples:
       }
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/loyalty/members"
-  prod="/v3/loyalty/members"
-/>
-
 ## What is this?
 
 List all loyalty members under the merchant.

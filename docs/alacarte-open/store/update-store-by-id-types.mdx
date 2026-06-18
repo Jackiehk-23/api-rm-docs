@@ -83,19 +83,6 @@ examples:
       }
     }
 ---
-
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/service"
-  prod="/v3/service"
-/>
-
-
-
-
 ## What is this?
 
 Update which order types a store supports — `DINEIN`, `DELIVERY`, `PICKUP`, `DRIVE_THRU`.
@@ -129,7 +116,6 @@ POST `function: "updates.store.types"` with `storeId` and the new `supportedType
   ]}
 />
 
-
 ### Response Parameters
 
 <ParamTable
@@ -153,7 +139,5 @@ POST `function: "updates.store.types"` with `storeId` and the new `supportedType
     { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-09-22T04:44:57.950398414Z\"" }
   ]}
 />
-
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

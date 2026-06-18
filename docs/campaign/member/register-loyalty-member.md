@@ -96,15 +96,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/loyalty/member"
-  prod="/v3/loyalty/member"
-/>
-
 ## What is this?
 
 Register a new loyalty member under the merchant. Returns the new member's profile record.
@@ -178,6 +169,5 @@ POST member details (name, country code, phone, email, NRIC, etc.) to create the
 <a id="item" />
 
 <a id="address" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -142,6 +142,9 @@ module.exports = {
           sidebarPath: require.resolve("./sidebars.js"),
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
+          remarkPlugins: [
+            require("./src/remark/injectApiEndpoint"),
+          ],
           rehypePlugins: [
             require("./src/rehype/collapsibleSections"),
             require("./src/rehype/stepHeadings"),

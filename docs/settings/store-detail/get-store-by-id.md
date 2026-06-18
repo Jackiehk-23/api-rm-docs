@@ -45,15 +45,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/store/{storeId}"
-  prod="/v3/store/{storeId}"
-/>
-
 ## What is this?
 
 Fetch the full record for a single store by its `storeId`.

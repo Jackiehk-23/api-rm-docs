@@ -171,19 +171,6 @@ examples:
       }
     }
 ---
-
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/service"
-  prod="/v3/service"
-/>
-
-
-
-
 ## What is this?
 
 Refund a paid à la carte order back to the customer. The order's payment status moves to `REFUNDED`.
@@ -216,9 +203,7 @@ POST `function: "refund.store.order"` with `storeId` and `orderId`.
   ]}
 />
 
-
 ### Response Parameters
-
 
 <ParamTable
   title="Details"
@@ -354,7 +339,5 @@ POST `function: "refund.store.order"` with `storeId` and `orderId`.
     { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-10-01T08:44:16.863Z\"" }
   ]}
 />
-
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

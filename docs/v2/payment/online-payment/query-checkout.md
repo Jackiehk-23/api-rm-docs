@@ -1,6 +1,14 @@
 ---
 title: "Query Payment Checkout"
 sidebar_label: "Query Payment Checkout"
+api:
+  method: GET
+  url:
+    sandbox: https://sb-open.revenuemonster.my/v3/payment/online?checkoutId={checkoutId}
+    prod: https://open.revenuemonster.my/v3/payment/online?checkoutId={checkoutId}
+  headers:
+    Authorization: Bearer {{access_token}}
+    X-Timestamp: {{timestamp}}
 
 examples:
   request: |
@@ -14,15 +22,7 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/payment/online?checkoutId={checkoutId}"
-  prod="/v3/payment/online?checkoutId={checkoutId}"
-/>
 
 ## What is this?
 

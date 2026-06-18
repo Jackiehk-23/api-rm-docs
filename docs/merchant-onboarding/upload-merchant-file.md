@@ -42,17 +42,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/partner/file/upload"
-  prod="/v3/partner/file/upload"
-/>
 
 <!-- user cannot send/upload multipart form data for security purposes (aiman) -->
 <Admonition type="note">

@@ -63,15 +63,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/recurring-payment"
-  prod="/v3/recurring-payment"
-/>
-
 ## What is this?
 
 Creates a recurring payment customer. The customer binds their card on the RM-hosted page, after which RM automatically charges them on your defined schedule (weekly or monthly).

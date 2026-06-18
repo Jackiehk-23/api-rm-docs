@@ -47,16 +47,7 @@ examples:
       ]
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/api/v3/invoices"
-  prod="/api/v3/invoices"
-/>
 
 ## What is this?
 

@@ -37,15 +37,6 @@ examples:
     }
 
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/payment/terminal/quickpay"
-  prod="/v3/payment/terminal/quickpay"
-/>
-
 ## What is this?
 
 Sends a card settlement event to the RM Terminal. The terminal settles all pending card transactions in its batch.

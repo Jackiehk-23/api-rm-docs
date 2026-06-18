@@ -43,16 +43,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/api/v3/invoice/{id}/cancel"
-  prod="/api/v3/invoice/{id}/cancel"
-/>
 
 ## What is this?
 

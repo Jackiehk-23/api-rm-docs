@@ -96,15 +96,6 @@ examples:
     }
 
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/loyalty/member/:memberId/topup-offline"
-  prod="/v3/loyalty/member/:memberId/topup-offline"
-/>
-
 ## What is this?
 
 Top up a loyalty member's credit balance offline using a Quick Pay scan.
@@ -191,6 +182,5 @@ POST `/v3/loyalty/member/{memberId}/topup-offline` with the scanned `authCode` a
 <a id="item" />
 
 <a id="store" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

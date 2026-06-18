@@ -101,15 +101,6 @@ examples:
     }
 
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/loyalty/me/vouchers"
-  prod="/v3/loyalty/me/vouchers"
-/>
-
 ## What is this?
 
 List a loyalty member's vouchers. Supports limit and cursor-based pagination.
@@ -206,6 +197,5 @@ No request body. Authenticated headers only.
 <a id="expiry" />
 
 <a id="address" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

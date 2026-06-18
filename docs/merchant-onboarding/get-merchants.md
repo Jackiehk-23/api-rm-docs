@@ -37,17 +37,7 @@ examples:
       "meta": {}
     }
 ---
-
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/partner/merchants"
-  prod="/v3/partner/merchants"
-/>
 
 ## What is this?
 

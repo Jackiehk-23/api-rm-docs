@@ -57,16 +57,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/voucher/{voucher_code}"
-  prod="/v3/voucher/{voucher_code}"
-/>
 
 ## What is this?
 
@@ -136,6 +127,5 @@ POST to `/v3/voucher/{code}` with no request body.
 />
 
 <a id="item" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -60,15 +60,6 @@ examples:
       }
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/loyalty/me/reward/{reward-id}?countryCode=60&phoneNumber=187824152"
-  prod="/v3/loyalty/me/reward/{reward-id}?countryCode=60&phoneNumber=187824152"
-/>
-
 ## What is this?
 
 Retrieve full details of a single reward by `reward-id` for a specific loyalty member.
@@ -132,6 +123,5 @@ No request body. The reward is identified by the `reward-id` path parameter, and
 <a id="payload" />
 
 <a id="contactinfo" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

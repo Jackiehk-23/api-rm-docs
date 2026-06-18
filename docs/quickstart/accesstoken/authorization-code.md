@@ -39,23 +39,11 @@ examples:
 ---
 
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
 
-<ApiEndpoint
-  method="POST"
-  sandbox="/v1/token"
-  prod="/v1/token"
-/>
+## What is this?
 
-<Admonition type="note">
-This page is for **plugin and integration developers** building applications that act on behalf of a merchant.
-</Admonition>
-
-## Get Access Token (Authorization Code)
-
-Use the `authorization_code` grant type when a **third-party developer** (such as a plugin or integration partner) needs to request access to a merchant's account on their behalf. Unlike client credentials, this flow involves redirecting the merchant to an RM consent screen where they approve the requested permissions.
+Get an access token using the `authorization_code` grant type. Unlike client credentials, this flow involves redirecting the merchant to an RM consent screen where they approve the requested permissions.
 
 **Flow overview:**
 1. Redirect the merchant to the RM authorization URL with your requested scopes.
@@ -63,7 +51,15 @@ Use the `authorization_code` grant type when a **third-party developer** (such a
 3. RM redirects back to your `redirectUri` with a temporary `code`.
 4. Exchange the `code` for an access token using this endpoint.
 
----
+## When to Use
+
+Use the `authorization_code` grant type when a **third-party developer** (such as a plugin or integration partner) needs to request access to a merchant's account on their behalf.
+
+<Admonition type="note">
+This page is for **plugin and integration developers** building applications that act on behalf of a merchant.
+</Admonition>
+
+## How to Use
 
 ### Step 1: Get Your Client ID
 

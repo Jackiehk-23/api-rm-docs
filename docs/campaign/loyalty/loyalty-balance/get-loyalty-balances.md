@@ -113,15 +113,6 @@ examples:
       }
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/loyalty/balances"
-  prod="/v3/loyalty/balances"
-/>
-
 ## What is this?
 
 Retrieve the list of loyalty balance (credit) transactions across all members.
@@ -196,6 +187,5 @@ No request body. Authenticated headers only.
     { name: "updatedAt", type: "DateTime", description: "Last update date time of merchant", example: "\"2022-01-27T04:02:46Z\"" }
   ]}
 />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

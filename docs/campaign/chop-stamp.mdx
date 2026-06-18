@@ -46,15 +46,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/loyalty/chop-stamp/card/scan"
-  prod="/v3/loyalty/chop-stamp/card/scan"
-/>
-
 ## What is this?
 
 Issue a chop stamp to a customer's loyalty card. Each scan adds one stamp toward their reward.
@@ -103,6 +94,5 @@ POST the scanned QR `code` to the endpoint. The response confirms the new stamp 
 />
 
 <a id="item" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

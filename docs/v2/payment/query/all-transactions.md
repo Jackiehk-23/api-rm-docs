@@ -23,15 +23,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/payment/transactions"
-  prod="/v3/payment/transactions"
-/>
-
 ## What is this?
 
 Fetch a paginated list of all transactions for your store.

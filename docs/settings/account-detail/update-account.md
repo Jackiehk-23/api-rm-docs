@@ -233,15 +233,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="PUT"
-  sandbox="/v3/accounts/{id}"
-  prod="/v3/accounts/{id}"
-/>
-
 ## What is this?
 
 Update the details of an existing account. Use this to modify company info, addresses, banking details, documents, and inspect list entries for a registered account.

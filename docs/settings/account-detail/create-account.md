@@ -96,15 +96,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/account"
-  prod="/v3/account"
-/>
-
 ## What is this?
 
 Create a new empty account under a merchant. The account is created in `UNVERIFIED` status and must later be filled in and submitted for review.

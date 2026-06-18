@@ -65,16 +65,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/membership/verify"
-  prod="/v3/membership/verify"
-/>
 
 ## What is this?
 
@@ -147,6 +138,5 @@ POST `memberCardId` and `storeId` to `/v3/membership/verify`. Use the returned d
 <a id="item" />
 
 <a id="card" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

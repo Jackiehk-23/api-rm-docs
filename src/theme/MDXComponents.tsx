@@ -5,6 +5,7 @@ import ParamTable from "../components/ParamTable";
 import CodeBlock from "../components/CodeBlock";
 import MarkdownTable from "../components/MarkdownTable";
 import HttpMethodBadge from "../components/HttpMethodBadge";
+import ApiEndpoint from "../components/api/ApiEndpoint";
 
 export default {
   ...MDXComponentsDefault,
@@ -14,4 +15,5 @@ export default {
   CodeBlock,
   table: MarkdownTable,
   HttpMethodBadge,
+  ApiEndpoint,
 };

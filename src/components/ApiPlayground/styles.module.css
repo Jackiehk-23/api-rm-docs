@@ -48,8 +48,8 @@
 .url {
   font-size: 13px;
   color: var(--ifm-font-color-base);
-  word-break: break-all;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
+  overflow-x: auto;
   min-width: 0;
   flex: 1;
 }
@@ -424,6 +424,7 @@
   border-radius: 6px;
   cursor: text;
   font-weight: 600;
+  white-space: nowrap;
   transition: all 0.2s ease;
 }
 

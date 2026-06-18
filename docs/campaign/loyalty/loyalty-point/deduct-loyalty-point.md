@@ -32,15 +32,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="DELETE"
-  sandbox="/v3/loyalty/reward"
-  prod="/v3/loyalty/reward"
-/>
-
 ## What is this?
 
 Deduct loyalty points from a customer's balance, identified by phone number or member ID.

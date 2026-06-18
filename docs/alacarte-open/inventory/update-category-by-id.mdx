@@ -64,19 +64,6 @@ examples:
       }
     }
 ---
-
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/service"
-  prod="/v3/service"
-/>
-
-
-
-
 ## What is this?
 
 Update a category's name, status, or position in the menu order.
@@ -113,7 +100,6 @@ POST `function: "update.category"` with `categoryId` and the changed fields. Use
   ]}
 />
 
-
 ### Response Parameters
 
 <ParamTable
@@ -133,6 +119,5 @@ POST `function: "update.category"` with `categoryId` and the changed fields. Use
     }
   ]}
 />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

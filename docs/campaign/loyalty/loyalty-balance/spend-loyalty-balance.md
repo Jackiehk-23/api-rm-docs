@@ -90,15 +90,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/loyalty/balances"
-  prod="/v3/loyalty/balances"
-/>
-
 ## What is this?
 
 Spend a member's loyalty credit balance at checkout. The customer's loyalty QR code is scanned to capture the `authCode`.
@@ -186,6 +177,5 @@ POST `authCode`, `storeId`, and `order` details. Returns the loyalty-credit tran
     { name: "updatedAt", type: "DateTime", description: "Last update date time of merchant", example: "\"2022-01-27T04:02:46Z\"" }
   ]}
 />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -105,15 +105,6 @@ examples:
       }
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/voucher-batches"
-  prod="/v3/voucher-batches"
-/>
-
 ## What is this?
 
 List all voucher batches created by the merchant.
@@ -167,6 +158,5 @@ No request body. Authenticated headers only.
 />
 
 <a id="items" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

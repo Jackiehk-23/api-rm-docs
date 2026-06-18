@@ -25,7 +25,7 @@ const ALLOWED_ORIGINS = new Set([
   "https://doc.revenuemonster.my",
 ])
 
-const SESSION_COOKIE = "rm_session_id"
+const SESSION_COOKIE = "rm_session_id" //rename to rmdoc because already know this is cookie
 const SESSION_LENGTH = 64
 const OAUTH_PATHS = ["/v1/token"]
 const KV_TTL = 2592000

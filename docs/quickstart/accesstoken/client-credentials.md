@@ -35,21 +35,15 @@ examples:
 ---
 
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
+## What is this?
 
-<ApiEndpoint
-  method="POST"
-  sandbox="/v1/token"
-  prod="/v1/token"
-/>
+Get an access token using the `client_credentials` grant type. This flow requires a **Client ID** and **Client Secret**, which you can obtain from the RM Merchant Portal.
 
-## Get Access Token (Client Credentials)
+## When to Use
 
 Use the `client_credentials` grant type when your **server-side code** needs to authenticate directly with the RM API — for example, a backend service acting as a trusted merchant. If you need to act on behalf of a specific merchant as a third-party developer, use the [Authorization Code](./authorization-code) flow instead.
 
-This flow requires a **Client ID** and **Client Secret**, which you can obtain from the RM Merchant Portal.
-
----
+## How to Use
 
 ### Step 1: Get Your Client ID and Client Secret
 

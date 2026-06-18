@@ -26,15 +26,7 @@ examples:
     There is no example response provided.
 
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/payment/reverse"
-  prod="/v3/payment/reverse"
-/>
 
 ## What is this?
 

@@ -69,17 +69,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="PUT"
-  sandbox="/v3/partner/merchant/{merchantId}/application/{clientId}"
-  prod="/v3/partner/merchant/{merchantId}/application/{clientId}"
-/>
 
 <Admonition type="note">
 This endpoint is for merchants with a Partner account. To activate a Partner account, [contact us](https://revenuemonster.my/about-us).

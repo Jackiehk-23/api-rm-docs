@@ -135,15 +135,6 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/loyalty/members"
-  prod="/v3/loyalty/members"
-/>
-
 ## What is this?
 
 Bulk-create multiple loyalty members in a single request.
@@ -216,6 +207,5 @@ POST an array of member objects to `/v3/loyalty/members`.
 <a id="item" />
 
 <a id="address" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

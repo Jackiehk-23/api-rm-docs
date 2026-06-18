@@ -65,15 +65,7 @@ examples:
 ---
 
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/partner/merchant"
-  prod="/v3/partner/merchant"
-/>
 
 ## What is this?
 
