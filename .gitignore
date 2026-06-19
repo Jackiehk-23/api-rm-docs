@@ -29,3 +29,5 @@ settings.json
 .claude-flow
 ruvector.db
 .swarm
+
+.vscode/
