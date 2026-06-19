@@ -35,16 +35,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/loyalty/me/reward/{reward-id}/redeem?countryCode=60&phoneNumber=187824152"
-  prod="/v3/loyalty/me/reward/{reward-id}/redeem?countryCode=60&phoneNumber=187824152"
-/>
-
-## What is this?
-
 Redeem a reward on behalf of a loyalty member. Deducts the required points and marks the reward as redeemed.
 
 ## When to Use
@@ -61,6 +51,8 @@ POST `/v3/loyalty/me/reward/{reward-id}/redeem` with `countryCode` and `phoneNum
 
 ### Request Parameters
 
+No request body. The reward is identified by the `reward-id` path parameter, and the member by the `countryCode` and `phoneNumber` query parameters.
+
 ### Response Parameters
 
 <ParamTable
@@ -69,6 +61,5 @@ POST `/v3/loyalty/me/reward/{reward-id}/redeem` with `countryCode` and `phoneNum
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -79,17 +79,6 @@ examples:
     }
 ---
 
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/service"
-  prod="/v3/service"
-/>
-
-## What is this?
-
 Set a store's availability — including a `closedUntil` timestamp to temporarily mark the store closed.
 
 ## When to Use
@@ -121,7 +110,6 @@ POST `function: "updates.store.availability"` with `storeId` and `closedUntil` (
   ]}
 />
 
-
 ### Response Parameters
 
 <ParamTable
@@ -145,7 +133,5 @@ POST `function: "updates.store.availability"` with `storeId` and `closedUntil` (
     { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-09-22T04:44:57.950398414Z\"" }
   ]}
 />
-
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

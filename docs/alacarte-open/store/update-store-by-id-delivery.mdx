@@ -119,17 +119,6 @@ examples:
     }
 ---
 
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/service"
-  prod="/v3/service"
-/>
-
-## What is this?
-
 Configure a store's delivery method (`OWN`, `LALAMOVE`, etc.) and distance-based delivery cost tiers.
 
 ## When to Use
@@ -169,8 +158,6 @@ POST `function: "update.store.delivery"` with `storeId`, `method`, and the `cost
   ]}
 />
 
-
-
 ### Response Parameters
 
 <ParamTable
@@ -194,7 +181,5 @@ POST `function: "update.store.delivery"` with `storeId`, `method`, and the `cost
     { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-09-22T04:44:57.950398414Z\"" }
   ]}
 />
-
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -8,8 +8,6 @@ sidebar_label: Topup History
 URL : `https://open.revenuemonster.my/v3/wallet/transaction`
 Sandbox URL : `https://sb-open.revenuemonster.my/v3/wallet/transaction`
 
-## What is this?
-
 Retrieve the merchant wallet top-up history — successful and in-process top-up transactions.
 
 ## When to Use
@@ -287,6 +285,5 @@ GET the endpoint with signed authentication headers. Iterate `items` for each to
   ]
 }`}
 </CodeBlock>
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

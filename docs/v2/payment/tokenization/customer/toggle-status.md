@@ -26,18 +26,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/recurring-payment/{customer_id}/toggle"
-  prod="/v3/recurring-payment/{customer_id}/toggle"
-/>
-
-## What is this?
 
 Activates or deactivates a customer's token. Toggling to inactive stops all future recurring charges and prevents new tokenized charges.
 

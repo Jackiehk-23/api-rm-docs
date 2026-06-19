@@ -30,18 +30,7 @@ examples:
   response: |
     There is no example response provided.
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/loyalty/spending-reward"
-  prod="/v3/loyalty/spending-reward"
-/>
-
-## What is this?
 
 Award spending-loyalty points to a member based on a sales `amount`. Uses the merchant's loyalty point rules to compute the reward.
 
@@ -144,6 +133,5 @@ POST to `/v3/loyalty/spending-reward` with `currencyType`, `amount`, and the mem
   "code": "SUCCESS"
 }`}
 </CodeBlock>
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

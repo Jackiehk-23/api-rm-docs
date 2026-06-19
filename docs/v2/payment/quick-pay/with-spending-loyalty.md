@@ -59,18 +59,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/payment/quickpay"
-  prod="/v3/payment/quickpay"
-/>
-
-## What is this?
 
 Quick Pay that links the transaction to a loyalty member, so the customer earns spending loyalty points alongside their payment.
 

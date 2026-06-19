@@ -62,16 +62,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/loyalty/me/rewards?countryCode=60&phoneNumber=187824152"
-  prod="/v3/loyalty/me/rewards?countryCode=60&phoneNumber=187824152"
-/>
-
-## What is this?
-
 List a loyalty member's available rewards. Supports limit and cursor-based pagination.
 
 ## When to Use
@@ -89,6 +79,8 @@ Example: `https://open.revenuemonster.my/v3/loyalty/me/rewards?countryCode=60&ph
 ---
 
 ### Request Parameters
+
+No request body. The member is identified by the `countryCode` and `phoneNumber` query parameters.
 
 ### Response Parameters
 
@@ -140,6 +132,5 @@ Example: `https://open.revenuemonster.my/v3/loyalty/me/rewards?countryCode=60&ph
 <a id="payload" />
 
 <a id="contactinfo" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

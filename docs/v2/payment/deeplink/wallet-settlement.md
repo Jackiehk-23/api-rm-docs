@@ -3,8 +3,6 @@ title: "DeepLink — Wallet Settlement"
 sidebar_label: "Wallet Settlement"
 ---
 
-## What is this?
-
 Sends a Wallet Settlement intent (`transactionType: 4`) to the RM Merchant App to settle e-wallet transactions via DeepLink.
 
 ## When to Use

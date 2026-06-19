@@ -28,9 +28,12 @@ npm run swizzle   # Eject Docusaurus theme components for customization
 - `src/components/ApiExamples/` — API examples with copy-to-clipboard
 
 ### MDX Components & Rendering
-Custom components are registered globally in `src/theme/MDXComponents.tsx`, so docs use them without per-file imports: `ApiPlayground`, `ApiExamples`, `ParamTable`, `CodeBlock`, `HttpMethodBadge`, and `table` (every markdown pipe table renders through `src/components/MarkdownTable`).
+Custom components are registered globally in `src/theme/MDXComponents.tsx`, so docs use them without per-file imports: `ApiPlayground`, `ApiExamples`, `ParamTable`, `CodeBlock`, `HttpMethodBadge`, `ApiEndpoint`, and `table` (every markdown pipe table renders through `src/components/MarkdownTable`).
 
-Most API reference pages drive the interactive playground via `<ApiEndpoint>` (`src/components/api/ApiEndpoint.tsx`), imported per page. There is **no** remark plugin; the only build-time transform is the rehype plugin `src/rehype/collapsibleSections.js` (groups body content under each `h2`), wired in `docusaurus.config.js`.
+### Endpoint badge (auto-injected — do NOT add it per page)
+The `POST /v3/...` method+path badge shown under **How to Use** is **rendered automatically** — you do not (and should not) write an `<ApiEndpoint>` tag in the page. The remark plugin `src/remark/injectApiEndpoint.js` inserts `<ApiEndpoint label="Endpoint" />` right after the `## How to Use` heading on any page whose frontmatter has an `api:` block. `ApiEndpoint` (`src/components/api/ApiEndpoint.tsx`) reads the method + URL from that same frontmatter (`api.method`, `api.url`) — the single source of truth that also drives the interactive playground. So: **to change or add an endpoint, edit frontmatter `api:` only.** The badge sits inside How to Use (the technical section) on purpose, keeping the business-facing "What is this? / When to Use" intro free of API jargon. `ApiEndpoint` still accepts explicit props (`method`/`sandbox`/`prod`) for the few pages without an `api:` block (e.g. `query-checkout.md`) or without a How to Use heading (the `accesstoken/*` token pages), which keep a manual tag.
+
+Build-time transforms wired in `docusaurus.config.js`: the remark plugin above runs first, then the rehype plugins `src/rehype/collapsibleSections.js` (groups body content under each `h2`) and `src/rehype/stepHeadings.js`.
 
 ### Sidebar API Method Badges
 Docs with `className: "api-get"`, `"api-post"`, etc. in `sidebars.js` display colored HTTP method badges (GET/POST/PUT/DEL/PATCH) next to the link. See `src/css/custom.css` lines 129-187 for styling.

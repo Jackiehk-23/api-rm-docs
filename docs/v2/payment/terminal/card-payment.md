@@ -50,16 +50,6 @@ examples:
 
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/payment/terminal/quickpay"
-  prod="/v3/payment/terminal/quickpay"
-/>
-
-## What is this?
-
 Sends a card payment event to the RM Terminal. The terminal prompts the customer to tap, insert, or swipe their card.
 
 ## When to Use

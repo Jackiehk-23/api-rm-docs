@@ -26,18 +26,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/recurring-payment/{customer_id}/orders"
-  prod="/v3/recurring-payment/{customer_id}/orders"
-/>
-
-## What is this?
 
 Returns the list of payment orders made for a recurring or tokenized customer.
 

@@ -76,16 +76,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="PATCH"
-  sandbox="/v3/store/{store_id}"
-  prod="/v3/store/{store_id}"
-/>
-
-## What is this?
-
 Update details of an existing store under a merchant account.
 
 ## When to Use

@@ -77,20 +77,6 @@ examples:
     }
 ---
 
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/service"
-  prod="/v3/service"
-/>
-
-
-
-
-## What is this?
-
 Retrieve full details of an à la carte store — supported types, delivery options, availability, closed-until window.
 
 ## When to Use
@@ -121,7 +107,6 @@ POST `function: "get.store.settings"` with `storeId`.
   ]}
 />
 
-
 ### Response Parameters
 
 <ParamTable
@@ -145,7 +130,5 @@ POST `function: "get.store.settings"` with `storeId`.
     { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-09-22T04:44:57.950398414Z\"" }
   ]}
 />
-
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

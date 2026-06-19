@@ -114,16 +114,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/loyalty/balances"
-  prod="/v3/loyalty/balances"
-/>
-
-## What is this?
-
 Retrieve the list of loyalty balance (credit) transactions across all members.
 
 ## When to Use
@@ -139,6 +129,8 @@ GET `/v3/loyalty/balances` with signed authentication headers.
 ---
 
 ### Request Parameters
+
+No request body. Authenticated headers only.
 
 ### Response Parameters
 
@@ -194,6 +186,5 @@ GET `/v3/loyalty/balances` with signed authentication headers.
     { name: "updatedAt", type: "DateTime", description: "Last update date time of merchant", example: "\"2022-01-27T04:02:46Z\"" }
   ]}
 />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

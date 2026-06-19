@@ -8,8 +8,6 @@ sidebar_label: Check Balance
 URL : `https://open.revenuemonster.my/v3/wallet/credit`
 Sandbox URL : `https://sb-open.revenuemonster.my/v3/wallet/credit`
 
-## What is this?
-
 Retrieve the current credit balance in the merchant's RM wallet.
 
 ## When to Use
@@ -66,6 +64,5 @@ GET with signed authentication headers. Read the response `item.credit` value.
   "code": "SUCCESS"
 }`}
 </CodeBlock>
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

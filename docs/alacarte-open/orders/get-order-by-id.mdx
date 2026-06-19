@@ -129,20 +129,6 @@ examples:
     }
 ---
 
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/service"
-  prod="/v3/service"
-/>
-
-
-
-
-## What is this?
-
 Retrieve full details of a specific order by its `orderId`.
 
 ## When to Use
@@ -174,9 +160,7 @@ POST `function: "get.store.order"` with `storeId` and `orderId`.
   ]}
 />
 
-
 ### Response Parameters
-
 
 <ParamTable
   title="Details"
@@ -279,7 +263,5 @@ POST `function: "get.store.order"` with `storeId` and `orderId`.
     { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-10-01T08:44:16.863Z\"" }
   ]}
 />
-
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

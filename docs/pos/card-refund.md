@@ -4,8 +4,6 @@ title: Card Payment Refund
 sidebar_label: Card Payment Refund
 ---
 
-## What is this?
-
 Trigger a card refund event on the RM Terminal from a POS system. Refunds a specific card transaction by its `transactionId`.
 
 ## When to Use

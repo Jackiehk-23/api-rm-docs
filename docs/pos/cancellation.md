@@ -4,8 +4,6 @@ title: POS Payment Cancellation
 sidebar_label: POS Payment Cancellation
 ---
 
-## What is this?
-
 Cancel any ongoing payment event on the RM Terminal from a POS system. Use when a payment must be aborted before it completes.
 
 ## When to Use

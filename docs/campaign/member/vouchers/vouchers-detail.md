@@ -102,16 +102,6 @@ examples:
 
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/loyalty/me/vouchers"
-  prod="/v3/loyalty/me/vouchers"
-/>
-
-## What is this?
-
 List a loyalty member's vouchers. Supports limit and cursor-based pagination.
 
 ## When to Use
@@ -129,6 +119,8 @@ Example: `https://open.revenuemonster.my/v3/loyalty/me/vouchers?countryCode=60&p
 ---
 
 ### Request Parameters
+
+No request body. Authenticated headers only.
 
 ### Response Parameters
 
@@ -204,6 +196,5 @@ Example: `https://open.revenuemonster.my/v3/loyalty/me/vouchers?countryCode=60&p
 <a id="expiry" />
 
 <a id="address" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

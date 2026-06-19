@@ -114,8 +114,6 @@ import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
   prod="/v3/voucher-batches"
 />
 
-## What is this?
-
 List all voucher batches created by the merchant.
 
 ## When to Use
@@ -167,6 +165,5 @@ No request body. Authenticated headers only.
 />
 
 <a id="items" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

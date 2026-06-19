@@ -88,18 +88,7 @@ examples:
       }
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/stores"
-  prod="/v3/stores"
-/>
-
-## What is this?
 
 Retrieve all stores belonging to the authenticated merchant.
 

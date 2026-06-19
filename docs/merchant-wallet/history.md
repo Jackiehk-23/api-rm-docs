@@ -8,8 +8,6 @@ sidebar_label: Check Wallet History
 URL : `https://open.revenuemonster.my/v3/wallet/history`
 Sandbox URL : `https://sb-open.revenuemonster.my/v3/wallet/history`
 
-## What is this?
-
 Retrieve detailed wallet history including both top-ups and deductions (delivery, billing, etc.) with credit / debit movements.
 
 ## When to Use
@@ -316,6 +314,5 @@ GET with signed authentication headers. Optionally filter by `cursor`, `transact
   ]
 }`}
 </CodeBlock>
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

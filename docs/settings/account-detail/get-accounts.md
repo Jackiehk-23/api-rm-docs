@@ -120,16 +120,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/accounts"
-  prod="/v3/accounts"
-/>
-
-## What is this?
-
 Retrieve a list of all accounts associated with the authenticated merchant.
 
 ## When to Use

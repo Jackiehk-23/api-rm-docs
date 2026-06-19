@@ -83,18 +83,7 @@ examples:
       }
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/voucher-batch/{batchKey}/vouchers"
-  prod="/v3/voucher-batch/{batchKey}/vouchers"
-/>
-
-## What is this?
 
 Retrieve all vouchers belonging to a specific voucher batch by its `batchkey`.
 
@@ -157,6 +146,5 @@ GET `/v3/voucher-batch/{batchkey}/vouchers`. Find `batchkey` via the merchant po
 />
 
 <a id="items" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

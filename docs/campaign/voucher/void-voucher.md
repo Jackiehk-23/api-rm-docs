@@ -64,18 +64,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/voucher/{code}/void"
-  prod="/v3/voucher/{code}/void"
-/>
-
-## What is this?
 
 Void a customer's voucher by `code`. Sets the voucher status to `VOID` so it can no longer be used.
 
@@ -154,6 +143,5 @@ POST to `/v3/voucher/{code}/void` with no request body.
 />
 
 <a id="item" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -37,18 +37,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/payment/online/checkout"
-  prod="/v3/payment/online/checkout"
-/>
-
-## What is this?
 
 Returns a redirect URL for the selected payment method. Redirect the customer to this URL to complete payment.
 

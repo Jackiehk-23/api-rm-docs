@@ -52,33 +52,6 @@
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.boxes {
-  cursor: pointer;
-  padding: 4px;
-  border-radius: 2px;
-  border: 0.5px solid;
-  border-color: #e3e8ee;
-  transition: 0.3s;
-  padding-top: 17px;
-  height: 100%;
-}
-
-.boxes:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-.supportCard {
-  background-color: #87d068;
-  color: white;
-  text-align: center;
-}
-
-.noSupportCard {
-  background-color: #f50;
-  color: white;
-  text-align: center;
-}
-
 .title {
   padding: 1px;
   font-size: 12px;
@@ -94,19 +67,6 @@
   color: black;
   text-align: left;
   padding-bottom: 10px;
-}
-
-.sdkBox {
-  cursor: pointer;
-  padding: 1px;
-  border-radius: 2px;
-  border: 0.5px solid;
-  border-color: #e3e8ee;
-  transition: 0.3s;
-}
-
-.sdkBox:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 966px) {

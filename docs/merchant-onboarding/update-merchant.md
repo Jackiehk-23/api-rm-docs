@@ -184,23 +184,11 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="PATCH"
-  sandbox="/v3/partner/merchant/{merchantId}"
-  prod="/v3/partner/merchant/{merchantId}"
-/>
 
 <Admonition type="note">
 This endpoint is for merchants with a Partner account. To activate a Partner account, [contact us](https://revenuemonster.my/about-us).
 </Admonition>
-
-## What is this?
 
 Update an existing merchant's information under your Partner account. Use this to modify company details, address, bank account information, and business details.
 

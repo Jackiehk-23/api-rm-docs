@@ -4,8 +4,6 @@ title: Card Payment Settlement
 sidebar_label: Card Payment Settlement
 ---
 
-## What is this?
-
 Trigger card settlement on the RM Terminal from a POS system. Settles all pending card transactions in the open batch.
 
 ## When to Use

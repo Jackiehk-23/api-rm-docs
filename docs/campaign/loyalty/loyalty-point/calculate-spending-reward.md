@@ -43,16 +43,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/loyalty/spending-reward/calculate"
-  prod="/v3/loyalty/spending-reward/calculate"
-/>
-
-## What is this?
-
 Calculate the number of spending-reward points a given sale amount would yield, based on the merchant's loyalty rules.
 
 ## When to Use

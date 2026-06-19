@@ -38,16 +38,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/payment/online/checkout"
-  prod="/v3/payment/online/checkout"
-/>
-
-## What is this?
-
 Returns a payment redirect URL for card (Mastercard / Visa) or GoBiz payment methods.
 
 ## When to Use

@@ -44,16 +44,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/loyalty/member/check"
-  prod="/v3/loyalty/member/check"
-/>
-
-## What is this?
-
 Check whether a phone number is already registered as a loyalty member.
 
 ## When to Use
@@ -85,6 +75,5 @@ POST `countryCode` and `phoneNumber` in the body.
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

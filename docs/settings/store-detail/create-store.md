@@ -76,16 +76,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/store"
-  prod="/v3/store"
-/>
-
-## What is this?
-
 Register a new store under a merchant account. The new store becomes available for transactions tied to that merchant.
 
 ## When to Use

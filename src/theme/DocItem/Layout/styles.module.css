@@ -14,30 +14,25 @@
 }
 
 /* Webkit scrollbar */
-.articleWrapper::-webkit-scrollbar,
-.tocWrapper::-webkit-scrollbar {
+.articleWrapper::-webkit-scrollbar {
   width: 4px;
 }
 
-.articleWrapper::-webkit-scrollbar-track,
-.tocWrapper::-webkit-scrollbar-track {
+.articleWrapper::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.articleWrapper::-webkit-scrollbar-thumb,
-.tocWrapper::-webkit-scrollbar-thumb {
+.articleWrapper::-webkit-scrollbar-thumb {
   background: rgba(128, 128, 128, 0.35);
   border-radius: 999px;
 }
 
-.articleWrapper::-webkit-scrollbar-thumb:hover,
-.tocWrapper::-webkit-scrollbar-thumb:hover {
+.articleWrapper::-webkit-scrollbar-thumb:hover {
   background: rgba(128, 128, 128, 0.6);
 }
 
 /* Firefox */
-.articleWrapper,
-.tocWrapper {
+.articleWrapper {
   scrollbar-width: thin;
   scrollbar-color: rgba(128, 128, 128, 0.35) transparent;
 }

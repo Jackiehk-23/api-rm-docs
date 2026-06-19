@@ -37,19 +37,7 @@ examples:
       "meta": {}
     }
 ---
-
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/partner/merchants"
-  prod="/v3/partner/merchants"
-/>
-
-## What is this?
 
 Retrieve a list of all merchants under your Partner account. This endpoint returns merchant details including registration status, company information, and subscription settings.
 

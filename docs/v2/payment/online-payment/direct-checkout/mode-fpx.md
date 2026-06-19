@@ -40,16 +40,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/payment/online/checkout"
-  prod="/v3/payment/online/checkout"
-/>
-
-## What is this?
-
 Returns an FPX (online banking) redirect URL. Customer chooses their bank from the FPX bank list and is redirected to complete payment.
 
 ## When to Use

@@ -44,18 +44,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/api/v3/invoice/{id}"
-  prod="/api/v3/invoice/{id}"
-/>
-
-## What is this?
 
 Retrieves a single invoice by its `id`.
 

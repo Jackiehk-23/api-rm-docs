@@ -75,18 +75,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/api/v3/invoice"
-  prod="/api/v3/invoice"
-/>
-
-## What is this?
 
 Creates a new invoice. The response includes a shareable `invoiceUrl` that can be sent to the payer to complete payment.
 

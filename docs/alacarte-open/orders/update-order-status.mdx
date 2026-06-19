@@ -164,22 +164,7 @@ examples:
       }
     }
 ---
-
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/service"
-  prod="/v3/service"
-/>
-
-
-
-
-## What is this?
 
 Update the delivery status of an existing order — move it through `PROGRESSING`, `FINDING_COURIER`, `SHIPPING`, `COMPLETED`, or `REJECTED`.
 
@@ -218,9 +203,7 @@ Valid `status` values: `PROGRESSING`, `FINDING_COURIER`, `SHIPPING`, `COMPLETED`
   ]}
 />
 
-
 ### Response Parameters
-
 
 <ParamTable
   title="Details"
@@ -363,7 +346,5 @@ Valid `status` values: `PROGRESSING`, `FINDING_COURIER`, `SHIPPING`, `COMPLETED`
     { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-10-01T08:44:16.863Z\"" }
   ]}
 />
-
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

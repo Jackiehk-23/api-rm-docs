@@ -24,22 +24,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="DELETE"
-  sandbox="/v3/store/{store_id}"
-  prod="/v3/store/{store_id}"
-/>
-
-
-
-
-
-## What is this?
 
 Permanently delete a store under a merchant account.
 

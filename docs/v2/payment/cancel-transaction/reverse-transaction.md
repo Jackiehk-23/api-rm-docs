@@ -26,17 +26,7 @@ examples:
     There is no example response provided.
 
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/payment/reverse"
-  prod="/v3/payment/reverse"
-/>
-
-## What is this?
 
 Reverse a transaction — used to void a payment before settlement. If a transaction times out, perform a reverse before creating a new transaction to prevent a double charge.
 

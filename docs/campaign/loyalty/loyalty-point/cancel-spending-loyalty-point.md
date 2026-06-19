@@ -38,16 +38,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/loyalty/spending-reward/cancel"
-  prod="/v3/loyalty/spending-reward/cancel"
-/>
-
-## What is this?
-
 Cancel a previously issued spending-loyalty-point reward by its `id`.
 
 ## When to Use
@@ -79,6 +69,5 @@ POST to `/v3/loyalty/spending-reward/cancel` with the `id` from the spending-loy
     { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
   ]}
 />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

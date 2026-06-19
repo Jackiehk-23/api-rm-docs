@@ -65,16 +65,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/loyalty/member/authorize"
-  prod="/v3/loyalty/member/authorize"
-/>
-
-## What is this?
-
 Get a member-authorization URL — a short-lived URL the member visits to authorize the merchant to act on their behalf.
 
 ## When to Use
@@ -138,6 +128,5 @@ POST to `/v3/loyalty/member/authorize` with the required parameters. Use the ret
     { name: "url", type: "String", description: "Loyalty App Redirect URL", example: "Show as Below" }
   ]}
 />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -59,21 +59,6 @@ examples:
     }
 ---
 
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/merchant"
-  prod="/v3/merchant"
-/>
-
-
-
-
-
-## What is this?
-
 Retrieve the authenticated merchant's full profile — company details, address, status, and partner flags.
 
 ## When to Use

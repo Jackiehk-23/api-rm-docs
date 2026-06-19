@@ -41,19 +41,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/partner/merchants/{merchantId}"
-  prod="/v3/partner/merchants/{merchantId}"
-/>
-
-## What is this?
 
 Retrieve detailed information about a specific merchant under your Partner account, including merchant details, settlement information, and document status.
 

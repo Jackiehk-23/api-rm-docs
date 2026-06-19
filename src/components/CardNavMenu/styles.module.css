@@ -1,23 +1,4 @@
-/* -------------------------
-   Hamburger
--------------------------- */
-.hamburger {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
 
-.hamburger span {
-  width: 24px;
-  height: 2px;
-  background: var(--ifm-navbar-link-color);
-  transition: transform 0.35s ease, opacity 0.25s ease;
-  transform-origin: center;
-}
 
 /* morph to X */
 .hamburger.open span:nth-child(1) {
@@ -150,20 +131,6 @@
 
 [data-theme='dark'] .card a:hover {
   color: var(--ifm-color-primary-dark);
-}
-
-/* -------------------------
-   Navigation Button
--------------------------- */
-.navButton {
-  padding: 4px 10px;
-  font-size: 13px;
-  border-radius: 999px;
-}
-
-.navButton:hover {
-  background: var(--ifm-navbar-link-color);
-  color: var(--ifm-background-color);
 }
 
 /* -------------------------

@@ -108,21 +108,7 @@ examples:
     }
 
 ---
-
-
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/service"
-  prod="/v3/service"
-/>
-
-
-## What is this?
 
 Retrieve the consolidated eKYC verification result — combining MyKad recognition, face comparison, and verdict — using the `requestID` from [MyKad Recognition](./mykad-recognition).
 
@@ -171,7 +157,6 @@ The response includes the overall `verdict`, plus nested `faceResult` and `resul
   ]}
 />
 
-
 ### Response Parameters
 
 <ParamTable
@@ -192,11 +177,7 @@ The response includes the overall `verdict`, plus nested `faceResult` and `resul
   ]}
 />
 
-
 ### Inside Face Result
-
-
-
 
 <ParamTable
   rows={[
@@ -205,12 +186,7 @@ The response includes the overall `verdict`, plus nested `faceResult` and `resul
   ]}
 />
 
-
-
 ### Inside Results
-
-
-
 
 <ParamTable
   rows={[
@@ -222,12 +198,7 @@ The response includes the overall `verdict`, plus nested `faceResult` and `resul
   ]}
 />
 
-
-
 ### Inside Results Data
-
-
-
 
 <ParamTable
   rows={[
@@ -239,12 +210,7 @@ The response includes the overall `verdict`, plus nested `faceResult` and `resul
   ]}
 />
 
-
-
 ### Inside Address
-
-
-
 
 <ParamTable
   rows={[
@@ -257,13 +223,7 @@ The response includes the overall `verdict`, plus nested `faceResult` and `resul
   ]}
 />
 
-
-
-
 ### Inside Results Faces
-
-
-
 
 <ParamTable
   rows={[
@@ -272,12 +232,7 @@ The response includes the overall `verdict`, plus nested `faceResult` and `resul
   ]}
 />
 
-
-
 ### Inside Results Object
-
-
-
 
 <ParamTable
   rows={[
@@ -286,12 +241,7 @@ The response includes the overall `verdict`, plus nested `faceResult` and `resul
   ]}
 />
 
-
-
 ### Inside Results Scores
-
-
-
 
 <ParamTable
   rows={[
@@ -301,9 +251,5 @@ The response includes the overall `verdict`, plus nested `faceResult` and `resul
     { name: "total", type: "Float", description: "Total score", example: "0.8295" }
   ]}
 />
-
-
-
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

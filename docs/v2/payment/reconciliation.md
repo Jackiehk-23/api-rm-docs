@@ -34,17 +34,6 @@ examples:
     There is no example response provided.
 ---
 
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/payment/reconciliation"
-  prod="/v3/payment/reconciliation"
-/>
-
-## What is this?
-
 Retrieve a list of settled transactions for a specific date, filtered by payment method and region. Use this for end-of-day reconciliation, financial reporting, or matching transactions against your own records.
 
 ## When to Use

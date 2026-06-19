@@ -51,18 +51,7 @@ examples:
     }
 
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/payment/terminal/quickpay"
-  prod="/v3/payment/terminal/quickpay"
-/>
-
-## What is this?
 
 Sends an e-wallet Quick Pay event to the RM Terminal. The terminal opens its camera to scan the customer's QR code and complete the payment.
 

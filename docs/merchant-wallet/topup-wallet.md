@@ -8,8 +8,6 @@ sidebar_label: Topup Wallet
 URL : `https://open.revenuemonster.my/v3/wallet/topup`
 Sandbox URL : `https://sb-open.revenuemonster.my/v3/wallet/topup`
 
-## What is this?
-
 Top up the merchant's RM wallet — returns a payment URL where the merchant completes the top-up via the standard payment gateway.
 
 ## When to Use
@@ -60,6 +58,5 @@ POST with `amount` and a `redirect` URL. Redirect the merchant to the returned `
   "code": "SUCCESS"
 }`}
 </CodeBlock>
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

@@ -117,16 +117,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/account/{id}"
-  prod="/v3/account/{id}"
-/>
-
-## What is this?
-
 Retrieve detailed information for a single account by its `id`, including company, bank, documents, and verification status.
 
 ## When to Use

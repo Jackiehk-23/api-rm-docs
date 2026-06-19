@@ -8,8 +8,6 @@ sidebar_label: Redeem Voucher
 URL : `https://open.revenuemonster.my/v3/loyalty/me/voucher/{voucher-code}/redeem?countryCode=60&phoneNumber=187824152`
 Sandbox URL : `https://sb-open.revenuemonster.my/v3/loyalty/me/voucher/{voucher-code}/redeem?countryCode=60&phoneNumber=187824152`
 
-## What is this?
-
 Redeem a voucher on behalf of a loyalty member by `voucher-code`. Marks the voucher as redeemed and applies any associated benefits.
 
 ## When to Use
@@ -143,6 +141,5 @@ POST with `voucher-code` in the path and `countryCode` + `phoneNumber` as query 
   "code": "SUCCESS"
 }`}
 </CodeBlock>
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

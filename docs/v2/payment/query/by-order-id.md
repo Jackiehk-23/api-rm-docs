@@ -23,18 +23,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/payment/transaction/{orderId}"
-  prod="/v3/payment/transaction/{orderId}"
-/>
-
-## What is this?
 
 Retrieve a transaction by the Order ID you provided when initiating the payment.
 

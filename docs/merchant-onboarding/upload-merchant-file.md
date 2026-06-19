@@ -42,17 +42,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/partner/file/upload"
-  prod="/v3/partner/file/upload"
-/>
 
 <!-- user cannot send/upload multipart form data for security purposes (aiman) -->
 <Admonition type="note">
@@ -61,8 +51,6 @@ This endpoint accepts `multipart/form-data` and requires a file upload.
 File upload is **not supported in the API Playground**.
 Please use the cURL example or a server-side integration to test this endpoint.
 </Admonition>
-
-## What is this?
 
 Upload a supporting document (such as a business registration document, IC copy, or bank statement) for a merchant under your Partner account.
 

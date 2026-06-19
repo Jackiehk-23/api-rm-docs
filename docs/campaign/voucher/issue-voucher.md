@@ -28,18 +28,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/voucher-batch/{batchkey}/issue"
-  prod="/v3/voucher-batch/{batchkey}/issue"
-/>
-
-## What is this?
 
 Issue one or more vouchers from a voucher batch to customer(s). Each issued voucher gets a unique `code`.
 
@@ -84,6 +73,5 @@ POST `/v3/voucher-batch/{batchkey}/issue` with the issuance details. The respons
 />
 
 <a id="item" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

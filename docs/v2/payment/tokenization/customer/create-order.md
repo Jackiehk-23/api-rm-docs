@@ -43,17 +43,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/recurring-payment/{customer_id}/charge"
-  prod="/v3/recurring-payment/{customer_id}/charge"
-/>
-
-## What is this?
 
 Charges a customer's bound card immediately. Use this for tokenized payment customers where you manage your own charging schedule.
 

@@ -66,16 +66,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/loyalty/me"
-  prod="/v3/loyalty/me"
-/>
-
-## What is this?
-
 Retrieve a loyalty member's full profile — name, contact, tier, loyalty point balance, and credit balance — by their phone number.
 
 ## When to Use
@@ -134,6 +124,5 @@ Pass `countryCode` and `phoneNumber` as query parameters.
 <a id="item" />
 
 <a id="address" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

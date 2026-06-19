@@ -34,18 +34,7 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/payment/quickpay"
-  prod="/v3/payment/quickpay"
-/>
-
-## What is this?
 
 Verify an Alipay Gourmet Card before applying its discount in a payment. Returns whether the card is valid for use at the given store.
 

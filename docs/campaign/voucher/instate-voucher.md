@@ -71,18 +71,7 @@ examples:
     }
 
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="PATCH"
-  sandbox="/v3/voucher/{code}/reinstate"
-  prod="/v3/voucher/{code}/reinstate"
-/>
-
-## What is this?
 
 Reinstate a previously voided voucher — restores the voucher to a usable state.
 
@@ -158,6 +147,5 @@ PATCH `/v3/voucher/{code}/reinstate` with no request body. Get `code` from the [
 />
 
 <a id="item" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

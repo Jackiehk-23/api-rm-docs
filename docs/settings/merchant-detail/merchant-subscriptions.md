@@ -48,21 +48,6 @@ examples:
     }
 ---
 
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/merchant/subscriptions"
-  prod="/v3/merchant/subscriptions"
-/>
-
-
-
-
-
-## What is this?
-
 Retrieve the merchant's active product subscriptions — Payment, Loyalty & Voucher, Market Place, or Social Media.
 
 ## When to Use

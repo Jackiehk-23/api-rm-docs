@@ -73,23 +73,11 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/partner/merchant/{merchantId}/application"
-  prod="/v3/partner/merchant/{merchantId}/application"
-/>
 
 <Admonition type="note">
 This endpoint is for merchants with a Partner account. To activate a Partner account, [contact us](https://revenuemonster.my/about-us).
 </Admonition>
-
-## What is this?
 
 Create a new application client for a merchant under your Partner account. An application client contains the `clientId` and `clientSecret` used for OAuth authentication with the RM API.
 

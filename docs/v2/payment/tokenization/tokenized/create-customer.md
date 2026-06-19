@@ -52,16 +52,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/tokenized-payment"
-  prod="/v3/tokenized-payment"
-/>
-
-## What is this?
-
 Creates a tokenized payment customer. The customer binds their card once on the RM-hosted page, after which you can charge them on demand using the [Create Customer Order](../customer/create-order.md) API.
 
 ## When to Use

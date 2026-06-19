@@ -134,18 +134,7 @@ examples:
     }
 
 ---
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/vouchers/redeem"
-  prod="/v3/vouchers/redeem"
-/>
-
-## What is this?
 
 Redeem multiple vouchers in a single bulk call. Marks each provided voucher code as redeemed.
 
@@ -218,6 +207,5 @@ POST to `/v3/vouchers/redeem` with an array of voucher codes.
 />
 
 <a id="item" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

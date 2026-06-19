@@ -99,23 +99,11 @@ examples:
       "code": "SUCCESS"
     }
 ---
-
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/partner/merchant/{merchantId}"
-  prod="/v3/partner/merchant/{merchantId}"
-/>
 
 <Admonition type="note">
 This endpoint is for merchants with a Partner account. To activate a Partner account, [contact us](https://revenuemonster.my/about-us).
 </Admonition>
-
-## What is this?
 
 Submit a merchant's completed application for review by Revenue Monster. Once submitted, the merchant's status changes to `REVIEWING` and RM will assess the application.
 

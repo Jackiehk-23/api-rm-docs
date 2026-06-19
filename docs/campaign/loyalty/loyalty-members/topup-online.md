@@ -42,16 +42,6 @@ examples:
 
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/loyalty/member/:memberId/topup-online"
-  prod="/v3/loyalty/member/:memberId/topup-online"
-/>
-
-## What is this?
-
 Get an online top-up URL for a loyalty member. Redirect the member to this URL to top up their loyalty credit via the standard payment gateway.
 
 ## When to Use
@@ -68,6 +58,14 @@ POST `/v3/loyalty/member/{memberId}/topup-online` with the desired top-up `amoun
 
 ### Request Parameters
 
+<ParamTable
+  title="Request Parameters"
+  rows={[
+    { name: "topUpAmount", type: "Integer", required: true, description: "Amount of credit to top up", example: "10" },
+    { name: "redirectUrl", type: "String", required: true, description: "URL to redirect the member to after payment", example: "\"https://revenuemonster.my\"" }
+  ]}
+/>
+
 ### Response Parameters
 
 <ParamTable
@@ -82,6 +80,5 @@ POST `/v3/loyalty/member/{memberId}/topup-online` with the desired top-up `amoun
 />
 
 <a id="item" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

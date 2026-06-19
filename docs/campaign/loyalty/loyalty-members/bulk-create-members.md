@@ -136,16 +136,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/loyalty/members"
-  prod="/v3/loyalty/members"
-/>
-
-## What is this?
-
 Bulk-create multiple loyalty members in a single request.
 
 ## When to Use
@@ -162,6 +152,59 @@ POST an array of member objects to `/v3/loyalty/members`.
 
 ### Request Parameters
 
+<ParamTable
+  title="Request Parameters"
+  rows={[
+    { name: "members", type: "Array", required: true, description: "Array of member objects to create",
+      children: [
+        { name: "name", type: "String", required: true, description: "Member name", example: "\"testing 1\"" },
+        { name: "countryCode", type: "String", required: true, description: "Country code of member contact number", example: "\"60\"" },
+        { name: "phoneNumber", type: "String", required: true, description: "Phone number of member", example: "\"1622288812\"" },
+        { name: "nric", type: "String", required: true, description: "IC Number", example: "\"970503145887\"" },
+        { name: "email", type: "String", required: true, description: "Email address of member", example: "\"test@email.com\"" },
+        { name: "gender", type: "String", required: true, description: "Gender", example: "\"MALE\"" },
+        { name: "state", type: "String", description: "Member state", example: "\"\"" },
+        { name: "address", type: "Object", description: "Refer to explanation below",
+      children: [
+        { name: "addressLine1", type: "String", description: "Address 1", example: "\"\"" },
+        { name: "addressLine2", type: "String", description: "Address 2", example: "\"\"" },
+        { name: "postcode", type: "String", description: "Postcode", example: "\"52100\"" },
+        { name: "city", type: "String", description: "City", example: "\"\"" },
+        { name: "country", type: "String", description: "Country", example: "\"\"" }
+      ]},
+        { name: "loyaltyPoint", type: "Integer", required: true, description: "Loyalty Point", example: "10" }
+      ]}
+  ]}
+/>
+
 ### Response Parameters
+
+<ParamTable
+  title="Response Parameters"
+  rows={[
+    { name: "item", type: "Array", description: "Array of member creation results",
+      children: [
+        { name: "name", type: "String", description: "Member name", example: "\"testing 1\"" },
+        { name: "countryCode", type: "String", description: "Country code of member contact number", example: "\"60\"" },
+        { name: "phoneNumber", type: "String", description: "Phone number of member", example: "\"1622288812\"" },
+        { name: "email", type: "String", description: "Email address of member", example: "\"test@email.com\"" },
+        { name: "nric", type: "String", description: "IC Number", example: "\"970503145887\"" },
+        { name: "birthDate", type: "String", description: "Member Birth Date", example: "\"2019-01-01T00:00:00Z\"" },
+        { name: "gender", type: "String", description: "Gender", example: "\"MALE\"" },
+        { name: "address", type: "Object", description: "Refer to explanation below",
+      children: [
+        { name: "postcode", type: "String", description: "Postcode", example: "\"52100\"" }
+      ]},
+        { name: "loyaltyPoint", type: "Integer", description: "Loyalty Point", example: "10" },
+        { name: "status", type: "String", description: "Creation status of this member (e.g. SUCCESS, FAILED)", example: "\"FAILED\"" },
+        { name: "error", type: "String", description: "Error code when status is FAILED (Refer Appendix 1: Error Codes)", example: "\"MEMBER_REGISTERED\"" }
+      ]},
+    { name: "code", type: "String", description: "Successfully call this endpoint. If fail, will return error code object (Refer Appendix 1: Error Codes)", example: "\"SUCCESS\"" }
+  ]}
+/>
+
+<a id="item" />
+
+<a id="address" />
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

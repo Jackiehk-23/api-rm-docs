@@ -69,16 +69,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/loyalty/me/voucher/{voucherCode}"
-  prod="/v3/loyalty/me/voucher/{voucherCode}"
-/>
-
-## What is this?
-
 Retrieve voucher details for a specific member by `voucherCode`.
 
 ## When to Use
@@ -94,6 +84,8 @@ GET `/v3/loyalty/me/voucher/{voucherCode}` with `countryCode` and `phoneNumber` 
 ---
 
 ### Request Parameters
+
+No request body. The voucher is identified by the `voucherCode` path parameter.
 
 ### Response Parameters
 
@@ -162,6 +154,5 @@ GET `/v3/loyalty/me/voucher/{voucherCode}` with `countryCode` and `phoneNumber` 
 <a id="expiry" />
 
 <a id="address" />
-
 
 <!-- SPDX-License-Identifier: Apache-2.0 -->

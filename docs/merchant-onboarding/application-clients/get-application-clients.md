@@ -55,23 +55,11 @@ examples:
       }
     }
 ---
-
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="GET"
-  sandbox="/v3/partner/merchant/{merchantId}/applications"
-  prod="/v3/partner/merchant/{merchantId}/applications"
-/>
 
 <Admonition type="note">
 This endpoint is for merchants with a Partner account. To activate a Partner account, [contact us](https://revenuemonster.my/about-us).
 </Admonition>
-
-## What is this?
 
 Retrieve a list of all application clients associated with a specific merchant under your Partner account. Each application client contains credentials used for OAuth authentication.
 

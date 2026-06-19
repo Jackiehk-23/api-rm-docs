@@ -64,18 +64,7 @@ examples:
     }
 ---
 
-
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
 import Admonition from '@theme/Admonition';
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/partner/merchant"
-  prod="/v3/partner/merchant"
-/>
-
-## What is this?
 
 Create a new merchant account under your Partner account. This endpoint submits merchant information for review. Once approved, the merchant can access RM services.
 

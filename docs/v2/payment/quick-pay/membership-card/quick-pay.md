@@ -58,16 +58,6 @@ examples:
     }
 ---
 
-import ApiEndpoint from "@site/src/components/api/ApiEndpoint";
-
-<ApiEndpoint
-  method="POST"
-  sandbox="/v3/payment/quickpay"
-  prod="/v3/payment/quickpay"
-/>
-
-## What is this?
-
 Quick Pay that applies an Alipay Gourmet Card (Membership Card) discount before settling the e-wallet payment.
 
 ## When to Use
