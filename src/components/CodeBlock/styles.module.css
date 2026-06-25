@@ -378,3 +378,19 @@
 .wrapper:hover .bottomAccent {
   opacity: 0.45;
 }
+
+/* ================================
+   MOBILE — prevent flex/grid stretching
+================================ */
+
+@media (max-width: 996px) {
+  .wrapper {
+    flex: 0 0 auto;
+    height: auto;
+    animation: none;
+  }
+
+  .collapseBodyOpen {
+    grid-template-rows: minmax(0, max-content);
+  }
+}
