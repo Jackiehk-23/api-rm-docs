@@ -679,7 +679,7 @@ details.section-details {
   overflow: visible;
   border: none;
   background: transparent;
-  margin-bottom: 1.5rem;
+  /* margin-bottom: 1.5rem; */
   /* Docusaurus themes bare <details> as an info admonition (alert alert--info),
      which injects a cyan accent (#54c7ec) into borders, the arrow decoration,
      and inline-code backgrounds. Neutralize all of it for our sections. */
