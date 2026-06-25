@@ -5,7 +5,7 @@ sidebar_label: Merchant Info
 api:
   method: GET
   url:
-    sandbox: https://sb-open.revenuemonster.my/v3/partner/merchants/{merchantId}
+    sandbox: https://sb-open.revenuemonster.my/v3/partner/merchant/{merchantId}
 
   headers:
     Content-Type: application/json
@@ -16,7 +16,7 @@ api:
 
 examples:
   request: |
-    curl --location --request GET "https://sb-open.revenuemonster.my/v3/partner/merchants/1629258448138509563" \
+    curl --location --request GET "https://sb-open.revenuemonster.my/v3/partner/merchant/1629258448138509563" \
     --header "Content-Type: application/json" \
     --header "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjIwMTgtMy0xOCIsInR5cCI6IkpXVCJ9..." \
     --header "X-Signature: sha256 bFGc2JOEFqdI91DE5VXYBUllr+9DHcrrylRFU3i1r72aPmJreljn0dU+nwPSwTH/dTQUiZ9C2aQSF8AuT959EW4WEyEZ6VWgt9gCyZaU/bcOQ/ZIhKc06+uwzivVhAzpbUtG5tm5/sBp4ig6Sk7L6SE0Ecu6Tm0FhYl0qdgZvrTh4EEpLs3kHIuYL9QXKJILfKlu4gTX1Exrt7nNyEr8ndeUMaKYrj3FckMbRtmCwc829SsVp6FAgvoDPnguUJ+VjLF1e9NXhar2JwYjuqMkwsmUWRDbittqCgCCfaPF8anarlLsoXbdYEa7bp9BYp2U/Dw3Xd2MlamEZSR8H+Dosw==" \
