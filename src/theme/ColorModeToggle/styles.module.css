@@ -1,0 +1,104 @@
+/* ── Track (the pill) ── */
+
+.track {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: none;
+  border-radius: 999px;
+  padding: 3px;
+  height: 28px;
+  width: 76px;
+  cursor: pointer;
+  outline: none;
+  background: #ddd9e8;
+  transition: background 0.3s ease;
+}
+
+.track:focus-visible {
+  box-shadow: 0 0 0 2px var(--ifm-color-primary);
+}
+
+.trackDark {
+  background: #1e1b35;
+}
+
+/* ── Label ── */
+
+.label {
+  position: absolute;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  user-select: none;
+  pointer-events: none;
+  transition: color 0.3s ease, left 0.3s ease, right 0.3s ease;
+}
+
+/* Light state: label sits right of knob */
+.track:not(.trackDark) .label {
+  left: 30px;
+  right: auto;
+  color: #6b6280;
+}
+
+/* Dark state: label sits left of knob */
+.trackDark .label {
+  left: auto;
+  right: 30px;
+  color: #8b85a8;
+}
+
+/* ── Knob (the sliding circle) ── */
+
+.knob {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  color: #d97706;
+  flex-shrink: 0;
+  position: absolute;
+  left: 3px;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(102, 102, 235, 0.08);
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.knobDark {
+  transform: translateX(48px);
+  color: #6666eb;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 0 8px rgba(102, 102, 235, 0.25);
+}
+
+.track:hover .knob {
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.15),
+    0 0 0 2px rgba(102, 102, 235, 0.15);
+}
+
+.track:hover .knobDark {
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 12px rgba(102, 102, 235, 0.35);
+}
+
+/* ── Reduced motion ── */
+
+@media (prefers-reduced-motion: reduce) {
+  .knob,
+  .label,
+  .track {
+    transition-duration: 0.01ms;
+  }
+}
