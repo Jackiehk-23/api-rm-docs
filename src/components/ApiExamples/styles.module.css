@@ -231,3 +231,17 @@
 [data-theme='dark'] .codeWrapper::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.15);
 }
+
+/* ── Mobile — prevent flex/grid stretching ── */
+
+@media (max-width: 996px) {
+  .wrapper {
+    flex: 0 0 auto;
+    height: auto;
+  }
+
+  .card {
+    flex: 0 0 auto;
+    height: auto;
+  }
+}
