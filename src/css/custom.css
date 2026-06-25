@@ -458,6 +458,12 @@ html[data-theme="light"] .menu__list .menu__list {
   [class*="docSidebarContainer"] {
     position: static !important;
   }
+
+  /* Break the flex stretch chain on mobile so grid-based components
+     (CodeBlock, ParamTable) don't expand to fill viewport height. */
+  [class*="docMainContainer"] {
+    display: block !important;
+  }
 }
 
 /* ================================
