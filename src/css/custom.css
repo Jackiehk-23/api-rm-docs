@@ -797,15 +797,11 @@ details.section-details details.section-details .section-toggle {
   }
 }
 
-@media (max-width: 768px) {
-  .navbar__items {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  }
+/* navbar items collapse into hamburger on mobile — no scroll override needed */
 
-  .navbar__item {
-    flex-shrink: 0;
-  }
+/* Push toggle + close button to the right in mobile sidebar header */
+.navbar-sidebar__brand .navbar__brand {
+  flex: 1;
 }
 
 @media (max-width: 576px) {
