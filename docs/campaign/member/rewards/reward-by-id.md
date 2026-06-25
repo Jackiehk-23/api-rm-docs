@@ -99,7 +99,7 @@ No request body. The reward is identified by the `reward-id` path parameter, and
         { name: "phoneNumber", type: "String", description: "Phone Number", example: "\"\"" }
       ]}
       ]},
-        { name: "isShipping", type: "Boolean", description: "Credit Balance", example: "false" },
+        { name: "isShipping", type: "Boolean", description: "True if items/goods to be delivered physically to customers", example: "false" },
         { name: "quantity", type: "Integer", description: "Reward Quantity", example: "49998" },
         { name: "balanceQuantity", type: "Integer", description: "Reward Balance Quantity", example: "49991" },
         { name: "usedQuantity", type: "Integer", description: "Reward Used Quantity", example: "2" },

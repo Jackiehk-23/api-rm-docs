@@ -87,7 +87,7 @@ POST with `voucher-code` in the path and `countryCode` + `phoneNumber` as query 
         { name: "isDeviceRedeem", type: "Boolean", description: "Voucher Redeem Device", example: "true" },
         { name: "status", type: "String", description: "Voucher Status (\"VALID\", \"ISSUE\", \"REDEEMED\", \"VOID\", \"EXPIRED\", \"MARKET_PLACE\", \"COMPLETE\")", example: "\"VOID\"" },
         { name: "voucherComboKey", type: "String", description: "Voucher Combo Key", example: "null" },
-        { name: "isMarketPlace", type: "Boolean", description: "True if the voucher originates from the marketplace", example: "false" },
+        { name: "isMarketPlace", type: "Boolean", description: "Voucher is in Market Place ?", example: "false" },
         { name: "createdAt", type: "DateTime", description: "Create date time", example: "\"2020-11-18T06:43:19Z\"" },
         { name: "updatedAt", type: "DateTime", description: "Last update date time", example: "\"2020-11-25T05:58:56Z\"" }
       ]},

@@ -65,7 +65,7 @@ POST to `/v3/loyalty/spending-reward` with `currencyType`, `amount`, and the mem
 />
 
 <CodeBlock language="json" filename="Example Request Phone Number">
-{`curl --location --request POST "{{open_base_path}}/v3/loyalty/reward" \\
+{`curl --location --request POST "{{open_base_path}}/v3/loyalty/spending-reward" \\
   --header "Content-Type: application/json" \\
   --header "Authorization: Bearer {{clientToken}}" \\
   --header "X-Signature: sha256 Sty3LNcKA8+WlMHtAgIY+y1xbwnzKsN0UdyKaW+yYIgcTkBAtF7G5Lx251qQITURJ4wiXPDODxhs1nFVmBBing==" \\
@@ -81,7 +81,7 @@ POST to `/v3/loyalty/spending-reward` with `currencyType`, `amount`, and the mem
 </CodeBlock>
 
 <CodeBlock language="json" filename="Example Request QR Code">
-{`curl --location --request POST "{{open_base_path}}/v3/loyalty/reward" \\
+{`curl --location --request POST "{{open_base_path}}/v3/loyalty/spending-reward" \\
   --header "Content-Type: application/json" \\
   --header "Authorization: Bearer {{clientToken}}" \\
   --header "X-Signature: sha256 Sty3LNcKA8+WlMHtAgIY+y1xbwnzKsN0UdyKaW+yYIgcTkBAtF7G5Lx251qQITURJ4wiXPDODxhs1nFVmBBing==" \\
@@ -90,7 +90,7 @@ POST to `/v3/loyalty/spending-reward` with `currencyType`, `amount`, and the mem
   --data "{
    \\"currencyType\\": \\"MYR\\",
    \\"amount\\": 100,
-   \\"type\\": \\"QRCODE\\",
+   \\"type\\": \\"QRCODE\\"
 }"`}
 </CodeBlock>
 
@@ -105,7 +105,7 @@ POST to `/v3/loyalty/spending-reward` with `currencyType`, `amount`, and the mem
     \\"currencyType\\": \\"MYR\\",
     \\"amount\\": 100,
     \\"type\\": \\"ID\\",
-    \\"memberId\\": \\"2777058682717858418\\",
+    \\"memberId\\": \\"2777058682717858418\\"
 }"`}
 </CodeBlock>
 
