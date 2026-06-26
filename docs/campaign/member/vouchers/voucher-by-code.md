@@ -4,7 +4,7 @@ title: Get Voucher By Code
 api:
   method: GET
   url:
-    sandbox: https://sb-open.revenuemonster.my/v3/loyalty/me/voucher/{voucherCode}
+    sandbox: https://sb-open.revenuemonster.my/v3/loyalty/me/voucher/{voucherCode}?countryCode={countryCode}&phoneNumber={phoneNumber}
 
   path:
     voucherCode: "rms@xR43u4bRhUU"

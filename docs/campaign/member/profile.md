@@ -6,7 +6,7 @@ sidebar_label: Get Profile
 api:
   method: GET
   url:
-    sandbox: https://sb-open.revenuemonster.my/v3/loyalty/me
+    sandbox: https://sb-open.revenuemonster.my/v3/loyalty/me?countryCode={countryCode}&phoneNumber={phoneNumber}
 
   headers:
     Authorization: Bearer {{access_token}}

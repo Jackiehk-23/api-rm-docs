@@ -5,7 +5,7 @@ sidebar_label: Get Vouchers
 api:
   method: GET
   url:
-    sandbox: https://sb-open.revenuemonster.my/v3/loyalty/me/vouchers
+    sandbox: https://sb-open.revenuemonster.my/v3/loyalty/me/vouchers?countryCode={countryCode}&phoneNumber={phoneNumber}
 
   query:
     countryCode: "60"
