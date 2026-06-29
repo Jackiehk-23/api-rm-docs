@@ -458,6 +458,12 @@ html[data-theme="light"] .menu__list .menu__list {
   [class*="docSidebarContainer"] {
     position: static !important;
   }
+
+  /* Break the flex stretch chain on mobile so grid-based components
+     (CodeBlock, ParamTable) don't expand to fill viewport height. */
+  [class*="docMainContainer"] {
+    display: block !important;
+  }
 }
 
 /* ================================
@@ -509,6 +515,14 @@ html[data-theme="light"] .menu__list .menu__list {
 [class*="docMainContainer"] .container {
   max-width: none !important;
   margin: 0 !important;
+}
+
+/* Docusaurus adds `padding-top--md padding-bottom--lg` to this container
+   (DocRoot/Layout/Main). Zero it on API pages so the edge strip spans
+   the full viewport height from navbar to bottom. */
+[class*="docMainContainer"] .container:has(.api-page-layout) {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 /* Mobile: drop the Infima `.container` horizontal padding
@@ -665,7 +679,7 @@ details.section-details {
   overflow: visible;
   border: none;
   background: transparent;
-  margin-bottom: 1.5rem;
+  /* margin-bottom: 1.5rem; */
   /* Docusaurus themes bare <details> as an info admonition (alert alert--info),
      which injects a cyan accent (#54c7ec) into borders, the arrow decoration,
      and inline-code backgrounds. Neutralize all of it for our sections. */
@@ -744,6 +758,14 @@ details.section-details details.section-details {
   margin-bottom: 1rem;
 }
 
+@media (max-width: 996px) {
+  details.section-details details.section-details {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+  }
+}
+
 [data-theme="dark"] details.section-details details.section-details {
   border-left-color: var(--ifm-color-emphasis-300);
 }
@@ -791,15 +813,11 @@ details.section-details details.section-details .section-toggle {
   }
 }
 
-@media (max-width: 768px) {
-  .navbar__items {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  }
+/* navbar items collapse into hamburger on mobile — no scroll override needed */
 
-  .navbar__item {
-    flex-shrink: 0;
-  }
+/* Push toggle + close button to the right in mobile sidebar header */
+.navbar-sidebar__brand .navbar__brand {
+  flex: 1;
 }
 
 @media (max-width: 576px) {

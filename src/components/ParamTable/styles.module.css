@@ -275,6 +275,17 @@
 }
 
 /* ─── Responsive ──────────────────────────────────────── */
+@media (max-width: 996px) {
+  .wrapper {
+    flex: 0 0 auto;
+    height: auto;
+  }
+
+  .bodyOpen {
+    grid-template-rows: minmax(0, max-content);
+  }
+}
+
 @media (max-width: 640px) {
   .meta {
     flex-wrap: wrap;
